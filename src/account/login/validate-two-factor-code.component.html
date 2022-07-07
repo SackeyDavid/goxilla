@@ -1,55 +1,78 @@
 <div class="login-form" [@routerTransition]>
-    <div class="pb-13 pt-lg-0 pt-5">
-        <h3>
-            {{ 'VerifySecurityCode' | localize }}
-        </h3>
+<!--    <div class="pb-13 pt-lg-0 pt-5">-->
+<!--        <h3>-->
+<!--            {{ 'VerifySecurityCode' | localize }}-->
+<!--        </h3>-->
+<!--    </div>-->
+    <div class="h2 text-center"><img style="margin-top: -2rem; width: 263px;"
+                                     src="../../assets/images/yacht-watch-logo.png" alt="">
     </div>
-    <form #twoFactorForm="ngForm" class="login-form form" method="post" (ngSubmit)="submit()">
-        <div class="mb-5">
-            <input
-                #passwordInput="ngModel"
-                autoFocus
-                [(ngModel)]="code"
-                class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
-                type="password"
-                autocomplete="new-password"
-                placeholder="{{ 'Code' | localize }} *"
-                name="code"
-                required
-                maxlength="16"
-            />
-            <validation-messages [formCtrl]="passwordInput"></validation-messages>
-        </div>
 
-        <div
-            class="mb-5 mt-4"
-            *ngIf="s('Abp.Zero.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled') === 'true'"
-        >
-            <label class="form-check form-check-custom form-check-solid py-1">
-                <input
-                    type="checkbox"
-                    name="rememberClient"
-                    [(ngModel)]="loginService.authenticateModel.rememberClient"
-                    class="form-check-input"
-                    value="true"
-                />
-                <span class="form-check-label">
-                    {{ 'RememberThisBrowser' | localize }}
-                </span>
-            </label>
-        </div>
+    <div class="h1 text-header text-center pt-4">VERIFY ACCOUNT</div>
+    <div class="text-subheader text-center pt-2">Please enter the 4 digit verification code sent to your email</div>
 
-        <div class="pb-lg-0 pb-5">
-            <button
-                type="submit"
-                class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 me-3"
-                [disabled]="!twoFactorForm.form.valid"
-            >
-                {{ 'Submit' | localize }}
-            </button>
-            <span class="remaining-time-counter ml-5" *ngIf="remainingSeconds >= 0">
-                {{ 'RemainingTime' | localize }}: {{ 'SecondShort{0}' | localize: remainingSeconds }}.
-            </span>
+<!--    <ng-container >-->
+<!--        <div class="flex justify-center px-6 pt-3">-->
+<!--            <h1 class="text-xs w-full text-center">Please enter the 4 digit verification code sent to your email</h1>-->
+<!--        </div>-->
+        <div class="flex justify-center">
+            <ng-otp-input [config]="config"></ng-otp-input>
         </div>
-    </form>
+    <button class="btn btn-block text-center my-3 w-100" type="submit">Verify
+    </button>
+<!--        <div class=" pt-10 px-8">-->
+<!--            <div class="space-y-6">-->
+<!--                <button  class="bg-[#0088e3] w-full rounded-lg text-white py-3 text-lg" >Verify</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </ng-container>-->
+
+<!--    <form #twoFactorForm="ngForm" class="login-form form" method="post" (ngSubmit)="submit()">-->
+<!--        <div class="mb-5">-->
+<!--            <input-->
+<!--                #passwordInput="ngModel"-->
+<!--                autoFocus-->
+<!--                [(ngModel)]="code"-->
+<!--                class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"-->
+<!--                type="password"-->
+<!--                autocomplete="new-password"-->
+<!--                placeholder="{{ 'Code' | localize }} *"-->
+<!--                name="code"-->
+<!--                required-->
+<!--                maxlength="16"-->
+<!--            />-->
+<!--            <validation-messages [formCtrl]="passwordInput"></validation-messages>-->
+<!--        </div>-->
+
+<!--        <div-->
+<!--            class="mb-5 mt-4"-->
+<!--            *ngIf="s('Abp.Zero.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled') === 'true'"-->
+<!--        >-->
+<!--            <label class="form-check form-check-custom form-check-solid py-1">-->
+<!--                <input-->
+<!--                    type="checkbox"-->
+<!--                    name="rememberClient"-->
+<!--                    [(ngModel)]="loginService.authenticateModel.rememberClient"-->
+<!--                    class="form-check-input"-->
+<!--                    value="true"-->
+<!--                />-->
+<!--                <span class="form-check-label">-->
+<!--                    {{ 'RememberThisBrowser' | localize }}-->
+<!--                </span>-->
+<!--            </label>-->
+<!--        </div>-->
+
+<!--        <div class="pb-lg-0 pb-5">-->
+<!--            <button-->
+<!--                type="submit"-->
+<!--                class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 me-3"-->
+<!--                [disabled]="!twoFactorForm.form.valid"-->
+<!--            >-->
+<!--                {{ 'Submit' | localize }}-->
+<!--            </button>-->
+<!--            <span class="remaining-time-counter ml-5" *ngIf="remainingSeconds >= 0">-->
+<!--                {{ 'RemainingTime' | localize }}: {{ 'SecondShort{0}' | localize: remainingSeconds }}.-->
+<!--            </span>-->
+<!--        </div>-->
+<!--    </form>-->
 </div>
