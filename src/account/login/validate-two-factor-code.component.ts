@@ -19,7 +19,16 @@ export class ValidateTwoFactorCodeComponent extends AppComponentBase implements 
     submitting = false;
     remainingSeconds = 90;
     timerSubscription: Subscription;
-
+    public config = {
+        allowNumbersOnly: true,
+        length: 4,
+        isPasswordInput: false,
+        disableAutoFocus: false,
+        placeholder: '',
+        inputClass: 'otp-border-radius outline-none',
+        containClass: 'space-x-4',
+        inputStyles: { width: '60px', height: '60px' }
+    };
     constructor(
         injector: Injector,
         public loginService: LoginService,
@@ -38,23 +47,23 @@ export class ValidateTwoFactorCodeComponent extends AppComponentBase implements 
     }
 
     ngOnInit(): void {
-        if (!this.canActivate()) {
-            this._router.navigate(['account/login']);
-            return;
-        }
+        // if (!this.canActivate()) {
+        //     this._router.navigate(['account/login']);
+        //     return;
+        // }
 
-        this.remainingSeconds = this.appSession.application.twoFactorCodeExpireSeconds;
-
-        const timerSource = timer(1000, 1000);
-        this.timerSubscription = timerSource.subscribe(() => {
-            this.remainingSeconds = this.remainingSeconds - 1;
-            if (this.remainingSeconds === 0) {
-                this.message.warn(this.l('TimeoutPleaseTryAgain')).then(() => {
-                    this.loginService.authenticateModel.twoFactorVerificationCode = null;
-                    this._router.navigate(['account/login']);
-                });
-            }
-        });
+        // this.remainingSeconds = this.appSession.application.twoFactorCodeExpireSeconds;
+        //
+        // const timerSource = timer(1000, 1000);
+        // this.timerSubscription = timerSource.subscribe(() => {
+        //     this.remainingSeconds = this.remainingSeconds - 1;
+        //     if (this.remainingSeconds === 0) {
+        //         this.message.warn(this.l('TimeoutPleaseTryAgain')).then(() => {
+        //             this.loginService.authenticateModel.twoFactorVerificationCode = null;
+        //             this._router.navigate(['account/login']);
+        //         });
+        //     }
+        // });
     }
 
     ngOnDestroy(): void {

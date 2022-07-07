@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-bg {
+    background-image: url("assets/images/bg-image.png");
+    background-position: bottom;
+}
+
 .margin-left-5 {
     margin-left: 5px !important;
 }

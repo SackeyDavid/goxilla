@@ -2,8 +2,8 @@
     <div class="h2 text-center"><img style="margin-top: -2rem; width: 263px;"
             src="../../assets/images/yacht-watch-logo.png" alt="">
     </div>
-    <div class="h1 text-header text-center pt-4">Welcome Back!</div>
-    <div class="text-subheader text-center pt-2">Please sign in to your account</div>
+    <div class="h1 text-header text-center pt-4">WELCOME BACK!</div>
+    <div class="text-subheader text-center pt-2">PLEASE SIGN IN TO YOUR ACCOUNT</div>
     <form class="pt-3" #loginForm="ngForm" class="login-form form" method="post" (ngSubmit)="login()">
         <div class="form-group py-2">
             <label for="" class="mb-1">Email address</label>
@@ -67,10 +67,32 @@
             <!-- <div class="remember"> <label class="option text-muted"> Remember me <input type="radio" name="radio"> <span
                         class="checkmark"></span> </label> </div> -->
             <!-- <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div> -->
-        </div> <button class="btn btn-block text-center my-3 mt-5 w-100" type="submit"
+        </div>
+        <button class="btn btn-block text-center my-3 mt-5 w-100" type="submit"
             [disabled]="!loginForm.form.valid">SIGN IN</button>
-        <div class="text-center pt-3 text-subheader"> Haven't joined already? <a href="/account/register"
-                style="color: #727272;">Sign up</a>
+
+
+<!--        <div class=" pt-10 px-8">-->
+            <div class="space-y-6">
+<!--                <button [disabled]="loginForm.invalid" (click)="submitForm()" class="bg-[#0088e3] w-full rounded-lg text-white py-3 text-lg" >Sign In</button>-->
+                <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
+                    <div class="flex justify-center w-full space-x-5">
+                        <img src="assets/images/g-logo.svg">
+                        <span>Sign In With Google</span>
+                    </div>
+                </button>
+
+                <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
+                    <div class="flex justify-center w-full space-x-5">
+                        <img src="assets/images/apple-logo.svg">
+                        <span>Sign In With Apple</span>
+                    </div>
+                </button>
+            </div>
+<!--        </div>-->
+
+        <div class="text-center pt-3 text-subheader"> Don't have an Account ? <a href="/account/register"
+                style="color: #727272;">Sign Up</a>
         </div>
     </form>
 </div>
