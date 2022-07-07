@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AdminSharedModule } from '@app/admin/shared/admin-shared.module';
 import { AppSharedModule } from '@app/shared/app-shared.module';
 import { HostDashboardRoutingModule } from './host-dashboard-routing.module';
@@ -8,5 +8,8 @@ import { CustomizableDashboardModule } from '@app/shared/common/customizable-das
 @NgModule({
     declarations: [HostDashboardComponent],
     imports: [AppSharedModule, AdminSharedModule, HostDashboardRoutingModule, CustomizableDashboardModule],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ]
 })
 export class HostDashboardModule {}

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { ChatSignalrService } from '@app/shared/layout/chat/chat-signalr.service';
@@ -95,6 +95,12 @@ import { NgxSpinnerModule, NgxSpinnerComponent } from 'ngx-spinner';
 import { ScrollTopComponent } from './shared/layout/scroll-top.component';
 import { AppBsModalModule } from '@shared/common/appBsModal/app-bs-modal.module';
 import { SubheaderModule } from './shared/common/sub-header/subheader.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './components/dashboard/header/header.component';
+import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
+import { MenuSectionComponent } from './components/dashboard/menu-section/menu-section.component';
+import { MenuComponent } from './components/dashboard/menu/menu.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
@@ -153,7 +159,13 @@ import { SubheaderModule } from './shared/common/sub-header/subheader.module';
         SessionTimeoutComponent,
         MenuSearchBarComponent,
         ActiveDelegatedUsersComboComponent,
-        DefaultLogoComponent
+        DefaultLogoComponent,
+        DashboardComponent,
+        HeaderComponent,
+        SideBarComponent,
+        MenuSectionComponent,
+        MenuComponent,
+        HomeComponent
     ],
     imports: [
         CommonModule,
@@ -192,6 +204,9 @@ import { SubheaderModule } from './shared/common/sub-header/subheader.module';
             provide: PERFECT_SCROLLBAR_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
         },
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
     ]
 })
 export class AppModule {}
