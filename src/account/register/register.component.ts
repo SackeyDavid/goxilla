@@ -24,6 +24,7 @@ export class RegisterComponent extends AppComponentBase implements OnInit {
     recaptchaSiteKey: string = AppConsts.recaptchaSiteKey;
 
     saving = false;
+    fieldTextType: boolean = false;
 
     constructor(
         injector: Injector,
@@ -39,7 +40,7 @@ export class RegisterComponent extends AppComponentBase implements OnInit {
     ngOnInit() {
         //Prevent to register new users in the host context
         if (this.appSession.tenant == null) {
-            this._router.navigate(['account/login']);
+            // this._router.navigate(['account/login']);
             return;
         }
 
@@ -88,4 +89,9 @@ export class RegisterComponent extends AppComponentBase implements OnInit {
             recaptchaCallback(null);
         }
     }
+
+    
+    toggleFieldTextType() {
+        this.fieldTextType = !this.fieldTextType;
+      }
 }
