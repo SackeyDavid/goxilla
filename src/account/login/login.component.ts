@@ -18,6 +18,7 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     submitting = false;
     isMultiTenancyEnabled: boolean = this.multiTenancy.isEnabled;
     recaptchaSiteKey: string = AppConsts.recaptchaSiteKey;
+    fieldTextType: boolean = false;
 
     constructor(
         injector: Injector,
@@ -115,4 +116,8 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     get useCaptcha(): boolean {
         return this.setting.getBoolean('App.UserManagement.UseCaptchaOnLogin');
     }
+
+    toggleFieldTextType() {
+        this.fieldTextType = !this.fieldTextType;
+      }
 }

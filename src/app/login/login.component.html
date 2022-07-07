@@ -1,0 +1,28 @@
+<div class="bg-[url('/assets/components/login/login-bg.jpg')] bg-top bg-cover h-screen w-screen">
+  <div class="h-full w-ful">
+    <div class=" flex flex-wrap content-center h-full w-full">
+      <div class=" flex justify-center w-full">
+        <div class=" w-3/12">
+          <div class="space-y-4 bg-white px-10 py-10 relative rounded-3xl shadow-md">
+            <app-app-loader [loading]="loading"></app-app-loader>
+            <h1 class=" text-center text-2xl font-bold text-blue-500">Sentinel Referral<br>Network</h1>
+            <p class=" text-center text-lg">Hey, Enter your details to log in<br>to your account</p>
+            <form class="pt-5 space-y-5" [formGroup]="form">
+              <div class="field w-full">
+                <input id="name" formControlName="userNameOrEmailAddress" pInputText aria-describedby="code-help" type="text" class="w-full" placeholder="Username or Email" />
+              </div>
+              <div class="field w-full">
+                <input id="Password" formControlName="password" pInputText aria-describedby="code-help" type="password" class="w-full" placeholder="Password" />
+              </div>
+              <div class="field w-full">
+                <p-button [disabled]="form.invalid" (onClick)="login()" styleClass="p-button w-full p-button-info" label="Log In"></p-button>
+              </div>
+            </form>
+            <p class=" text-center text-lg">Don't have an account? <b><a class="text-blue-500" routerLink="/register" >Register Now</a></b></p>
+            <p class=" text-center text-blue-600 pt-10 font-bold">Copyright &copy;SRN {{today | amDateFormat : 'YYYY'}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
