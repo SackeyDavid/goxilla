@@ -2,7 +2,7 @@
     style=" left: 0px;box-shadow: 0px 3px 6px #00000029;">
 
     <div class="d-flex align-items-center justify-content-between" style="flex: 1;">
-        <svg style="margin-left: 16%;" id="search" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+        <svg style="margin-left: 14%;" id="search" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
             viewBox="0 0 18.999 19.005">
             <path id="_24be5d6bf49907d701b8c954fb7f4b2b" data-name="24be5d6bf49907d701b8c954fb7f4b2b"
                 d="M3.506,14.312a7.628,7.628,0,0,0,10.087.626l5.052,5.052a.95.95,0,1,0,1.343-1.343l-5.052-5.052a7.638,7.638,0,1,0-11.43.717ZM4.849,4.851a5.74,5.74,0,1,1-1.681,4.06,5.74,5.74,0,0,1,1.681-4.06Z"
@@ -16,24 +16,18 @@
     </div>
 
     <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
+        <ul class="d-flex align-items-center" style="padding-right: 3%;">
 
-            <li class="nav-item d-block d-lg-none">
-                <a class="nav-link nav-icon search-bar-toggle " href="#">
-                    <i class="bi bi-search"></i>
-                </a>
-            </li><!-- End Search Icon-->
-
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown sm-hidden">
                 <span style="display: inline-flex;">
                     <img src="../../../assets/svgs/us.svg" alt="">
-                    <span><i class='bx bx-chevron-down' style="font-size: 35px;margin-left: 10px;"></i></span>
+                    <span><i class='bx bx-chevron-down' style="font-size: 25px;margin-left: 10px;"></i></span>
 
                 </span>
 
             </li><!-- End Notification Nav -->
 
-            <li class="nav-item dropdown mx-10">
+            <li class="nav-item dropdown mx-10 sm-hidden">
 
                 <span>
                     <table>
@@ -51,7 +45,7 @@
             <li class="nav-item dropdown pe-3">
                 <span style="display: inline-flex;">
                     <img src="../../../assets/images/happy-place.png" alt="">
-                    <span><i class='bx bx-chevron-down' style="font-size: 35px;margin-left: 10px;"></i></span>
+                    <span><i class='bx bx-chevron-down' style="font-size: 25px;margin-left: 10px;"></i></span>
 
                 </span>
 
@@ -89,7 +83,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <img src="../../../assets/svgs/yatch.svg" alt="my yatchs"><span>My Yatchs</span>
+                <img src="../../../assets/svgs/yatch-dark.svg" alt="my yatchs"><span>My Yatchs</span>
             </a>
         </li><!-- End Tables Nav -->
 
@@ -112,27 +106,26 @@
 
 <main id="main" class="main">
 
-    <div class="col-lg-4 text-center">
-        <h1 class="my-0 mb-10" style="font: normal normal 300 30px/15px Montserrat;text-transform: none;">Welcome back,
-            David!</h1>
-        <!-- <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-        </nav> -->
-    </div><!-- End Page Title -->
+
 
     <section class="section dashboard">
         <div class="row">
 
             <!-- Right side columns -->
-            <div class="col-lg-4" style="padding-right: 20px;
+            <div class="col-lg-3" style="padding-right: 0px;
                 padding-right: 20px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
             ">
+
+                <!-- welcome message  -->
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <h1 class="my-0 mb-10" style="font-weight: 300;padding-right: 24px; text-transform: none;">Welcome
+                        back,
+                        David!</h1>
+
+                </div><!-- End of welcome message -->
 
                 <!-- Menu Card -->
                 <div class="menu-cards active">
@@ -145,8 +138,8 @@
                             <img src="../../../assets/svgs/exclaim.svg" style="transform: translate(-6px, 18px);"
                                 alt="">
                         </div>
-                        <div class="pt-2">
-                            <h6 style="color: #fff;">ship shape</h6>
+                        <div class="pt-3">
+                            <h6>ship shape</h6>
 
                         </div>
                     </div>
@@ -162,7 +155,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/stats-icons.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>yatch vitals</h6>
 
                         </div>
@@ -179,7 +172,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/open-orders.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>open orders</h6>
 
                         </div>
@@ -196,7 +189,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/yatch-dark.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>yatch profile</h6>
 
                         </div>
@@ -213,7 +206,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/invoices.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>invoice</h6>
 
                         </div>
@@ -230,7 +223,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/live-review.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>live view</h6>
 
                         </div>
@@ -247,7 +240,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/weather.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>weather</h6>
 
                         </div>
@@ -263,7 +256,7 @@
                         <div class="text-center">
                             <img src="../../../assets/svgs/captain.svg" alt="yatch">
                         </div>
-                        <div class="pt-2">
+                        <div class="pt-3">
                             <h6>captains corner</h6>
 
                         </div>
@@ -278,7 +271,7 @@
             </div><!-- End Right side columns -->
 
             <!-- Left side columns -->
-            <div class="col-lg-8" style="padding-left: 25px;">
+            <div class="col-lg-9" style="padding-left: 30px;padding-right: 2%;">
                 <div class="row">
 
 
