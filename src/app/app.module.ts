@@ -95,12 +95,7 @@ import { NgxSpinnerModule, NgxSpinnerComponent } from 'ngx-spinner';
 import { ScrollTopComponent } from './shared/layout/scroll-top.component';
 import { AppBsModalModule } from '@shared/common/appBsModal/app-bs-modal.module';
 import { SubheaderModule } from './shared/common/sub-header/subheader.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeaderComponent } from './components/dashboard/header/header.component';
-import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
-import { MenuSectionComponent } from './components/dashboard/menu-section/menu-section.component';
-import { MenuComponent } from './components/dashboard/menu/menu.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
     declarations: [
@@ -160,11 +155,6 @@ import { HomeComponent } from './home/home.component';
         MenuSearchBarComponent,
         ActiveDelegatedUsersComboComponent,
         DefaultLogoComponent,
-        DashboardComponent,
-        HeaderComponent,
-        SideBarComponent,
-        MenuSectionComponent,
-        MenuComponent,
         HomeComponent
     ],
     imports: [
