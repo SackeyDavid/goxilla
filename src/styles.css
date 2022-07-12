@@ -1,12 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body, html {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 .main-bg {
-    background-image: url("assets/images/bg-image.png");
+    background-image: url("assets/images/YW-wake-pics-25.webp");
     background-position: bottom;
+}
+
+.button-color {
+    background: rgb(0, 136, 227);
+    background: linear-gradient(180deg, rgba(0, 136, 227, 1) 0%, rgba(0, 137, 208, 1) 42%, rgba(1, 71, 107, 1) 100%);
+}
+
+.otp-border-radius {
+    border-radius: 10px !important;
 }
 
 .margin-left-5 {

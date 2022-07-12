@@ -1,67 +1,81 @@
-<div class="background d-flex flex-column flex-root">
-    <div class="
-            d-flex
-            flex-column flex-column-fluid
-            bgi-position-y-bottom
-            position-x-center
-            bgi-no-repeat bgi-size-contain bgi-attachment-fixed
-        ">
-        <div class="d-flex flex-center flex-column flex-column-fluid p-10" [class.pb-lg-20]="!isSelectEditionPage()"
-            [class.pb-0]="isSelectEditionPage()">
-            <!--begin::Logo-->
-            <a (click)="goToHome()" href="" class="d-flex justify-content-center"
-                [class.mb-12]="!isSelectEditionPage()">
-                <!-- <img *ngIf="!appSession.tenant || !appSession.tenant.logoId" [src]="defaultLogo" alt="logo"
-                    class="h-40px" /> -->
-                <img *ngIf="appSession.tenant && appSession.tenant.logoId" [src]="
-                        remoteServiceBaseUrl +
-                        '/TenantCustomization/GetTenantLogo?skin=light&tenantId=' +
-                        appSession.tenant.id +
-                        '&id=' +
-                        appSession.tenant.logoId
-                    " alt="logo" class="h-40px" />
-            </a>
-            <!--end::Logo-->
-            <!--begin::Wrapper-->
-            <div *ngIf="isSelectEditionPage()" class="container-xxl mx-auto">
-                <div *ngIf="showTenantChange()" class="tenant-change-box mb-5 tenant-change-box">
-                    <!-- <tenant-change></tenant-change> -->
+<!--<div class="background d-flex flex-column flex-root">-->
+<!--    <div class="-->
+<!--            d-flex-->
+<!--            flex-column flex-column-fluid-->
+<!--            bgi-position-y-bottom-->
+<!--            position-x-center-->
+<!--            bgi-no-repeat bgi-size-contain bgi-attachment-fixed-->
+<!--        ">-->
+<!--        <div class="d-flex flex-center flex-column flex-column-fluid p-10" [class.pb-lg-20]="!isSelectEditionPage()"-->
+<!--            [class.pb-0]="isSelectEditionPage()">-->
+<!--            &lt;!&ndash;begin::Logo&ndash;&gt;-->
+<!--            <a (click)="goToHome()" href="" class="d-flex justify-content-center"-->
+<!--                [class.mb-12]="!isSelectEditionPage()">-->
+<!--                &lt;!&ndash; <img *ngIf="!appSession.tenant || !appSession.tenant.logoId" [src]="defaultLogo" alt="logo"-->
+<!--                    class="h-40px" /> &ndash;&gt;-->
+<!--                <img *ngIf="appSession.tenant && appSession.tenant.logoId" [src]="-->
+<!--                        remoteServiceBaseUrl +-->
+<!--                        '/TenantCustomization/GetTenantLogo?skin=light&tenantId=' +-->
+<!--                        appSession.tenant.id +-->
+<!--                        '&id=' +-->
+<!--                        appSession.tenant.logoId-->
+<!--                    " alt="logo" class="h-40px" />-->
+<!--            </a>-->
+<!--            &lt;!&ndash;end::Logo&ndash;&gt;-->
+<!--            &lt;!&ndash;begin::Wrapper&ndash;&gt;-->
+<!--            <div *ngIf="isSelectEditionPage()" class="container-xxl mx-auto">-->
+<!--                <div *ngIf="showTenantChange()" class="tenant-change-box mb-5 tenant-change-box">-->
+<!--                    &lt;!&ndash; <tenant-change></tenant-change> &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;begin::Form&ndash;&gt;-->
+<!--                <router-outlet></router-outlet>-->
+<!--                &lt;!&ndash;end::Form&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div *ngIf="!isSelectEditionPage()" class="w-lg-400px bg-body shadow-sm p-10 p-lg-13 mx-auto"-->
+<!--                style="border-radius: 10px">-->
+<!--                <div *ngIf="showTenantChange()" class="tenant-change-box mb-5 tenant-change-box">-->
+<!--                    &lt;!&ndash; <tenant-change></tenant-change> &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;begin::Form&ndash;&gt;-->
+<!--                <router-outlet></router-outlet>-->
+<!--                &lt;!&ndash;end::Form&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="w-lg-400px pt-5 pt-lg-7 mx-auto" style="width: 380px">-->
+<!--                <div>-->
+<!--                    <span class="text-uppercase text-center footer-text">-->
+<!--                        Automated Scheduling, Status and Management of your Vessel...-->
+<!--                        <strong>in Real Time!</strong>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;end::Wrapper&ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;end::Content&ndash;&gt;-->
+<!--        &lt;!&ndash;begin::Footer&ndash;&gt;-->
+<!--        <div class="d-flex flex-center flex-column-auto p-10" [class.pt-0]="isSelectEditionPage()">-->
+<!--            &lt;!&ndash;begin::Links&ndash;&gt;-->
+<!--            <div class="d-flex align-items-center fw-bold fs-6">-->
+<!--                &lt;!&ndash; <language-switch class="mx-auto"></language-switch> &ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;end::Links&ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;end::Footer&ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash;end::Authentication - Sign-in&ndash;&gt;-->
+<!--</div>-->
+<div class="h-screen main-bg w-">
+    <div class="flex flex-col h-full w-full relative">
+        <div class="grow h-full overflow-auto w-full">
+            <div>
+                <div class="bg-white p-8 rounded-lg">
+                    <router-outlet></router-outlet>
                 </div>
-                <!--begin::Form-->
-                <router-outlet></router-outlet>
-                <!--end::Form-->
+                <label class="text-uppercase text-center text-xl pt-4">
+                    Automated Scheduling, Status and Management of your Vessel...
+                    <strong>in Real Time!</strong>
+                </label>
             </div>
-            <div *ngIf="!isSelectEditionPage()" class="w-lg-400px bg-body shadow-sm p-10 p-lg-13 mx-auto"
-                style="border-radius: 10px;">
-                <div *ngIf="showTenantChange()" class="tenant-change-box mb-5 tenant-change-box">
-                    <!-- <tenant-change></tenant-change> -->
-                </div>
-                <!--begin::Form-->
-                <router-outlet></router-outlet>
-                <!--end::Form-->
-            </div>
-            <div class="w-lg-400px pt-5 pt-lg-7 mx-auto" style="width: 380px;">
-
-                <div><span class="text-uppercase text-center footer-text">Automated Scheduling, Status and
-                        Management
-                        of your
-                        Vessel... <strong>
-                            in
-                            Real Time!</strong></span></div>
-            </div>
-            <!--end::Wrapper-->
-
         </div>
-        <!--end::Content-->
-        <!--begin::Footer-->
-        <div class="d-flex flex-center flex-column-auto p-10" [class.pt-0]="isSelectEditionPage()">
-            <!--begin::Links-->
-            <div class="d-flex align-items-center fw-bold fs-6">
-                <!-- <language-switch class="mx-auto"></language-switch> -->
-            </div>
-            <!--end::Links-->
-        </div>
-        <!--end::Footer-->
     </div>
-    <!--end::Authentication - Sign-in-->
 </div>
+

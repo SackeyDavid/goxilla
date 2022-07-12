@@ -1,0 +1,42 @@
+<div class="flex justify-center w-full">
+    <img src="assets/images/yacht-watch-logo.png" class="w-[20rem]">
+</div>
+<div class="flex justify-center px-6 pt-12">
+    <h1 class="text-4xl text-gray-700 font-normal text-uppercase">Welcome Back!</h1>
+</div>
+<div class="flex justify-center px-6 pt-1">
+    <h1 class="text-[13.2px] font-normal text-gray-700 text-uppercase">Please sign in to your account</h1>
+</div>
+<form class="pt-8 px-8 space-y-4">
+    <div  class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
+        <img src="assets/images/email.svg">
+        <input class="outline-none text-lg border-0 w-full" placeholder="EMAIL ADDRESS">
+    </div>
+    <div  class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
+        <img src="assets/images/security.svg">
+        <input class="outline-none text-lg border-0 w-full" type="password" placeholder="PASSWORD">
+    </div>
+</form>
+<div class="flex justify-end px-8 pt-3">
+    <a class="text-gray-500 text-lg text-uppercase" routerLink="/account/reset-account">Forgot Password ?</a>
+</div>
+<div class=" pt-10 px-8">
+    <div class="space-y-6">
+        <button class=" button-color w-full rounded-lg text-white py-4 text-xl">SIGN IN</button>
+        <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
+            <div class="flex justify-center w-full space-x-5">
+                <img src="assets/images/g-logo.svg">
+                <span>SIGN IN WITH GOOGLE</span>
+            </div>
+        </button>
+        <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
+            <div class="flex justify-center w-full space-x-5">
+                <img src="assets/images/apple-logo.svg">
+                <span>SIGN IN WITH APPLE</span>
+            </div>
+        </button>
+    </div>
+</div>
+<div class="flex justify-center px-8 pt-3 pb-2">
+    <label class="text-gray-500 text-[14px]">DON'T HAVE AN ACCOUNT ? <a routerLink="/account/register" class="font-bold text-gray-600">SIGN UP</a></label>
+</div>

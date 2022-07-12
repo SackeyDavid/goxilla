@@ -7,6 +7,10 @@ import { CookieConsentService } from './session/cookie-consent.service';
 
 @NgModule({
     imports: [CommonModule],
+    declarations: [
+    ],
+    exports: [
+    ]
 })
 export class TemplateCommonModule {
     static forRoot(): ModuleWithProviders<CommonModule> {
