@@ -27,6 +27,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
                         data: { preload: true },
                         // canLoad: [AppRouteGuard],
                     },
+                    {
+                        path: 'account',
+                        loadChildren: () => import('./accounts/accounts.module').then(m => m.AccountsModule)
+                    },
                     // {
                     //     path: 'main',
                     //     loadChildren: () => import('app/main/main.module').then((m) => m.MainModule), //Lazy load main module
