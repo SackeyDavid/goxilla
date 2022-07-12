@@ -9,32 +9,39 @@ import { NgxSpinnerService } from 'ngx-spinner';
     imports: [
         RouterModule.forChild([
             {
-                path: 'app',
+                path: '',
                 component: AppComponent,
-                canActivate: [AppRouteGuard],
-                canActivateChild: [AppRouteGuard],
+                // canActivate: [AppRouteGuard],
+                // canActivateChild: [AppRouteGuard],
                 children: [
+                    // {
+                    //     path: '',
+                    //     children: [
+                    //         { path: 'notifications', component: NotificationsComponent },
+                    //         { path: '', redirectTo: '/app/main/dashboard', pathMatch: 'full' },
+                    //     ],
+                    // },
                     {
-                        path: '',
-                        children: [
-                            { path: 'notifications', component: NotificationsComponent },
-                            { path: '', redirectTo: '/app/main/dashboard', pathMatch: 'full' },
-                        ],
-                    },
-                    {
-                        path: 'main',
-                        loadChildren: () => import('app/main/main.module').then((m) => m.MainModule), //Lazy load main module
+                        path: 'app',
+                        loadChildren: () => import('./index/index.module').then((m) => m.IndexModule), //Lazy load admin module
                         data: { preload: true },
+                        // canLoad: [AppRouteGuard],
                     },
-                    {
-                        path: 'admin',
-                        loadChildren: () => import('app/admin/admin.module').then((m) => m.AdminModule), //Lazy load admin module
-                        data: { preload: true },
-                        canLoad: [AppRouteGuard],
-                    },
+                    // {
+                    //     path: 'main',
+                    //     loadChildren: () => import('app/main/main.module').then((m) => m.MainModule), //Lazy load main module
+                    //     data: { preload: true },
+                    // },
+                    // {
+                    //     path: 'admin',
+                    //     loadChildren: () => import('app/admin/admin.module').then((m) => m.AdminModule), //Lazy load admin module
+                    //     data: { preload: true },
+                    //     canLoad: [AppRouteGuard],
+                    // },
                     {
                         path: '**',
-                        redirectTo: 'notifications',
+                        pathMatch: 'full',
+                        redirectTo: '/account/login',
                     },
                 ],
             },
