@@ -1,0 +1,222 @@
+<div class="h-auto p-5">
+    <label class="text-xl">REQUEST SERVICE</label>
+</div>
+<div class="grow h-full w-full overflow-auto">
+    <div class="grid grid-cols-10 w-full h-auto p-5">
+        <div class="col-span-4 col-start-1">
+            <div class="w-full pr-6">
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div
+                                class="
+                                    flex
+                                    items-center
+                                    justify-center
+                                    w-6
+                                    h-6
+                                    mt-11
+                                    border-blue-400 border-2
+                                    rounded-full
+                                "
+                            >
+                                <img class="h-4" src="../../../assets/svgs/Ellipse 278.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="w-px h-full bg-blue-600"></div>
+                    </div>
+                    <div class="pb-16">
+                        <div
+                            class="
+                                grid grid-cols-10
+                                w-full
+                                h-30
+                                justify-center
+                                align-middle
+                                p-4
+                                border-blue-400
+                                text-blue-400
+                                border-solid border-2
+                                rounded-lg
+                                my-auto
+                            "
+                        >
+                            <img
+                                class="w-9 col-span-2 col-start-1 my-auto"
+                                src="../../../assets/svgs/invoice-blue.svg"
+                                alt=""
+                            />
+                            <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
+                                <span class="text-lg font-semibold uppercase">Service Details</span>
+                                <small class="text-sm">Provide details about the services needed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div>
+                            <div
+                                class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="-mt-10 w-full">
+                        <div
+                            class="
+                                grid grid-cols-10
+                                w-full
+                                h-30
+                                justify-center
+                                align-middle
+                                p-4
+                                border-gray-400
+                                text-gray-400
+                                border-solid border-2
+                                rounded-lg
+                                my-auto
+                                py-6
+                            "
+                        >
+                            <img
+                                class="w-9 col-span-2 col-start-1 my-auto"
+                                src="../../../assets/svgs/image.svg"
+                                alt=""
+                            />
+                            <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
+                                <span class="text-lg font-semibold text-gray-700 uppercase">Images/Videos</span>
+                                <small class="text-gray-500 text-sm">Upload media</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-6 col-start-5 border-l-4 border-gray-50 border-solid">
+            <div class="flex flex-col justify-center pl-6 pr-0">
+                <form class="space-y-4">
+                    <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Choose Yatch
+                    </label>
+                    <select
+                        id="yatch_type"
+                        class="
+                            border border-gray-300
+                            text-gray-900 text-lg
+                            rounded-lg
+                            focus:ring-blue-500 focus:border-blue-500
+                            block
+                            w-full
+                            py-4
+                            px-4
+                        "
+                    >
+                        <option></option>
+                        <option>Happy Place</option>
+                        <option>Happy Place 2</option>
+                    </select>
+
+                    <label for="service_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Select Service
+                    </label>
+                    <select
+                        id="service_type"
+                        class="
+                            border border-gray-300
+                            text-gray-900 text-lg
+                            rounded-lg
+                            focus:ring-blue-500 focus:border-blue-500
+                            block
+                            w-full
+                            py-4
+                            px-4
+                        "
+                    >
+                        <option></option>
+                        <option>Floor Wax</option>
+                        <option>Engine Service</option>
+                    </select>
+
+                    <button class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg">
+                        <img class="h-5" src="../../../assets/svgs/add.svg" alt="add" />
+                        <span>Add Service</span>
+                    </button>
+
+                    <label for="vendor" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Select Vendor
+                    </label>
+                    <select
+                        id="vendor"
+                        class="
+                            border border-gray-300
+                            text-gray-900 text-lg
+                            rounded-lg
+                            focus:ring-blue-500 focus:border-blue-500
+                            block
+                            w-full
+                            py-4
+                            px-4
+                        "
+                    >
+                        <option></option>
+                        <option>Juan the Boat guy</option>
+                        <option>Albert Kopler</option>
+                        <option>John Wick</option>
+                    </select>
+
+                    <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Priority
+                    </label>
+                    <select
+                        id="priority"
+                        class="
+                            border border-gray-300
+                            text-gray-900
+                            rounded-lg
+                            focus:ring-blue-500 focus:border-blue-500
+                            block
+                            w-full
+                            py-4
+                            px-4
+                            text-lg
+                        "
+                    >
+                        <option></option>
+                        <option>High</option>
+                        <option>Low</option>
+                    </select>
+
+                    <div class="flex items-center mb-4">
+                        <input
+                            id="bid-request"
+                            type="checkbox"
+                            value=""
+                            class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300"
+                        />
+                        <label for="bid-request" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                            BID REQUESTED
+                        </label>
+                    </div>
+
+                    <label for="description" class="block mb-2 text-lg font-medium text-gray-900">Description</label>
+                    <textarea
+                        id="description"
+                        rows="4"
+                        class="block p-2.5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
+                        placeholder=""
+                    ></textarea>
+
+                    <div class="text-right w-full">
+                        <button
+                            type="submit"
+                            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
+                        >
+                            Continue
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
