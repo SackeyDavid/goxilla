@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestServiceComponent implements OnInit {
     step: number = 1;
-    showStepOne: boolean = false;
-    showStepTwo: boolean = true;
+    showStepOne: boolean = true;
+    showStepTwo: boolean = false;
     lightboxImages: any = [];
 
     constructor() {}
