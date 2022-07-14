@@ -27,14 +27,16 @@
                     </div>
                     <div class="pb-16">
                         <div
+                            [ngClass]="{
+                                'border-blue-400': 'step == 1' || 'step == 2',
+                                'text-blue-400': 'step == 1' || 'step == 2'
+                            }"
                             class="
                                 grid grid-cols-10
                                 w-full
                                 h-30
                                 justify-center
                                 p-4
-                                border-blue-400
-                                text-blue-400
                                 border-solid border-2
                                 rounded-lg
                                 my-auto
@@ -56,21 +58,30 @@
                 <div class="flex">
                     <div class="flex flex-col items-center mr-4">
                         <div>
-                            <div
-                                class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full"
-                            ></div>
+                            <div class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full">
+                                <img
+                                    class="h-4"
+                                    [class.invisible]="!showStepTwo"
+                                    src="../../../assets/svgs/Ellipse 278.svg"
+                                    alt="Ellipse"
+                                />
+                            </div>
                         </div>
                     </div>
                     <div class="-mt-10 w-full">
                         <div
+                            [ngClass]="{
+                                'border-blue-400': showStepTwo,
+                                'text-blue-400': showStepTwo,
+                                'border-gray-400': !showStepTwo,
+                                'text-gray-400': !showStepTwo
+                            }"
                             class="
                                 grid grid-cols-10
                                 w-full
                                 h-30
                                 justify-center
                                 p-4
-                                border-gray-400
-                                text-gray-400
                                 border-solid border-2
                                 rounded-lg
                                 my-auto
@@ -79,12 +90,28 @@
                         >
                             <img
                                 class="w-9 col-span-2 col-start-1 my-auto"
-                                src="../../../assets/svgs/image.svg"
+                                src="../../../assets/svgs/{{ showStepTwo ? 'image-blue' : 'image' }}.svg"
                                 alt=""
                             />
                             <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
-                                <span class="text-lg font-semibold text-gray-700 uppercase">Images/Videos</span>
-                                <small class="text-gray-500 text-sm">Upload media</small>
+                                <span
+                                    [ngClass]="{
+                                        'text-blue-400': showStepTwo,
+                                        'text-gray-700': !showStepTwo
+                                    }"
+                                    class="text-lg font-semibold uppercase"
+                                >
+                                    Images/Videos
+                                </span>
+                                <small
+                                    [ngClass]="{
+                                        'text-blue-400': showStepTwo,
+                                        'text-gray-500': !showStepTwo
+                                    }"
+                                    class="text-sm"
+                                >
+                                    Upload media
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -93,7 +120,7 @@
         </div>
         <div class="col-span-6 col-start-5 border-l-4 border-gray-50 border-solid">
             <div class="flex flex-col justify-center pl-6 pr-0">
-                <form class="space-y-4">
+                <form class="space-y-4" [hidden]="showStepTwo">
                     <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                         Choose Yatch
                     </label>
@@ -207,10 +234,67 @@
 
                     <div class="text-right w-full">
                         <button
-                            type="submit"
+                            (click)="showNext()"
+                            type="button"
                             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
                         >
                             Continue
+                        </button>
+                    </div>
+                </form>
+                <form [hidden]="!showStepTwo">
+                    <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Upload Images</label>
+                    <div class="max-w-xl mt-5">
+                        <label
+                            class="
+                                flex flex-col
+                                justify-center
+                                w-full
+                                h-auto
+                                py-9
+                                transition
+                                bg-blue-100
+                                border-2 border-blue-400 border-solid
+                                rounded-md
+                                appearance-none
+                                cursor-pointer
+                                hover:border-gray-400
+                                focus:outline-none
+                            "
+                        >
+                            <span class="flex flex-col items-center space-y-6">
+                                <img src="../../../assets/svgs/image-blue.svg" alt="" />
+                                <span class="font-medium text-blue-400 w-1/2 text-center">
+                                    <span class="text-blue-400">Click</span>
+                                    to select photos and videos or Drag them here
+                                </span>
+                            </span>
+                            <input
+                                type="file"
+                                class="opacity-0"
+                                id="file"
+                                hidden
+                                multiple
+                                accept="image/*"
+                                (change)="addPicture($event)"
+                            />
+                        </label>
+                    </div>
+
+                    <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400 mt-20">Uploads</label>
+                    <div class="min-h-10 flex flex-row justify-start space-x-4">
+                        <label [hidden]="lightboxImages.length">0 files uploaded</label>
+                        <div *ngFor="let image of lightboxImages">
+                            <img class="w-16 h-16 rounded-lg shadow-md" src="{{ image.path }}" alt="image.name" />
+                        </div>
+                    </div>
+
+                    <div class="text-right w-full">
+                        <button
+                            type="submit"
+                            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
+                        >
+                            Submit
                         </button>
                     </div>
                 </form>
