@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestServiceService } from './request-service.service';
 
 @Component({
     selector: 'app-request-service',
@@ -11,7 +12,7 @@ export class RequestServiceComponent implements OnInit {
     showStepTwo: boolean = false;
     lightboxImages: any = [];
 
-    constructor() {}
+    constructor(public service: RequestServiceService) {}
 
     ngOnInit(): void {}
 

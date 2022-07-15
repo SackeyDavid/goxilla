@@ -1,0 +1,20 @@
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+  border: 1px solid #E4E6EF !important;
+  font-size: 1.125rem !important;
+  line-height: 1.75rem;
+  color: #181C32 !important;
+  border-radius: 0.5rem;
+  font-family: "Montserrat", "san-serif";
+  font-weight: inherit;
+}
+
+:host ::ng-deep .p-dropdown:focus {
+  border-color: #181C32;
+}
+
+:host ::ng-deep .pi {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #181C32;
+}
