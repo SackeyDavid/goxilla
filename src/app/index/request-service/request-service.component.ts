@@ -7,7 +7,6 @@ import { RequestServiceService } from './request-service.service';
     styleUrls: ['./request-service.component.css'],
 })
 export class RequestServiceComponent implements OnInit {
-    step: number = 1;
     showStepOne: boolean = true;
     showStepTwo: boolean = false;
     lightboxImages: any = [];
@@ -19,7 +18,6 @@ export class RequestServiceComponent implements OnInit {
     showNext(): void {
         this.showStepOne = !this.showStepOne;
         this.showStepTwo = !this.showStepTwo;
-        this.step = 2;
     }
 
     addPicture(event: any) {
