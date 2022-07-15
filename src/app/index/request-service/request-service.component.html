@@ -198,18 +198,15 @@
                             filterBy="name"
                             [showClear]="true"
                             placeholder="Type to search vendor"
+                        ></p-dropdown>
+
+                        <button
+                            (click)="openAddVendorModal()"
+                            class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg"
                         >
-                            <ng-template pTemplate="selectedItem">
-                                <div class="vendor-item vendor-item-value" *ngIf="service.selectedVendor">
-                                    <div>{{ service.selectedVendor.name }}</div>
-                                </div>
-                            </ng-template>
-                            <ng-template let-vendor pTemplate="item">
-                                <div class="vendor-item">
-                                    <div>{{ vendor.name }}</div>
-                                </div>
-                            </ng-template>
-                        </p-dropdown>
+                            <img class="h-5" src="../../../assets/svgs/add.svg" alt="add" />
+                            <span>Add Vendor</span>
+                        </button>
 
                         <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                             Priority
@@ -255,9 +252,9 @@
                             placeholder=""
                         ></textarea>
                     </form>
-                    <!-- End of Step One : Details to Service Request  -->
+                    <!-- End of Step One : Add Details to Service Request  -->
 
-                    <!-- Step Two : Images To Service Request -->
+                    <!-- Step Two : Add Images To Service Request -->
                     <form [hidden]="!showStepTwo">
                         <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                             Upload Images
@@ -315,7 +312,7 @@
                             </div>
                         </div>
                     </form>
-                    <!-- End of Step Two : Images to Service Request -->
+                    <!-- End of Step Two : Add Images to Service Request -->
                 </div>
             </div>
         </div>

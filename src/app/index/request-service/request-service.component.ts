@@ -36,4 +36,6 @@ export class RequestServiceComponent implements OnInit {
             }
         }
     }
+
+    openAddVendorModal() {}
 }
