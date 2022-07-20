@@ -3,55 +3,66 @@
         <div class="h-auto w-full bg-white shadow-md z-10">
             <div class="flex justify-between px-15">
                 <div class="py-15">
-                    <img class="w-10" src="assets/images/search.svg">
+                    <img class="w-10" src="assets/images/search.svg" />
                 </div>
                 <div>
                     <div class="flex flex-wrap content-center h-full">
-                        <img src="assets/images/yacht-watch-logo.png" class="w-64">
+                        <img src="assets/images/yacht-watch-logo.png" class="w-64" />
                     </div>
                 </div>
                 <div>
                     <div class="flex flex-wrap content-center h-full space-x-12">
                         <div class="relative">
-                            <div class=" absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
-                            <img src="assets/images/mail.png">
+                            <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
+                            <img src="assets/images/mail.png" />
                         </div>
                         <div class="relative">
-                            <div class=" absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
-                            <img src="assets/images/bell.png">
+                            <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
+                            <img src="assets/images/bell.png" />
                         </div>
                         <div class="flex space-x-5">
-                            <img src="assets/images/us.png">
+                            <img src="assets/images/us.png" />
                             <div class="flex flex-wrap content-center h-full">
-                                <img src="assets/images/arr-down.png">
+                                <img src="assets/images/arr-down.png" />
                             </div>
                         </div>
                         <div>
-                            <label class=" block">HAPPY PLACE</label>
+                            <label class="block">HAPPY PLACE</label>
                             <small class="-mt-2 block">CF# 128-7148</small>
                         </div>
                         <div class="flex space-x-5 cursor-pointer" routerLink="/account/login">
-                            <img class="w-15 h-10 border border-solid" src="assets/images/YW%20wake%20pics-24.JPEG">
+                            <img class="w-15 h-10 border border-solid" src="assets/images/YW%20wake%20pics-24.JPEG" />
                             <div class="flex flex-wrap content-center h-full">
-                                <img src="assets/images/arr-down.png">
+                                <img src="assets/images/arr-down.png" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grow h-full w-full bg-gray-300">
+        <div class="grow h-auto w-full bg-gray-300">
             <div class="flex h-full">
                 <div class="relative flex-none h-full bg-white w-64">
                     <div class="flex flex-wrap content-center h-full w-full">
                         <div class="flex justify-center w-full">
                             <div class="grid grid-rows-5 grid-cols-1 gap-4 w-32">
-                                <div class="border-1 rounded-lg w-full h-32 hover:bg-blue-600 hover:text-white" *ngFor="let menu of service.menu">
+                                <div
+                                    class="border-1 rounded-lg w-full h-32 hover:bg-blue-600 hover:text-white"
+                                    *ngFor="let menu of service.menu"
+                                    [routerLink]="menu.url"
+                                    routerDirection="root"
+                                    [class.bg-blue-600]="service.activeMenu === menu.url"
+                                >
                                     <div class="flex flex-wrap content-center h-full w-full">
                                         <div class="flex justify-center w-full">
                                             <div class="w-full text-center space-y-1">
-                                                <img [src]="menu.img" class="mx-auto w-12">
-                                                <label class="text-sm font-semibold block"> {{menu.title}} </label>
+                                                <img [src]="menu.img" class="mx-auto w-12" />
+                                                <label
+                                                    class="text-sm font-semibold block"
+                                                    [class.text-white]="service.activeMenu === menu.url"
+                                                >
+                                                    {{ menu.title }}
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +78,7 @@
                                 <div class="h-auto w-full">
                                     <div class="flex justify-center w-full">
                                         <div class="w-full text-center p-10">
-                                            <label class=" text-4xl font-light">Welcome back, David!</label>
+                                            <label class="text-4xl font-light">Welcome back, David!</label>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +87,18 @@
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full relative">
                                                 <label
-                                                    class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                    class="
+                                                        absolute
+                                                        top-2
+                                                        right-2
+                                                        w-6
+                                                        h-6
+                                                        text-white
+                                                        bg-orange-600
+                                                        p-2
+                                                        rounded-full
+                                                    "
+                                                >
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <span class="text-xs">6</span>
@@ -86,7 +108,7 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/shipshape.png" class="mx-auto">
+                                                            <img src="assets/images/shipshape.png" class="mx-auto" />
                                                             <label class="text-sm font-semibold block">SHIPSHAPE</label>
                                                         </div>
                                                     </div>
@@ -97,7 +119,18 @@
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full h-full relative">
                                                 <label
-                                                    class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                    class="
+                                                        absolute
+                                                        top-2
+                                                        right-2
+                                                        w-6
+                                                        h-6
+                                                        text-white
+                                                        bg-orange-600
+                                                        p-2
+                                                        rounded-full
+                                                    "
+                                                >
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <span class="text-xs">2</span>
@@ -105,11 +138,15 @@
                                                     </div>
                                                 </label>
                                                 <div class="flex flex-wrap content-center h-full w-full">
-                                                    <div class="flex justify-center w-full ">
+                                                    <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/stats%20icons.svg" class="mx-auto">
-                                                            <label class="text-sm font-semibold block">YACHT
-                                                                VITALS</label>
+                                                            <img
+                                                                src="assets/images/stats%20icons.svg"
+                                                                class="mx-auto"
+                                                            />
+                                                            <label class="text-sm font-semibold block">
+                                                                YACHT VITALS
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,7 +156,18 @@
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full h-full relative">
                                                 <label
-                                                    class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                    class="
+                                                        absolute
+                                                        top-2
+                                                        right-2
+                                                        w-6
+                                                        h-6
+                                                        text-white
+                                                        bg-orange-600
+                                                        p-2
+                                                        rounded-full
+                                                    "
+                                                >
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <span class="text-xs">3</span>
@@ -129,9 +177,10 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/orders.svg" class="mx-auto">
-                                                            <label class="text-sm font-semibold block">OPEN
-                                                                ORDERS</label>
+                                                            <img src="assets/images/orders.svg" class="mx-auto" />
+                                                            <label class="text-sm font-semibold block">
+                                                                OPEN ORDERS
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,9 +199,10 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/yacht-quick.svg" class="mx-auto">
-                                                            <label class="text-sm font-semibold block">YACHT
-                                                                PROFILE</label>
+                                                            <img src="assets/images/yacht-quick.svg" class="mx-auto" />
+                                                            <label class="text-sm font-semibold block">
+                                                                YACHT PROFILE
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -162,7 +212,18 @@
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full h-full relative">
                                                 <label
-                                                    class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                    class="
+                                                        absolute
+                                                        top-2
+                                                        right-2
+                                                        w-6
+                                                        h-6
+                                                        text-white
+                                                        bg-orange-600
+                                                        p-2
+                                                        rounded-full
+                                                    "
+                                                >
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <span class="text-xs">3</span>
@@ -172,7 +233,7 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/invoice.svg" class="mx-auto">
+                                                            <img src="assets/images/invoice.svg" class="mx-auto" />
                                                             <label class="text-sm font-semibold block">INVOICES</label>
                                                         </div>
                                                     </div>
@@ -192,13 +253,12 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/live-view.svg" class="mx-auto">
+                                                            <img src="assets/images/live-view.svg" class="mx-auto" />
                                                             <label class="text-sm font-semibold block">LIVE VIEW</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full h-full relative">
@@ -212,13 +272,12 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/weather.svg" class="mx-auto">
+                                                            <img src="assets/images/weather.svg" class="mx-auto" />
                                                             <label class="text-sm font-semibold block">WEATHER</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="flex justify-center w-full h-full">
                                             <div class="bg-white rounded-2xl w-full h-full relative">
@@ -232,23 +291,21 @@
                                                 <div class="flex flex-wrap content-center h-full w-full">
                                                     <div class="flex justify-center w-full">
                                                         <div class="w-full text-center space-y-3">
-                                                            <img src="assets/images/captain.svg" class="mx-auto">
-                                                            <label class="text-sm font-semibold block">CAPTAIN'S
-                                                                CORNER</label>
+                                                            <img src="assets/images/captain.svg" class="mx-auto" />
+                                                            <label class="text-sm font-semibold block">
+                                                                CAPTAIN'S CORNER
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-2 col-start-2 p-10">
-                            <div class="flex flex-col h-full bg-white w-full rounded-lg p-5 overflow-auto">
-                                <router-outlet></router-outlet>
-                            </div>
+                        <div class="col-span-2 col-start-2 p-10 h-full w-full">
+                            <router-outlet></router-outlet>
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PaginatorModule } from 'primeng/paginator';
+import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TableModule } from 'primeng/table';
 import { AppCommonModule } from './common/app-common.module';
@@ -45,6 +46,7 @@ const imports = [
     TextMaskModule,
     ImageCropperModule,
     AutoCompleteModule,
+    DropdownModule,
     NgxSpinnerModule,
     AppBsModalModule,
 ];

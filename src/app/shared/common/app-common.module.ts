@@ -36,6 +36,7 @@ import { MultipleSelectComboboxInputTypeComponent } from './input-types/multiple
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PasswordInputWithShowButtonComponent } from './password-input-with-show-button/password-input-with-show-button.component';
 import { KeyValueListManagerComponent } from './key-value-list-manager/key-value-list-manager.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
     imports: [
@@ -68,6 +69,7 @@ import { KeyValueListManagerComponent } from './key-value-list-manager/key-value
         MultipleSelectComboboxInputTypeComponent,
         PasswordInputWithShowButtonComponent,
         KeyValueListManagerComponent,
+        ContainerComponent,
     ],
     exports: [
         TimeZoneComboComponent,
@@ -78,6 +80,7 @@ import { KeyValueListManagerComponent } from './key-value-list-manager/key-value
         DatePickerInitialValueSetterDirective,
         PasswordInputWithShowButtonComponent,
         KeyValueListManagerComponent,
+        ContainerComponent,
     ],
     providers: [
         DateTimeService,
@@ -86,7 +89,7 @@ import { KeyValueListManagerComponent } from './key-value-list-manager/key-value
         { provide: BsDatepickerConfig, useFactory: NgxBootstrapDatePickerConfigService.getDatepickerConfig },
         { provide: BsDaterangepickerConfig, useFactory: NgxBootstrapDatePickerConfigService.getDaterangepickerConfig },
         { provide: BsLocaleService, useFactory: NgxBootstrapDatePickerConfigService.getDatepickerLocale },
-    ]
+    ],
 })
 export class AppCommonModule {
     static forRoot(): ModuleWithProviders<AppCommonModule> {
