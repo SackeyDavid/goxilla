@@ -23,6 +23,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { TableModule } from 'primeng/table';
 import { AppCommonModule } from './common/app-common.module';
 import { ThemesLayoutBaseComponent } from './layout/themes/themes-layout-base.component';
+import { FullScreenModalComponent } from './modal/full-screen-modal/full-screen-modal.component';
+import { BlurBackgroundModalComponent } from './modal/blur-background-modal/blur-background-modal.component';
 
 const imports = [
     CommonModule,
@@ -51,9 +53,38 @@ const imports = [
     AppBsModalModule,
 ];
 
+const exports = [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    ModalModule,
+    TabsModule,
+    BsDropdownModule,
+    PopoverModule,
+    BsDatepickerModule,
+    AppCommonModule,
+    FileUploadModule,
+    AppRoutingModule,
+    UtilsModule,
+    ServiceProxyModule,
+    TableModule,
+    PaginatorModule,
+    ProgressBarModule,
+    PerfectScrollbarModule,
+    TextMaskModule,
+    ImageCropperModule,
+    AutoCompleteModule,
+    DropdownModule,
+    NgxSpinnerModule,
+    AppBsModalModule,
+    FullScreenModalComponent,
+    BlurBackgroundModalComponent,
+];
+
 @NgModule({
     imports: [...imports],
-    exports: [...imports],
-    declarations: [ThemesLayoutBaseComponent],
+    exports: [...exports],
+    declarations: [ThemesLayoutBaseComponent, FullScreenModalComponent, BlurBackgroundModalComponent],
 })
 export class AppSharedModule {}
