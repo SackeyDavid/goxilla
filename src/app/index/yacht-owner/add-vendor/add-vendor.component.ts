@@ -28,4 +28,10 @@ export class AddVendorComponent implements OnInit {
     close() {
         this.modal.closeModal();
     }
+
+    reset() {
+        this.form.reset();
+    }
+
+    addVendor() {}
 }
