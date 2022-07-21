@@ -41,6 +41,7 @@ import {FullScreenModalComponent} from "@app/shared/common/modal/full-screen-mod
 import {
     BlurBackgroundModalComponent
 } from "@app/shared/common/modal/blur-background-modal/blur-background-modal.component";
+import {SearchBoxComponent} from "@app/shared/common/search-box/search-box.component";
 
 @NgModule({
     imports: [
@@ -75,7 +76,8 @@ import {
         KeyValueListManagerComponent,
         ContainerComponent,
         FullScreenModalComponent,
-        BlurBackgroundModalComponent
+        BlurBackgroundModalComponent,
+        SearchBoxComponent
     ],
     exports: [
         TimeZoneComboComponent,
@@ -88,7 +90,8 @@ import {
         KeyValueListManagerComponent,
         ContainerComponent,
         FullScreenModalComponent,
-        BlurBackgroundModalComponent
+        BlurBackgroundModalComponent,
+        SearchBoxComponent
     ],
     providers: [
         DateTimeService,
