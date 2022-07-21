@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {ModalService} from "@app/shared/modal/modal.service";
+import {ModalService} from "@app/shared/common/modal/modal.service";
 
 @Component({
   selector: 'app-index',

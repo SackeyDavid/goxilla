@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { YachtOwnerRoutingModule } from './yacht-owner-routing.module';
 import { YachtOwnerComponent } from './yacht-owner.component';
-import { AppSharedModule } from '@app/shared/app-shared.module';
+import {AddVendorComponent} from "@app/index/yacht-owner/add-vendor/add-vendor.component";
+import {AppCommonModule} from "@app/shared/common/app-common.module";
 
 @NgModule({
-    declarations: [YachtOwnerComponent],
-    imports: [CommonModule, YachtOwnerRoutingModule, AppSharedModule],
+    declarations: [YachtOwnerComponent, AddVendorComponent],
+    imports: [CommonModule, YachtOwnerRoutingModule, AppCommonModule],
 })
 export class YachtOwnerModule {}

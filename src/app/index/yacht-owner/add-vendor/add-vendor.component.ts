@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalRef } from '@app/shared/modal/modal-ref';
-import { ModalService } from '@app/shared/modal/modal.service';
+import {ModalRef} from "@app/shared/common/modal/modal-ref";
 
 @Component({
     selector: 'app-add-vendor',
@@ -9,7 +8,7 @@ import { ModalService } from '@app/shared/modal/modal.service';
     providers: [ModalRef],
 })
 export class AddVendorComponent implements OnInit {
-    constructor(private modalService: ModalService, public modal: ModalRef) {
+    constructor(public modal: ModalRef) {
         modal.component = AddVendorComponent;
     }
 

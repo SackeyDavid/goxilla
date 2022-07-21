@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from '@app/shared/modal/modal.service';
 import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { RequestServiceService } from './request-service.service';
+import {ModalService} from "@app/shared/common/modal/modal.service";
 
 @Component({
     selector: 'app-request-service',

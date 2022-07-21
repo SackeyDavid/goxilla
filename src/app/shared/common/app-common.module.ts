@@ -37,6 +37,10 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PasswordInputWithShowButtonComponent } from './password-input-with-show-button/password-input-with-show-button.component';
 import { KeyValueListManagerComponent } from './key-value-list-manager/key-value-list-manager.component';
 import { ContainerComponent } from './container/container.component';
+import {FullScreenModalComponent} from "@app/shared/common/modal/full-screen-modal/full-screen-modal.component";
+import {
+    BlurBackgroundModalComponent
+} from "@app/shared/common/modal/blur-background-modal/blur-background-modal.component";
 
 @NgModule({
     imports: [
@@ -70,6 +74,8 @@ import { ContainerComponent } from './container/container.component';
         PasswordInputWithShowButtonComponent,
         KeyValueListManagerComponent,
         ContainerComponent,
+        FullScreenModalComponent,
+        BlurBackgroundModalComponent
     ],
     exports: [
         TimeZoneComboComponent,
@@ -81,6 +87,8 @@ import { ContainerComponent } from './container/container.component';
         PasswordInputWithShowButtonComponent,
         KeyValueListManagerComponent,
         ContainerComponent,
+        FullScreenModalComponent,
+        BlurBackgroundModalComponent
     ],
     providers: [
         DateTimeService,
