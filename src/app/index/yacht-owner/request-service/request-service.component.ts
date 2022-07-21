@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from '@app/shared/modal/modal.service';
+import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { RequestServiceService } from './request-service.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class RequestServiceComponent implements OnInit {
     showStepTwo: boolean = false;
     lightboxImages: any = [];
 
-    constructor(public service: RequestServiceService) {}
+    constructor(public service: RequestServiceService, private modalService: ModalService) {}
 
     ngOnInit(): void {}
 
@@ -35,5 +37,9 @@ export class RequestServiceComponent implements OnInit {
         }
     }
 
-    openAddVendorModal() {}
+    openAddVendorModal() {
+        this.modalService.createModal<AddVendorComponent>({
+            content: AddVendorComponent,
+        });
+    }
 }
