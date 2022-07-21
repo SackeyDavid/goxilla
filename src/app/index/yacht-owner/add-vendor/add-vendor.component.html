@@ -141,6 +141,7 @@
                                 />
                             </div>
                             <button
+                                [disabled]="form.pristine"
                                 (click)="reset()"
                                 type="submit"
                                 class="
@@ -162,8 +163,10 @@
                                 Clear
                             </button>
                             <button
+                                [disabled]="form.invalid"
                                 (click)="addVendor()"
-                                type="submit"
+                                label="submit"
+                                type="button"
                                 class="
                                     uppercase
                                     text-white
