@@ -2,13 +2,184 @@
     <div class="flex flex-col h-full relative">
         <div class="absolute mr-6 mt-12 right-0 cursor-pointer">
             <i (click)="close()">
-                <img src="assets/images/close-btn.png" alt="close">
+                <img src="assets/images/close-btn.png" alt="close" />
             </i>
         </div>
         <div class="flex flex-wrap content-center h-full w-full">
             <div class="flex justify-center w-full">
                 <div class="w-2/5 bg-white rounded-xl p-5">
-                    <p>add-vendor works!</p>
+                    <label class="block text-2xl uppercase text-black font-bold py-5">Add Vendor</label>
+                    <!-- Form  -->
+                    <div class="mx-auto mb-6 bg-white">
+                        <form>
+                            <div class="w-full mb-6">
+                                <div class="mb-6">
+                                    <label
+                                        for="vendor_name"
+                                        class="
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        "
+                                    >
+                                        Vendor Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="vendor_name"
+                                        class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        "
+                                        placeholder="Juan the Boat Guy"
+                                        required
+                                    />
+                                </div>
+                                <div class="mb-6">
+                                    <label
+                                        for="vendor_contact"
+                                        class="
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        "
+                                    >
+                                        Vendor Contact
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="vendor_contact"
+                                        class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        "
+                                        placeholder="Juan Gonzales"
+                                        required
+                                    />
+                                </div>
+                                <div class="mb-6">
+                                    <label
+                                        for="vendor_phone"
+                                        class="
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        "
+                                    >
+                                        Phone number
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="vendor_phone"
+                                        class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        "
+                                        placeholder="914-111-4444"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                        maxlength="10"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <label
+                                    for="vendor_email"
+                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                                >
+                                    Email address
+                                </label>
+                                <input
+                                    type="email"
+                                    id="vendor_email"
+                                    class="
+                                        bg-gray-50
+                                        border border-gray-300
+                                        text-black text-lg
+                                        rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500
+                                        block
+                                        w-full
+                                        p-3
+                                    "
+                                    placeholder="juan@boats.com"
+                                    required
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                class="
+                                    uppercase
+                                    text-blue-400
+                                    outline outline-1
+                                    hover:bg-blue-400 hover:text-white
+                                    focus:ring-4 focus:outline-none focus:ring-blue-300
+                                    font-medium
+                                    rounded-lg
+                                    text-lg
+                                    w-full
+                                    sm:w-auto
+                                    px-7
+                                    py-2.5
+                                    text-center
+                                    mr-4
+                                "
+                            >
+                                Clear
+                            </button>
+                            <button
+                                type="submit"
+                                class="
+                                    uppercase
+                                    text-white
+                                    bg-blue-400
+                                    hover:bg-blue-500
+                                    focus:ring-4 focus:outline-none focus:ring-blue-300
+                                    font-medium
+                                    rounded-lg
+                                    text-lg
+                                    w-full
+                                    sm:w-auto
+                                    px-7
+                                    py-2.5
+                                    text-center
+                                "
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                    <!-- End of Form  -->
                 </div>
             </div>
         </div>
