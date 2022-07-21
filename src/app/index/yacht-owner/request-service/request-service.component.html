@@ -1,10 +1,11 @@
+
 <app-container>
-    <div class="h-auto p-5">
+    <div class="h-auto p-5 w-full">
         <label class="text-xl">REQUEST SERVICE</label>
     </div>
-    <div class="grow h-full w-full overflow-auto">
-        <div class="grid grid-cols-10 w-full h-full p-5 pb-0">
-            <div class="col-span-4 col-start-1">
+    <div class="grow h-full overflow-auto">
+        <div class="flex h-full p-4">
+            <div class="flex-none h-full">
                 <div class="w-full pr-6">
                     <div class="flex">
                         <div class="flex flex-col items-center mr-4">
@@ -18,10 +19,8 @@
                                         h-6
                                         mt-11
                                         border-blue-400 border-2
-                                        rounded-full
-                                    "
-                                >
-                                    <img class="h-4" src="../../../assets/svgs/Ellipse 278.svg" alt="Ellipse" />
+                                        rounded-full">
+                                    <img class="h-4" src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
                                 </div>
                             </div>
                             <div class="w-px h-full bg-blue-600"></div>
@@ -30,8 +29,7 @@
                             <div
                                 [ngClass]="{
                                     'border-blue-400': 'step == 1' || 'step == 2',
-                                    'text-blue-400': 'step == 1' || 'step == 2'
-                                }"
+                                    'text-blue-400': 'step == 1' || 'step == 2'}"
                                 class="
                                     grid grid-cols-10
                                     w-full
@@ -47,7 +45,7 @@
                             >
                                 <img
                                     class="w-9 col-span-2 col-start-1 my-auto"
-                                    src="../../../assets/svgs/invoice-blue.svg"
+                                    src="../../../../assets/svgs/invoice-blue.svg"
                                     alt=""
                                 />
                                 <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
@@ -75,7 +73,7 @@
                                     <img
                                         class="h-4"
                                         [class.invisible]="!showStepTwo"
-                                        src="../../../assets/svgs/Ellipse 278.svg"
+                                        src="../../../../assets/svgs/Ellipse%20278.svg"
                                         alt="Ellipse"
                                     />
                                 </div>
@@ -133,16 +131,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-6 col-start-5 border-l-4 border-gray-50 border-solid">
-                <div class="flex flex-col justify-center pl-6 pr-0">
-                    <!-- Step One - Details to Service Request  -->
-                    <form class="space-y-4" [hidden]="showStepTwo">
-                        <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
-                            Choose Yatch
-                        </label>
-                        <select
-                            id="yatch_type"
-                            class="
+            <div class="grow h-full border-l-4 border-gray-50 border-solid px-4 overflow-auto">
+                <!-- Step One - Details to Service Request  -->
+                <form class="space-y-4" *ngIf="!showStepTwo">
+                    <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Choose Yatch
+                    </label>
+                    <select
+                        id="yatch_type"
+                        class="
                                 border border-gray-300
                                 text-gray-900 text-lg
                                 rounded-lg
@@ -152,21 +149,21 @@
                                 py-4
                                 px-4
                             "
-                        >
-                            <option></option>
-                            <option>Happy Place</option>
-                            <option>Happy Place 2</option>
-                        </select>
+                    >
+                        <option></option>
+                        <option>Happy Place</option>
+                        <option>Happy Place 2</option>
+                    </select>
 
-                        <label
-                            for="service_type"
-                            class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400"
-                        >
-                            Select Service
-                        </label>
-                        <select
-                            id="service_type"
-                            class="
+                    <label
+                        for="service_type"
+                        class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400"
+                    >
+                        Select Service
+                    </label>
+                    <select
+                        id="service_type"
+                        class="
                                 border border-gray-300
                                 text-gray-900 text-lg
                                 rounded-lg
@@ -176,44 +173,44 @@
                                 py-4
                                 px-4
                             "
-                        >
-                            <option></option>
-                            <option>Floor Wax</option>
-                            <option>Engine Service</option>
-                        </select>
+                    >
+                        <option></option>
+                        <option>Floor Wax</option>
+                        <option>Engine Service</option>
+                    </select>
 
-                        <button class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg">
-                            <img class="h-5" src="../../../assets/svgs/add.svg" alt="add" />
-                            <span>Add Service</span>
-                        </button>
+                    <button class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg">
+                        <img class="h-5" src="../../../../assets/svgs/add.svg" alt="add" />
+                        <span>Add Service</span>
+                    </button>
 
-                        <label for="vendor" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
-                            Select Vendor
-                        </label>
-                        <p-dropdown
-                            [options]="service.vendors"
-                            [(ngModel)]="service.selectedVendor"
-                            optionLabel="name"
-                            [filter]="true"
-                            filterBy="name"
-                            [showClear]="true"
-                            placeholder="Type to search vendor"
-                        ></p-dropdown>
+                    <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Select Vendor
+                    </label>
+                    <p-dropdown
+                        [options]="service.vendors"
+                        [(ngModel)]="service.selectedVendor"
+                        optionLabel="name"
+                        [filter]="true"
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Type to search vendor"
+                    ></p-dropdown>
 
-                        <button
-                            (click)="openAddVendorModal()"
-                            class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg"
-                        >
-                            <img class="h-5" src="../../../assets/svgs/add.svg" alt="add" />
-                            <span>Add Vendor</span>
-                        </button>
+                    <button
+                        (click)="openAddVendorModal()"
+                        class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg"
+                    >
+                        <img class="h-5" src="../../../../assets/svgs/add.svg" alt="add" />
+                        <span>Add Vendor</span>
+                    </button>
 
-                        <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
-                            Priority
-                        </label>
-                        <select
-                            id="priority"
-                            class="
+                    <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Priority
+                    </label>
+                    <select
+                        id="priority"
+                        class="
                                 border border-gray-300
                                 text-gray-900
                                 rounded-lg
@@ -224,44 +221,44 @@
                                 px-4
                                 text-lg
                             "
-                        >
-                            <option></option>
-                            <option>High</option>
-                            <option>Low</option>
-                        </select>
+                    >
+                        <option></option>
+                        <option>High</option>
+                        <option>Low</option>
+                    </select>
 
-                        <div class="flex items-center mb-4">
-                            <input
-                                id="bid-request"
-                                type="checkbox"
-                                value=""
-                                class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300"
-                            />
-                            <label for="bid-request" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">
-                                BID REQUESTED
-                            </label>
-                        </div>
-
-                        <label for="description" class="block mb-2 text-lg font-medium text-gray-900">
-                            Description
+                    <div class="flex mb-4">
+                        <input
+                            id="bid-request"
+                            type="checkbox"
+                            value=""
+                            class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300"
+                        />
+                        <label for="bid-request" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                            BID REQUESTED
                         </label>
-                        <textarea
-                            id="description"
-                            rows="4"
-                            class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
-                            placeholder=""
-                        ></textarea>
-                    </form>
-                    <!-- End of Step One : Add Details to Service Request  -->
+                    </div>
 
-                    <!-- Step Two : Add Images To Service Request -->
-                    <form [hidden]="!showStepTwo">
-                        <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
-                            Upload Images
-                        </label>
-                        <div class="max-w-xl mt-5">
-                            <label
-                                class="
+                    <label for="description" class="block mb-2 text-lg font-medium text-gray-900">
+                        Description
+                    </label>
+                    <textarea
+                        id="description"
+                        rows="4"
+                        class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
+                        placeholder=""
+                    ></textarea>
+                </form>
+                <!-- End of Step One : Add Details to Service Request  -->
+
+                <!-- Step Two : Add Images To Service Request -->
+                <form *ngIf="showStepTwo">
+                    <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
+                        Upload Images
+                    </label>
+                    <div class="max-w-xl mt-5">
+                        <label
+                            class="
                                     flex flex-col
                                     justify-center
                                     w-full
@@ -276,75 +273,69 @@
                                     hover:border-gray-400
                                     focus:outline-none
                                 "
-                            >
+                        >
                                 <span class="flex flex-col items-center space-y-6">
-                                    <img src="../../../assets/svgs/image-blue.svg" alt="" />
+                                    <img src="../../../../assets/svgs/image-blue.svg" alt="" />
                                     <span class="font-medium text-blue-400 w-1/2 text-center">
                                         <span class="text-blue-400">Click</span>
                                         to select photos and videos or Drag them here
                                     </span>
                                 </span>
-                                <input
-                                    type="file"
-                                    class="opacity-0"
-                                    id="file"
-                                    hidden
-                                    multiple
-                                    accept="image/*"
-                                    (change)="addPicture($event)"
-                                />
-                            </label>
-                        </div>
-
-                        <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400 mt-20">
-                            Uploads
+                            <input
+                                type="file"
+                                class="opacity-0"
+                                id="file"
+                                hidden
+                                multiple
+                                accept="image/*"
+                                (change)="addPicture($event)"
+                            />
                         </label>
-                        <div class="min-h-10 flex flex-col justify-start space-y-1">
-                            <label [hidden]="lightboxImages.length">0 photos uploaded</label>
-                            <div class="mt-3 h-auto flex space-x-4 max-w-full flex-wrap overflow-y-auto">
-                                <ng-container *ngFor="let image of lightboxImages">
-                                    <img
-                                        class="w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
-                                        src="{{ image.path }}"
-                                        alt="image.name"
-                                    />
-                                </ng-container>
-                            </div>
+                    </div>
+
+                    <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400 mt-20">
+                        Uploads
+                    </label>
+                    <div class="min-h-10 flex flex-col justify-start space-y-1">
+                        <label [hidden]="lightboxImages.length">0 photos uploaded</label>
+                        <div class="mt-3 h-auto flex space-x-4 max-w-full flex-wrap overflow-y-auto">
+                            <ng-container *ngFor="let image of lightboxImages">
+                                <img
+                                    class="w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
+                                    src="{{ image.path }}"
+                                    alt="image.name"
+                                />
+                            </ng-container>
                         </div>
-                    </form>
-                    <!-- End of Step Two : Add Images to Service Request -->
-                </div>
+                    </div>
+                </form>
+                <!-- End of Step Two : Add Images to Service Request -->
             </div>
         </div>
     </div>
-    <div class="h-auto w-full p-5 pt-0">
-        <div class="grid grid-cols-10">
-            <div class="col-span-4 col-start-1"></div>
-            <div class="col-span-6 col-start-5 text-right space-x-5 border-l-4 border-gray-50 border-solid">
-                <button
-                    (click)="showNext()"
-                    *ngIf="showStepTwo"
-                    type="submit"
-                    class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
-                >
-                    Back
-                </button>
-                <button
-                    (click)="showNext()"
-                    *ngIf="!showStepTwo"
-                    type="submit"
-                    class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
-                >
-                    Continue
-                </button>
-                <button
-                    *ngIf="showStepTwo"
-                    type="submit"
-                    class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
-                >
-                    Submit
-                </button>
-            </div>
-        </div>
+    <div class="h-auto w-full flex justify-end p-5 pt-0 space-x-2">
+        <button
+            (click)="showNext()"
+            *ngIf="showStepTwo"
+            type="submit"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
+        >
+            Back
+        </button>
+        <button
+            (click)="showNext()"
+            *ngIf="!showStepTwo"
+            type="submit"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
+        >
+            Continue
+        </button>
+        <button
+            *ngIf="showStepTwo"
+            type="submit"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg"
+        >
+            Submit
+        </button>
     </div>
 </app-container>

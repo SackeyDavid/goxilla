@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { NavigationEnd, RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRouteGuard } from './shared/common/auth/auth-route-guard';
-import { NotificationsComponent } from './shared/layout/notifications/notifications.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @NgModule({
@@ -14,34 +13,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
                 // canActivate: [AppRouteGuard],
                 // canActivateChild: [AppRouteGuard],
                 children: [
-                    // {
-                    //     path: '',
-                    //     children: [
-                    //         { path: 'notifications', component: NotificationsComponent },
-                    //         { path: '', redirectTo: '/app/main/dashboard', pathMatch: 'full' },
-                    //     ],
-                    // },
                     {
                         path: 'app',
                         loadChildren: () => import('./index/index.module').then((m) => m.IndexModule), //Lazy load admin module
                         data: { preload: true },
-                        // canLoad: [AppRouteGuard],
                     },
                     {
                         path: 'account',
                         loadChildren: () => import('./accounts/accounts.module').then(m => m.AccountsModule)
                     },
-                    // {
-                    //     path: 'main',
-                    //     loadChildren: () => import('app/main/main.module').then((m) => m.MainModule), //Lazy load main module
-                    //     data: { preload: true },
-                    // },
-                    // {
-                    //     path: 'admin',
-                    //     loadChildren: () => import('app/admin/admin.module').then((m) => m.AdminModule), //Lazy load admin module
-                    //     data: { preload: true },
-                    //     canLoad: [AppRouteGuard],
-                    // },
                     {
                         path: '**',
                         pathMatch: 'full',

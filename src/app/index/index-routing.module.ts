@@ -8,14 +8,9 @@ const routes: Routes = [
         component: IndexComponent,
         children: [
             {
-                path: 'dashboard',
-                loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-            },
-            {
-                path: 'request-service',
-                loadChildren: () =>
-                    import('./request-service/request-service.module').then((m) => m.RequestServiceModule),
-            },
+                path: '',
+                loadChildren: () => import('./yacht-owner/yacht-owner.module').then((m) => m.YachtOwnerModule),
+            }
         ],
     },
 ];
