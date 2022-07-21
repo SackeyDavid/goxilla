@@ -6,7 +6,7 @@ import {ModalService} from "./modal.service";
 export class ModalRef{
     componentInstance!: ComponentRef<any>;
     component!: Type<any>;
-    @Output() modalClose = new EventEmitter<any>;
+    @Output() modalClose = new EventEmitter<any>();
     ref!: ModalRef;
     constructor(private modal: ModalService) {
     }

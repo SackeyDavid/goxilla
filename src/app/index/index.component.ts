@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalService} from "@app/shared/modal/modal.service";
 
 @Component({
   selector: 'app-index',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private compRef: ViewContainerRef, private modalService: ModalService) {
+      modalService.mainComponent = this.compRef;
+  }
 
   ngOnInit(): void {
   }
