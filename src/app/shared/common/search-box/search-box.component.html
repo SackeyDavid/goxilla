@@ -1,24 +1,25 @@
 <div class="relative w-full">
-    <div class="flex w-full border py-3 px-4 rounded-lg justify-between space-x-4 input">
-        <input [(ngModel)]="displayLabel" (ngModelChange)="searchList($event)" class="outline-0 border-0 w-full" placeholder="Email" searchbox="pi-search-box">
+    <div class="flex w-full border py-4 border-gray-300 px-4 rounded-lg justify-between space-x-4 input">
+        <input [(ngModel)]="displayLabel" (ngModelChange)="searchList($event)" class="outline-0 border-0 w-full"
+            placeholder="{{placeholder}}" searchbox="pi-search-box">
         <img src="assets/images/search-interface-symbol.png" class="w-6" alt="image">
     </div>
     <div class="border w-full divide-y" *ngIf="showDrop">
-        <div *ngIf="data.length === 0" class="p-2 flex space-x-2 cursor-pointer" (click)="addNew()">
+        <div *ngIf="data.length === 0" class="p-3 flex space-x-2 cursor-pointer text-blue-400" (click)="addNew()">
             <div>
                 <div class="flex flex-wrap content-center h-full space-x-2">
-                    <img src="assets/images/plus.png" class="w-5" alt="image">
-                    <span>Add New</span>
+                    <img src="assets/svgs/add.svg" class="w-5" alt="image">
+                    <span class="text-lg">{{addText}}</span>
                 </div>
             </div>
             <div>
                 <div class="flex flex-wrap content-center h-full w-full">
-                    <label class="text-lg w-52 truncate" *ngIf="displayLabel">{{displayLabel}}</label>
+                    <label class="text-lg w-52 truncate cursor-pointer" *ngIf="displayLabel">{{displayLabel}}</label>
                 </div>
             </div>
         </div>
         <ng-container *ngFor="let item of data">
-            <div (click)="selectItem(item)" class="p-2 cursor-pointer">
+            <div (click)="selectItem(item)" class="p-3 text-lg hover:bg-blue-50 hover:font-semibold cursor-pointer">
                 {{item.value}}
             </div>
         </ng-container>

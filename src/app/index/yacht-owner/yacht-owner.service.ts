@@ -1,52 +1,48 @@
 import { Injectable } from '@angular/core';
-import {Router, RouterEvent} from "@angular/router";
+import { Router, RouterEvent } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class YachtOwnerService {
     menu = [
         {
             img: 'assets/images/yacht-watch-logo-sm.png',
             url: '/app/dashboard',
-            title: 'HOME'
+            title: 'HOME',
         },
         {
             img: 'assets/images/button.svg',
             url: '/app/request-service',
-            title: 'REQUEST SERVICE'
+            title: 'REQUEST SERVICE',
         },
         {
             img: 'assets/images/calendar.png',
             url: '/app/calendar',
-            title: 'CALENDAR'
+            title: 'CALENDAR',
         },
         {
             img: 'assets/images/yacht-quick.svg',
             url: '/app/yatchs',
-            title: 'MY YACHTS'
+            title: 'MY YACHTS',
         },
         {
             img: 'assets/images/settings.png',
             url: '/app/settings',
-            title: 'SETTINGS'
+            title: 'SETTINGS',
         },
         {
             img: 'assets/images/menu.png',
             url: '/app/more',
-            title: 'MORE'
-        }
+            title: 'MORE',
+        },
     ];
 
-    activeMenu:string = '';
+    activeMenu: string = '';
 
-    constructor(
-        private router: Router,
-    ) {
+    constructor(private router: Router) {
         this.router.events.subscribe((event: RouterEvent) => {
             this.activeMenu = event.url;
-            console.log(this.activeMenu);
-        })
-
+        });
     }
 }

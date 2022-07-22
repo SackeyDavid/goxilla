@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { RequestServiceService } from './request-service.service';
-import {ModalService} from "@app/shared/common/modal/modal.service";
+import { ModalService } from '@app/shared/common/modal/modal.service';
+import { SearchItem } from '@app/shared/common/search-box/search-item';
 
 @Component({
     selector: 'app-request-service',
@@ -41,5 +42,15 @@ export class RequestServiceComponent implements OnInit {
         this.modalService.createModal<AddVendorComponent>({
             content: AddVendorComponent,
         });
+    }
+
+    getSelecteditem(item: SearchItem) {
+        // console.log('selected', item);
+    }
+
+    addnew(item: string) {
+        // console.log('new item', item);
+        sessionStorage.setItem('vendor_new_item', item);
+        this.openAddVendorModal();
     }
 }

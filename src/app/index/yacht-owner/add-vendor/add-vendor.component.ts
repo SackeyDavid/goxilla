@@ -23,6 +23,9 @@ export class AddVendorComponent implements OnInit {
             phoneNumber: [null, Validators.required],
             emailAddress: [null, Validators.required],
         });
+
+        if (sessionStorage.getItem('vendor_new_item'))
+            this.form.controls['name'].setValue(sessionStorage.getItem('vendor_new_item'));
     }
 
     close() {

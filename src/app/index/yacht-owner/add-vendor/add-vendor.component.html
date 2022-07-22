@@ -14,9 +14,7 @@
                         <form [formGroup]="form">
                             <div class="w-full mb-6">
                                 <div class="mb-6">
-                                    <label
-                                        for="vendor_name"
-                                        class="
+                                    <label for="vendor_name" class="
                                             block
                                             uppercase
                                             mb-2
@@ -24,14 +22,10 @@
                                             font-medium
                                             text-gray-900
                                             dark:text-gray-300
-                                        "
-                                    >
+                                        ">
                                         Vendor Name
                                     </label>
-                                    <input
-                                        type="text"
-                                        id="vendor_name"
-                                        class="
+                                    <input type="text" id="vendor_name" class="
                                             bg-gray-50
                                             border border-gray-300
                                             text-black text-lg
@@ -40,16 +34,10 @@
                                             block
                                             w-full
                                             p-3
-                                        "
-                                        formControlName="name"
-                                        placeholder="Juan the Boat Guy"
-                                        required
-                                    />
+                                        " formControlName="name" placeholder="Juan the Boat Guy" required />
                                 </div>
                                 <div class="mb-6">
-                                    <label
-                                        for="vendor_contact"
-                                        class="
+                                    <label for="vendor_contact" class="
                                             block
                                             uppercase
                                             mb-2
@@ -57,14 +45,10 @@
                                             font-medium
                                             text-gray-900
                                             dark:text-gray-300
-                                        "
-                                    >
+                                        ">
                                         Vendor Contact
                                     </label>
-                                    <input
-                                        type="text"
-                                        id="vendor_contact"
-                                        class="
+                                    <input type="text" id="vendor_contact" class="
                                             bg-gray-50
                                             border border-gray-300
                                             text-black text-lg
@@ -73,16 +57,10 @@
                                             block
                                             w-full
                                             p-3
-                                        "
-                                        formControlName="contact"
-                                        placeholder="Juan Gonzales"
-                                        required
-                                    />
+                                        " formControlName="contact" placeholder="Juan Gonzales" required />
                                 </div>
                                 <div class="mb-6">
-                                    <label
-                                        for="vendor_phone"
-                                        class="
+                                    <label for="vendor_phone" class="
                                             block
                                             uppercase
                                             mb-2
@@ -90,14 +68,10 @@
                                             font-medium
                                             text-gray-900
                                             dark:text-gray-300
-                                        "
-                                    >
+                                        ">
                                         Phone number
                                     </label>
-                                    <input
-                                        type="tel"
-                                        id="vendor_phone"
-                                        class="
+                                    <input type="tel" id="vendor_phone" class="
                                             bg-gray-50
                                             border border-gray-300
                                             text-black text-lg
@@ -106,26 +80,16 @@
                                             block
                                             w-full
                                             p-3
-                                        "
-                                        formControlName="phoneNumber"
-                                        placeholder="914-111-4444"
-                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                        maxlength="10"
-                                        required
-                                    />
+                                        " formControlName="phoneNumber" placeholder="914-111-4444"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" required />
                                 </div>
                             </div>
                             <div class="mb-8">
-                                <label
-                                    for="vendor_email"
-                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300"
-                                >
+                                <label for="vendor_email"
+                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                                     Email address
                                 </label>
-                                <input
-                                    type="email"
-                                    id="vendor_email"
-                                    class="
+                                <input type="email" id="vendor_email" class="
                                         bg-gray-50
                                         border border-gray-300
                                         text-black text-lg
@@ -134,17 +98,9 @@
                                         block
                                         w-full
                                         p-3
-                                    "
-                                    formControlName="emailAddress"
-                                    placeholder="juan@boats.com"
-                                    required
-                                />
+                                    " formControlName="emailAddress" placeholder="juan@boats.com" required />
                             </div>
-                            <button
-                                [disabled]="form.pristine"
-                                (click)="reset()"
-                                type="submit"
-                                class="
+                            <button (click)="reset()" type="submit" class="
                                     uppercase
                                     text-blue-400
                                     outline outline-1
@@ -158,16 +114,10 @@
                                     py-2.5
                                     text-center
                                     mr-4
-                                "
-                            >
+                                ">
                                 Clear
                             </button>
-                            <button
-                                [disabled]="form.invalid"
-                                (click)="addVendor()"
-                                label="submit"
-                                type="button"
-                                class="
+                            <button [disabled]="form.invalid" (click)="addVendor()" label="submit" type="button" class="
                                     uppercase
                                     text-white
                                     bg-blue-400
@@ -180,8 +130,7 @@
                                     px-7
                                     py-2.5
                                     text-center
-                                "
-                            >
+                                ">
                                 Submit
                             </button>
                         </form>

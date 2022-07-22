@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { SearchItem } from '@app/shared/common/search-box/search-item';
 
 @Injectable({
     providedIn: 'root',
 })
 export class RequestServiceService {
-    vendors: any[];
-    selectedVendor: any;
-    items: SelectItem[];
+    list: Array<SearchItem>;
 
     constructor() {
-        this.vendors = [
-            { name: 'Juan the Boat guy', id: '0' },
-            { name: 'Albert Kopler', id: '1' },
-            { name: 'John Wick', id: '2' },
-            { name: 'Morris Joe', id: '3' },
+        this.list = [
+            { id: '0', value: 'Juan the Boat guy' },
+            { id: '1', value: 'Albert Kopler' },
+            { id: '2', value: 'John Wick' },
+            { id: '3', value: 'Morris Joe' },
         ];
     }
 }

@@ -15,5 +15,9 @@
         "*.sln": true,
         "*.csproj.user": true,
         "*.suo": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
