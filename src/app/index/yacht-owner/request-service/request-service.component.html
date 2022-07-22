@@ -152,7 +152,7 @@
                     <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select Vendor</label>
 
                     <app-search-box (getSelectedItem)="getSelecteditem($event)" (addNewItem)="addnew($event)"
-                        [placeholder]="'Type to search vendors'" [addText]="'Add Vendor'" [data]="service.list">
+                        [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="service.list">
                     </app-search-box>
 
                     <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">

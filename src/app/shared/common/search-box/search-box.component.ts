@@ -9,7 +9,7 @@ import { SearchItem } from './search-item';
 export class SearchBoxComponent implements OnInit {
     @Input() data: Array<SearchItem> = [];
     @Input() placeholder: string = 'Email';
-    @Input() addText: string = 'Add New';
+    @Input() addLabel: string = 'Add New';
 
     newList: Array<SearchItem> = [];
 
