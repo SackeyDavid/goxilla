@@ -22,7 +22,7 @@ export class SearchBoxComponent implements OnInit {
     @Output() getSelectedItem = new EventEmitter<SearchItem>();
     constructor() {
         document.addEventListener('click', () => {
-            console.log(document.activeElement?.attributes.getNamedItem('searchbox')?.value);
+            // console.log(document.activeElement?.attributes.getNamedItem('searchbox')?.value);
             const item = document.activeElement?.attributes.getNamedItem('searchbox');
             this.showDrop = item?.value === 'pi-search-box';
         });
@@ -37,7 +37,7 @@ export class SearchBoxComponent implements OnInit {
         this.displayLabel = this.selectedItem.value;
         this.displayValue = this.selectedItem.id;
         this.getSelectedItem.emit(item);
-        console.log(this.selectedItem);
+        // console.log(this.selectedItem);
     }
 
     searchList(value: string) {
