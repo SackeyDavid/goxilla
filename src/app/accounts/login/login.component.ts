@@ -13,7 +13,8 @@ import { SearchItem } from "@app/shared/common/search-box/search-item";
 export class LoginComponent extends AppComponentBase implements OnInit {
 
     env: any = environment;
-    submitting: boolean;
+    submitting: boolean = true;
+    saving: boolean = false;
 
     constructor(public auth: LoginService, injector: Injector, public loginService: LoginService) {
         super(injector);
@@ -24,8 +25,11 @@ export class LoginComponent extends AppComponentBase implements OnInit {
 
     login(): void {
 
+        this.saving = true;
+
         this.loginService.authenticate(() => {
-            this.submitting = false;
+            this.submitting = true;
+            this.saving = false;
             this.hideMainSpinner();
         },
             '/app/dashboard',

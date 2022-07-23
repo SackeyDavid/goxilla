@@ -1,21 +1,20 @@
-
 <div class="flex justify-center px-6 pt-12">
     <h1 class="text-4xl text-gray-700 font-normal text-uppercase">Reset Account</h1>
 </div>
 <div class="flex justify-center px-6 pt-1">
     <h1 class="text-[13.2px] font-normal text-gray-700 text-uppercase">Please fill the form below</h1>
 </div>
-<form class="pt-8 px-8 space-y-4">
-    <div  class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
+<form class="pt-8 px-8 space-y-4" #forgotPassForm="ngForm" method="post" novalidate (ngSubmit)="resetPassword()">
+    <div class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/email.svg">
-        <input class="outline-none text-lg border-0 w-full" placeholder="EMAIL ADDRESS">
+        <input [(ngModel)]="model.emailAddress" name="emailAddress" type="email" class="outline-none text-lg border-0 w-full" placeholder="EMAIL ADDRESS" required>
+    </div>
+    <div class=" pt-10 px-8">
+        <div class="space-y-6">
+            <button type="submit" class=" button-color w-full rounded-lg text-white py-4 text-xl">RESET</button>
+        </div>
     </div>
 </form>
-<div class=" pt-10 px-8">
-    <div class="space-y-6">
-        <button routerLink="/account/new-password" class=" button-color w-full rounded-lg text-white py-4 text-xl">RESET</button>
-    </div>
-</div>
 <div class="flex justify-center px-8 pt-3 pb-5">
     <label class="text-gray-500 text-[14px]">REMEMBER YOUR PASSWORD ? <a routerLink="/account/login" class="font-bold text-gray-600">SIGN IN</a></label>
 </div>

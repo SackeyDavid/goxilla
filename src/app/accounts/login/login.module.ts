@@ -9,7 +9,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../../services/http-interceptor';
 import { ApiService } from '../../services/api.service';
-
+import { AbpModule } from 'abp-ng2-module';
+import { UtilsModule } from '@shared/utils/utils.module';
 @NgModule({
     declarations: [
         LoginComponent
@@ -21,6 +22,8 @@ import { ApiService } from '../../services/api.service';
         FormsModule,
         ReactiveFormsModule,
         OAuthModule.forRoot(),
+        AbpModule,
+        UtilsModule
     ],
     providers: [
         ApiService, { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }
