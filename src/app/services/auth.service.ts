@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 import { ApiService } from './api.service';
 import { TokenService } from "./token.service";
@@ -26,14 +25,6 @@ export class AuthService {
         this.API.runPost("TokenAuth/Authenticate", LoginRequestPayload).subscribe(result => this.reDirector(result), err => console.log(err));
 
     }
-
-    /*  public isAuthenticated(): boolean {
- 
-         const token = this._token.getToken();
-        
-         return !this.jwtHelper.isTokenExpired(token);
- 
-     } */
 
     reDirector(result: { result: { accessToken: string; }; }) {
         console.log(result);

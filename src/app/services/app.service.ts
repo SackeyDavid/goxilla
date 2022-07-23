@@ -21,11 +21,11 @@ export class AppService {
         localStorage.setItem(key, JSON.stringify(status));
     }
 
-    getStorageItem(key) {
+    getStorageItem(key: string) {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    removeStorageItem(key) {
+    removeStorageItem(key: string) {
         localStorage.removeItem(key);
     }
 }

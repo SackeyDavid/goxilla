@@ -17,8 +17,11 @@
         "*.suo": true
     },
     "cSpell.words": [
+        "abpzerotemplate",
         "Consts",
         "encrpted",
+        "localforage",
+        "Nootify",
         "oidc"
     ]
 }
