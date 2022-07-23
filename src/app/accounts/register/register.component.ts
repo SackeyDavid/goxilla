@@ -1,4 +1,4 @@
-import { Component, Inject, Injector, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { RegisterModel } from '@account/register/register.model';
 import { Router } from '@angular/router';
 import { AppComponentBase } from '@shared/common/app-component-base';
@@ -15,7 +15,7 @@ export class RegisterComponent extends AppComponentBase implements OnInit {
     model: RegisterModel = new RegisterModel();
     saving: boolean = false;
 
-    constructor(injector: Injector, private _accountService: AccountServiceProxy, private _router: Router,) {
+    constructor(injector: Injector, private _accountService: AccountServiceProxy, private _router: Router) {
         super(injector);
     }
 

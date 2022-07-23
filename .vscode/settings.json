@@ -17,6 +17,8 @@
         "*.suo": true
     },
     "cSpell.words": [
+        "Consts",
+        "encrpted",
         "oidc"
     ]
 }
