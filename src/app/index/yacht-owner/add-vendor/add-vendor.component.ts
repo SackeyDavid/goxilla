@@ -47,26 +47,10 @@ export class AddVendorComponent implements OnInit {
         this.form.reset();
     }
 
-    getFormValidationErrors() {
-        Object.keys(this.form.controls).forEach((key) => {
-            const controlErrors: ValidationErrors = this.form.get(key).errors;
-            if (controlErrors != null) {
-                Object.keys(controlErrors).forEach((keyError) => {
-                    console.log(
-                        'Key control: ' + key + ', keyError: ' + keyError + ', err value: ',
-                        controlErrors[keyError]
-                    );
-                });
-            }
-        });
-    }
-
     addVendor() {
-        this.getFormValidationErrors();
-        console.log(this.form.value);
         this.service
             .addEditVendor(this.form.value)
-            .pipe(finalize(() => console.log('success')))
+            .pipe(finalize(() => console.log('vendor add/edit success')))
             .subscribe(
                 (value) => {
                     this.reset();

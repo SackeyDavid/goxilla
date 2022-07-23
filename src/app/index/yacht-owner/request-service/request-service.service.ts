@@ -24,7 +24,7 @@ export class RequestServiceService {
         this.vendorService.getVendors().subscribe((value) => {
             this.baseService.setSession(this.baseService.vendorData, this.list);
             this.list = value.result.items;
-            console.log('list ', this.list);
+            // console.log('list ', this.list);
             this.baseService.vendorListSource.next(value.result.items);
             this.baseService.vendorSource.next(value.result.totalCount);
         });
