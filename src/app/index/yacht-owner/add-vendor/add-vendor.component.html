@@ -12,9 +12,9 @@
                     <!-- Form  -->
                     <div class="mx-auto mb-6 bg-white">
                         <form [formGroup]="form">
-                            <div class="w-full mb-6">
+                            <div class="w-full grid gap-6 mb-6 lg:grid-cols-2">
                                 <div class="mb-6">
-                                    <label for="vendor_name" class="
+                                    <label for="vendor_firstname" class="
                                             block
                                             uppercase
                                             mb-2
@@ -25,7 +25,7 @@
                                         ">
                                         Vendor Name
                                     </label>
-                                    <input type="text" id="vendor_name" class="
+                                    <input type="text" id="vendor_firstname" class="
                                             bg-gray-50
                                             border border-gray-300
                                             text-black text-lg
@@ -34,10 +34,10 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="name" placeholder="Juan the Boat Guy" required />
+                                        " formControlName="firstName" placeholder="Juan the Boat Guy" required />
                                 </div>
                                 <div class="mb-6">
-                                    <label for="vendor_contact" class="
+                                    <label for="vendor_lastname" class="
                                             block
                                             uppercase
                                             mb-2
@@ -48,7 +48,7 @@
                                         ">
                                         Vendor Contact
                                     </label>
-                                    <input type="text" id="vendor_contact" class="
+                                    <input type="text" id="vendor_lastname" class="
                                             bg-gray-50
                                             border border-gray-300
                                             text-black text-lg
@@ -57,7 +57,7 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="contact" placeholder="Juan Gonzales" required />
+                                        " formControlName="lastName" placeholder="Juan Gonzales" required />
                                 </div>
                                 <div class="mb-6">
                                     <label for="vendor_phone" class="
@@ -80,16 +80,39 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="phoneNumber" placeholder="914-111-4444"
-                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" required />
+                                        " formControlName="phone" placeholder="914-111-4444" maxlength="10" required />
+                                </div>
+                                <div class="mb-6">
+                                    <label for="vendor_email"
+                                        class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                                        Email address
+                                    </label>
+                                    <input type="email" id="vendor_email" class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        " formControlName="emailAddress" placeholder="juan@boats.com" required />
                                 </div>
                             </div>
-                            <div class="mb-8">
-                                <label for="vendor_email"
-                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
-                                    Email address
+
+                            <div class="mb-6">
+                                <label for="vendor_address" class="
+                                        block
+                                        uppercase
+                                        mb-2
+                                        text-lg
+                                        font-medium
+                                        text-gray-900
+                                        dark:text-gray-300
+                                    ">
+                                    Vendor Address
                                 </label>
-                                <input type="email" id="vendor_email" class="
+                                <input type="text" id="vendor_address" class="
                                         bg-gray-50
                                         border border-gray-300
                                         text-black text-lg
@@ -98,9 +121,37 @@
                                         block
                                         w-full
                                         p-3
-                                    " formControlName="emailAddress" placeholder="juan@boats.com" required />
+                                    " formControlName="address" placeholder="250 Balboa Peninsula, CA 92625"
+                                    required />
                             </div>
-                            <button (click)="reset()" type="submit" class="
+                            <div class="mb-6">
+                                <label for="vendor_description" class="
+                                        block
+                                        uppercase
+                                        mb-2
+                                        text-lg
+                                        font-medium
+                                        text-gray-900
+                                        dark:text-gray-300
+                                    ">
+                                    Vendor Description
+                                </label>
+                                <textarea id="vendor_description" rows="4" formControlName="descriptions" required
+                                    class="block p-2.5 mb-5 w-full text-lg bg-gray-50 text-gray-900 rounded-lg border border-gray-300"
+                                    placeholder="...describe yourself"></textarea>
+                                <!-- <input type="text" id="vendor_contact" class="
+                                        bg-gray-50
+                                        border border-gray-300
+                                        text-black text-lg
+                                        rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500
+                                        block
+                                        w-full
+                                        p-3
+                                    " formControlName="descriptions" placeholder="250 Balboa Peninsula, CA 92625"
+                                    required /> -->
+                            </div>
+                            <button (click)="reset()" type="button" class="
                                     uppercase
                                     text-blue-400
                                     outline outline-1

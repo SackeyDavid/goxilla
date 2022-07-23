@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BaseService } from '@app/shared/base.service';
 import { SearchItem } from '@app/shared/common/search-box/search-item';
+import { VendorService } from '../add-vendor/vendor.service';
 
 @Injectable({
     providedIn: 'root',
@@ -7,12 +9,17 @@ import { SearchItem } from '@app/shared/common/search-box/search-item';
 export class RequestServiceService {
     list: Array<SearchItem>;
 
-    constructor() {
-        this.list = [
-            { id: '0', value: 'Juan the Boat guy' },
-            { id: '1', value: 'Albert Kopler' },
-            { id: '2', value: 'John Wick' },
-            { id: '3', value: 'Morris Joe' },
-        ];
+    constructor(private vendorService: VendorService, private baseService: BaseService) {
+        this.getVendors();
+    }
+
+    getVendors() {
+        this.vendorService.getVendors().subscribe((value) => {
+            this.baseService.setSession(this.baseService.vendorData, this.list);
+            this.list = value.result.items;
+            console.log('list ', this.list);
+            this.baseService.vendorListSource.next(value.result.items);
+            this.baseService.vendorSource.next(value.result.totalCount);
+        });
     }
 }
