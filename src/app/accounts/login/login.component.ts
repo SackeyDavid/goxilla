@@ -1,17 +1,70 @@
-import { Component, OnInit } from '@angular/core';
-import {SearchItem} from "@app/shared/common/search-box/search-item";
+import { Component, Injector, OnInit } from '@angular/core';
+import { environment } from 'environments/environment';
+import { LoginService } from '@account/login/login.service';
+import { AppComponentBase } from '@shared/common/app-component-base';
+import { SearchItem } from "@app/shared/common/search-box/search-item";
+import { AppConsts } from '../../../shared/AppConsts';
+import { AppService } from '../../services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends AppComponentBase implements OnInit {
 
-  constructor() { }
+    env: any = environment;
+    submitting: boolean = true;
 
-  ngOnInit(): void {
-  }
+    storedToken: any;
+    authTokenLocalizationName: string;
+    encrptedAuthTokenName: string;
+    appStoreName: string;
+    storedTokenName: string;
+
+    constructor(
+        public auth: LoginService,
+        injector: Injector,
+        public loginService: LoginService,
+        public AppService: AppService,
+        public router: Router,
+    ) {
+        super(injector);
+    }
+
+    ngOnInit(): void {
+        this.runTokenCheck();
+    }
+
+    login(): void {
+
+        this.showMainSpinner();
+
+        this.loginService.authenticate(() => {
+            this.submitting = true;
+            this.hideMainSpinner();
+        },
+            '/app/dashboard',
+            null
+        );
+
+    }
+
+    runTokenCheck(): void {
+
+        this.authTokenLocalizationName = AppConsts.localization.defaultLocalizationSourceName;
+        this.encrptedAuthTokenName = AppConsts.authorization.encrptedAuthTokenName;
+        this.appStoreName = "abpzerotemplate_local_storage";
+
+        this.storedTokenName = this.authTokenLocalizationName + "/" + this.appStoreName + "/" + this.encrptedAuthTokenName;
+        this.storedToken = this.AppService.getStorageItem(this.storedTokenName);
+
+        if (this.storedToken !== null)
+            this.router.navigate(['/app/dashboard']);
+
+    }
 
     list: Array<SearchItem> = [
         {
@@ -28,11 +81,12 @@ export class LoginComponent implements OnInit {
         }
     ];
 
-    getSelecteditem(item: SearchItem) {
+    getSelectedItem(item: SearchItem) {
         console.log('selected', item)
     }
 
-    addnew(item: string) {
+    addNew(item: string) {
         console.log('new item', item);
     }
+
 }

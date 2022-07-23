@@ -4,41 +4,43 @@
 <div class="flex justify-center px-6 pt-1">
     <h1 class="text-[13.2px] font-normal text-gray-700 text-uppercase">Please sign in to your account</h1>
 </div>
-<form class="pt-8 px-8 space-y-4">
-    <div  class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
+<form class="pt-8 px-8 space-y-4" #loginForm="ngForm" class="pt-8 px-8 space-y-4" method="post" (ngSubmit)="login()">
+    <div class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/email.svg">
-        <input class="outline-none text-lg border-0 w-full" placeholder="EMAIL ADDRESS">
+        <input #userNameOrEmailAddressInput="ngModel" [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" name="userNameOrEmailAddress" autoFocus class="outline-none text-lg border-0 w-full" placeholder="EMAIL ADDRESS" required>
+        <validation-messages [formCtrl]="userNameOrEmailAddressInput" *ngIf="!userNameOrEmailAddressInput.touched"></validation-messages>
     </div>
-    <div  class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
+    <div class="flex w-full border-2 py-4 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/security.svg">
-        <input class="outline-none text-lg border-0 w-full" type="password" placeholder="PASSWORD">
+        <input #passwordInput="ngModel" [(ngModel)]="loginService.authenticateModel.password" class="outline-none text-lg border-0 w-full" type="password" autocomplete="new-password" placeholder="PASSWORD" name="password" required>
+        <validation-messages [formCtrl]="passwordInput" *ngIf="!passwordInput.touched"></validation-messages>
+    </div>
+    <div class="flex justify-end px-8 pt-3">
+        <a class="text-gray-500 text-lg text-uppercase" routerLink="/account/reset-account">Forgot Password ?</a>
+    </div>
+    <div class=" pt-10 px-8">
+        <div class="space-y-6">
+            <button type="submit" [disabled]="!loginForm.form.valid" class=" button-color w-full rounded-lg text-white py-4 text-xl">SIGN IN</button>
+            <button type="button" class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex">
+                <div class="flex justify-center w-full space-x-5">
+                    <img src="assets/images/g-logo.svg">
+                    <span>SIGN IN WITH GOOGLE</span>
+                </div>
+            </button>
+            <button type="button" class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex">
+                <div class="flex justify-center w-full space-x-5">
+                    <img src="assets/images/apple-logo.svg">
+                    <span>SIGN IN WITH APPLE</span>
+                </div>
+            </button>
+        </div>
     </div>
 </form>
-<div class="flex justify-end px-8 pt-3">
-    <a class="text-gray-500 text-lg text-uppercase" routerLink="/account/reset-account">Forgot Password ?</a>
-</div>
-<div class=" pt-10 px-8">
-    <div class="space-y-6">
-        <button routerLink="/app/dashboard" class=" button-color w-full rounded-lg text-white py-4 text-xl">SIGN IN</button>
-        <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
-            <div class="flex justify-center w-full space-x-5">
-                <img src="assets/images/g-logo.svg">
-                <span>SIGN IN WITH GOOGLE</span>
-            </div>
-        </button>
-        <button class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex" >
-            <div class="flex justify-center w-full space-x-5">
-                <img src="assets/images/apple-logo.svg">
-                <span>SIGN IN WITH APPLE</span>
-            </div>
-        </button>
-    </div>
-</div>
 <div class="flex justify-center px-8 pt-3 pb-2">
     <label class="text-gray-500 text-[14px]">DON'T HAVE AN ACCOUNT ? <a routerLink="/account/register" class="font-bold text-gray-600">SIGN UP</a></label>
 </div>
 
 
 <!--<div class="w-full px-4 pt-3">-->
-<!--    <app-search-box (getSelectedItem)="getSelecteditem($event)" (addNewItem)="addnew($event)" [data]="list"></app-search-box>-->
+<!--    <app-search-box (getSelectedItem)="getSelectedItem($event)" (addNewItem)="addNew($event)" [data]="list"></app-search-box>-->
 <!--</div>-->
