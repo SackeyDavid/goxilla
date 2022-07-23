@@ -1,17 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {SearchItem} from "@app/shared/common/search-box/search-item";
+import { Component, Injector, OnInit } from '@angular/core';
+import { environment } from 'environments/environment';
+import { LoginService } from '@account/login/login.service';
+import { AppComponentBase } from '@shared/common/app-component-base';
+import { SearchItem } from "@app/shared/common/search-box/search-item";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends AppComponentBase implements OnInit {
 
-  constructor() { }
+    env: any = environment;
+    submitting: boolean;
 
-  ngOnInit(): void {
-  }
+    constructor(public auth: LoginService, injector: Injector, public loginService: LoginService) {
+        super(injector);
+    }
+
+    ngOnInit(): void {
+    }
+
+    login(): void {
+
+        this.loginService.authenticate(() => {
+            this.submitting = false;
+            this.hideMainSpinner();
+        },
+            '/app/dashboard',
+            null
+        );
+
+    }
 
     list: Array<SearchItem> = [
         {
@@ -28,11 +49,12 @@ export class LoginComponent implements OnInit {
         }
     ];
 
-    getSelecteditem(item: SearchItem) {
+    getSelectedItem(item: SearchItem) {
         console.log('selected', item)
     }
 
-    addnew(item: string) {
+    addNew(item: string) {
         console.log('new item', item);
     }
+
 }
