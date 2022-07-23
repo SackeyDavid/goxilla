@@ -1,5 +1,9 @@
 {
     "typescript.check.workspaceVersion": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,

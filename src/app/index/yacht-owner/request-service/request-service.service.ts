@@ -10,6 +10,13 @@ export class RequestServiceService {
     list: Array<SearchItem>;
 
     constructor(private vendorService: VendorService, private baseService: BaseService) {
+        //using dummy data before replacing with API list
+        this.list = [
+            { id: 0, value: 'Juan the Boats Guy' },
+            { id: 1, value: 'Albert Kopler' },
+            { id: 2, value: 'John Doe' },
+            { id: 3, value: 'Scott Williams' },
+        ];
         this.getVendors();
     }
 
