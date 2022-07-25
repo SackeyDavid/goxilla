@@ -140,8 +140,10 @@
                             px-4
                         ">
                         <option></option>
-                        <option>Floor Wax</option>
-                        <option>Engine Service</option>
+                        <ng-container *ngFor="let service of service.servicesList">
+                            <option [value]="service.id">{{service.value}}</option>
+                            <option [value]="service.id">{{service.value}}</option>
+                        </ng-container>
                     </select>
 
                     <button class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg">
@@ -152,7 +154,7 @@
                     <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select Vendor</label>
 
                     <app-search-box (getSelectedItem)="getSelecteditem($event)" (addNewItem)="addnew($event)"
-                        [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="service.list">
+                        [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="service.vendorsList">
                     </app-search-box>
 
                     <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">

@@ -3,6 +3,7 @@ import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { RequestServiceService } from './request-service.service';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { SearchItem } from '@app/shared/common/search-box/search-item';
+import { SelectServiceService } from '../select-service/select-service.service';
 
 @Component({
     selector: 'app-request-service',
@@ -14,7 +15,11 @@ export class RequestServiceComponent implements OnInit {
     showStepTwo: boolean = false;
     lightboxImages: any = [];
 
-    constructor(public service: RequestServiceService, private modalService: ModalService) {}
+    constructor(
+        public service: RequestServiceService,
+        private modalService: ModalService,
+        public selectService: SelectServiceService
+    ) {}
 
     ngOnInit(): void {}
 
