@@ -7,5 +7,5 @@ export const environment = {
     production: false,
     hmr: false,
     appConfig: 'appconfig.json',
-    baseURL: 'https://staging-api.theyachtwatch.com',
+    baseURL: 'https://staging-api.sentinel.care',
 };

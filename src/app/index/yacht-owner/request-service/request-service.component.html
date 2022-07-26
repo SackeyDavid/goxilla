@@ -107,54 +107,26 @@
             </div>
             <div class="grow h-full border-l-4 border-gray-50 border-solid px-4 overflow-auto">
                 <!-- Step One - Details to Service Request  -->
-                <form class="space-y-4" *ngIf="!showStepTwo">
+                <form class="space-y-4" *ngIf="!showStepTwo" [formGroup]="form">
                     <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                         Choose Yatch
                     </label>
-                    <select id="yatch_type" class="
-                            border border-gray-300
-                            text-gray-900 text-lg
-                            rounded-lg
-                            focus:ring-blue-500 focus:border-blue-500
-                            block
-                            w-full
-                            py-4
-                            px-4
-                        ">
-                        <option></option>
-                        <option>Happy Place</option>
-                        <option>Happy Place 2</option>
-                    </select>
+
+                    <app-search-box (getSelectedItem)="getSelectedYacht($event)" (addNewItem)="addNewYacht($event)"
+                        [placeholder]="''" [addLabel]="'Add Yatch'" [data]="yachtesList">
+                    </app-search-box>
 
                     <label for="service_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                         Select Service
                     </label>
-                    <select id="service_type" class="
-                            border border-gray-300
-                            text-gray-900 text-lg
-                            rounded-lg
-                            focus:ring-blue-500 focus:border-blue-500
-                            block
-                            w-full
-                            py-4
-                            px-4
-                        ">
-                        <option></option>
-                        <ng-container *ngFor="let service of service.servicesList">
-                            <option [value]="service.id">{{service.value}}</option>
-                            <option [value]="service.id">{{service.value}}</option>
-                        </ng-container>
-                    </select>
-
-                    <button class="py-2 flex gap-2 px-3 outline outline-1 w-auto text-blue-400 rounded-lg">
-                        <img class="h-5" src="../../../../assets/svgs/add.svg" alt="add" />
-                        <span>Add Service</span>
-                    </button>
+                    <app-search-box (getSelectedItem)="getSelectedService($event)" (addNewItem)="addNewService($event)"
+                        [placeholder]="''" [addLabel]="'Add Service'" [data]="servicesList">
+                    </app-search-box>
 
                     <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select Vendor</label>
 
-                    <app-search-box (getSelectedItem)="getSelecteditem($event)" (addNewItem)="addnew($event)"
-                        [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="service.vendorsList">
+                    <app-search-box (getSelectedItem)="getSelectedVendor($event)" (addNewItem)="addNewVendor($event)"
+                        [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="vendorsList">
                     </app-search-box>
 
                     <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
@@ -172,8 +144,9 @@
                             text-lg
                         ">
                         <option></option>
-                        <option>High</option>
-                        <option>Low</option>
+                        <option [value]="1">High</option>
+                        <option [value]="2">Medium</option>
+                        <option [value]="3">Low</option>
                     </select>
 
                     <div class="flex mb-4">
@@ -186,6 +159,11 @@
 
                     <label for="description" class="block mb-2 text-lg font-medium text-gray-900">Description</label>
                     <textarea id="description" rows="4"
+                        class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
+                        placeholder=""></textarea>
+
+                    <label for="instruction" class="block mb-2 text-lg font-medium text-gray-900">Instruction</label>
+                    <textarea id="instruction" rows="4"
                         class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
                         placeholder=""></textarea>
                 </form>
@@ -238,15 +216,15 @@
         </div>
     </div>
     <div class="h-auto w-full flex justify-end p-5 pt-0 space-x-2">
-        <button (click)="showNext()" *ngIf="showStepTwo" type="submit"
+        <button (click)="showNext()" *ngIf="showStepTwo" type="button"
             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Back
         </button>
-        <button (click)="showNext()" *ngIf="!showStepTwo" type="submit"
+        <button (click)="showNext()" *ngIf="!showStepTwo" type="button"
             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Continue
         </button>
-        <button *ngIf="showStepTwo" type="submit"
+        <button *ngIf="showStepTwo" (click)="createServiceOrder()" type="button"
             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Submit
         </button>

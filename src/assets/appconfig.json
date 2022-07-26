@@ -1,5 +1,5 @@
 {
-  "remoteServiceBaseUrl": "https://staging-api.theyachtwatch.com",
+  "remoteServiceBaseUrl": "https://staging-api.sentinel.care",
   "appBaseUrl": "http://localhost:4200",
   "localeMappings": {
     "angular": [
