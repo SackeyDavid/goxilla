@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class RequestServiceService {
     constructor(private baseService: BaseService, private httpClient: HttpClient) {}
 
-    addEditServiceOrders(lead: any): Observable<any> {
-        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Leads/CreateOrEdit`, lead);
+    addEditServiceOrders(order: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/CreateOrEdit`, order);
     }
 }
