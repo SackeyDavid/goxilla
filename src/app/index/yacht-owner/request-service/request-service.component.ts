@@ -6,7 +6,7 @@ import { SearchItem } from '@app/shared/common/search-box/search-item';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VendorService } from '../add-vendor/vendor.service';
 import { SelectServiceService } from '../select-service/select-service.service';
-import { YatchDetailsService } from '../yatch-details/yatch-details.service';
+import { YachtDetailsService } from '../yacht-details/yacht-details.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -15,14 +15,19 @@ import { finalize } from 'rxjs/operators';
     styleUrls: ['./request-service.component.css'],
 })
 export class RequestServiceComponent implements OnInit {
+
     showStepOne: boolean = true;
     showStepTwo: boolean = false;
     lightboxImages: any = [];
     form!: FormGroup;
 
-    vendorsList: Array<SearchItem>;
-    servicesList: Array<SearchItem>;
-    yachtesList: Array<SearchItem>;
+    preYachtList: any = [];
+    preServiceList: any = [];
+    preVendorsList: any = [];
+
+    vendorList: Array<SearchItem>;
+    serviceList: Array<SearchItem>;
+    yachtList: Array<SearchItem>;
 
     constructor(
         public service: RequestServiceService,
@@ -30,11 +35,13 @@ export class RequestServiceComponent implements OnInit {
         private modalService: ModalService,
         private vendorService: VendorService,
         public selectService: SelectServiceService,
-        public yatchDetailsService: YatchDetailsService
-    ) {}
+        public yachtDetailsService: YachtDetailsService
+    ) { }
 
     ngOnInit(): void {
+
         this.form = this.fb.group({
+
             id: [0],
             yacht: [null, Validators.required],
             service: [null, Validators.required],
@@ -44,32 +51,18 @@ export class RequestServiceComponent implements OnInit {
             affectShipShape: true,
             taskList: [null],
             instruction: [null],
-            bid_requested: [false, Validators.required],
+            bid_requested: [false, Validators.required]
+
         });
 
-        //using dummy data before replacing with API list
-        this.vendorsList = [
-            { id: 0, value: 'Juan the Boats Guy' },
-            { id: 1, value: 'Albert Kopler' },
-            { id: 2, value: 'John Doe' },
-            { id: 3, value: 'Scott Williams' },
-        ];
-        this.yachtesList = [
-            { id: 0, value: 'Happy Place' },
-            { id: 1, value: 'Happy Place 2' },
-            { id: 2, value: 'Happy Place 3' },
-            { id: 3, value: 'Happy Place 4' },
-        ];
-        this.servicesList = [
-            { id: 0, value: 'Floor Wax' },
-            { id: 1, value: 'Engine Service' },
-            { id: 2, value: 'Camera Repair' },
-            { id: 3, value: 'Air Conditioning Fix' },
-        ];
+        this.vendorList = [];
+        this.yachtList = [];
+        this.serviceList = [];
 
         this.getAllVendors();
         this.getAllServices();
-        this.getAllYatchs();
+        this.getAllYachts();
+
     }
 
     showNext(): void {
@@ -128,19 +121,28 @@ export class RequestServiceComponent implements OnInit {
 
     getAllVendors() {
         this.vendorService.getVendors().subscribe((value) => {
-            this.vendorsList = value.result.items;
+            this.preVendorsList = value.result.items;
+            this.preVendorsList.forEach((vendor: { vendor: { id: string; firstName: string; lastName: string } }) => {
+                this.vendorList.push({ id: vendor.vendor.id, value: vendor.vendor.firstName + ' ' + vendor.vendor.lastName });
+            });
         });
     }
 
     getAllServices() {
         this.selectService.getServices().subscribe((value) => {
-            this.servicesList = value.result.items;
+            this.preServiceList = value.result.items;
+            this.preServiceList.forEach((service: { service: { id: string; name: string; } }) => {
+                this.serviceList.push({ id: service.service.id, value: service.service.name });
+            });
         });
     }
 
-    getAllYatchs() {
-        this.yatchDetailsService.getAllYatchs().subscribe((value) => {
-            this.yachtesList = value.result.items;
+    getAllYachts() {
+        this.yachtDetailsService.getAllYachts().subscribe((value) => {
+            this.preYachtList = value.result.items;
+            this.preYachtList.forEach((yacht: { yatch: { id: string; name: string; } }) => {
+                this.yachtList.push({ id: yacht.yatch.id, value: yacht.yatch.name });
+            });
         });
     }
 
@@ -159,7 +161,7 @@ export class RequestServiceComponent implements OnInit {
                 (value) => {
                     this.reset();
                 },
-                (error) => {}
+                (error) => { }
             );
     }
 

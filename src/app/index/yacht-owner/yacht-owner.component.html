@@ -1,42 +1,52 @@
 <div class="h-screen w-screen overflow-auto relative">
     <div class="flex flex-col h-full w-full overflow-auto">
         <div class="h-auto w-full bg-white shadow-md z-10">
-            <div class="flex justify-between px-14 py-4">
-                <div>
-                    <div class="flex flex-wrap content-center h-full">
-                        <img class="w-10" src="assets/images/search.svg" />
-                    </div>
-                </div>
-                <div>
-                    <div class="flex flex-wrap content-center h-full">
-                        <img src="assets/images/yacht-watch-logo.png" class="w-64" />
-                    </div>
-                </div>
-                <div>
-                    <div class="flex flex-wrap content-center h-full space-x-12">
+            <div class="flex justify-between px-14 py-4 h-[100px]">
+                <div class="flex flex-wrap content-center h-full">
+                    <form>
                         <div class="relative">
-                            <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
-                            <img src="assets/images/mail.png" />
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
-                            <img src="assets/images/bell.png" />
-                        </div>
-                        <div class="flex space-x-5">
-                            <img src="assets/images/us.png" />
-                            <div class="flex flex-wrap content-center h-full">
-                                <img src="assets/images/arr-down.png" />
+                            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                <svg aria-hidden="true" class="w-7 h-7 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
                             </div>
+                            <input type="text" class="search-hover block p-4 pl-10 w-full text-sm" name="" placeholder="search here..." required />
                         </div>
-                        <div>
-                            <label class="block">HAPPY PLACE</label>
-                            <small class="-mt-2 block">CF# 128-7148</small>
+                    </form>
+                </div>
+                <div class="flex flex-wrap content-center h-full">
+                    <img src="assets/images/yacht-watch-logo.png" class="h-[70px]" />
+                </div>
+                <div class="flex flex-wrap content-center h-full space-x-12">
+                    <div class="relative">
+                        <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
+                        <img src="assets/images/mail.png" />
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-0.5 -right-0.5 bg-orange-600 p-1.5 rounded-full"></div>
+                        <img src="assets/images/bell.png" />
+                    </div>
+                    <div class="flex space-x-5">
+                        <img src="assets/images/us.png" class="h-8" />
+                        <div class="flex flex-wrap content-center h-full">
+                            <img src="assets/images/arr-down.png" />
                         </div>
-                        <div class="flex space-x-5 cursor-pointer" (click)="logout()">
-                            <img class="w-15 h-10 border border-solid" src="assets/images/YW%20wake%20pics-24.JPEG" />
-                            <div class="flex flex-wrap content-center h-full">
-                                <img src="assets/images/arr-down.png" />
-                            </div>
+                    </div>
+                    <div>
+                        <label class="block">HAPPY PLACE</label>
+                        <small class="-mt-2 block">CF# 128-7148</small>
+                    </div>
+                    <div class="flex space-x-5">
+                        <img class="w-15 h-10 border rounded-lg border-solid" src="assets/images/YW%20wake%20pics-24.JPEG" />
+                        <div class="flex flex-wrap content-center h-full cursor-pointer">
+                            <img src="assets/images/arr-down.png" />
+                        </div>
+                    </div>
+                    <div class="flex space-x-5">
+                        <div class="flex flex-wrap content-center h-full cursor-pointer" title="Logout">
+                            <svg (click)="logout()" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="w-5 h-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                <path fill="currentColor" d="M116.832 543.664H671.28c17.696 0 32-14.336 32-32s-14.304-32-32-32H118.832l115.76-115.76c12.496-12.496 12.496-32.752 0-45.248s-32.752-12.496-45.248 0l-189.008 194l189.008 194c6.256 6.256 14.432 9.376 22.624 9.376s16.368-3.12 22.624-9.376c12.496-12.496 12.496-32.752 0-45.248zM959.664 0H415.663c-35.36 0-64 28.656-64 64v288h64.416V103.024c0-21.376 17.344-38.72 38.72-38.72h464.72c21.391 0 38.72 17.344 38.72 38.72l1.007 818.288c0 21.376-17.328 38.72-38.72 38.72h-465.71c-21.376 0-38.72-17.344-38.72-38.72V670.944l-64.416.08V960c0 35.344 28.64 64 64 64h543.984c35.36 0 64.016-28.656 64.016-64V64c-.015-35.344-28.671-64-64.015-64z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -44,12 +54,12 @@
         </div>
         <div class="grow h-full w-full bg-gray-300 overflow-auto">
             <div class="flex h-full">
-                <div class="relative flex-none w-64 bg-white">
+                <div class="relative flex-none w-[150px] bg-white">
                     <div class="flex flex-col h-full w-full">
                         <div class="flex flex-wrap content-center h-full w-full">
                             <div class="flex justify-center w-full">
                                 <div class="grid grid-rows-5 grid-cols-1 gap-4 w-32">
-                                    <div class="border-1 rounded-lg w-full h-28 hover:bg-blue-600 hover:text-white" *ngFor="let menu of service.menu" [routerLink]="menu.url" routerDirection="root" [class.bg-blue-600]="service.activeMenu === menu.url">
+                                    <div class="border-2 rounded-lg w-full h-28 border-blue-600/[.05] hover:border-transparent hover:bg-blue-600 hover:text-white" *ngFor="let menu of service.menu" [routerLink]="menu.url" routerDirection="root" [class.bg-blue-600]="service.activeMenu === menu.url">
                                         <div class="flex flex-wrap content-center h-full w-full">
                                             <div class="flex justify-center w-full">
                                                 <div class="w-full text-center space-y-1">
@@ -69,30 +79,20 @@
                 <div class="grow h-full overflow-auto">
                     <div class="flex flex-col w-full h-full">
                         <div class="flex h-full w-full">
-                            <div class="relative h-full flex-none w-[500px]">
+                            <div class="relative h-full flex-none content-center w-[420px]">
                                 <div class="flex flex-col h-full w-full">
                                     <div class="h-auto w-full">
                                         <div class="flex justify-center w-full">
-                                            <div class="w-full text-center p-5">
-                                                <label class="text-4xl font-light">Welcome back, David!</label>
+                                            <div class="w-full p-5">
+                                                <label class="text-2xl font-light">Welcome back, David!</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="grow h-full w-full">
-                                        <div class="grid grid-rows-4 grid-cols-2 gap-5 h-full pb-10 px-10">
+                                        <div class="grid grid-rows-4 grid-cols-2 gap-5 h-full pb-10 px-8">
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full relative">
-                                                    <label class="
-                                                            absolute
-                                                            top-2
-                                                            right-2
-                                                            w-6
-                                                            h-6
-                                                            text-white
-                                                            bg-orange-600
-                                                            p-2
-                                                            rounded-full
-                                                        ">
+                                                    <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
                                                         <div class="flex flex-wrap content-center h-full w-full">
                                                             <div class="flex justify-center w-full">
                                                                 <span class="text-xs">6</span>
@@ -109,20 +109,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <label class="
-                                                            absolute
-                                                            top-2
-                                                            right-2
-                                                            w-6
-                                                            h-6
-                                                            text-white
-                                                            bg-orange-600
-                                                            p-2
-                                                            rounded-full
-                                                        ">
+                                                    <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
                                                         <div class="flex flex-wrap content-center h-full w-full">
                                                             <div class="flex justify-center w-full">
                                                                 <span class="text-xs">2</span>
@@ -141,20 +130,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <label class="
-                                                            absolute
-                                                            top-2
-                                                            right-2
-                                                            w-6
-                                                            h-6
-                                                            text-white
-                                                            bg-orange-600
-                                                            p-2
-                                                            rounded-full
-                                                        ">
+                                                    <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
                                                         <div class="flex flex-wrap content-center h-full w-full">
                                                             <div class="flex justify-center w-full">
                                                                 <span class="text-xs">3</span>
@@ -173,16 +151,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <!--        <label class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">-->
-                                                    <!--          <div class="flex flex-wrap content-center h-full w-full">-->
-                                                    <!--            <div class="flex justify-center w-full">-->
-                                                    <!--              <span class="text-xs">3</span>-->
-                                                    <!--            </div>-->
-                                                    <!--          </div>-->
-                                                    <!--        </label>-->
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <div class="w-full text-center space-y-3">
@@ -195,20 +165,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <label class="
-                                                            absolute
-                                                            top-2
-                                                            right-2
-                                                            w-6
-                                                            h-6
-                                                            text-white
-                                                            bg-orange-600
-                                                            p-2
-                                                            rounded-full
-                                                        ">
+                                                    <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
                                                         <div class="flex flex-wrap content-center h-full w-full">
                                                             <div class="flex justify-center w-full">
                                                                 <span class="text-xs">3</span>
@@ -225,16 +184,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <!--        <label class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">-->
-                                                    <!--          <div class="flex flex-wrap content-center h-full w-full">-->
-                                                    <!--            <div class="flex justify-center w-full">-->
-                                                    <!--              <span class="text-xs">3</span>-->
-                                                    <!--            </div>-->
-                                                    <!--          </div>-->
-                                                    <!--        </label>-->
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <div class="w-full text-center space-y-3">
@@ -247,13 +198,13 @@
                                             </div>
                                             <div class="flex justify-center w-full h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <!--        <label class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">-->
-                                                    <!--          <div class="flex flex-wrap content-center h-full w-full">-->
-                                                    <!--            <div class="flex justify-center w-full">-->
-                                                    <!--              <span class="text-xs">3</span>-->
-                                                    <!--            </div>-->
-                                                    <!--          </div>-->
-                                                    <!--        </label>-->
+                                                    <!-- <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                        <div class="flex flex-wrap content-center h-full w-full">
+                                                            <div class="flex justify-center w-full">
+                                                                <span class="text-xs">3</span>
+                                                            </div>
+                                                        </div>
+                                                    </label> -->
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <div class="w-full text-center space-y-3">
@@ -266,13 +217,6 @@
                                             </div>
                                             <div class="flex justify-center w-full  h-full">
                                                 <div class="bg-white rounded-2xl w-full  h-full relative">
-                                                    <!--        <label class=" absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">-->
-                                                    <!--          <div class="flex flex-wrap content-center h-full w-full">-->
-                                                    <!--            <div class="flex justify-center w-full">-->
-                                                    <!--              <span class="text-xs">3</span>-->
-                                                    <!--            </div>-->
-                                                    <!--          </div>-->
-                                                    <!--        </label>-->
                                                     <div class="flex flex-wrap content-center h-full w-full">
                                                         <div class="flex justify-center w-full">
                                                             <div class="w-full text-center space-y-3">

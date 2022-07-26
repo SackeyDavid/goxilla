@@ -1,10 +1,13 @@
 <div class="relative w-full">
     <div class="flex w-full border py-4 border-gray-300 px-4 rounded-lg justify-between space-x-4 input">
-        <input [(ngModel)]="displayLabel" (ngModelChange)="searchList($event)" class="outline-0 border-0 w-full"
-            placeholder="{{placeholder}}" searchbox="pi-search-box">
-        <img src="assets/images/search-interface-symbol.png" class="w-6" alt="image">
+        <input [(ngModel)]="displayLabel" (ngModelChange)="searchList($event)" class="outline-0 border-0 w-full" placeholder="{{placeholder}}" searchbox="pi-search-box" [id]="id">
+        <div *ngIf="showIcon">
+            <div class="flex flex-wrap content-center h-full">
+                <img src="assets/select-box/search-icon.png" class="w-4" alt="image">
+            </div>
+        </div>
     </div>
-    <div class="border w-full divide-y" *ngIf="showDrop">
+    <!-- <div class="border w-full divide-y" *ngIf="showDrop">
         <div *ngIf="data.length === 0" class="p-3 flex space-x-2 cursor-pointer text-blue-400" (click)="addNew()">
             <div>
                 <div class="flex flex-wrap content-center h-full space-x-2">
@@ -21,6 +24,34 @@
         <ng-container *ngFor="let item of data">
             <div (click)="selectItem(item)" class="p-3 text-lg hover:bg-blue-50 hover:font-semibold cursor-pointer">
                 {{item.value}}
+            </div>
+        </ng-container>
+    </div> -->
+    <div class="absolute border w-full divide-y bg-white z-10 search-drop-container {{id}} hidden">
+        <ng-container *ngIf="showAddButton">
+            <div *ngIf="data.length === 0" class="p-2 flex space-x-2 cursor-pointer" (click)="addNew()">
+                <div>
+                    <div class="flex flex-wrap content-center h-full space-x-2">
+                        <img src="assets/images/plus.png" class="w-5" alt="image">
+                    </div>
+                </div>
+                <div>
+                    <div class="flex flex-wrap content-center h-full w-full">
+                        <label class="text-lg w-52 truncate" *ngIf="displayLabel">{{displayLabel}}</label>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="data.length > 0">
+            <ng-container *ngFor="let item of data">
+                <div (click)="selectItem(item)" class="p-2 cursor-pointer hover:bg-gray-200">
+                    {{item.value}}
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="data.length === 0">
+            <div class="py-6 cursor-pointer text-center">
+                List is empty
             </div>
         </ng-container>
     </div>

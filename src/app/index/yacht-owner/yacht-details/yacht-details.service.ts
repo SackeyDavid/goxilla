@@ -6,10 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class YatchDetailsService {
-    constructor(private httpClient: HttpClient, private baseService: BaseService) {}
+export class YachtDetailsService {
+    constructor(private httpClient: HttpClient, private baseService: BaseService) { }
 
-    getAllYatchs(): Observable<any> {
+    getAllYachts(): Observable<any> {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yatches/GetAll?MaxResultCount=30`);
     }
+
 }

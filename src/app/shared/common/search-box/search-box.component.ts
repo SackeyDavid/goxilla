@@ -1,25 +1,43 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { SearchItem } from './search-item';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { v4 as uuid } from 'uuid';
 
 @Component({
     selector: 'app-search-box',
     templateUrl: './search-box.component.html',
     styleUrls: ['./search-box.component.css'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => SearchBoxComponent)
+        }
+    ]
 })
 export class SearchBoxComponent implements OnInit {
+
+    @Input() id: string = uuid();
     @Input() data: Array<SearchItem> = [];
-    @Input() placeholder: string = 'Email';
-    @Input() addLabel: string = 'Add New';
+    @Input() placeholder: string;
+    @Input() addLabel: string;
+
+    @Input() showAddButton = true;
+    @Input() searchable = true;
+    @Input() showIcon = false;
+
+    @Output() addNewItem = new EventEmitter();
+    @Output() getSelectedItem = new EventEmitter<SearchItem>();
+
+    onChange = (value: SearchItem) => { };
 
     newList: Array<SearchItem> = [];
-
-    showDrop = false;
     selectedItem?: SearchItem;
     displayLabel = '';
     displayValue: any;
 
-    @Output() addNewItem = new EventEmitter();
-    @Output() getSelectedItem = new EventEmitter<SearchItem>();
+    showDrop: boolean = false;
+
     constructor() {
         document.addEventListener('click', () => {
             // console.log(document.activeElement?.attributes.getNamedItem('searchbox')?.value);
@@ -48,4 +66,27 @@ export class SearchBoxComponent implements OnInit {
     addNew() {
         this.addNewItem.emit(this.displayLabel);
     }
+
+    registerOnChange(fn: (value: SearchItem) => void): void {
+        this.onChange = fn;
+    }
+
+    registerOnTouched(fn: any): void {
+    }
+
+    writeValue(obj: any): void {
+    }
+
+    ngAfterViewInit(): void {
+        document.getElementById(this.id)?.addEventListener('click', () => {
+            const ele = document.getElementsByClassName('search-drop-container');
+            for (let i = 0; i < ele.length; i++) {
+                if (!ele.item(i)?.classList.contains('hidden')) {
+                    ele.item(i)?.classList.add('hidden')
+                }
+            }
+            document.getElementsByClassName(this.id).item(0)?.classList.remove('hidden');
+        })
+    }
+
 }
