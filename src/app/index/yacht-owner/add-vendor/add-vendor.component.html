@@ -8,7 +8,8 @@
         <div class="flex flex-wrap content-center h-full w-full">
             <div class="flex justify-center w-full">
                 <div class="w-2/5 bg-white rounded-xl p-5">
-                    <label class="block text-2xl uppercase text-black font-bold py-5">Add Vendor</label>
+                    <label class="block text-2xl uppercase text-black font-bold py-5">{{editState ? 'Edit' : 'Add New'}}
+                        Vendor</label>
                     <!-- Form  -->
                     <div class="mx-auto mb-6 bg-white">
                         <form [formGroup]="form">
@@ -139,17 +140,7 @@
                                 <textarea id="vendor_description" rows="4" formControlName="descriptions" required
                                     class="block p-2.5 mb-5 w-full text-lg bg-gray-50 text-gray-900 rounded-lg border border-gray-300"
                                     placeholder="...describe yourself"></textarea>
-                                <!-- <input type="text" id="vendor_contact" class="
-                                        bg-gray-50
-                                        border border-gray-300
-                                        text-black text-lg
-                                        rounded-lg
-                                        focus:ring-blue-500 focus:border-blue-500
-                                        block
-                                        w-full
-                                        p-3
-                                    " formControlName="descriptions" placeholder="250 Balboa Peninsula, CA 92625"
-                                    required /> -->
+
                             </div>
                             <button (click)="reset()" type="button" class="
                                     uppercase
@@ -168,7 +159,8 @@
                                 ">
                                 Clear
                             </button>
-                            <button [disabled]="form.invalid" (click)="addVendor()" label="submit" type="button" class="
+                            <button [disabled]="form.invalid" (click)="addEditVendor()" label="submit" type="button"
+                                class="
                                     uppercase
                                     text-white
                                     bg-blue-400

@@ -15,7 +15,6 @@ import { finalize } from 'rxjs/operators';
     styleUrls: ['./request-service.component.css'],
 })
 export class RequestServiceComponent implements OnInit {
-
     showStepOne: boolean = true;
     showStepTwo: boolean = false;
     lightboxImages: any = [];
@@ -36,23 +35,24 @@ export class RequestServiceComponent implements OnInit {
         private vendorService: VendorService,
         public selectService: SelectServiceService,
         public yachtDetailsService: YachtDetailsService
-    ) { }
+    ) {}
 
     ngOnInit(): void {
-
         this.form = this.fb.group({
-
             id: [0],
             yacht: [null, Validators.required],
             service: [null, Validators.required],
+            vendor: [null, Validators.required],
             priority: [null, Validators.required],
-            description: [null, Validators.required],
+            description: ['', Validators.required],
+            // expectedDeliveryDate: [null],
             location: [null],
+            // isActive: true,
+            // status: [''],
             affectShipShape: true,
             taskList: [null],
-            instruction: [null],
-            bid_requested: [false, Validators.required]
-
+            instruction: ['', Validators.required],
+            bid_requested: false,
         });
 
         this.vendorList = [];
@@ -62,7 +62,6 @@ export class RequestServiceComponent implements OnInit {
         this.getAllVendors();
         this.getAllServices();
         this.getAllYachts();
-
     }
 
     showNext(): void {
@@ -92,38 +91,42 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedVendor(item: SearchItem) {
-        // console.log('selected', item);
+        this.setValue('vendor', item);
     }
 
     addNewVendor(item: string) {
-        // console.log('new item', item);
         sessionStorage.setItem('vendor_new_item', item);
         this.openAddVendorModal();
     }
 
     getSelectedService(item: SearchItem) {
-        // console.log('selected', item);
+        this.setValue('service', item);
     }
 
     addNewService(item: string) {
-        // console.log('new item', item);
         sessionStorage.setItem('service_new_item', item);
     }
 
     getSelectedYacht(item: SearchItem) {
-        // console.log('selected', item);
+        this.setValue('yatch', item);
     }
 
     addNewYacht(item: string) {
-        // console.log('new item', item);
         sessionStorage.setItem('yacht_new_item', item);
+    }
+
+    setValue(control: string, value: any) {
+        this.form.controls[control].setValue(value);
     }
 
     getAllVendors() {
         this.vendorService.getVendors().subscribe((value) => {
             this.preVendorsList = value.result.items;
             this.preVendorsList.forEach((vendor: { vendor: { id: string; firstName: string; lastName: string } }) => {
-                this.vendorList.push({ id: vendor.vendor.id, value: vendor.vendor.firstName + ' ' + vendor.vendor.lastName });
+                this.vendorList.push({
+                    id: vendor.vendor.id,
+                    value: vendor.vendor.firstName + ' ' + vendor.vendor.lastName,
+                });
             });
         });
     }
@@ -131,7 +134,7 @@ export class RequestServiceComponent implements OnInit {
     getAllServices() {
         this.selectService.getServices().subscribe((value) => {
             this.preServiceList = value.result.items;
-            this.preServiceList.forEach((service: { service: { id: string; name: string; } }) => {
+            this.preServiceList.forEach((service: { service: { id: string; name: string } }) => {
                 this.serviceList.push({ id: service.service.id, value: service.service.name });
             });
         });
@@ -140,7 +143,7 @@ export class RequestServiceComponent implements OnInit {
     getAllYachts() {
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
-            this.preYachtList.forEach((yacht: { yatch: { id: string; name: string; } }) => {
+            this.preYachtList.forEach((yacht: { yatch: { id: string; name: string } }) => {
                 this.yachtList.push({ id: yacht.yatch.id, value: yacht.yatch.name });
             });
         });
@@ -161,7 +164,7 @@ export class RequestServiceComponent implements OnInit {
                 (value) => {
                     this.reset();
                 },
-                (error) => { }
+                (error) => {}
             );
     }
 

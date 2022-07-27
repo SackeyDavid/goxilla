@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseService } from '@app/shared/base.service';
 import { ModalRef } from '@app/shared/common/modal/modal-ref';
 import { finalize } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import { AddVendorService } from './add-vendor.service';
 })
 export class AddVendorComponent implements OnInit {
     form!: FormGroup;
+    editState: boolean = false;
 
     constructor(
         public modal: ModalRef,
@@ -45,9 +46,10 @@ export class AddVendorComponent implements OnInit {
 
     reset() {
         this.form.reset();
+        this.editState = false;
     }
 
-    addVendor() {
+    addEditVendor() {
         this.service
             .addEditVendor(this.form.value)
             .pipe(finalize(() => console.log('vendor add/edit success')))
@@ -55,10 +57,26 @@ export class AddVendorComponent implements OnInit {
                 (value) => {
                     this.reset();
                     console.log(value);
+                    this.close();
                 },
                 (error) => {
                     console.log(error);
                 }
             );
+    }
+
+    editItem(vendor: any) {
+        this.form.patchValue({
+            id: vendor.id,
+            firstName: vendor.firstName,
+            lastName: vendor.lastName,
+            isActive: true,
+            phone: vendor.phone,
+            emailAddress: vendor.emailAddress,
+            address: vendor.address,
+            descriptions: vendor.descriptions,
+        });
+
+        this.editState = true;
     }
 }
