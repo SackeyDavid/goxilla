@@ -91,7 +91,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedVendor(item: SearchItem) {
-        this.setValue('vendor', item);
+        this.setValue('vendor', item.id);
     }
 
     addNewVendor(item: string) {
@@ -100,7 +100,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedService(item: SearchItem) {
-        this.setValue('service', item);
+        this.setValue('service', item.id);
     }
 
     addNewService(item: string) {
@@ -108,7 +108,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedYacht(item: SearchItem) {
-        this.setValue('yatch', item);
+        this.setValue('yacht', item.id);
     }
 
     addNewYacht(item: string) {
@@ -156,7 +156,7 @@ export class RequestServiceComponent implements OnInit {
                 return { name: image.name, imageData: image.path.split(',')[1] };
             }),
         };
-
+        console.log(model);
         this.service
             .addEditServiceOrders(model)
             .pipe(finalize(() => console.log('success')))
@@ -170,5 +170,13 @@ export class RequestServiceComponent implements OnInit {
 
     reset() {
         this.form.reset();
+        this.lightboxImages = [];
+        this.showNext();
+    }
+
+    removeImage(data: any) {
+        this.lightboxImages = this.lightboxImages.filter(function (image) {
+            return image.path !== data.path;
+        });
     }
 }
