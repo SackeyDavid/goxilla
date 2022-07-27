@@ -2,68 +2,69 @@
     <div class="h-auto p-5 w-full">
         <label class="text-xl">REQUEST SERVICE</label>
     </div>
-    <form [formGroup]="form">
-        <div class="grow h-full overflow-auto">
-            <div class="flex h-full p-4">
-                <div class="flex-none h-full">
-                    <div class="w-full pr-3">
-                        <div class="flex">
-                            <div class="flex flex-col items-center mr-4">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-center w-6 h-6 mt-11 border-blue-400 border-2 rounded-full">
-                                        <img class="h-4" src="../../../../assets/svgs/Ellipse%20278.svg"
-                                            alt="Ellipse" />
-                                    </div>
+
+    <div class="grow h-full overflow-auto">
+        <div class="flex h-full p-4">
+            <div class="flex-none h-full">
+                <div class="w-full pr-3">
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div>
+                                <div
+                                    class="flex items-center justify-center w-6 h-6 mt-11 border-blue-400 border-2 rounded-full">
+                                    <img class="h-4" src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
                                 </div>
-                                <div class="w-px h-full bg-blue-600"></div>
                             </div>
-                            <div class="pb-16">
-                                <div [ngClass]="{'border-blue-400': 'step == 1' || 'step == 2', 'text-blue-400': 'step == 1' || 'step == 2'}"
-                                    class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto hover:cursor-pointer"
-                                    (click)="showNext()">
-                                    <img class="w-9 col-span-2 col-start-1 my-auto"
-                                        src="../../../../assets/svgs/invoice-blue.svg" alt="" />
-                                    <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
-                                        <span class="text-lg font-semibold uppercase">Service Details</span>
-                                        <small class="text-sm">Provide details about the services needed</small>
-                                    </div>
+                            <div class="w-px h-full bg-blue-600"></div>
+                        </div>
+                        <div class="pb-16">
+                            <div [ngClass]="{'border-blue-400': 'step == 1' || 'step == 2', 'text-blue-400': 'step == 1' || 'step == 2'}"
+                                class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto hover:cursor-pointer"
+                                (click)="showNext()">
+                                <img class="w-9 col-span-2 col-start-1 my-auto"
+                                    src="../../../../assets/svgs/invoice-blue.svg" alt="" />
+                                <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
+                                    <span class="text-lg font-semibold uppercase">Service Details</span>
+                                    <small class="text-sm">Provide details about the services needed</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex">
-                            <div class="flex flex-col items-center mr-4">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full">
-                                        <img class="h-4" [class.invisible]="!showStepTwo"
-                                            src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
-                                    </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div>
+                                <div
+                                    class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full">
+                                    <img class="h-4" [class.invisible]="!showStepTwo"
+                                        src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
                                 </div>
                             </div>
-                            <div class="-mt-10 w-full">
-                                <div [ngClass]="{'border-blue-400': showStepTwo, 'text-blue-400': showStepTwo, 'border-gray-400': !showStepTwo, 'text-gray-400': !showStepTwo}"
-                                    class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto py-6 hover:cursor-pointer"
-                                    (click)="showNext()">
-                                    <img class="w-9 col-span-2 col-start-1 my-auto"
-                                        src="../../../assets/svgs/{{ showStepTwo ? 'image-blue' : 'image' }}.svg"
-                                        alt="" />
-                                    <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
-                                        <span [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-700': !showStepTwo}"
-                                            class="text-lg font-semibold uppercase">
-                                            Images/Videos
-                                        </span>
-                                        <small [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-500': !showStepTwo}"
-                                            class="text-sm">
-                                            Upload media
-                                        </small>
-                                    </div>
+                        </div>
+                        <div class="-mt-10 w-full">
+                            <div [ngClass]="{'border-blue-400': showStepTwo, 'text-blue-400': showStepTwo, 'border-gray-400': !showStepTwo, 'text-gray-400': !showStepTwo}"
+                                class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto py-6 hover:cursor-pointer"
+                                (click)="showNext()">
+                                <img class="w-9 col-span-2 col-start-1 my-auto"
+                                    src="../../../assets/svgs/{{ showStepTwo ? 'image-blue' : 'image' }}.svg" alt="" />
+                                <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
+                                    <span [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-700': !showStepTwo}"
+                                        class="text-lg font-semibold uppercase">
+                                        Images/Videos
+                                    </span>
+                                    <small [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-500': !showStepTwo}"
+                                        class="text-sm">
+                                        Upload media
+                                    </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="grow h-full border-l-4 border-gray-50 border-solid px-4 overflow-auto">
+            </div>
+            <div class="grow h-full border-l-4 border-gray-50 border-solid px-4 overflow-auto">
+
+                <form [formGroup]="form">
+                    <!-- Step One - Details to Service Request  -->
                     <div class="space-y-4" *ngIf="!showStepTwo">
                         <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">
                             Choose Yacht
@@ -151,22 +152,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <div class="h-auto w-full flex justify-end p-5 pt-0 space-x-2">
-            <button (click)="showNext()" *ngIf="showStepTwo" type="button"
-                class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
-                Back
-            </button>
-            <button (click)="showNext()" *ngIf="!showStepTwo" type="button"
-                class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
-                Continue
-            </button>
-            <button *ngIf="showStepTwo" type="submit"
-                class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
-                Submit
-            </button>
-        </div>
-    </form>
+    </div>
+    <div class="h-auto w-full flex justify-end p-5 pt-0 space-x-2">
+        <button (click)="showNext()" *ngIf="showStepTwo" type="button"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
+            Back
+        </button>
+        <button (click)="showNext()" *ngIf="!showStepTwo" type="button"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
+            Continue
+        </button>
+        <button *ngIf="showStepTwo" (click)="createServiceOrder()" type="button"
+            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
+            Submit
+        </button>
+    </div>
 </app-container>
