@@ -26,10 +26,8 @@ export class AddVendorComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            id: [0],
             firstName: [null, Validators.required],
             lastName: [null, Validators.required],
-            isActive: true,
             phone: [null, Validators.required],
             emailAddress: [null, Validators.required],
             address: [null, Validators.required],

@@ -26,9 +26,7 @@ export class AddServiceComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            id: [0],
             name: [null, Validators.required],
-            isActive: true,
             cost: [null, Validators.required],
         });
 

@@ -47,17 +47,20 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     ngOnInit(): void {
         this.form = this.fb.group({
             id: [0],
-            Yacht: [null, Validators.required],
-            Service: [null, Validators.required],
-            Vendor: [null, Validators.required],
+            YatchId: [null, Validators.required],
+            ServiceId: [null, Validators.required],
+            VendorId: [null, Validators.required],
             Priority: [null, Validators.required],
             Description: ['', Validators.required],
+            Status: [0],
+            Name: [null],
             /* expectedDeliveryDate: [null], */
             Location: [null],
             /* isActive: true,
             status: [''], */
             AffectShipShape: true,
-            TaskList: [null],
+            // TaskList: [null],
+            Instructions: [''],
             Instruction: ['', Validators.required],
             bid_requested: false,
         });
@@ -113,7 +116,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     getSelectedVendor(item: SearchItem) {
-        this.setValue('Vendor', item.id);
+        this.setValue('VendorId', item.id);
     }
 
     addNewVendor(item: string) {
@@ -122,7 +125,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     getSelectedService(item: SearchItem) {
-        this.setValue('Service', item.id);
+        this.setValue('ServiceId', item.id);
     }
 
     addNewService(item: string) {
@@ -131,7 +134,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     getSelectedYacht(item: SearchItem) {
-        this.setValue('Yacht', item.id);
+        this.setValue('YatchId', item.id);
     }
 
     addNewYacht(item: string) {

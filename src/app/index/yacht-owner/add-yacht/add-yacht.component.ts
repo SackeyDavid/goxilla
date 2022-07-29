@@ -28,12 +28,11 @@ export class AddYachtComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            id: [0],
             name: [null, Validators.required],
             hailingPort: [null, Validators.required],
             isActive: true,
             country: [null, Validators.required],
-            userId: [0, Validators.required],
+            userId: [1, Validators.required],
         });
 
         if (sessionStorage.getItem('yacht_new_item'))
