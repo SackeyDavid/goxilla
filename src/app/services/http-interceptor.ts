@@ -13,13 +13,22 @@ export class AppHttpInterceptor implements HttpInterceptor {
     constructor(private AppService: AppService, private _token: TokenService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
         this.token = this._token.getToken();
-        /* console.log(this.token) */
+
         if (this.token) {
             const tokenizedReq = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + this.token) });
             return next.handle(tokenizedReq);
         }
+
+        if (req.headers.get('content-type') === 'multipart/form-data') {
+            req = req.clone({
+                headers: req.headers.delete('content-type')
+            })
+        }
+
         return next.handle(req);
+
     }
 
 }

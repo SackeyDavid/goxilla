@@ -37,7 +37,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -47,7 +47,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processIsTenantAvailable(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -65,19 +65,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = IsTenantAvailableOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = IsTenantAvailableOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<IsTenantAvailableOutput>(<any>null);
@@ -93,7 +93,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -103,7 +103,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processResolveTenantId(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -121,19 +121,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<number>(<any>null);
@@ -149,7 +149,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -159,7 +159,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRegister(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -177,19 +177,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = RegisterOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = RegisterOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<RegisterOutput>(<any>null);
@@ -205,7 +205,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -214,7 +214,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendPasswordResetCode(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -232,16 +232,16 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -257,7 +257,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -267,7 +267,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processResetPassword(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -285,19 +285,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ResetPasswordOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ResetPasswordOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ResetPasswordOutput>(<any>null);
@@ -313,7 +313,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -322,7 +322,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendEmailActivationLink(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -340,16 +340,16 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -365,7 +365,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -374,7 +374,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processActivateEmail(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -392,16 +392,16 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -417,7 +417,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -427,7 +427,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processImpersonateUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -445,19 +445,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonateOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonateOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonateOutput>(<any>null);
@@ -473,7 +473,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -483,7 +483,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processImpersonateTenant(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -501,19 +501,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonateOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonateOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonateOutput>(<any>null);
@@ -529,7 +529,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -539,7 +539,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelegatedImpersonate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -557,19 +557,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonateOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonateOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonateOutput>(<any>null);
@@ -582,7 +582,7 @@ export class AccountServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Account/BackToImpersonator";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -590,7 +590,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processBackToImpersonator(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -608,19 +608,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonateOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonateOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonateOutput>(<any>null);
@@ -636,7 +636,7 @@ export class AccountServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -646,7 +646,7 @@ export class AccountServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSwitchToLinkedAccount(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -664,19 +664,19 @@ export class AccountServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SwitchToLinkedAccountOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SwitchToLinkedAccountOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SwitchToLinkedAccountOutput>(<any>null);
@@ -761,7 +761,7 @@ export class AuditLogServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -769,7 +769,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAuditLogs(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -787,19 +787,19 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfAuditLogListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfAuditLogListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfAuditLogListDto>(<any>null);
@@ -872,7 +872,7 @@ export class AuditLogServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -880,7 +880,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAuditLogsToExcel(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -898,19 +898,19 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FileDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FileDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FileDto>(<any>null);
@@ -923,7 +923,7 @@ export class AuditLogServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetEntityHistoryObjectTypes";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -931,7 +931,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEntityHistoryObjectTypes(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -949,26 +949,26 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(NameValueDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(NameValueDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<NameValueDto[]>(<any>null);
@@ -1016,7 +1016,7 @@ export class AuditLogServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1024,7 +1024,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEntityChanges(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1042,19 +1042,19 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfEntityChangeListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfEntityChangeListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfEntityChangeListDto>(<any>null);
@@ -1092,7 +1092,7 @@ export class AuditLogServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1100,7 +1100,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEntityTypeChanges(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1118,19 +1118,19 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfEntityChangeListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfEntityChangeListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfEntityChangeListDto>(<any>null);
@@ -1178,7 +1178,7 @@ export class AuditLogServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1186,7 +1186,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEntityChangesToExcel(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1204,19 +1204,19 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FileDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FileDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FileDto>(<any>null);
@@ -1234,7 +1234,7 @@ export class AuditLogServiceProxy {
             url_ += "entityChangeId=" + encodeURIComponent("" + entityChangeId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1242,7 +1242,7 @@ export class AuditLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEntityPropertyChanges(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1260,26 +1260,26 @@ export class AuditLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(EntityPropertyChangeDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(EntityPropertyChangeDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<EntityPropertyChangeDto[]>(<any>null);
@@ -1304,7 +1304,7 @@ export class CachingServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Caching/GetAllCaches";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1312,7 +1312,7 @@ export class CachingServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllCaches(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1330,19 +1330,19 @@ export class CachingServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfCacheDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfCacheDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfCacheDto>(<any>null);
@@ -1358,7 +1358,7 @@ export class CachingServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -1367,7 +1367,7 @@ export class CachingServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processClearCache(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1385,16 +1385,16 @@ export class CachingServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -1407,14 +1407,14 @@ export class CachingServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Caching/ClearAllCaches";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processClearAllCaches(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1432,16 +1432,16 @@ export class CachingServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -1466,7 +1466,7 @@ export class ChatServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Chat/GetUserChatFriendsWithSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1474,7 +1474,7 @@ export class ChatServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserChatFriendsWithSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1492,19 +1492,19 @@ export class ChatServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetUserChatFriendsWithSettingsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetUserChatFriendsWithSettingsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetUserChatFriendsWithSettingsOutput>(<any>null);
@@ -1532,7 +1532,7 @@ export class ChatServiceProxy {
             url_ += "MinMessageId=" + encodeURIComponent("" + minMessageId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1540,7 +1540,7 @@ export class ChatServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserChatMessages(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1558,19 +1558,19 @@ export class ChatServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfChatMessageDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfChatMessageDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfChatMessageDto>(<any>null);
@@ -1586,7 +1586,7 @@ export class ChatServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -1595,7 +1595,7 @@ export class ChatServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processMarkAllUnreadMessagesOfUserAsRead(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1613,16 +1613,16 @@ export class ChatServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -1652,7 +1652,7 @@ export class CommonLookupServiceProxy {
             url_ += "onlyFreeItems=" + encodeURIComponent("" + onlyFreeItems) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1660,7 +1660,7 @@ export class CommonLookupServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditionsForCombobox(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1678,19 +1678,19 @@ export class CommonLookupServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfSubscribableEditionComboboxItemDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfSubscribableEditionComboboxItemDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfSubscribableEditionComboboxItemDto>(<any>null);
@@ -1706,7 +1706,7 @@ export class CommonLookupServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -1716,7 +1716,7 @@ export class CommonLookupServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processFindUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1734,19 +1734,19 @@ export class CommonLookupServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfNameValueDto>(<any>null);
@@ -1759,7 +1759,7 @@ export class CommonLookupServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/CommonLookup/GetDefaultEditionName";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1767,7 +1767,7 @@ export class CommonLookupServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetDefaultEditionName(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1785,19 +1785,19 @@ export class CommonLookupServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetDefaultEditionNameOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetDefaultEditionNameOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetDefaultEditionNameOutput>(<any>null);
@@ -1832,7 +1832,7 @@ export class DashboardCustomizationServiceProxy {
             url_ += "Application=" + encodeURIComponent("" + application) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -1840,7 +1840,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserDashboard(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1858,19 +1858,19 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = Dashboard.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = Dashboard.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<Dashboard>(<any>null);
@@ -1886,7 +1886,7 @@ export class DashboardCustomizationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -1895,7 +1895,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSavePage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1913,16 +1913,16 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -1938,7 +1938,7 @@ export class DashboardCustomizationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -1947,7 +1947,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRenamePage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -1965,16 +1965,16 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -1990,7 +1990,7 @@ export class DashboardCustomizationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -2000,7 +2000,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAddNewPage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2018,19 +2018,19 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = AddNewPageOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = AddNewPageOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<AddNewPageOutput>(<any>null);
@@ -2058,14 +2058,14 @@ export class DashboardCustomizationServiceProxy {
             url_ += "Application=" + encodeURIComponent("" + application) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeletePage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2083,16 +2083,16 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -2108,7 +2108,7 @@ export class DashboardCustomizationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -2118,7 +2118,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAddWidget(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2136,19 +2136,19 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = Widget.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = Widget.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<Widget>(<any>null);
@@ -2171,7 +2171,7 @@ export class DashboardCustomizationServiceProxy {
             url_ += "Application=" + encodeURIComponent("" + application) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2179,7 +2179,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetDashboardDefinition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2197,19 +2197,19 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DashboardOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DashboardOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DashboardOutput>(<any>null);
@@ -2232,7 +2232,7 @@ export class DashboardCustomizationServiceProxy {
             url_ += "Application=" + encodeURIComponent("" + application) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2240,7 +2240,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllWidgetDefinitions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2258,26 +2258,26 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(WidgetOutput.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(WidgetOutput.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<WidgetOutput[]>(<any>null);
@@ -2305,7 +2305,7 @@ export class DashboardCustomizationServiceProxy {
             url_ += "PageId=" + encodeURIComponent("" + pageId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2313,7 +2313,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllAvailableWidgetDefinitionsForPage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2331,26 +2331,26 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(WidgetOutput.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(WidgetOutput.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<WidgetOutput[]>(<any>null);
@@ -2368,7 +2368,7 @@ export class DashboardCustomizationServiceProxy {
             url_ += "application=" + encodeURIComponent("" + application) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2376,7 +2376,7 @@ export class DashboardCustomizationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetSettingName(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2394,19 +2394,19 @@ export class DashboardCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<string>(<any>null);
@@ -2436,7 +2436,7 @@ export class DemoUiComponentsServiceProxy {
             url_ += "date=" + encodeURIComponent(date ? "" + date.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2444,7 +2444,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendAndGetDate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2462,19 +2462,19 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DateToStringOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DateToStringOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DateToStringOutput>(<any>null);
@@ -2492,7 +2492,7 @@ export class DemoUiComponentsServiceProxy {
             url_ += "date=" + encodeURIComponent(date ? "" + date.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2500,7 +2500,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendAndGetDateTime(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2518,19 +2518,19 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DateToStringOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DateToStringOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DateToStringOutput>(<any>null);
@@ -2553,7 +2553,7 @@ export class DemoUiComponentsServiceProxy {
             url_ += "endDate=" + encodeURIComponent(endDate ? "" + endDate.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2561,7 +2561,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendAndGetDateRange(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2579,19 +2579,19 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DateToStringOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DateToStringOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DateToStringOutput>(<any>null);
@@ -2609,7 +2609,7 @@ export class DemoUiComponentsServiceProxy {
             url_ += "searchTerm=" + encodeURIComponent("" + searchTerm) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2617,7 +2617,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetCountries(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2635,26 +2635,26 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(NameValueOfString.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(NameValueOfString.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<NameValueOfString[]>(<any>null);
@@ -2670,7 +2670,7 @@ export class DemoUiComponentsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -2680,7 +2680,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendAndGetSelectedCountries(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2698,26 +2698,26 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(NameValueOfString.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(NameValueOfString.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<NameValueOfString[]>(<any>null);
@@ -2735,7 +2735,7 @@ export class DemoUiComponentsServiceProxy {
             url_ += "input=" + encodeURIComponent("" + input) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2743,7 +2743,7 @@ export class DemoUiComponentsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendAndGetValue(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2761,19 +2761,19 @@ export class DemoUiComponentsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = StringOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = StringOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<StringOutput>(<any>null);
@@ -2803,7 +2803,7 @@ export class DynamicEntityPropertyServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2811,7 +2811,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2829,19 +2829,19 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DynamicEntityPropertyDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DynamicEntityPropertyDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DynamicEntityPropertyDto>(<any>null);
@@ -2859,7 +2859,7 @@ export class DynamicEntityPropertyServiceProxy {
             url_ += "EntityFullName=" + encodeURIComponent("" + entityFullName) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2867,7 +2867,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllPropertiesOfAnEntity(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2885,19 +2885,19 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfDynamicEntityPropertyDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfDynamicEntityPropertyDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfDynamicEntityPropertyDto>(<any>null);
@@ -2910,7 +2910,7 @@ export class DynamicEntityPropertyServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/DynamicEntityProperty/GetAll";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -2918,7 +2918,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAll(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2936,19 +2936,19 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfDynamicEntityPropertyDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfDynamicEntityPropertyDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfDynamicEntityPropertyDto>(<any>null);
@@ -2964,7 +2964,7 @@ export class DynamicEntityPropertyServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -2973,7 +2973,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAdd(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -2991,16 +2991,16 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3016,7 +3016,7 @@ export class DynamicEntityPropertyServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3025,7 +3025,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3043,16 +3043,16 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3070,14 +3070,14 @@ export class DynamicEntityPropertyServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelete(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3095,16 +3095,16 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3117,7 +3117,7 @@ export class DynamicEntityPropertyServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/DynamicEntityProperty/GetAllEntitiesHasDynamicProperty";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3125,7 +3125,7 @@ export class DynamicEntityPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllEntitiesHasDynamicProperty(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3143,19 +3143,19 @@ export class DynamicEntityPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput>(<any>null);
@@ -3180,7 +3180,7 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/DynamicEntityPropertyDefinition/GetAllAllowedInputTypeNames";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3188,7 +3188,7 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllAllowedInputTypeNames(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3206,26 +3206,26 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(item);
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(item);
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<string[]>(<any>null);
@@ -3238,7 +3238,7 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/DynamicEntityPropertyDefinition/GetAllEntities";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3246,7 +3246,7 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllEntities(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3264,26 +3264,26 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(item);
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(item);
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<string[]>(<any>null);
@@ -3313,7 +3313,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3321,7 +3321,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3339,19 +3339,19 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DynamicEntityPropertyValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DynamicEntityPropertyValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DynamicEntityPropertyValueDto>(<any>null);
@@ -3374,7 +3374,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             url_ += "PropertyId=" + encodeURIComponent("" + propertyId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3382,7 +3382,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAll(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3400,19 +3400,19 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfDynamicEntityPropertyValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfDynamicEntityPropertyValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfDynamicEntityPropertyValueDto>(<any>null);
@@ -3428,7 +3428,7 @@ export class DynamicEntityPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3437,7 +3437,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAdd(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3455,16 +3455,16 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3480,7 +3480,7 @@ export class DynamicEntityPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3489,7 +3489,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3507,16 +3507,16 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3534,14 +3534,14 @@ export class DynamicEntityPropertyValueServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelete(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3559,16 +3559,16 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3589,7 +3589,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             url_ += "EntityId=" + encodeURIComponent("" + entityId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3597,7 +3597,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllDynamicEntityPropertyValues(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3615,19 +3615,19 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetAllDynamicEntityPropertyValuesOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetAllDynamicEntityPropertyValuesOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetAllDynamicEntityPropertyValuesOutput>(<any>null);
@@ -3643,7 +3643,7 @@ export class DynamicEntityPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3652,7 +3652,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processInsertOrUpdateAllValues(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3670,16 +3670,16 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3695,7 +3695,7 @@ export class DynamicEntityPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3704,7 +3704,7 @@ export class DynamicEntityPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCleanValues(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3722,16 +3722,16 @@ export class DynamicEntityPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3761,7 +3761,7 @@ export class DynamicPropertyServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3769,7 +3769,7 @@ export class DynamicPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3787,19 +3787,19 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DynamicPropertyDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DynamicPropertyDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DynamicPropertyDto>(<any>null);
@@ -3812,7 +3812,7 @@ export class DynamicPropertyServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/DynamicProperty/GetAll";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -3820,7 +3820,7 @@ export class DynamicPropertyServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAll(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3838,19 +3838,19 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfDynamicPropertyDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfDynamicPropertyDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfDynamicPropertyDto>(<any>null);
@@ -3866,7 +3866,7 @@ export class DynamicPropertyServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3875,7 +3875,7 @@ export class DynamicPropertyServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAdd(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3893,16 +3893,16 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3918,7 +3918,7 @@ export class DynamicPropertyServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -3927,7 +3927,7 @@ export class DynamicPropertyServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3945,16 +3945,16 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -3972,14 +3972,14 @@ export class DynamicPropertyServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelete(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -3997,16 +3997,16 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4024,7 +4024,7 @@ export class DynamicPropertyServiceProxy {
             url_ += "name=" + encodeURIComponent("" + name) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4032,7 +4032,7 @@ export class DynamicPropertyServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processFindAllowedInputType(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4050,19 +4050,19 @@ export class DynamicPropertyServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = IInputType.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = IInputType.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<IInputType>(<any>null);
@@ -4092,7 +4092,7 @@ export class DynamicPropertyValueServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4100,7 +4100,7 @@ export class DynamicPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4118,19 +4118,19 @@ export class DynamicPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = DynamicPropertyValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = DynamicPropertyValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<DynamicPropertyValueDto>(<any>null);
@@ -4148,7 +4148,7 @@ export class DynamicPropertyValueServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4156,7 +4156,7 @@ export class DynamicPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllValuesOfDynamicProperty(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4174,19 +4174,19 @@ export class DynamicPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfDynamicPropertyValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfDynamicPropertyValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfDynamicPropertyValueDto>(<any>null);
@@ -4202,7 +4202,7 @@ export class DynamicPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4211,7 +4211,7 @@ export class DynamicPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAdd(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4229,16 +4229,16 @@ export class DynamicPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4254,7 +4254,7 @@ export class DynamicPropertyValueServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4263,7 +4263,7 @@ export class DynamicPropertyValueServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4281,16 +4281,16 @@ export class DynamicPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4308,14 +4308,14 @@ export class DynamicPropertyValueServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelete(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4333,16 +4333,16 @@ export class DynamicPropertyValueServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4367,7 +4367,7 @@ export class EditionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Edition/GetEditions";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4375,7 +4375,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4393,19 +4393,19 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfEditionListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfEditionListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfEditionListDto>(<any>null);
@@ -4423,7 +4423,7 @@ export class EditionServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4431,7 +4431,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditionForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4449,19 +4449,19 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetEditionEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetEditionEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetEditionEditOutput>(<any>null);
@@ -4477,7 +4477,7 @@ export class EditionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4486,7 +4486,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateEdition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4504,16 +4504,16 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4529,7 +4529,7 @@ export class EditionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4538,7 +4538,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateEdition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4556,16 +4556,16 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4583,14 +4583,14 @@ export class EditionServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteEdition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4608,16 +4608,16 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4633,7 +4633,7 @@ export class EditionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4642,7 +4642,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processMoveTenantsToAnotherEdition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4660,16 +4660,16 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4697,7 +4697,7 @@ export class EditionServiceProxy {
             url_ += "onlyFreeItems=" + encodeURIComponent("" + onlyFreeItems) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4705,7 +4705,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditionComboboxItems(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4723,26 +4723,26 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(SubscribableEditionComboboxItemDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(SubscribableEditionComboboxItemDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SubscribableEditionComboboxItemDto[]>(<any>null);
@@ -4760,7 +4760,7 @@ export class EditionServiceProxy {
             url_ += "editionId=" + encodeURIComponent("" + editionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -4768,7 +4768,7 @@ export class EditionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTenantCount(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4786,19 +4786,19 @@ export class EditionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<number>(<any>null);
@@ -4826,7 +4826,7 @@ export class FriendshipServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4836,7 +4836,7 @@ export class FriendshipServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateFriendshipRequest(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4854,19 +4854,19 @@ export class FriendshipServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FriendDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FriendDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FriendDto>(<any>null);
@@ -4882,7 +4882,7 @@ export class FriendshipServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4892,7 +4892,7 @@ export class FriendshipServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateFriendshipRequestByUserName(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4910,19 +4910,19 @@ export class FriendshipServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FriendDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FriendDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FriendDto>(<any>null);
@@ -4938,7 +4938,7 @@ export class FriendshipServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4947,7 +4947,7 @@ export class FriendshipServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processBlockUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -4965,16 +4965,16 @@ export class FriendshipServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -4990,7 +4990,7 @@ export class FriendshipServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -4999,7 +4999,7 @@ export class FriendshipServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUnblockUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5017,16 +5017,16 @@ export class FriendshipServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5042,7 +5042,7 @@ export class FriendshipServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -5051,7 +5051,7 @@ export class FriendshipServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAcceptFriendshipRequest(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5069,16 +5069,16 @@ export class FriendshipServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5113,7 +5113,7 @@ export class HostDashboardServiceProxy {
             url_ += "EndDate=" + encodeURIComponent(endDate ? "" + endDate.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5121,7 +5121,7 @@ export class HostDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTopStatsData(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5139,19 +5139,19 @@ export class HostDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = TopStatsData.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = TopStatsData.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<TopStatsData>(<any>null);
@@ -5164,7 +5164,7 @@ export class HostDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/HostDashboard/GetRecentTenantsData";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5172,7 +5172,7 @@ export class HostDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRecentTenantsData(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5190,19 +5190,19 @@ export class HostDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetRecentTenantsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetRecentTenantsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetRecentTenantsOutput>(<any>null);
@@ -5215,7 +5215,7 @@ export class HostDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/HostDashboard/GetSubscriptionExpiringTenantsData";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5223,7 +5223,7 @@ export class HostDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetSubscriptionExpiringTenantsData(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5241,19 +5241,19 @@ export class HostDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetExpiringTenantsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetExpiringTenantsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetExpiringTenantsOutput>(<any>null);
@@ -5280,7 +5280,7 @@ export class HostDashboardServiceProxy {
             url_ += "EndDate=" + encodeURIComponent(endDate ? "" + endDate.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5288,7 +5288,7 @@ export class HostDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetIncomeStatistics(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5306,19 +5306,19 @@ export class HostDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetIncomeStatisticsDataOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetIncomeStatisticsDataOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetIncomeStatisticsDataOutput>(<any>null);
@@ -5341,7 +5341,7 @@ export class HostDashboardServiceProxy {
             url_ += "EndDate=" + encodeURIComponent(endDate ? "" + endDate.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5349,7 +5349,7 @@ export class HostDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditionTenantStatistics(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5367,19 +5367,19 @@ export class HostDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetEditionTenantStatisticsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetEditionTenantStatisticsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetEditionTenantStatisticsOutput>(<any>null);
@@ -5404,7 +5404,7 @@ export class HostSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/HostSettings/GetAllSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5412,7 +5412,7 @@ export class HostSettingsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5430,19 +5430,19 @@ export class HostSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = HostSettingsEditDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = HostSettingsEditDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<HostSettingsEditDto>(<any>null);
@@ -5458,7 +5458,7 @@ export class HostSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -5467,7 +5467,7 @@ export class HostSettingsServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateAllSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5485,16 +5485,16 @@ export class HostSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5510,7 +5510,7 @@ export class HostSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -5519,7 +5519,7 @@ export class HostSettingsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendTestEmail(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5537,16 +5537,16 @@ export class HostSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5559,7 +5559,7 @@ export class HostSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/HostSettings/GetEnabledSocialLoginSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5567,7 +5567,7 @@ export class HostSettingsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEnabledSocialLoginSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5585,19 +5585,19 @@ export class HostSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ExternalLoginSettingsDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ExternalLoginSettingsDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ExternalLoginSettingsDto>(<any>null);
@@ -5625,7 +5625,7 @@ export class InstallServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -5634,7 +5634,7 @@ export class InstallServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSetup(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5652,16 +5652,16 @@ export class InstallServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5674,7 +5674,7 @@ export class InstallServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Install/GetAppSettingsJson";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5682,7 +5682,7 @@ export class InstallServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAppSettingsJson(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5700,19 +5700,19 @@ export class InstallServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = AppSettingsJsonDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = AppSettingsJsonDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<AppSettingsJsonDto>(<any>null);
@@ -5725,7 +5725,7 @@ export class InstallServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Install/CheckDatabase";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5733,7 +5733,7 @@ export class InstallServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCheckDatabase(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5751,19 +5751,19 @@ export class InstallServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = CheckDatabaseOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = CheckDatabaseOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<CheckDatabaseOutput>(<any>null);
@@ -5793,7 +5793,7 @@ export class InvoiceServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5801,7 +5801,7 @@ export class InvoiceServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetInvoiceInfo(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5819,19 +5819,19 @@ export class InvoiceServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = InvoiceDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = InvoiceDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<InvoiceDto>(<any>null);
@@ -5847,7 +5847,7 @@ export class InvoiceServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -5856,7 +5856,7 @@ export class InvoiceServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateInvoice(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5874,16 +5874,16 @@ export class InvoiceServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -5908,7 +5908,7 @@ export class LanguageServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Language/GetLanguages";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5916,7 +5916,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLanguages(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5934,19 +5934,19 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetLanguagesOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetLanguagesOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetLanguagesOutput>(<any>null);
@@ -5964,7 +5964,7 @@ export class LanguageServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -5972,7 +5972,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLanguageForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -5990,19 +5990,19 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetLanguageForEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetLanguageForEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetLanguageForEditOutput>(<any>null);
@@ -6018,7 +6018,7 @@ export class LanguageServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6027,7 +6027,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateOrUpdateLanguage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6045,16 +6045,16 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6072,14 +6072,14 @@ export class LanguageServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteLanguage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6097,16 +6097,16 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6122,7 +6122,7 @@ export class LanguageServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6131,7 +6131,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSetDefaultLanguage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6149,16 +6149,16 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6209,7 +6209,7 @@ export class LanguageServiceProxy {
             url_ += "FilterText=" + encodeURIComponent("" + filterText) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6217,7 +6217,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLanguageTexts(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6235,19 +6235,19 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfLanguageTextListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfLanguageTextListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfLanguageTextListDto>(<any>null);
@@ -6263,7 +6263,7 @@ export class LanguageServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6272,7 +6272,7 @@ export class LanguageServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateLanguageText(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6290,16 +6290,16 @@ export class LanguageServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6349,7 +6349,7 @@ export class NotificationServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6357,7 +6357,7 @@ export class NotificationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserNotifications(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6375,19 +6375,19 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetNotificationsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetNotificationsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetNotificationsOutput>(<any>null);
@@ -6400,14 +6400,14 @@ export class NotificationServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Notification/SetAllNotificationsAsRead";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSetAllNotificationsAsRead(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6425,16 +6425,16 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6450,7 +6450,7 @@ export class NotificationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6460,7 +6460,7 @@ export class NotificationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSetNotificationAsRead(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6478,19 +6478,19 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SetNotificationAsReadOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SetNotificationAsReadOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SetNotificationAsReadOutput>(<any>null);
@@ -6503,7 +6503,7 @@ export class NotificationServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Notification/GetNotificationSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6511,7 +6511,7 @@ export class NotificationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetNotificationSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6529,19 +6529,19 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetNotificationSettingsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetNotificationSettingsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetNotificationSettingsOutput>(<any>null);
@@ -6557,7 +6557,7 @@ export class NotificationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6566,7 +6566,7 @@ export class NotificationServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateNotificationSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6584,16 +6584,16 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6611,14 +6611,14 @@ export class NotificationServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteNotification(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6636,16 +6636,16 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6673,14 +6673,14 @@ export class NotificationServiceProxy {
             url_ += "EndDate=" + encodeURIComponent(endDate ? "" + endDate.toJSON() : "") + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteAllUserNotifications(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6698,16 +6698,16 @@ export class NotificationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -6732,7 +6732,7 @@ export class OrganizationUnitServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/GetOrganizationUnits";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6740,7 +6740,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetOrganizationUnits(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6758,19 +6758,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfOrganizationUnitDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfOrganizationUnitDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfOrganizationUnitDto>(<any>null);
@@ -6803,7 +6803,7 @@ export class OrganizationUnitServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6811,7 +6811,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetOrganizationUnitUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6829,19 +6829,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfOrganizationUnitUserListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfOrganizationUnitUserListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfOrganizationUnitUserListDto>(<any>null);
@@ -6874,7 +6874,7 @@ export class OrganizationUnitServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -6882,7 +6882,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetOrganizationUnitRoles(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6900,19 +6900,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfOrganizationUnitRoleListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfOrganizationUnitRoleListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfOrganizationUnitRoleListDto>(<any>null);
@@ -6928,7 +6928,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6938,7 +6938,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -6956,19 +6956,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = OrganizationUnitDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = OrganizationUnitDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<OrganizationUnitDto>(<any>null);
@@ -6984,7 +6984,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -6994,7 +6994,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7012,19 +7012,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = OrganizationUnitDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = OrganizationUnitDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<OrganizationUnitDto>(<any>null);
@@ -7040,7 +7040,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7050,7 +7050,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processMoveOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7068,19 +7068,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = OrganizationUnitDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = OrganizationUnitDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<OrganizationUnitDto>(<any>null);
@@ -7098,14 +7098,14 @@ export class OrganizationUnitServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7123,16 +7123,16 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7155,14 +7155,14 @@ export class OrganizationUnitServiceProxy {
             url_ += "OrganizationUnitId=" + encodeURIComponent("" + organizationUnitId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRemoveUserFromOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7180,16 +7180,16 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7212,14 +7212,14 @@ export class OrganizationUnitServiceProxy {
             url_ += "OrganizationUnitId=" + encodeURIComponent("" + organizationUnitId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRemoveRoleFromOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7237,16 +7237,16 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7262,7 +7262,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7271,7 +7271,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAddUsersToOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7289,16 +7289,16 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7314,7 +7314,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7323,7 +7323,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAddRolesToOrganizationUnit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7341,16 +7341,16 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7366,7 +7366,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7376,7 +7376,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processFindUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7394,19 +7394,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfNameValueDto>(<any>null);
@@ -7422,7 +7422,7 @@ export class OrganizationUnitServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7432,7 +7432,7 @@ export class OrganizationUnitServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processFindRoles(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7450,19 +7450,19 @@ export class OrganizationUnitServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfNameValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfNameValueDto>(<any>null);
@@ -7492,7 +7492,7 @@ export class PaymentServiceProxy {
             url_ += "UpgradeEditionId=" + encodeURIComponent("" + upgradeEditionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -7500,7 +7500,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPaymentInfo(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7518,19 +7518,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PaymentInfoDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PaymentInfoDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PaymentInfoDto>(<any>null);
@@ -7546,7 +7546,7 @@ export class PaymentServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7556,7 +7556,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreatePayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7574,19 +7574,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<number>(<any>null);
@@ -7602,7 +7602,7 @@ export class PaymentServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -7611,7 +7611,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCancelPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7629,16 +7629,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7666,7 +7666,7 @@ export class PaymentServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -7674,7 +7674,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPaymentHistory(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7692,19 +7692,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfSubscriptionPaymentListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfSubscriptionPaymentListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfSubscriptionPaymentListDto>(<any>null);
@@ -7722,7 +7722,7 @@ export class PaymentServiceProxy {
             url_ += "RecurringPaymentsEnabled=" + encodeURIComponent("" + recurringPaymentsEnabled) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -7730,7 +7730,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetActiveGateways(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7748,26 +7748,26 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(PaymentGatewayModel.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(PaymentGatewayModel.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PaymentGatewayModel[]>(<any>null);
@@ -7785,7 +7785,7 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -7793,7 +7793,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7811,19 +7811,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SubscriptionPaymentDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SubscriptionPaymentDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SubscriptionPaymentDto>(<any>null);
@@ -7836,7 +7836,7 @@ export class PaymentServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Payment/GetLastCompletedPayment";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -7844,7 +7844,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLastCompletedPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7862,19 +7862,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SubscriptionPaymentDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SubscriptionPaymentDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SubscriptionPaymentDto>(<any>null);
@@ -7892,14 +7892,14 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processBuyNowSucceed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7917,16 +7917,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7944,14 +7944,14 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processNewRegistrationSucceed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -7969,16 +7969,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -7996,14 +7996,14 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpgradeSucceed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8021,16 +8021,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8048,14 +8048,14 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processExtendSucceed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8073,16 +8073,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8100,14 +8100,14 @@ export class PaymentServiceProxy {
             url_ += "paymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processPaymentFailed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8125,16 +8125,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8152,14 +8152,14 @@ export class PaymentServiceProxy {
             url_ += "upgradeEditionId=" + encodeURIComponent("" + upgradeEditionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSwitchBetweenFreeEditions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8177,16 +8177,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8204,14 +8204,14 @@ export class PaymentServiceProxy {
             url_ += "editionId=" + encodeURIComponent("" + editionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpgradeSubscriptionCostsLessThenMinAmount(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8229,16 +8229,16 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8251,7 +8251,7 @@ export class PaymentServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Payment/HasAnyPayment";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8259,7 +8259,7 @@ export class PaymentServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processHasAnyPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8277,19 +8277,19 @@ export class PaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<boolean>(<any>null);
@@ -8324,14 +8324,14 @@ export class PayPalPaymentServiceProxy {
             url_ += "paypalOrderId=" + encodeURIComponent("" + paypalOrderId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processConfirmPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8349,16 +8349,16 @@ export class PayPalPaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8371,7 +8371,7 @@ export class PayPalPaymentServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/PayPalPayment/GetConfiguration";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8379,7 +8379,7 @@ export class PayPalPaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetConfiguration(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8397,19 +8397,19 @@ export class PayPalPaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PayPalConfigurationDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PayPalConfigurationDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PayPalConfigurationDto>(<any>null);
@@ -8434,7 +8434,7 @@ export class PermissionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Permission/GetAllPermissions";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8442,7 +8442,7 @@ export class PermissionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllPermissions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8460,19 +8460,19 @@ export class PermissionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfFlatPermissionWithLevelDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfFlatPermissionWithLevelDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfFlatPermissionWithLevelDto>(<any>null);
@@ -8497,7 +8497,7 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/GetCurrentUserProfileForEdit";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8505,7 +8505,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetCurrentUserProfileForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8523,19 +8523,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = CurrentUserProfileEditDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = CurrentUserProfileEditDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<CurrentUserProfileEditDto>(<any>null);
@@ -8548,14 +8548,14 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/DisableGoogleAuthenticator";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDisableGoogleAuthenticator(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8573,16 +8573,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8595,7 +8595,7 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/UpdateGoogleAuthenticatorKey";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8603,7 +8603,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateGoogleAuthenticatorKey(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8621,19 +8621,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = UpdateGoogleAuthenticatorKeyOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = UpdateGoogleAuthenticatorKeyOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<UpdateGoogleAuthenticatorKeyOutput>(<any>null);
@@ -8649,7 +8649,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -8658,7 +8658,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendVerificationSms(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8676,16 +8676,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8701,7 +8701,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -8710,7 +8710,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processVerifySmsCode(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8728,16 +8728,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8750,14 +8750,14 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/PrepareCollectedData";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processPrepareCollectedData(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8775,16 +8775,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8800,7 +8800,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -8809,7 +8809,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateCurrentUserProfile(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8827,16 +8827,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8852,7 +8852,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -8861,7 +8861,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processChangePassword(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8879,16 +8879,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8904,7 +8904,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -8913,7 +8913,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateProfilePicture(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8931,16 +8931,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -8953,7 +8953,7 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/GetPasswordComplexitySetting";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -8961,7 +8961,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPasswordComplexitySetting(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -8979,19 +8979,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetPasswordComplexitySettingOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetPasswordComplexitySettingOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetPasswordComplexitySettingOutput>(<any>null);
@@ -9004,7 +9004,7 @@ export class ProfileServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Profile/GetProfilePicture";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9012,7 +9012,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetProfilePicture(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9030,19 +9030,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetProfilePictureOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetProfilePictureOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetProfilePictureOutput>(<any>null);
@@ -9060,7 +9060,7 @@ export class ProfileServiceProxy {
             url_ += "username=" + encodeURIComponent("" + username) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9068,7 +9068,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetProfilePictureByUserName(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9086,19 +9086,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetProfilePictureOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetProfilePictureOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetProfilePictureOutput>(<any>null);
@@ -9121,7 +9121,7 @@ export class ProfileServiceProxy {
             url_ += "TenantId=" + encodeURIComponent("" + tenantId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9129,7 +9129,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetFriendProfilePicture(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9147,19 +9147,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetProfilePictureOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetProfilePictureOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetProfilePictureOutput>(<any>null);
@@ -9177,7 +9177,7 @@ export class ProfileServiceProxy {
             url_ += "userId=" + encodeURIComponent("" + userId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9185,7 +9185,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetProfilePictureByUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9203,19 +9203,19 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetProfilePictureOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetProfilePictureOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetProfilePictureOutput>(<any>null);
@@ -9231,7 +9231,7 @@ export class ProfileServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -9240,7 +9240,7 @@ export class ProfileServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processChangeLanguage(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9258,16 +9258,16 @@ export class ProfileServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -9295,7 +9295,7 @@ export class RoleServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -9305,7 +9305,7 @@ export class RoleServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRoles(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9323,19 +9323,19 @@ export class RoleServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfRoleListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfRoleListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfRoleListDto>(<any>null);
@@ -9353,7 +9353,7 @@ export class RoleServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9361,7 +9361,7 @@ export class RoleServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRoleForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9379,19 +9379,19 @@ export class RoleServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetRoleForEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetRoleForEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetRoleForEditOutput>(<any>null);
@@ -9407,7 +9407,7 @@ export class RoleServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -9416,7 +9416,7 @@ export class RoleServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateOrUpdateRole(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9434,16 +9434,16 @@ export class RoleServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -9461,14 +9461,14 @@ export class RoleServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteRole(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9486,16 +9486,16 @@ export class RoleServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -9520,7 +9520,7 @@ export class SessionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Session/GetCurrentLoginInformations";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9528,7 +9528,7 @@ export class SessionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetCurrentLoginInformations(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9546,19 +9546,19 @@ export class SessionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetCurrentLoginInformationsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetCurrentLoginInformationsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetCurrentLoginInformationsOutput>(<any>null);
@@ -9571,7 +9571,7 @@ export class SessionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Session/UpdateUserSignInToken";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9579,7 +9579,7 @@ export class SessionServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateUserSignInToken(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9597,19 +9597,19 @@ export class SessionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = UpdateUserSignInTokenOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = UpdateUserSignInTokenOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<UpdateUserSignInTokenOutput>(<any>null);
@@ -9634,7 +9634,7 @@ export class StripePaymentServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/StripePayment/GetConfiguration";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9642,7 +9642,7 @@ export class StripePaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetConfiguration(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9660,19 +9660,19 @@ export class StripePaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = StripeConfigurationDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = StripeConfigurationDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<StripeConfigurationDto>(<any>null);
@@ -9690,7 +9690,7 @@ export class StripePaymentServiceProxy {
             url_ += "StripeSessionId=" + encodeURIComponent("" + stripeSessionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9698,7 +9698,7 @@ export class StripePaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPayment(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9716,19 +9716,19 @@ export class StripePaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SubscriptionPaymentDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SubscriptionPaymentDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SubscriptionPaymentDto>(<any>null);
@@ -9744,7 +9744,7 @@ export class StripePaymentServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -9754,7 +9754,7 @@ export class StripePaymentServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreatePaymentSession(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9772,19 +9772,19 @@ export class StripePaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<string>(<any>null);
@@ -9802,7 +9802,7 @@ export class StripePaymentServiceProxy {
             url_ += "PaymentId=" + encodeURIComponent("" + paymentId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -9810,7 +9810,7 @@ export class StripePaymentServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetPaymentResult(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9828,19 +9828,19 @@ export class StripePaymentServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = StripePaymentResultOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = StripePaymentResultOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<StripePaymentResultOutput>(<any>null);
@@ -9865,14 +9865,14 @@ export class SubscriptionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Subscription/DisableRecurringPayments";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDisableRecurringPayments(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9890,16 +9890,16 @@ export class SubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -9912,14 +9912,14 @@ export class SubscriptionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/Subscription/EnableRecurringPayments";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processEnableRecurringPayments(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -9937,16 +9937,16 @@ export class SubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10021,7 +10021,7 @@ export class TenantServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10029,7 +10029,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTenants(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10047,19 +10047,19 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfTenantListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfTenantListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfTenantListDto>(<any>null);
@@ -10075,7 +10075,7 @@ export class TenantServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -10084,7 +10084,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateTenant(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10102,16 +10102,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10129,7 +10129,7 @@ export class TenantServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10137,7 +10137,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTenantForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10155,19 +10155,19 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = TenantEditDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = TenantEditDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<TenantEditDto>(<any>null);
@@ -10183,7 +10183,7 @@ export class TenantServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -10192,7 +10192,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateTenant(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10210,16 +10210,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10237,14 +10237,14 @@ export class TenantServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteTenant(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10262,16 +10262,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10289,7 +10289,7 @@ export class TenantServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10297,7 +10297,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTenantFeaturesForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10315,19 +10315,19 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetTenantFeaturesEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetTenantFeaturesEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetTenantFeaturesEditOutput>(<any>null);
@@ -10343,7 +10343,7 @@ export class TenantServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -10352,7 +10352,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateTenantFeatures(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10370,16 +10370,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10395,7 +10395,7 @@ export class TenantServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -10404,7 +10404,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processResetTenantSpecificFeatures(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10422,16 +10422,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10447,7 +10447,7 @@ export class TenantServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -10456,7 +10456,7 @@ export class TenantServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUnlockTenantAdmin(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10474,16 +10474,16 @@ export class TenantServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10521,14 +10521,14 @@ export class TenantCustomizationServiceProxy {
             url_ += "extension=" + encodeURIComponent("" + extension) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTenantLogo(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10546,16 +10546,16 @@ export class TenantCustomizationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -10580,7 +10580,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetMemberActivity";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10588,7 +10588,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetMemberActivity(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10606,19 +10606,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetMemberActivityOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetMemberActivityOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetMemberActivityOutput>(<any>null);
@@ -10635,7 +10635,7 @@ export class TenantDashboardServiceProxy {
             url_ += "SalesSummaryDatePeriod=" + encodeURIComponent("" + salesSummaryDatePeriod) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10643,7 +10643,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetDashboardData(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10661,19 +10661,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetDashboardDataOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetDashboardDataOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetDashboardDataOutput>(<any>null);
@@ -10686,7 +10686,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetTopStats";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10694,7 +10694,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTopStats(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10712,19 +10712,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetTopStatsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetTopStatsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetTopStatsOutput>(<any>null);
@@ -10737,7 +10737,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetProfitShare";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10745,7 +10745,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetProfitShare(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10763,19 +10763,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetProfitShareOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetProfitShareOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetProfitShareOutput>(<any>null);
@@ -10788,7 +10788,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetDailySales";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10796,7 +10796,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetDailySales(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10814,19 +10814,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetDailySalesOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetDailySalesOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetDailySalesOutput>(<any>null);
@@ -10843,7 +10843,7 @@ export class TenantDashboardServiceProxy {
             url_ += "SalesSummaryDatePeriod=" + encodeURIComponent("" + salesSummaryDatePeriod) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10851,7 +10851,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetSalesSummary(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10869,19 +10869,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetSalesSummaryOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetSalesSummaryOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetSalesSummaryOutput>(<any>null);
@@ -10894,7 +10894,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetRegionalStats";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10902,7 +10902,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRegionalStats(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10920,19 +10920,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetRegionalStatsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetRegionalStatsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetRegionalStatsOutput>(<any>null);
@@ -10945,7 +10945,7 @@ export class TenantDashboardServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantDashboard/GetGeneralStats";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -10953,7 +10953,7 @@ export class TenantDashboardServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetGeneralStats(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -10971,19 +10971,19 @@ export class TenantDashboardServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetGeneralStatsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetGeneralStatsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetGeneralStatsOutput>(<any>null);
@@ -11011,7 +11011,7 @@ export class TenantRegistrationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -11021,7 +11021,7 @@ export class TenantRegistrationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRegisterTenant(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11039,19 +11039,19 @@ export class TenantRegistrationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = RegisterTenantOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = RegisterTenantOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<RegisterTenantOutput>(<any>null);
@@ -11064,7 +11064,7 @@ export class TenantRegistrationServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantRegistration/GetEditionsForSelect";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11072,7 +11072,7 @@ export class TenantRegistrationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEditionsForSelect(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11090,19 +11090,19 @@ export class TenantRegistrationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = EditionsSelectOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = EditionsSelectOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<EditionsSelectOutput>(<any>null);
@@ -11120,7 +11120,7 @@ export class TenantRegistrationServiceProxy {
             url_ += "editionId=" + encodeURIComponent("" + editionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11128,7 +11128,7 @@ export class TenantRegistrationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEdition(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11146,19 +11146,19 @@ export class TenantRegistrationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = EditionSelectDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = EditionSelectDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<EditionSelectDto>(<any>null);
@@ -11183,7 +11183,7 @@ export class TenantSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantSettings/GetAllSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11191,7 +11191,7 @@ export class TenantSettingsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11209,19 +11209,19 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = TenantSettingsEditDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = TenantSettingsEditDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<TenantSettingsEditDto>(<any>null);
@@ -11237,7 +11237,7 @@ export class TenantSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -11246,7 +11246,7 @@ export class TenantSettingsServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateAllSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11264,16 +11264,16 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11286,14 +11286,14 @@ export class TenantSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantSettings/ClearLogo";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processClearLogo(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11311,16 +11311,16 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11333,14 +11333,14 @@ export class TenantSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantSettings/ClearCustomCss";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processClearCustomCss(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11358,16 +11358,16 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11383,7 +11383,7 @@ export class TenantSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -11392,7 +11392,7 @@ export class TenantSettingsServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendTestEmail(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11410,16 +11410,16 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11432,7 +11432,7 @@ export class TenantSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/TenantSettings/GetEnabledSocialLoginSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11440,7 +11440,7 @@ export class TenantSettingsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetEnabledSocialLoginSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11458,19 +11458,19 @@ export class TenantSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ExternalLoginSettingsDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ExternalLoginSettingsDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ExternalLoginSettingsDto>(<any>null);
@@ -11499,7 +11499,7 @@ export class TimingServiceProxy {
             url_ += "DefaultTimezoneScope=" + encodeURIComponent("" + defaultTimezoneScope) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11507,7 +11507,7 @@ export class TimingServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTimezones(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11525,19 +11525,19 @@ export class TimingServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfNameValueDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfNameValueDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfNameValueDto>(<any>null);
@@ -11555,7 +11555,7 @@ export class TimingServiceProxy {
             url_ += "SelectedTimezoneId=" + encodeURIComponent("" + selectedTimezoneId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11563,7 +11563,7 @@ export class TimingServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetTimezoneComboboxItems(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11581,26 +11581,26 @@ export class TimingServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(ComboboxItemDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(ComboboxItemDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ComboboxItemDto[]>(<any>null);
@@ -11628,7 +11628,7 @@ export class TokenAuthServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -11638,7 +11638,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11656,19 +11656,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = AuthenticateResultModel.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = AuthenticateResultModel.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<AuthenticateResultModel>(<any>null);
@@ -11686,7 +11686,7 @@ export class TokenAuthServiceProxy {
             url_ += "refreshToken=" + encodeURIComponent("" + refreshToken) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11694,7 +11694,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRefreshToken(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11712,19 +11712,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = RefreshTokenResult.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = RefreshTokenResult.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<RefreshTokenResult>(<any>null);
@@ -11737,14 +11737,14 @@ export class TokenAuthServiceProxy {
         let url_ = this.baseUrl + "/api/TokenAuth/LogOut";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processLogOut(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11762,16 +11762,16 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11787,7 +11787,7 @@ export class TokenAuthServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -11796,7 +11796,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processSendTwoFactorAuthCode(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11814,16 +11814,16 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -11841,7 +11841,7 @@ export class TokenAuthServiceProxy {
             url_ += "impersonationToken=" + encodeURIComponent("" + impersonationToken) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11849,7 +11849,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processImpersonatedAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11867,19 +11867,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonatedAuthenticateResultModel.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonatedAuthenticateResultModel.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonatedAuthenticateResultModel>(<any>null);
@@ -11902,7 +11902,7 @@ export class TokenAuthServiceProxy {
             url_ += "impersonationToken=" + encodeURIComponent("" + impersonationToken) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11910,7 +11910,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelegatedImpersonatedAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11928,19 +11928,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ImpersonatedAuthenticateResultModel.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ImpersonatedAuthenticateResultModel.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ImpersonatedAuthenticateResultModel>(<any>null);
@@ -11958,7 +11958,7 @@ export class TokenAuthServiceProxy {
             url_ += "switchAccountToken=" + encodeURIComponent("" + switchAccountToken) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -11966,7 +11966,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processLinkedAccountAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -11984,19 +11984,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SwitchedAccountAuthenticateResultModel.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = SwitchedAccountAuthenticateResultModel.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<SwitchedAccountAuthenticateResultModel>(<any>null);
@@ -12009,7 +12009,7 @@ export class TokenAuthServiceProxy {
         let url_ = this.baseUrl + "/api/TokenAuth/GetExternalAuthenticationProviders";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12017,7 +12017,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetExternalAuthenticationProviders(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12035,26 +12035,26 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(ExternalLoginProviderInfoModel.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(ExternalLoginProviderInfoModel.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ExternalLoginProviderInfoModel[]>(<any>null);
@@ -12070,7 +12070,7 @@ export class TokenAuthServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12080,7 +12080,7 @@ export class TokenAuthServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processExternalAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12098,19 +12098,19 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ExternalAuthenticateResultModel.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ExternalAuthenticateResultModel.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ExternalAuthenticateResultModel>(<any>null);
@@ -12133,14 +12133,14 @@ export class TokenAuthServiceProxy {
             url_ += "severity=" + encodeURIComponent("" + severity) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processTestNotification(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12158,16 +12158,16 @@ export class TokenAuthServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12192,7 +12192,7 @@ export class TwitterServiceProxy {
         let url_ = this.baseUrl + "/api/Twitter/GetRequestToken";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12200,7 +12200,7 @@ export class TwitterServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRequestToken(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12218,19 +12218,19 @@ export class TwitterServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = TwitterGetRequestTokenResponse.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = TwitterGetRequestTokenResponse.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<TwitterGetRequestTokenResponse>(<any>null);
@@ -12253,7 +12253,7 @@ export class TwitterServiceProxy {
             url_ += "verifier=" + encodeURIComponent("" + verifier) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12261,7 +12261,7 @@ export class TwitterServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAccessToken(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12279,19 +12279,19 @@ export class TwitterServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = TwitterGetAccessTokenResponse.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = TwitterGetAccessTokenResponse.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<TwitterGetAccessTokenResponse>(<any>null);
@@ -12316,7 +12316,7 @@ export class UiCustomizationSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/UiCustomizationSettings/GetUiManagementSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12324,7 +12324,7 @@ export class UiCustomizationSettingsServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUiManagementSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12342,26 +12342,26 @@ export class UiCustomizationSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(ThemeSettingsDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(ThemeSettingsDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ThemeSettingsDto[]>(<any>null);
@@ -12379,14 +12379,14 @@ export class UiCustomizationSettingsServiceProxy {
             url_ += "themeName=" + encodeURIComponent("" + themeName) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processChangeThemeWithDefaultValues(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12404,16 +12404,16 @@ export class UiCustomizationSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12429,7 +12429,7 @@ export class UiCustomizationSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12438,7 +12438,7 @@ export class UiCustomizationSettingsServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateUiManagementSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12456,16 +12456,16 @@ export class UiCustomizationSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12481,7 +12481,7 @@ export class UiCustomizationSettingsServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12490,7 +12490,7 @@ export class UiCustomizationSettingsServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateDefaultUiManagementSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12508,16 +12508,16 @@ export class UiCustomizationSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12530,14 +12530,14 @@ export class UiCustomizationSettingsServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/UiCustomizationSettings/UseSystemDefaultSettings";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUseSystemDefaultSettings(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12555,16 +12555,16 @@ export class UiCustomizationSettingsServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12592,7 +12592,7 @@ export class UserServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12602,7 +12602,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12620,19 +12620,19 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfUserListDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfUserListDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfUserListDto>(<any>null);
@@ -12670,7 +12670,7 @@ export class UserServiceProxy {
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12678,7 +12678,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUsersToExcel(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12696,19 +12696,19 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FileDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FileDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FileDto>(<any>null);
@@ -12726,7 +12726,7 @@ export class UserServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12734,7 +12734,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12752,19 +12752,19 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetUserForEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetUserForEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetUserForEditOutput>(<any>null);
@@ -12782,7 +12782,7 @@ export class UserServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -12790,7 +12790,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserPermissionsForEdit(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12808,19 +12808,19 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetUserPermissionsForEditOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetUserPermissionsForEditOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetUserPermissionsForEditOutput>(<any>null);
@@ -12836,7 +12836,7 @@ export class UserServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12845,7 +12845,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processResetUserSpecificPermissions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12863,16 +12863,16 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12888,7 +12888,7 @@ export class UserServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12897,7 +12897,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateUserPermissions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12915,16 +12915,16 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12940,7 +12940,7 @@ export class UserServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -12949,7 +12949,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processCreateOrUpdateUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -12967,16 +12967,16 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -12994,14 +12994,14 @@ export class UserServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDeleteUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13019,16 +13019,16 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13044,7 +13044,7 @@ export class UserServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -13053,7 +13053,7 @@ export class UserServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUnlockUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13071,16 +13071,16 @@ export class UserServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13120,7 +13120,7 @@ export class UserDelegationServiceProxy {
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13128,7 +13128,7 @@ export class UserDelegationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetDelegatedUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13146,19 +13146,19 @@ export class UserDelegationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfUserDelegationDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfUserDelegationDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfUserDelegationDto>(<any>null);
@@ -13174,7 +13174,7 @@ export class UserDelegationServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -13183,7 +13183,7 @@ export class UserDelegationServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDelegateNewUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13201,16 +13201,16 @@ export class UserDelegationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13228,14 +13228,14 @@ export class UserDelegationServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processRemoveDelegation(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13253,16 +13253,16 @@ export class UserDelegationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13275,7 +13275,7 @@ export class UserDelegationServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/UserDelegation/GetActiveUserDelegations";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13283,7 +13283,7 @@ export class UserDelegationServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetActiveUserDelegations(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13301,26 +13301,26 @@ export class UserDelegationServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(UserDelegationDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                if (Array.isArray(resultData200)) {
+                    result200 = [] as any;
+                    for (let item of resultData200)
+                        result200!.push(UserDelegationDto.fromJS(item));
+                }
+                else {
+                    result200 = <any>null;
+                }
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<UserDelegationDto[]>(<any>null);
@@ -13348,7 +13348,7 @@ export class UserLinkServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -13357,7 +13357,7 @@ export class UserLinkServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processLinkToUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13375,16 +13375,16 @@ export class UserLinkServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13412,7 +13412,7 @@ export class UserLinkServiceProxy {
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13420,7 +13420,7 @@ export class UserLinkServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLinkedUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13438,19 +13438,19 @@ export class UserLinkServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfLinkedUserDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfLinkedUserDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfLinkedUserDto>(<any>null);
@@ -13463,7 +13463,7 @@ export class UserLinkServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/UserLink/GetRecentlyUsedLinkedUsers";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13471,7 +13471,7 @@ export class UserLinkServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetRecentlyUsedLinkedUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13489,19 +13489,19 @@ export class UserLinkServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfLinkedUserDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfLinkedUserDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfLinkedUserDto>(<any>null);
@@ -13517,7 +13517,7 @@ export class UserLinkServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -13526,7 +13526,7 @@ export class UserLinkServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUnlinkUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13544,16 +13544,16 @@ export class UserLinkServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13613,7 +13613,7 @@ export class UserLoginServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13621,7 +13621,7 @@ export class UserLoginServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetUserLoginAttempts(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13639,19 +13639,19 @@ export class UserLoginServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfUserLoginAttemptDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfUserLoginAttemptDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfUserLoginAttemptDto>(<any>null);
@@ -13681,7 +13681,7 @@ export class WebhookEventServiceProxy {
             url_ += "id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13689,7 +13689,7 @@ export class WebhookEventServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13707,19 +13707,19 @@ export class WebhookEventServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = WebhookEvent.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = WebhookEvent.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<WebhookEvent>(<any>null);
@@ -13759,7 +13759,7 @@ export class WebhookSendAttemptServiceProxy {
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13767,7 +13767,7 @@ export class WebhookSendAttemptServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSendAttempts(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13785,19 +13785,19 @@ export class WebhookSendAttemptServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = PagedResultDtoOfGetAllSendAttemptsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = PagedResultDtoOfGetAllSendAttemptsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<PagedResultDtoOfGetAllSendAttemptsOutput>(<any>null);
@@ -13815,7 +13815,7 @@ export class WebhookSendAttemptServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13823,7 +13823,7 @@ export class WebhookSendAttemptServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSendAttemptsOfWebhookEvent(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13841,19 +13841,19 @@ export class WebhookSendAttemptServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput>(<any>null);
@@ -13871,14 +13871,14 @@ export class WebhookSendAttemptServiceProxy {
             url_ += "sendAttemptId=" + encodeURIComponent("" + sendAttemptId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processResend(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13896,16 +13896,16 @@ export class WebhookSendAttemptServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -13930,7 +13930,7 @@ export class WebhookSubscriptionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/WebhookSubscription/PublishTestWebhook";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13938,7 +13938,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processPublishTestWebhook(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -13956,19 +13956,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<string>(<any>null);
@@ -13981,7 +13981,7 @@ export class WebhookSubscriptionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/WebhookSubscription/GetAllSubscriptions";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -13989,7 +13989,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSubscriptions(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14007,19 +14007,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfGetAllSubscriptionsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfGetAllSubscriptionsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfGetAllSubscriptionsOutput>(<any>null);
@@ -14037,7 +14037,7 @@ export class WebhookSubscriptionServiceProxy {
             url_ += "subscriptionId=" + encodeURIComponent("" + subscriptionId) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14045,7 +14045,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetSubscription(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14063,19 +14063,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = WebhookSubscription.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = WebhookSubscription.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<WebhookSubscription>(<any>null);
@@ -14091,7 +14091,7 @@ export class WebhookSubscriptionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -14100,7 +14100,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processAddSubscription(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14118,16 +14118,16 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -14143,7 +14143,7 @@ export class WebhookSubscriptionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -14152,7 +14152,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processUpdateSubscription(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14170,16 +14170,16 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -14195,7 +14195,7 @@ export class WebhookSubscriptionServiceProxy {
 
         const content_ = JSON.stringify(body);
 
-        let options_ : any = {
+        let options_: any = {
             body: content_,
             observe: "response",
             responseType: "blob",
@@ -14204,7 +14204,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processActivateWebhookSubscription(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14222,16 +14222,16 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+                return _observableOf<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<void>(<any>null);
@@ -14249,7 +14249,7 @@ export class WebhookSubscriptionServiceProxy {
             url_ += "webhookName=" + encodeURIComponent("" + webhookName) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14257,7 +14257,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processIsSubscribed(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14275,19 +14275,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : <any>null;
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<boolean>(<any>null);
@@ -14305,7 +14305,7 @@ export class WebhookSubscriptionServiceProxy {
             url_ += "webhookName=" + encodeURIComponent("" + webhookName) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14313,7 +14313,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllSubscriptionsIfFeaturesGranted(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14331,19 +14331,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfGetAllSubscriptionsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfGetAllSubscriptionsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfGetAllSubscriptionsOutput>(<any>null);
@@ -14356,7 +14356,7 @@ export class WebhookSubscriptionServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/WebhookSubscription/GetAllAvailableWebhooks";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14364,7 +14364,7 @@ export class WebhookSubscriptionServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetAllAvailableWebhooks(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14382,19 +14382,19 @@ export class WebhookSubscriptionServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = ListResultDtoOfGetAllAvailableWebhooksOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = ListResultDtoOfGetAllAvailableWebhooksOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<ListResultDtoOfGetAllAvailableWebhooksOutput>(<any>null);
@@ -14419,7 +14419,7 @@ export class WebLogServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/WebLog/GetLatestWebLogs";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14427,7 +14427,7 @@ export class WebLogServiceProxy {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processGetLatestWebLogs(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14445,19 +14445,19 @@ export class WebLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GetLatestWebLogsOutput.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = GetLatestWebLogsOutput.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<GetLatestWebLogsOutput>(<any>null);
@@ -14470,7 +14470,7 @@ export class WebLogServiceProxy {
         let url_ = this.baseUrl + "/api/services/app/WebLog/DownloadWebLogs";
         url_ = url_.replace(/[?&]$/, "");
 
-        let options_ : any = {
+        let options_: any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
@@ -14478,7 +14478,7 @@ export class WebLogServiceProxy {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_: any) => {
             return this.processDownloadWebLogs(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
@@ -14496,19 +14496,19 @@ export class WebLogServiceProxy {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+                (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); } }
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = FileDto.fromJS(resultData200);
-            return _observableOf(result200);
+                let result200: any = null;
+                let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = FileDto.fromJS(resultData200);
+                return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
         return _observableOf<FileDto>(<any>null);
@@ -14559,7 +14559,7 @@ export class AcceptFriendshipRequestInput implements IAcceptFriendshipRequestInp
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["tenantId"] = this.tenantId;
-        return data; 
+        return data;
     }
 }
 
@@ -14602,7 +14602,7 @@ export class ActivateEmailInput implements IActivateEmailInput {
         data["userId"] = this.userId;
         data["confirmationCode"] = this.confirmationCode;
         data["c"] = this.c;
-        return data; 
+        return data;
     }
 }
 
@@ -14643,7 +14643,7 @@ export class ActivateWebhookSubscriptionInput implements IActivateWebhookSubscri
         data = typeof data === 'object' ? data : {};
         data["subscriptionId"] = this.subscriptionId;
         data["isActive"] = this.isActive;
-        return data; 
+        return data;
     }
 }
 
@@ -14686,7 +14686,7 @@ export class AddNewPageInput implements IAddNewPageInput {
         data["dashboardName"] = this.dashboardName;
         data["name"] = this.name;
         data["application"] = this.application;
-        return data; 
+        return data;
     }
 }
 
@@ -14724,7 +14724,7 @@ export class AddNewPageOutput implements IAddNewPageOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["pageId"] = this.pageId;
-        return data; 
+        return data;
     }
 }
 
@@ -14775,7 +14775,7 @@ export class AddWidgetInput implements IAddWidgetInput {
         data["width"] = this.width;
         data["height"] = this.height;
         data["application"] = this.application;
-        return data; 
+        return data;
     }
 }
 
@@ -14849,7 +14849,7 @@ export class ApplicationInfoDto implements IApplicationInfoDto {
                     (<any>data["features"])[key] = this.features[key];
             }
         }
-        return data; 
+        return data;
     }
 }
 
@@ -14901,7 +14901,7 @@ export class ApplicationLanguageEditDto implements IApplicationLanguageEditDto {
         data["name"] = this.name;
         data["icon"] = this.icon;
         data["isEnabled"] = this.isEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -14976,7 +14976,7 @@ export class ApplicationLanguageListDto implements IApplicationLanguageListDto {
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["creatorUserId"] = this.creatorUserId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -15038,7 +15038,7 @@ export class AppSettingsJsonDto implements IAppSettingsJsonDto {
             for (let item of this.languages)
                 data["languages"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -15118,7 +15118,7 @@ export class AuditLogListDto implements IAuditLogListDto {
         data["exception"] = this.exception;
         data["customData"] = this.customData;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -15189,7 +15189,7 @@ export class AuthenticateModel implements IAuthenticateModel {
         data["singleSignIn"] = this.singleSignIn;
         data["returnUrl"] = this.returnUrl;
         data["captchaResponse"] = this.captchaResponse;
-        return data; 
+        return data;
     }
 }
 
@@ -15273,7 +15273,7 @@ export class AuthenticateResultModel implements IAuthenticateResultModel {
         data["returnUrl"] = this.returnUrl;
         data["refreshToken"] = this.refreshToken;
         data["refreshTokenExpireInSeconds"] = this.refreshTokenExpireInSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -15323,7 +15323,7 @@ export class BlockUserInput implements IBlockUserInput {
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["tenantId"] = this.tenantId;
-        return data; 
+        return data;
     }
 }
 
@@ -15360,7 +15360,7 @@ export class CacheDto implements ICacheDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
-        return data; 
+        return data;
     }
 }
 
@@ -15399,7 +15399,7 @@ export class CancelPaymentDto implements ICancelPaymentDto {
         data = typeof data === 'object' ? data : {};
         data["paymentId"] = this.paymentId;
         data["gateway"] = this.gateway;
-        return data; 
+        return data;
     }
 }
 
@@ -15439,7 +15439,7 @@ export class ChangePasswordInput implements IChangePasswordInput {
         data = typeof data === 'object' ? data : {};
         data["currentPassword"] = this.currentPassword;
         data["newPassword"] = this.newPassword;
-        return data; 
+        return data;
     }
 }
 
@@ -15476,7 +15476,7 @@ export class ChangeUserLanguageDto implements IChangeUserLanguageDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["languageName"] = this.languageName;
-        return data; 
+        return data;
     }
 }
 
@@ -15548,7 +15548,7 @@ export class ChatMessageDto implements IChatMessageDto {
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["sharedMessageId"] = this.sharedMessageId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -15604,7 +15604,7 @@ export class CheckDatabaseOutput implements ICheckDatabaseOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["isDatabaseExist"] = this.isDatabaseExist;
-        return data; 
+        return data;
     }
 }
 
@@ -15643,7 +15643,7 @@ export class CleanValuesInput implements ICleanValuesInput {
         data = typeof data === 'object' ? data : {};
         data["dynamicEntityPropertyId"] = this.dynamicEntityPropertyId;
         data["entityId"] = this.entityId;
-        return data; 
+        return data;
     }
 }
 
@@ -15686,7 +15686,7 @@ export class ComboboxItemDto implements IComboboxItemDto {
         data["value"] = this.value;
         data["displayText"] = this.displayText;
         data["isSelected"] = this.isSelected;
-        return data; 
+        return data;
     }
 }
 
@@ -15739,7 +15739,7 @@ export class CreateEditionDto implements ICreateEditionDto {
             for (let item of this.featureValues)
                 data["featureValues"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -15779,7 +15779,7 @@ export class CreateFriendshipRequestByUserNameInput implements ICreateFriendship
         data = typeof data === 'object' ? data : {};
         data["tenancyName"] = this.tenancyName;
         data["userName"] = this.userName;
-        return data; 
+        return data;
     }
 }
 
@@ -15819,7 +15819,7 @@ export class CreateFriendshipRequestInput implements ICreateFriendshipRequestInp
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["tenantId"] = this.tenantId;
-        return data; 
+        return data;
     }
 }
 
@@ -15856,7 +15856,7 @@ export class CreateInvoiceDto implements ICreateInvoiceDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["subscriptionPaymentId"] = this.subscriptionPaymentId;
-        return data; 
+        return data;
     }
 }
 
@@ -15895,7 +15895,7 @@ export class CreateOrganizationUnitInput implements ICreateOrganizationUnitInput
         data = typeof data === 'object' ? data : {};
         data["parentId"] = this.parentId;
         data["displayName"] = this.displayName;
-        return data; 
+        return data;
     }
 }
 
@@ -15935,7 +15935,7 @@ export class CreateOrUpdateLanguageInput implements ICreateOrUpdateLanguageInput
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["language"] = this.language ? this.language.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -15986,7 +15986,7 @@ export class CreateOrUpdateRoleInput implements ICreateOrUpdateRoleInput {
             for (let item of this.grantedPermissionNames)
                 data["grantedPermissionNames"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -16055,7 +16055,7 @@ export class CreateOrUpdateUserInput implements ICreateOrUpdateUserInput {
             for (let item of this.organizationUnits)
                 data["organizationUnits"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -16113,7 +16113,7 @@ export class CreatePaymentDto implements ICreatePaymentDto {
         data["recurringPaymentEnabled"] = this.recurringPaymentEnabled;
         data["successUrl"] = this.successUrl;
         data["errorUrl"] = this.errorUrl;
-        return data; 
+        return data;
     }
 }
 
@@ -16185,7 +16185,7 @@ export class CreateTenantInput implements ICreateTenantInput {
         data["isActive"] = this.isActive;
         data["subscriptionEndDateUtc"] = this.subscriptionEndDateUtc ? this.subscriptionEndDateUtc.toString() : <any>undefined;
         data["isInTrialPeriod"] = this.isInTrialPeriod;
-        return data; 
+        return data;
     }
 }
 
@@ -16237,7 +16237,7 @@ export class CreateUserDelegationDto implements ICreateUserDelegationDto {
         data["targetUserId"] = this.targetUserId;
         data["startTime"] = this.startTime ? this.startTime.toString() : <any>undefined;
         data["endTime"] = this.endTime ? this.endTime.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -16299,7 +16299,7 @@ export class CurrentUserProfileEditDto implements ICurrentUserProfileEditDto {
         data["timezone"] = this.timezone;
         data["qrCodeSetupImageUrl"] = this.qrCodeSetupImageUrl;
         data["isGoogleAuthenticatorEnabled"] = this.isGoogleAuthenticatorEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -16354,7 +16354,7 @@ export class Dashboard implements IDashboard {
             for (let item of this.pages)
                 data["pages"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -16402,7 +16402,7 @@ export class DashboardOutput implements IDashboardOutput {
             for (let item of this.widgets)
                 data["widgets"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -16439,7 +16439,7 @@ export class DateToStringOutput implements IDateToStringOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["dateString"] = this.dateString;
-        return data; 
+        return data;
     }
 }
 
@@ -16475,7 +16475,7 @@ export class DelegatedImpersonateInput implements IDelegatedImpersonateInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["userDelegationId"] = this.userDelegationId;
-        return data; 
+        return data;
     }
 }
 
@@ -16523,7 +16523,7 @@ export class DynamicEntityPropertyDto implements IDynamicEntityPropertyDto {
         data["dynamicPropertyId"] = this.dynamicPropertyId;
         data["tenantId"] = this.tenantId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16572,7 +16572,7 @@ export class DynamicEntityPropertyValueDto implements IDynamicEntityPropertyValu
         data["entityId"] = this.entityId;
         data["dynamicEntityPropertyId"] = this.dynamicEntityPropertyId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16626,7 +16626,7 @@ export class DynamicPropertyDto implements IDynamicPropertyDto {
         data["permission"] = this.permission;
         data["tenantId"] = this.tenantId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16676,7 +16676,7 @@ export class DynamicPropertyValueDto implements IDynamicPropertyValueDto {
         data["tenantId"] = this.tenantId;
         data["dynamicPropertyId"] = this.dynamicPropertyId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16739,7 +16739,7 @@ export class EditionCreateDto implements IEditionCreateDto {
         data["trialDayCount"] = this.trialDayCount;
         data["waitingDayAfterExpire"] = this.waitingDayAfterExpire;
         data["expiringEditionId"] = this.expiringEditionId;
-        return data; 
+        return data;
     }
 }
 
@@ -16789,7 +16789,7 @@ export class EditionEditDto implements IEditionEditDto {
         data["id"] = this.id;
         data["displayName"] = this.displayName;
         data["expiringEditionId"] = this.expiringEditionId;
-        return data; 
+        return data;
     }
 }
 
@@ -16845,7 +16845,7 @@ export class EditionInfoDto implements IEditionInfoDto {
         data["isHighestEdition"] = this.isHighestEdition;
         data["isFree"] = this.isFree;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16914,7 +16914,7 @@ export class EditionListDto implements IEditionListDto {
         data["trialDayCount"] = this.trialDayCount;
         data["expiringEditionDisplayName"] = this.expiringEditionDisplayName;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -16999,7 +16999,7 @@ export class EditionSelectDto implements IEditionSelectDto {
         data["waitingDayAfterExpire"] = this.waitingDayAfterExpire;
         data["isFree"] = this.isFree;
         data["additionalData"] = this.additionalData ? this.additionalData.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -17065,7 +17065,7 @@ export class EditionsSelectOutput implements IEditionsSelectOutput {
             for (let item of this.editionsWithFeatures)
                 data["editionsWithFeatures"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -17113,7 +17113,7 @@ export class EditionWithFeaturesDto implements IEditionWithFeaturesDto {
             for (let item of this.featureValues)
                 data["featureValues"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -17174,7 +17174,7 @@ export class EmailSettingsEditDto implements IEmailSettingsEditDto {
         data["smtpDomain"] = this.smtpDomain;
         data["smtpEnableSsl"] = this.smtpEnableSsl;
         data["smtpUseDefaultCredentials"] = this.smtpUseDefaultCredentials;
-        return data; 
+        return data;
     }
 }
 
@@ -17239,7 +17239,7 @@ export class EntityChangeListDto implements IEntityChangeListDto {
         data["changeTypeName"] = this.changeTypeName;
         data["entityChangeSetId"] = this.entityChangeSetId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17288,7 +17288,7 @@ export class EntityDto implements IEntityDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17324,7 +17324,7 @@ export class EntityDtoOfGuid implements IEntityDtoOfGuid {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17360,7 +17360,7 @@ export class EntityDtoOfInt64 implements IEntityDtoOfInt64 {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17396,7 +17396,7 @@ export class EntityDtoOfString implements IEntityDtoOfString {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17450,7 +17450,7 @@ export class EntityPropertyChangeDto implements IEntityPropertyChangeDto {
         data["propertyTypeFullName"] = this.propertyTypeFullName;
         data["tenantId"] = this.tenantId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -17495,7 +17495,7 @@ export class ExpiringTenant implements IExpiringTenant {
         data = typeof data === 'object' ? data : {};
         data["tenantName"] = this.tenantName;
         data["remainingDayCount"] = this.remainingDayCount;
-        return data; 
+        return data;
     }
 }
 
@@ -17544,7 +17544,7 @@ export class ExternalAuthenticateModel implements IExternalAuthenticateModel {
         data["providerAccessCode"] = this.providerAccessCode;
         data["returnUrl"] = this.returnUrl;
         data["singleSignIn"] = this.singleSignIn;
-        return data; 
+        return data;
     }
 }
 
@@ -17602,7 +17602,7 @@ export class ExternalAuthenticateResultModel implements IExternalAuthenticateRes
         data["returnUrl"] = this.returnUrl;
         data["refreshToken"] = this.refreshToken;
         data["refreshTokenExpireInSeconds"] = this.refreshTokenExpireInSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -17662,7 +17662,7 @@ export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInf
                     (<any>data["additionalParams"])[key] = this.additionalParams[key];
             }
         }
-        return data; 
+        return data;
     }
 }
 
@@ -17755,7 +17755,7 @@ export class ExternalLoginProviderSettingsEditDto implements IExternalLoginProvi
             for (let item of this.wsFederationClaimsMapping)
                 data["wsFederationClaimsMapping"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -17812,7 +17812,7 @@ export class ExternalLoginSettingsDto implements IExternalLoginSettingsDto {
             for (let item of this.enabledSocialLoginSettings)
                 data["enabledSocialLoginSettings"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -17851,7 +17851,7 @@ export class FacebookExternalLoginProviderSettings implements IFacebookExternalL
         data = typeof data === 'object' ? data : {};
         data["appId"] = this.appId;
         data["appSecret"] = this.appSecret;
-        return data; 
+        return data;
     }
 }
 
@@ -17909,7 +17909,7 @@ export class FeatureInputTypeDto implements IFeatureInputTypeDto {
         }
         data["validator"] = this.validator ? this.validator.toJSON() : <any>undefined;
         data["itemSource"] = this.itemSource ? this.itemSource.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -17954,7 +17954,7 @@ export class FileDto implements IFileDto {
         data["fileName"] = this.fileName;
         data["fileType"] = this.fileType;
         data["fileToken"] = this.fileToken;
-        return data; 
+        return data;
     }
 }
 
@@ -18001,7 +18001,7 @@ export class FindOrganizationUnitRolesInput implements IFindOrganizationUnitRole
         data["maxResultCount"] = this.maxResultCount;
         data["skipCount"] = this.skipCount;
         data["filter"] = this.filter;
-        return data; 
+        return data;
     }
 }
 
@@ -18049,7 +18049,7 @@ export class FindOrganizationUnitUsersInput implements IFindOrganizationUnitUser
         data["maxResultCount"] = this.maxResultCount;
         data["skipCount"] = this.skipCount;
         data["filter"] = this.filter;
-        return data; 
+        return data;
     }
 }
 
@@ -18100,7 +18100,7 @@ export class FindUsersInput implements IFindUsersInput {
         data["maxResultCount"] = this.maxResultCount;
         data["skipCount"] = this.skipCount;
         data["filter"] = this.filter;
-        return data; 
+        return data;
     }
 }
 
@@ -18155,7 +18155,7 @@ export class FlatFeatureDto implements IFlatFeatureDto {
         data["description"] = this.description;
         data["defaultValue"] = this.defaultValue;
         data["inputType"] = this.inputType ? this.inputType.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -18214,7 +18214,7 @@ export class FlatFeatureSelectDto implements IFlatFeatureSelectDto {
         data["defaultValue"] = this.defaultValue;
         data["inputType"] = this.inputType ? this.inputType.toJSON() : <any>undefined;
         data["textHtmlColor"] = this.textHtmlColor;
-        return data; 
+        return data;
     }
 }
 
@@ -18268,7 +18268,7 @@ export class FlatPermissionDto implements IFlatPermissionDto {
         data["displayName"] = this.displayName;
         data["description"] = this.description;
         data["isGrantedByDefault"] = this.isGrantedByDefault;
-        return data; 
+        return data;
     }
 }
 
@@ -18323,7 +18323,7 @@ export class FlatPermissionWithLevelDto implements IFlatPermissionWithLevelDto {
         data["displayName"] = this.displayName;
         data["description"] = this.description;
         data["isGrantedByDefault"] = this.isGrantedByDefault;
-        return data; 
+        return data;
     }
 }
 
@@ -18385,7 +18385,7 @@ export class FriendDto implements IFriendDto {
         data["unreadMessageCount"] = this.unreadMessageCount;
         data["isOnline"] = this.isOnline;
         data["state"] = this.state;
-        return data; 
+        return data;
     }
 }
 
@@ -18436,7 +18436,7 @@ export class GeneralSettingsEditDto implements IGeneralSettingsEditDto {
         data = typeof data === 'object' ? data : {};
         data["timezone"] = this.timezone;
         data["timezoneForComparison"] = this.timezoneForComparison;
-        return data; 
+        return data;
     }
 }
 
@@ -18479,7 +18479,7 @@ export class GetAllAvailableWebhooksOutput implements IGetAllAvailableWebhooksOu
         data["name"] = this.name;
         data["displayName"] = this.displayName;
         data["description"] = this.description;
-        return data; 
+        return data;
     }
 }
 
@@ -18525,7 +18525,7 @@ export class GetAllDynamicEntityPropertyValuesOutput implements IGetAllDynamicEn
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -18589,7 +18589,7 @@ export class GetAllDynamicEntityPropertyValuesOutputItem implements IGetAllDynam
             for (let item of this.allValuesInputTypeHas)
                 data["allValuesInputTypeHas"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -18629,7 +18629,7 @@ export class GetAllEntitiesHasDynamicPropertyOutput implements IGetAllEntitiesHa
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["entityFullName"] = this.entityFullName;
-        return data; 
+        return data;
     }
 }
 
@@ -18683,7 +18683,7 @@ export class GetAllSendAttemptsOfWebhookEventOutput implements IGetAllSendAttemp
         data["responseStatusCode"] = this.responseStatusCode;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["lastModificationTime"] = this.lastModificationTime ? this.lastModificationTime.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -18743,7 +18743,7 @@ export class GetAllSendAttemptsOutput implements IGetAllSendAttemptsOutput {
         data["response"] = this.response;
         data["responseStatusCode"] = this.responseStatusCode;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -18802,7 +18802,7 @@ export class GetAllSubscriptionsOutput implements IGetAllSubscriptionsOutput {
                 data["webhooks"].push(item);
         }
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -18856,7 +18856,7 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
         data["impersonatorTenant"] = this.impersonatorTenant ? this.impersonatorTenant.toJSON() : <any>undefined;
         data["application"] = this.application ? this.application.toJSON() : <any>undefined;
         data["theme"] = this.theme ? this.theme.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -18905,7 +18905,7 @@ export class GetDailySalesOutput implements IGetDailySalesOutput {
             for (let item of this.dailySales)
                 data["dailySales"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19004,7 +19004,7 @@ export class GetDashboardDataOutput implements IGetDashboardDataOutput {
             for (let item of this.profitShares)
                 data["profitShares"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19053,7 +19053,7 @@ export class GetDefaultEditionNameOutput implements IGetDefaultEditionNameOutput
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
-        return data; 
+        return data;
     }
 }
 
@@ -19111,7 +19111,7 @@ export class GetEditionEditOutput implements IGetEditionEditOutput {
             for (let item of this.features)
                 data["features"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19157,7 +19157,7 @@ export class GetEditionTenantStatisticsOutput implements IGetEditionTenantStatis
             for (let item of this.editionStatistics)
                 data["editionStatistics"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19213,7 +19213,7 @@ export class GetExpiringTenantsOutput implements IGetExpiringTenantsOutput {
         data["maxExpiringTenantsShownCount"] = this.maxExpiringTenantsShownCount;
         data["subscriptionEndDateStart"] = this.subscriptionEndDateStart ? this.subscriptionEndDateStart.toString() : <any>undefined;
         data["subscriptionEndDateEnd"] = this.subscriptionEndDateEnd ? this.subscriptionEndDateEnd.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -19259,7 +19259,7 @@ export class GetGeneralStatsOutput implements IGetGeneralStatsOutput {
         data["transactionPercent"] = this.transactionPercent;
         data["newVisitPercent"] = this.newVisitPercent;
         data["bouncePercent"] = this.bouncePercent;
-        return data; 
+        return data;
     }
 }
 
@@ -19305,7 +19305,7 @@ export class GetIncomeStatisticsDataOutput implements IGetIncomeStatisticsDataOu
             for (let item of this.incomeStatistics)
                 data["incomeStatistics"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19363,7 +19363,7 @@ export class GetLanguageForEditOutput implements IGetLanguageForEditOutput {
             for (let item of this.flags)
                 data["flags"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19412,7 +19412,7 @@ export class GetLanguagesOutput implements IGetLanguagesOutput {
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19457,7 +19457,7 @@ export class GetLatestWebLogsOutput implements IGetLatestWebLogsOutput {
             for (let item of this.latestWebLogLines)
                 data["latestWebLogLines"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19501,7 +19501,7 @@ export class GetMemberActivityOutput implements IGetMemberActivityOutput {
             for (let item of this.memberActivities)
                 data["memberActivities"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19548,7 +19548,7 @@ export class GetNotificationSettingsOutput implements IGetNotificationSettingsOu
             for (let item of this.notifications)
                 data["notifications"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19599,7 +19599,7 @@ export class GetNotificationsOutput implements IGetNotificationsOutput {
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19637,7 +19637,7 @@ export class GetPasswordComplexitySettingOutput implements IGetPasswordComplexit
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["setting"] = this.setting ? this.setting.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -19673,7 +19673,7 @@ export class GetProfilePictureOutput implements IGetProfilePictureOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["profilePicture"] = this.profilePicture;
-        return data; 
+        return data;
     }
 }
 
@@ -19717,7 +19717,7 @@ export class GetProfitShareOutput implements IGetProfitShareOutput {
             for (let item of this.profitShares)
                 data["profitShares"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19770,7 +19770,7 @@ export class GetRecentTenantsOutput implements IGetRecentTenantsOutput {
             for (let item of this.recentTenants)
                 data["recentTenants"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19817,7 +19817,7 @@ export class GetRegionalStatsOutput implements IGetRegionalStatsOutput {
             for (let item of this.stats)
                 data["stats"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19875,7 +19875,7 @@ export class GetRoleForEditOutput implements IGetRoleForEditOutput {
             for (let item of this.grantedPermissionNames)
                 data["grantedPermissionNames"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19921,7 +19921,7 @@ export class GetRolesInput implements IGetRolesInput {
             for (let item of this.permissions)
                 data["permissions"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -19977,7 +19977,7 @@ export class GetSalesSummaryOutput implements IGetSalesSummaryOutput {
             for (let item of this.salesSummary)
                 data["salesSummary"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20036,7 +20036,7 @@ export class GetTenantFeaturesEditOutput implements IGetTenantFeaturesEditOutput
             for (let item of this.features)
                 data["features"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20082,7 +20082,7 @@ export class GetTopStatsOutput implements IGetTopStatsOutput {
         data["newFeedbacks"] = this.newFeedbacks;
         data["newOrders"] = this.newOrders;
         data["newUsers"] = this.newUsers;
-        return data; 
+        return data;
     }
 }
 
@@ -20132,7 +20132,7 @@ export class GetUserChatFriendsWithSettingsOutput implements IGetUserChatFriends
             for (let item of this.friends)
                 data["friends"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20205,7 +20205,7 @@ export class GetUserForEditOutput implements IGetUserForEditOutput {
             for (let item of this.memberedOrganizationUnits)
                 data["memberedOrganizationUnits"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20264,7 +20264,7 @@ export class GetUserPermissionsForEditOutput implements IGetUserPermissionsForEd
             for (let item of this.grantedPermissionNames)
                 data["grantedPermissionNames"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20327,7 +20327,7 @@ export class GetUsersInput implements IGetUsersInput {
         data["sorting"] = this.sorting;
         data["maxResultCount"] = this.maxResultCount;
         data["skipCount"] = this.skipCount;
-        return data; 
+        return data;
     }
 }
 
@@ -20375,7 +20375,7 @@ export class GoogleExternalLoginProviderSettings implements IGoogleExternalLogin
         data["clientId"] = this.clientId;
         data["clientSecret"] = this.clientSecret;
         data["userInfoEndpoint"] = this.userInfoEndpoint;
-        return data; 
+        return data;
     }
 }
 
@@ -20416,7 +20416,7 @@ export class HostBillingSettingsEditDto implements IHostBillingSettingsEditDto {
         data = typeof data === 'object' ? data : {};
         data["legalName"] = this.legalName;
         data["address"] = this.address;
-        return data; 
+        return data;
     }
 }
 
@@ -20481,7 +20481,7 @@ export class HostSettingsEditDto implements IHostSettingsEditDto {
         data["billing"] = this.billing ? this.billing.toJSON() : <any>undefined;
         data["otherSettings"] = this.otherSettings ? this.otherSettings.toJSON() : <any>undefined;
         data["externalLoginProviderSettings"] = this.externalLoginProviderSettings ? this.externalLoginProviderSettings.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -20545,7 +20545,7 @@ export class HostUserManagementSettingsEditDto implements IHostUserManagementSet
         data["allowUsingGravatarProfilePicture"] = this.allowUsingGravatarProfilePicture;
         data["sessionTimeOutSettings"] = this.sessionTimeOutSettings ? this.sessionTimeOutSettings.toJSON() : <any>undefined;
         data["userPasswordSettings"] = this.userPasswordSettings ? this.userPasswordSettings.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -20670,7 +20670,7 @@ export class IInputType implements IIInputType {
             }
         }
         data["validator"] = this.validator ? this.validator.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -20714,7 +20714,7 @@ export class ImpersonatedAuthenticateResultModel implements IImpersonatedAuthent
         data["accessToken"] = this.accessToken;
         data["encryptedAccessToken"] = this.encryptedAccessToken;
         data["expireInSeconds"] = this.expireInSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -20755,7 +20755,7 @@ export class ImpersonateOutput implements IImpersonateOutput {
         data = typeof data === 'object' ? data : {};
         data["impersonationToken"] = this.impersonationToken;
         data["tenancyName"] = this.tenancyName;
-        return data; 
+        return data;
     }
 }
 
@@ -20795,7 +20795,7 @@ export class ImpersonateTenantInput implements IImpersonateTenantInput {
         data = typeof data === 'object' ? data : {};
         data["tenantId"] = this.tenantId;
         data["userId"] = this.userId;
-        return data; 
+        return data;
     }
 }
 
@@ -20835,7 +20835,7 @@ export class ImpersonateUserInput implements IImpersonateUserInput {
         data = typeof data === 'object' ? data : {};
         data["tenantId"] = this.tenantId;
         data["userId"] = this.userId;
-        return data; 
+        return data;
     }
 }
 
@@ -20878,7 +20878,7 @@ export class IncomeStastistic implements IIncomeStastistic {
         data["label"] = this.label;
         data["date"] = this.date ? this.date.toString() : <any>undefined;
         data["amount"] = this.amount;
-        return data; 
+        return data;
     }
 }
 
@@ -20924,7 +20924,7 @@ export class InsertOrUpdateAllValuesInput implements IInsertOrUpdateAllValuesInp
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -20974,7 +20974,7 @@ export class InsertOrUpdateAllValuesInputItem implements IInsertOrUpdateAllValue
             for (let item of this.values)
                 data["values"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21030,7 +21030,7 @@ export class InstallDto implements IInstallDto {
         data["defaultLanguage"] = this.defaultLanguage;
         data["smtpSettings"] = this.smtpSettings ? this.smtpSettings.toJSON() : <any>undefined;
         data["billInfo"] = this.billInfo ? this.billInfo.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -21112,7 +21112,7 @@ export class InvoiceDto implements IInvoiceDto {
             for (let item of this.hostAddress)
                 data["hostAddress"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21156,7 +21156,7 @@ export class IsTenantAvailableInput implements IIsTenantAvailableInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["tenancyName"] = this.tenancyName;
-        return data; 
+        return data;
     }
 }
 
@@ -21198,7 +21198,7 @@ export class IsTenantAvailableOutput implements IIsTenantAvailableOutput {
         data["state"] = this.state;
         data["tenantId"] = this.tenantId;
         data["serverRootAddress"] = this.serverRootAddress;
-        return data; 
+        return data;
     }
 }
 
@@ -21251,7 +21251,7 @@ export class IValueValidator implements IIValueValidator {
                     (<any>data["attributes"])[key] = this.attributes[key];
             }
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21291,7 +21291,7 @@ export class JsonClaimMapDto implements IJsonClaimMapDto {
         data = typeof data === 'object' ? data : {};
         data["claim"] = this.claim;
         data["key"] = this.key;
-        return data; 
+        return data;
     }
 }
 
@@ -21334,7 +21334,7 @@ export class LanguageTextListDto implements ILanguageTextListDto {
         data["key"] = this.key;
         data["baseValue"] = this.baseValue;
         data["targetValue"] = this.targetValue;
-        return data; 
+        return data;
     }
 }
 
@@ -21384,7 +21384,7 @@ export class LdapSettingsEditDto implements ILdapSettingsEditDto {
         data["domain"] = this.domain;
         data["userName"] = this.userName;
         data["password"] = this.password;
-        return data; 
+        return data;
     }
 }
 
@@ -21433,7 +21433,7 @@ export class LinkedUserDto implements ILinkedUserDto {
         data["tenancyName"] = this.tenancyName;
         data["username"] = this.username;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -21478,7 +21478,7 @@ export class LinkToUserInput implements ILinkToUserInput {
         data["tenancyName"] = this.tenancyName;
         data["usernameOrEmailAddress"] = this.usernameOrEmailAddress;
         data["password"] = this.password;
-        return data; 
+        return data;
     }
 }
 
@@ -21524,7 +21524,7 @@ export class ListResultDtoOfCacheDto implements IListResultDtoOfCacheDto {
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21568,7 +21568,7 @@ export class ListResultDtoOfChatMessageDto implements IListResultDtoOfChatMessag
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21612,7 +21612,7 @@ export class ListResultDtoOfDynamicEntityPropertyDto implements IListResultDtoOf
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21656,7 +21656,7 @@ export class ListResultDtoOfDynamicEntityPropertyValueDto implements IListResult
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21700,7 +21700,7 @@ export class ListResultDtoOfDynamicPropertyDto implements IListResultDtoOfDynami
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21744,7 +21744,7 @@ export class ListResultDtoOfDynamicPropertyValueDto implements IListResultDtoOfD
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21788,7 +21788,7 @@ export class ListResultDtoOfEditionListDto implements IListResultDtoOfEditionLis
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21832,7 +21832,7 @@ export class ListResultDtoOfFlatPermissionWithLevelDto implements IListResultDto
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21876,7 +21876,7 @@ export class ListResultDtoOfGetAllAvailableWebhooksOutput implements IListResult
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21920,7 +21920,7 @@ export class ListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput implements IL
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -21964,7 +21964,7 @@ export class ListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput implements IL
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22008,7 +22008,7 @@ export class ListResultDtoOfGetAllSubscriptionsOutput implements IListResultDtoO
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22052,7 +22052,7 @@ export class ListResultDtoOfLinkedUserDto implements IListResultDtoOfLinkedUserD
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22096,7 +22096,7 @@ export class ListResultDtoOfNameValueDto implements IListResultDtoOfNameValueDto
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22140,7 +22140,7 @@ export class ListResultDtoOfOrganizationUnitDto implements IListResultDtoOfOrgan
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22184,7 +22184,7 @@ export class ListResultDtoOfRoleListDto implements IListResultDtoOfRoleListDto {
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22228,7 +22228,7 @@ export class ListResultDtoOfSubscribableEditionComboboxItemDto implements IListR
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22267,7 +22267,7 @@ export class LocalizableComboboxItemDto implements ILocalizableComboboxItemDto {
         data = typeof data === 'object' ? data : {};
         data["value"] = this.value;
         data["displayText"] = this.displayText;
-        return data; 
+        return data;
     }
 }
 
@@ -22312,7 +22312,7 @@ export class LocalizableComboboxItemSourceDto implements ILocalizableComboboxIte
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22351,7 +22351,7 @@ export class MarkAllUnreadMessagesOfUserAsReadInput implements IMarkAllUnreadMes
         data = typeof data === 'object' ? data : {};
         data["tenantId"] = this.tenantId;
         data["userId"] = this.userId;
-        return data; 
+        return data;
     }
 }
 
@@ -22400,7 +22400,7 @@ export class MemberActivity implements IMemberActivity {
         data["cases"] = this.cases;
         data["closed"] = this.closed;
         data["rate"] = this.rate;
-        return data; 
+        return data;
     }
 }
 
@@ -22443,7 +22443,7 @@ export class MicrosoftExternalLoginProviderSettings implements IMicrosoftExterna
         data = typeof data === 'object' ? data : {};
         data["clientId"] = this.clientId;
         data["clientSecret"] = this.clientSecret;
-        return data; 
+        return data;
     }
 }
 
@@ -22483,7 +22483,7 @@ export class MoveOrganizationUnitInput implements IMoveOrganizationUnitInput {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["newParentId"] = this.newParentId;
-        return data; 
+        return data;
     }
 }
 
@@ -22523,7 +22523,7 @@ export class MoveTenantsToAnotherEditionDto implements IMoveTenantsToAnotherEdit
         data = typeof data === 'object' ? data : {};
         data["sourceEditionId"] = this.sourceEditionId;
         data["targetEditionId"] = this.targetEditionId;
-        return data; 
+        return data;
     }
 }
 
@@ -22563,7 +22563,7 @@ export class NameValue implements INameValue {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["value"] = this.value;
-        return data; 
+        return data;
     }
 }
 
@@ -22603,7 +22603,7 @@ export class NameValueDto implements INameValueDto {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["value"] = this.value;
-        return data; 
+        return data;
     }
 }
 
@@ -22643,7 +22643,7 @@ export class NameValueOfString implements INameValueOfString {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["value"] = this.value;
-        return data; 
+        return data;
     }
 }
 
@@ -22695,7 +22695,7 @@ export class NotificationData implements INotificationData {
                     (<any>data["properties"])[key] = this.properties[key];
             }
         }
-        return data; 
+        return data;
     }
 }
 
@@ -22743,7 +22743,7 @@ export class NotificationSubscriptionDto implements INotificationSubscriptionDto
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["isSubscribed"] = this.isSubscribed;
-        return data; 
+        return data;
     }
 }
 
@@ -22789,7 +22789,7 @@ export class NotificationSubscriptionWithDisplayNameDto implements INotification
         data["description"] = this.description;
         data["name"] = this.name;
         data["isSubscribed"] = this.isSubscribed;
-        return data; 
+        return data;
     }
 }
 
@@ -22840,7 +22840,7 @@ export class OpenIdConnectExternalLoginProviderSettings implements IOpenIdConnec
         data["authority"] = this.authority;
         data["loginUrl"] = this.loginUrl;
         data["validateIssuer"] = this.validateIssuer;
-        return data; 
+        return data;
     }
 }
 
@@ -22907,7 +22907,7 @@ export class OrganizationUnitDto implements IOrganizationUnitDto {
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["creatorUserId"] = this.creatorUserId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -22961,7 +22961,7 @@ export class OrganizationUnitRoleListDto implements IOrganizationUnitRoleListDto
         data["name"] = this.name;
         data["addedTime"] = this.addedTime ? this.addedTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -23018,7 +23018,7 @@ export class OrganizationUnitUserListDto implements IOrganizationUnitUserListDto
         data["profilePictureId"] = this.profilePictureId;
         data["addedTime"] = this.addedTime ? this.addedTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -23060,7 +23060,7 @@ export class OtherSettingsEditDto implements IOtherSettingsEditDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["isQuickThemeSelectEnabled"] = this.isQuickThemeSelectEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -23110,7 +23110,7 @@ export class Page implements IPage {
             for (let item of this.widgets)
                 data["widgets"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23159,7 +23159,7 @@ export class PagedResultDtoOfAuditLogListDto implements IPagedResultDtoOfAuditLo
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23207,7 +23207,7 @@ export class PagedResultDtoOfEntityChangeListDto implements IPagedResultDtoOfEnt
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23255,7 +23255,7 @@ export class PagedResultDtoOfGetAllSendAttemptsOutput implements IPagedResultDto
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23303,7 +23303,7 @@ export class PagedResultDtoOfLanguageTextListDto implements IPagedResultDtoOfLan
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23351,7 +23351,7 @@ export class PagedResultDtoOfLinkedUserDto implements IPagedResultDtoOfLinkedUse
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23399,7 +23399,7 @@ export class PagedResultDtoOfNameValueDto implements IPagedResultDtoOfNameValueD
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23447,7 +23447,7 @@ export class PagedResultDtoOfOrganizationUnitRoleListDto implements IPagedResult
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23495,7 +23495,7 @@ export class PagedResultDtoOfOrganizationUnitUserListDto implements IPagedResult
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23543,7 +23543,7 @@ export class PagedResultDtoOfSubscriptionPaymentListDto implements IPagedResultD
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23591,7 +23591,7 @@ export class PagedResultDtoOfTenantListDto implements IPagedResultDtoOfTenantLis
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23639,7 +23639,7 @@ export class PagedResultDtoOfUserDelegationDto implements IPagedResultDtoOfUserD
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23687,7 +23687,7 @@ export class PagedResultDtoOfUserListDto implements IPagedResultDtoOfUserListDto
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23735,7 +23735,7 @@ export class PagedResultDtoOfUserLoginAttemptDto implements IPagedResultDtoOfUse
             for (let item of this.items)
                 data["items"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23784,7 +23784,7 @@ export class PasswordComplexitySetting implements IPasswordComplexitySetting {
         data["requireNonAlphanumeric"] = this.requireNonAlphanumeric;
         data["requireUppercase"] = this.requireUppercase;
         data["requiredLength"] = this.requiredLength;
-        return data; 
+        return data;
     }
 }
 
@@ -23827,7 +23827,7 @@ export class PaymentGatewayModel implements IPaymentGatewayModel {
         data = typeof data === 'object' ? data : {};
         data["gatewayType"] = this.gatewayType;
         data["supportsRecurringPayments"] = this.supportsRecurringPayments;
-        return data; 
+        return data;
     }
 }
 
@@ -23867,7 +23867,7 @@ export class PaymentInfoDto implements IPaymentInfoDto {
         data = typeof data === 'object' ? data : {};
         data["edition"] = this.edition ? this.edition.toJSON() : <any>undefined;
         data["additionalPrice"] = this.additionalPrice;
-        return data; 
+        return data;
     }
 }
 
@@ -23928,7 +23928,7 @@ export class PayPalConfigurationDto implements IPayPalConfigurationDto {
             for (let item of this.disabledFundings)
                 data["disabledFundings"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -23973,7 +23973,7 @@ export class RecentTenant implements IRecentTenant {
         data["id"] = this.id;
         data["name"] = this.name;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -24017,7 +24017,7 @@ export class RefreshTokenResult implements IRefreshTokenResult {
         data["accessToken"] = this.accessToken;
         data["encryptedAccessToken"] = this.encryptedAccessToken;
         data["expireInSeconds"] = this.expireInSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -24075,7 +24075,7 @@ export class RegionalStatCountry implements IRegionalStatCountry {
         }
         data["averagePrice"] = this.averagePrice;
         data["totalPrice"] = this.totalPrice;
-        return data; 
+        return data;
     }
 }
 
@@ -24130,7 +24130,7 @@ export class RegisterInput implements IRegisterInput {
         data["emailAddress"] = this.emailAddress;
         data["password"] = this.password;
         data["captchaResponse"] = this.captchaResponse;
-        return data; 
+        return data;
     }
 }
 
@@ -24171,7 +24171,7 @@ export class RegisterOutput implements IRegisterOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["canLogin"] = this.canLogin;
-        return data; 
+        return data;
     }
 }
 
@@ -24225,7 +24225,7 @@ export class RegisterTenantInput implements IRegisterTenantInput {
         data["captchaResponse"] = this.captchaResponse;
         data["subscriptionStartType"] = this.subscriptionStartType;
         data["editionId"] = this.editionId;
-        return data; 
+        return data;
     }
 }
 
@@ -24288,7 +24288,7 @@ export class RegisterTenantOutput implements IRegisterTenantOutput {
         data["isTenantActive"] = this.isTenantActive;
         data["isActive"] = this.isActive;
         data["isEmailConfirmationRequired"] = this.isEmailConfirmationRequired;
-        return data; 
+        return data;
     }
 }
 
@@ -24340,7 +24340,7 @@ export class RenamePageInput implements IRenamePageInput {
         data["id"] = this.id;
         data["name"] = this.name;
         data["application"] = this.application;
-        return data; 
+        return data;
     }
 }
 
@@ -24394,7 +24394,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
         data["returnUrl"] = this.returnUrl;
         data["singleSignIn"] = this.singleSignIn;
         data["c"] = this.c;
-        return data; 
+        return data;
     }
 }
 
@@ -24438,7 +24438,7 @@ export class ResetPasswordOutput implements IResetPasswordOutput {
         data = typeof data === 'object' ? data : {};
         data["canLogin"] = this.canLogin;
         data["userName"] = this.userName;
-        return data; 
+        return data;
     }
 }
 
@@ -24475,7 +24475,7 @@ export class ResolveTenantIdInput implements IResolveTenantIdInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["c"] = this.c;
-        return data; 
+        return data;
     }
 }
 
@@ -24517,7 +24517,7 @@ export class RoleEditDto implements IRoleEditDto {
         data["id"] = this.id;
         data["displayName"] = this.displayName;
         data["isDefault"] = this.isDefault;
-        return data; 
+        return data;
     }
 }
 
@@ -24570,7 +24570,7 @@ export class RoleListDto implements IRoleListDto {
         data["isDefault"] = this.isDefault;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -24622,7 +24622,7 @@ export class RolesToOrganizationUnitInput implements IRolesToOrganizationUnitInp
                 data["roleIds"].push(item);
         }
         data["organizationUnitId"] = this.organizationUnitId;
-        return data; 
+        return data;
     }
 }
 
@@ -24665,7 +24665,7 @@ export class SalesSummaryData implements ISalesSummaryData {
         data["period"] = this.period;
         data["sales"] = this.sales;
         data["profit"] = this.profit;
-        return data; 
+        return data;
     }
 }
 
@@ -24723,7 +24723,7 @@ export class SavePageInput implements ISavePageInput {
             for (let item of this.pages)
                 data["pages"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -24776,7 +24776,7 @@ export class SecuritySettingsEditDto implements ISecuritySettingsEditDto {
         data["defaultPasswordComplexity"] = this.defaultPasswordComplexity ? this.defaultPasswordComplexity.toJSON() : <any>undefined;
         data["userLockOut"] = this.userLockOut ? this.userLockOut.toJSON() : <any>undefined;
         data["twoFactorLogin"] = this.twoFactorLogin ? this.twoFactorLogin.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -24817,7 +24817,7 @@ export class SendEmailActivationLinkInput implements ISendEmailActivationLinkInp
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["emailAddress"] = this.emailAddress;
-        return data; 
+        return data;
     }
 }
 
@@ -24853,7 +24853,7 @@ export class SendPasswordResetCodeInput implements ISendPasswordResetCodeInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["emailAddress"] = this.emailAddress;
-        return data; 
+        return data;
     }
 }
 
@@ -24889,7 +24889,7 @@ export class SendTestEmailInput implements ISendTestEmailInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["emailAddress"] = this.emailAddress;
-        return data; 
+        return data;
     }
 }
 
@@ -24928,7 +24928,7 @@ export class SendTwoFactorAuthCodeModel implements ISendTwoFactorAuthCodeModel {
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["provider"] = this.provider;
-        return data; 
+        return data;
     }
 }
 
@@ -24965,7 +24965,7 @@ export class SendVerificationSmsInputDto implements ISendVerificationSmsInputDto
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["phoneNumber"] = this.phoneNumber;
-        return data; 
+        return data;
     }
 }
 
@@ -25010,7 +25010,7 @@ export class SessionTimeOutSettingsEditDto implements ISessionTimeOutSettingsEdi
         data["timeOutSecond"] = this.timeOutSecond;
         data["showTimeOutNotificationSecond"] = this.showTimeOutNotificationSecond;
         data["showLockScreenWhenTimedOut"] = this.showLockScreenWhenTimedOut;
-        return data; 
+        return data;
     }
 }
 
@@ -25049,7 +25049,7 @@ export class SetDefaultLanguageInput implements ISetDefaultLanguageInput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
-        return data; 
+        return data;
     }
 }
 
@@ -25085,7 +25085,7 @@ export class SetNotificationAsReadOutput implements ISetNotificationAsReadOutput
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["success"] = this.success;
-        return data; 
+        return data;
     }
 }
 
@@ -25128,7 +25128,7 @@ export class StringOutput implements IStringOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["output"] = this.output;
-        return data; 
+        return data;
     }
 }
 
@@ -25164,7 +25164,7 @@ export class StripeConfigurationDto implements IStripeConfigurationDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["publishableKey"] = this.publishableKey;
-        return data; 
+        return data;
     }
 }
 
@@ -25206,7 +25206,7 @@ export class StripeCreatePaymentSessionInput implements IStripeCreatePaymentSess
         data["paymentId"] = this.paymentId;
         data["successUrl"] = this.successUrl;
         data["cancelUrl"] = this.cancelUrl;
-        return data; 
+        return data;
     }
 }
 
@@ -25244,7 +25244,7 @@ export class StripePaymentResultOutput implements IStripePaymentResultOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["paymentDone"] = this.paymentDone;
-        return data; 
+        return data;
     }
 }
 
@@ -25289,7 +25289,7 @@ export class SubscribableEditionComboboxItemDto implements ISubscribableEditionC
         data["value"] = this.value;
         data["displayText"] = this.displayText;
         data["isSelected"] = this.isSelected;
-        return data; 
+        return data;
     }
 }
 
@@ -25379,7 +25379,7 @@ export class SubscriptionPaymentDto implements ISubscriptionPaymentDto {
         data["errorUrl"] = this.errorUrl;
         data["editionPaymentType"] = this.editionPaymentType;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -25482,7 +25482,7 @@ export class SubscriptionPaymentListDto implements ISubscriptionPaymentListDto {
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["creatorUserId"] = this.creatorUserId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -25559,7 +25559,7 @@ export class SwitchedAccountAuthenticateResultModel implements ISwitchedAccountA
         data["accessToken"] = this.accessToken;
         data["encryptedAccessToken"] = this.encryptedAccessToken;
         data["expireInSeconds"] = this.expireInSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -25600,7 +25600,7 @@ export class SwitchToLinkedAccountInput implements ISwitchToLinkedAccountInput {
         data = typeof data === 'object' ? data : {};
         data["targetTenantId"] = this.targetTenantId;
         data["targetUserId"] = this.targetUserId;
-        return data; 
+        return data;
     }
 }
 
@@ -25640,7 +25640,7 @@ export class SwitchToLinkedAccountOutput implements ISwitchToLinkedAccountOutput
         data = typeof data === 'object' ? data : {};
         data["switchAccountToken"] = this.switchAccountToken;
         data["tenancyName"] = this.tenancyName;
-        return data; 
+        return data;
     }
 }
 
@@ -25689,7 +25689,7 @@ export class TenantBillingSettingsEditDto implements ITenantBillingSettingsEditD
         data["legalName"] = this.legalName;
         data["address"] = this.address;
         data["taxVatNo"] = this.taxVatNo;
-        return data; 
+        return data;
     }
 }
 
@@ -25748,7 +25748,7 @@ export class TenantEditDto implements ITenantEditDto {
         data["subscriptionEndDateUtc"] = this.subscriptionEndDateUtc ? this.subscriptionEndDateUtc.toString() : <any>undefined;
         data["isInTrialPeriod"] = this.isInTrialPeriod;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -25794,7 +25794,7 @@ export class TenantEdition implements ITenantEdition {
         data = typeof data === 'object' ? data : {};
         data["label"] = this.label;
         data["value"] = this.value;
-        return data; 
+        return data;
     }
 }
 
@@ -25858,7 +25858,7 @@ export class TenantEmailSettingsEditDto implements ITenantEmailSettingsEditDto {
         data["smtpDomain"] = this.smtpDomain;
         data["smtpEnableSsl"] = this.smtpEnableSsl;
         data["smtpUseDefaultCredentials"] = this.smtpUseDefaultCredentials;
-        return data; 
+        return data;
     }
 }
 
@@ -25930,7 +25930,7 @@ export class TenantListDto implements ITenantListDto {
         data["editionId"] = this.editionId;
         data["isInTrialPeriod"] = this.isInTrialPeriod;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -26025,7 +26025,7 @@ export class TenantLoginInfoDto implements ITenantLoginInfoDto {
         data["subscriptionDateString"] = this.subscriptionDateString;
         data["creationTimeString"] = this.creationTimeString;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -26084,7 +26084,7 @@ export class TenantManagementSettingsEditDto implements ITenantManagementSetting
         data["isNewRegisteredTenantActiveByDefault"] = this.isNewRegisteredTenantActiveByDefault;
         data["useCaptchaOnRegistration"] = this.useCaptchaOnRegistration;
         data["defaultEditionId"] = this.defaultEditionId;
-        return data; 
+        return data;
     }
 }
 
@@ -26147,7 +26147,7 @@ export class TenantNotification implements ITenantNotification {
         data["severity"] = this.severity;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -26191,7 +26191,7 @@ export class TenantOtherSettingsEditDto implements ITenantOtherSettingsEditDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["isQuickThemeSelectEnabled"] = this.isQuickThemeSelectEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -26252,7 +26252,7 @@ export class TenantSettingsEditDto implements ITenantSettingsEditDto {
         data["billing"] = this.billing ? this.billing.toJSON() : <any>undefined;
         data["otherSettings"] = this.otherSettings ? this.otherSettings.toJSON() : <any>undefined;
         data["externalLoginProviderSettings"] = this.externalLoginProviderSettings ? this.externalLoginProviderSettings.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -26319,7 +26319,7 @@ export class TenantUserManagementSettingsEditDto implements ITenantUserManagemen
         data["isQuickThemeSelectEnabled"] = this.isQuickThemeSelectEnabled;
         data["allowUsingGravatarProfilePicture"] = this.allowUsingGravatarProfilePicture;
         data["sessionTimeOutSettings"] = this.sessionTimeOutSettings ? this.sessionTimeOutSettings.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -26363,7 +26363,7 @@ export class ThemeFooterSettingsDto implements IThemeFooterSettingsDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["fixedFooter"] = this.fixedFooter;
-        return data; 
+        return data;
     }
 }
 
@@ -26405,7 +26405,7 @@ export class ThemeHeaderSettingsDto implements IThemeHeaderSettingsDto {
         data["desktopFixedHeader"] = this.desktopFixedHeader;
         data["mobileFixedHeader"] = this.mobileFixedHeader;
         data["minimizeDesktopHeaderType"] = this.minimizeDesktopHeaderType;
-        return data; 
+        return data;
     }
 }
 
@@ -26446,7 +26446,7 @@ export class ThemeLayoutSettingsDto implements IThemeLayoutSettingsDto {
         data = typeof data === 'object' ? data : {};
         data["layoutType"] = this.layoutType;
         data["darkMode"] = this.darkMode;
-        return data; 
+        return data;
     }
 }
 
@@ -26507,7 +26507,7 @@ export class ThemeMenuSettingsDto implements IThemeMenuSettingsDto {
         data["searchActive"] = this.searchActive;
         data["enableSecondary"] = this.enableSecondary;
         data["hoverableAside"] = this.hoverableAside;
-        return data; 
+        return data;
     }
 }
 
@@ -26566,7 +26566,7 @@ export class ThemeSettingsDto implements IThemeSettingsDto {
         data["subHeader"] = this.subHeader ? this.subHeader.toJSON() : <any>undefined;
         data["menu"] = this.menu ? this.menu.toJSON() : <any>undefined;
         data["footer"] = this.footer ? this.footer.toJSON() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -26622,7 +26622,7 @@ export class ThemeSubHeaderSettingsDto implements IThemeSubHeaderSettingsDto {
         data["titleStyle"] = this.titleStyle;
         data["containerStyle"] = this.containerStyle;
         data["subContainerStyle"] = this.subContainerStyle;
-        return data; 
+        return data;
     }
 }
 
@@ -26672,7 +26672,7 @@ export class TopStatsData implements ITopStatsData {
         data["newSubscriptionAmount"] = this.newSubscriptionAmount;
         data["dashboardPlaceholder1"] = this.dashboardPlaceholder1;
         data["dashboardPlaceholder2"] = this.dashboardPlaceholder2;
-        return data; 
+        return data;
     }
 }
 
@@ -26714,7 +26714,7 @@ export class TwitterExternalLoginProviderSettings implements ITwitterExternalLog
         data = typeof data === 'object' ? data : {};
         data["consumerKey"] = this.consumerKey;
         data["consumerSecret"] = this.consumerSecret;
-        return data; 
+        return data;
     }
 }
 
@@ -26760,7 +26760,7 @@ export class TwitterGetAccessTokenResponse implements ITwitterGetAccessTokenResp
         data["accessTokenSecret"] = this.accessTokenSecret;
         data["userId"] = this.userId;
         data["userName"] = this.userName;
-        return data; 
+        return data;
     }
 }
 
@@ -26808,7 +26808,7 @@ export class TwitterGetRequestTokenResponse implements ITwitterGetRequestTokenRe
         data["secret"] = this.secret;
         data["confirmed"] = this.confirmed;
         data["redirectUrl"] = this.redirectUrl;
-        return data; 
+        return data;
     }
 }
 
@@ -26862,7 +26862,7 @@ export class TwoFactorLoginSettingsEditDto implements ITwoFactorLoginSettingsEdi
         data["isSmsProviderEnabled"] = this.isSmsProviderEnabled;
         data["isRememberBrowserEnabled"] = this.isRememberBrowserEnabled;
         data["isGoogleAuthenticatorEnabled"] = this.isGoogleAuthenticatorEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -26915,7 +26915,7 @@ export class UiCustomizationSettingsDto implements IUiCustomizationSettingsDto {
         data["isTopMenuUsed"] = this.isTopMenuUsed;
         data["isTabMenuUsed"] = this.isTabMenuUsed;
         data["allowMenuScroll"] = this.allowMenuScroll;
-        return data; 
+        return data;
     }
 }
 
@@ -26958,7 +26958,7 @@ export class UnblockUserInput implements IUnblockUserInput {
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["tenantId"] = this.tenantId;
-        return data; 
+        return data;
     }
 }
 
@@ -26998,7 +26998,7 @@ export class UnlinkUserInput implements IUnlinkUserInput {
         data = typeof data === 'object' ? data : {};
         data["tenantId"] = this.tenantId;
         data["userId"] = this.userId;
-        return data; 
+        return data;
     }
 }
 
@@ -27050,7 +27050,7 @@ export class UpdateEditionDto implements IUpdateEditionDto {
             for (let item of this.featureValues)
                 data["featureValues"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -27087,7 +27087,7 @@ export class UpdateGoogleAuthenticatorKeyOutput implements IUpdateGoogleAuthenti
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["qrCodeSetupImageUrl"] = this.qrCodeSetupImageUrl;
-        return data; 
+        return data;
     }
 }
 
@@ -27132,7 +27132,7 @@ export class UpdateLanguageTextInput implements IUpdateLanguageTextInput {
         data["sourceName"] = this.sourceName;
         data["key"] = this.key;
         data["value"] = this.value;
-        return data; 
+        return data;
     }
 }
 
@@ -27182,7 +27182,7 @@ export class UpdateNotificationSettingsInput implements IUpdateNotificationSetti
             for (let item of this.notifications)
                 data["notifications"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -27222,7 +27222,7 @@ export class UpdateOrganizationUnitInput implements IUpdateOrganizationUnitInput
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["displayName"] = this.displayName;
-        return data; 
+        return data;
     }
 }
 
@@ -27274,7 +27274,7 @@ export class UpdateProfilePictureInput implements IUpdateProfilePictureInput {
         data["width"] = this.width;
         data["height"] = this.height;
         data["useGravatarProfilePicture"] = this.useGravatarProfilePicture;
-        return data; 
+        return data;
     }
 }
 
@@ -27329,7 +27329,7 @@ export class UpdateTenantFeaturesInput implements IUpdateTenantFeaturesInput {
             for (let item of this.featureValues)
                 data["featureValues"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -27380,7 +27380,7 @@ export class UpdateUserPermissionsInput implements IUpdateUserPermissionsInput {
             for (let item of this.grantedPermissionNames)
                 data["grantedPermissionNames"].push(item);
         }
-        return data; 
+        return data;
     }
 }
 
@@ -27423,7 +27423,7 @@ export class UpdateUserSignInTokenOutput implements IUpdateUserSignInTokenOutput
         data["signInToken"] = this.signInToken;
         data["encodedUserId"] = this.encodedUserId;
         data["encodedTenantId"] = this.encodedTenantId;
-        return data; 
+        return data;
     }
 }
 
@@ -27470,7 +27470,7 @@ export class UserDelegationDto implements IUserDelegationDto {
         data["startTime"] = this.startTime ? this.startTime.toString() : <any>undefined;
         data["endTime"] = this.endTime ? this.endTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -27539,7 +27539,7 @@ export class UserEditDto implements IUserEditDto {
         data["shouldChangePasswordOnNextLogin"] = this.shouldChangePasswordOnNextLogin;
         data["isTwoFactorEnabled"] = this.isTwoFactorEnabled;
         data["isLockoutEnabled"] = this.isLockoutEnabled;
-        return data; 
+        return data;
     }
 }
 
@@ -27623,7 +27623,7 @@ export class UserListDto implements IUserListDto {
         data["isActive"] = this.isActive;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -27672,7 +27672,7 @@ export class UserListRoleDto implements IUserListRoleDto {
         data = typeof data === 'object' ? data : {};
         data["roleId"] = this.roleId;
         data["roleName"] = this.roleName;
-        return data; 
+        return data;
     }
 }
 
@@ -27715,7 +27715,7 @@ export class UserLockOutSettingsEditDto implements IUserLockOutSettingsEditDto {
         data["isEnabled"] = this.isEnabled;
         data["maxFailedAccessAttemptsBeforeLockout"] = this.maxFailedAccessAttemptsBeforeLockout;
         data["defaultAccountLockoutSeconds"] = this.defaultAccountLockoutSeconds;
-        return data; 
+        return data;
     }
 }
 
@@ -27771,7 +27771,7 @@ export class UserLoginAttemptDto implements IUserLoginAttemptDto {
         data["browserInfo"] = this.browserInfo;
         data["result"] = this.result;
         data["creationTime"] = this.creationTime ? this.creationTime.toString() : <any>undefined;
-        return data; 
+        return data;
     }
 }
 
@@ -27828,7 +27828,7 @@ export class UserLoginInfoDto implements IUserLoginInfoDto {
         data["emailAddress"] = this.emailAddress;
         data["profilePictureId"] = this.profilePictureId;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -27881,7 +27881,7 @@ export class UserNotification implements IUserNotification {
         data["state"] = this.state;
         data["notification"] = this.notification ? this.notification.toJSON() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -27935,7 +27935,7 @@ export class UserPasswordSettingsEditDto implements IUserPasswordSettingsEditDto
         data["checkingLastXPasswordCount"] = this.checkingLastXPasswordCount;
         data["enablePasswordExpiration"] = this.enablePasswordExpiration;
         data["passwordExpirationDayCount"] = this.passwordExpirationDayCount;
-        return data; 
+        return data;
     }
 }
 
@@ -27986,7 +27986,7 @@ export class UserRoleDto implements IUserRoleDto {
         data["roleDisplayName"] = this.roleDisplayName;
         data["isAssigned"] = this.isAssigned;
         data["inheritedFromOrganizationUnit"] = this.inheritedFromOrganizationUnit;
-        return data; 
+        return data;
     }
 }
 
@@ -28037,7 +28037,7 @@ export class UsersToOrganizationUnitInput implements IUsersToOrganizationUnitInp
                 data["userIds"].push(item);
         }
         data["organizationUnitId"] = this.organizationUnitId;
-        return data; 
+        return data;
     }
 }
 
@@ -28077,7 +28077,7 @@ export class VerifySmsCodeInputDto implements IVerifySmsCodeInputDto {
         data = typeof data === 'object' ? data : {};
         data["code"] = this.code;
         data["phoneNumber"] = this.phoneNumber;
-        return data; 
+        return data;
     }
 }
 
@@ -28132,7 +28132,7 @@ export class WebhookEvent implements IWebhookEvent {
         data["isDeleted"] = this.isDeleted;
         data["deletionTime"] = this.deletionTime ? this.deletionTime.toString() : <any>undefined;
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -28212,7 +28212,7 @@ export class WebhookSubscription implements IWebhookSubscription {
             }
         }
         data["id"] = this.id;
-        return data; 
+        return data;
     }
 }
 
@@ -28266,7 +28266,7 @@ export class Widget implements IWidget {
         data["width"] = this.width;
         data["positionX"] = this.positionX;
         data["positionY"] = this.positionY;
-        return data; 
+        return data;
     }
 }
 
@@ -28309,7 +28309,7 @@ export class WidgetFilterOutput implements IWidgetFilterOutput {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
-        return data; 
+        return data;
     }
 }
 
@@ -28363,7 +28363,7 @@ export class WidgetOutput implements IWidgetOutput {
             for (let item of this.filters)
                 data["filters"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -28414,7 +28414,7 @@ export class WsFederationExternalLoginProviderSettings implements IWsFederationE
         data["metaDataAddress"] = this.metaDataAddress;
         data["wtrealm"] = this.wtrealm;
         data["authority"] = this.authority;
-        return data; 
+        return data;
     }
 }
 
@@ -28481,7 +28481,7 @@ export class AdditionalData implements IAdditionalData {
                     (<any>data["Stripe"])[key] = this.stripe[key];
             }
         }
-        return data; 
+        return data;
     }
 }
 

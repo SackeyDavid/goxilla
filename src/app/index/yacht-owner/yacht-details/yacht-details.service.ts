@@ -10,7 +10,7 @@ export class YachtDetailsService {
     constructor(private httpClient: HttpClient, private baseService: BaseService) { }
 
     getAllYachts(): Observable<any> {
-        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yatches/GetAll?MaxResultCount=30`);
+        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yachts/GetAll?MaxResultCount=30`);
     }
 
 }

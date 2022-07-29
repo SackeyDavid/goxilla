@@ -104,6 +104,7 @@ import { log } from 'console';
     ],
 })
 export class AppCommonModule {
+
     static forRoot(): ModuleWithProviders<AppCommonModule> {
         return {
             ngModule: AppCommonModule,
@@ -115,7 +116,6 @@ export class AppCommonModule {
         document.addEventListener('click', () => {
             if (!document.activeElement?.attributes.getNamedItem('searchbox')) {
                 const ele = document.getElementsByClassName('search-drop-container');
-                console.log(ele);
                 for (let i = 0; i < ele.length; i++) {
                     if (!ele.item(i)?.classList.contains('hidden')) {
                         ele.item(i)?.classList.add('hidden')

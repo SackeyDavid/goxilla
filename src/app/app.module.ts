@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChatSignalrService } from '@app/shared/layout/chat/chat-signalr.service';
 import { LinkAccountModalComponent } from '@app/shared/layout/link-account-modal.component';
 import { LinkedAccountsModalComponent } from '@app/shared/layout/linked-accounts-modal.component';
@@ -96,6 +96,7 @@ import { ScrollTopComponent } from './shared/layout/scroll-top.component';
 import { AppBsModalModule } from '@shared/common/appBsModal/app-bs-modal.module';
 import { SubheaderModule } from './shared/common/sub-header/subheader.module';
 import { HomeComponent } from './component/home/home.component';
+import { AppHttpInterceptor } from "./services/http-interceptor";
 
 @NgModule({
     declarations: [
@@ -194,9 +195,10 @@ import { HomeComponent } from './component/home/home.component';
             provide: PERFECT_SCROLLBAR_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
         },
+        { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
     ]
 })
-export class AppModule {}
+export class AppModule { }

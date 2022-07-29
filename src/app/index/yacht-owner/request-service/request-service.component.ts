@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { RequestServiceService } from './request-service.service';
 import { ModalService } from '@app/shared/common/modal/modal.service';
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VendorService } from '../add-vendor/vendor.service';
 import { SelectServiceService } from '../select-service/select-service.service';
 import { YachtDetailsService } from '../yacht-details/yacht-details.service';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -14,10 +15,12 @@ import { finalize } from 'rxjs/operators';
     templateUrl: './request-service.component.html',
     styleUrls: ['./request-service.component.css'],
 })
-export class RequestServiceComponent implements OnInit {
+export class RequestServiceComponent extends AppComponentBase implements OnInit {
+
     showStepOne: boolean = true;
     showStepTwo: boolean = false;
     lightboxImages: any = [];
+    lightboxImagesAlt: any = [];
     form!: FormGroup;
 
     preYachtList: any = [];
@@ -29,29 +32,33 @@ export class RequestServiceComponent implements OnInit {
     yachtList: Array<SearchItem>;
 
     constructor(
+        injector: Injector,
         public service: RequestServiceService,
         private fb: FormBuilder,
         private modalService: ModalService,
         private vendorService: VendorService,
         public selectService: SelectServiceService,
         public yachtDetailsService: YachtDetailsService
-    ) {}
+    ) {
+        super(injector);
+    }
 
     ngOnInit(): void {
+
         this.form = this.fb.group({
             id: [0],
-            yacht: [null, Validators.required],
-            service: [null, Validators.required],
-            vendor: [null, Validators.required],
-            priority: [null, Validators.required],
-            description: ['', Validators.required],
-            // expectedDeliveryDate: [null],
-            location: [null],
-            // isActive: true,
-            // status: [''],
-            affectShipShape: true,
-            taskList: [null],
-            instruction: ['', Validators.required],
+            Yacht: [null, Validators.required],
+            Service: [null, Validators.required],
+            Vendor: [null, Validators.required],
+            Priority: [null, Validators.required],
+            Description: ['', Validators.required],
+            /* expectedDeliveryDate: [null], */
+            Location: [null],
+            /* isActive: true,
+            status: [''], */
+            AffectShipShape: true,
+            TaskList: [null],
+            Instruction: ['', Validators.required],
             bid_requested: false,
         });
 
@@ -62,6 +69,7 @@ export class RequestServiceComponent implements OnInit {
         this.getAllVendors();
         this.getAllServices();
         this.getAllYachts();
+
     }
 
     showNext(): void {
@@ -69,17 +77,22 @@ export class RequestServiceComponent implements OnInit {
         this.showStepTwo = !this.showStepTwo;
     }
 
-    addPicture(event: any) {
+    addPhoto(event: any) {
         if (event.target.files && event.target.files[0]) {
             for (const image of event.target.files) {
+
+                this.lightboxImages.push(image);
+                console.log(this.lightboxImages);
+
                 const reader = new FileReader();
                 reader.onload = (event: any) => {
-                    this.lightboxImages.push({ name: image.name, size: image.size, path: event.target.result });
-                    this.lightboxImages.reverse();
+                    this.lightboxImagesAlt.push({ name: image.name, size: image.size, path: event.target.result });
+                    this.lightboxImagesAlt.reverse();
                     event.target.value = '';
                 };
 
                 reader.readAsDataURL(image);
+
             }
         }
     }
@@ -91,7 +104,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedVendor(item: SearchItem) {
-        this.setValue('vendor', item.id);
+        this.setValue('Vendor', item.id);
     }
 
     addNewVendor(item: string) {
@@ -100,7 +113,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedService(item: SearchItem) {
-        this.setValue('service', item.id);
+        this.setValue('Service', item.id);
     }
 
     addNewService(item: string) {
@@ -108,7 +121,7 @@ export class RequestServiceComponent implements OnInit {
     }
 
     getSelectedYacht(item: SearchItem) {
-        this.setValue('yacht', item.id);
+        this.setValue('Yacht', item.id);
     }
 
     addNewYacht(item: string) {
@@ -150,33 +163,48 @@ export class RequestServiceComponent implements OnInit {
     }
 
     createServiceOrder() {
-        const model = {
-            ...this.form.value,
-            lightboxImages: this.lightboxImages.map((image) => {
-                return { name: image.name, imageData: image.path.split(',')[1] };
-            }),
-        };
-        console.log(model);
-        this.service
-            .addEditServiceOrders(model)
-            .pipe(finalize(() => console.log('success')))
-            .subscribe(
-                (value) => {
-                    this.reset();
-                },
-                (error) => {}
-            );
+
+        this.showMainSpinner();
+        let requestPayload = new FormData();
+
+        Object.keys(this.form.controls).forEach(formControlName => {
+            console.log('controls', this.form.get(formControlName)?.value);
+            requestPayload.append(formControlName, this.form.get(formControlName)?.value);
+        });
+
+        requestPayload.append('lightBoxImages', this.lightboxImages);
+
+        this.service.addEditServiceOrders(requestPayload).pipe(finalize(() => console.log('success'))).subscribe((result) => {
+
+            if (result.success === true) {
+
+                this.notify.success(this.l('Service Order Created Successfully'));
+                this.reset();
+                this.hideMainSpinner();
+                return;
+
+            }
+
+        }, (e) => {
+
+            this.hideMainSpinner();
+            this.notify.error(this.l(e.error.error.message));
+            return;
+
+        });
     }
 
     reset() {
         this.form.reset();
         this.lightboxImages = [];
+        this.lightboxImagesAlt = [];
         this.showNext();
     }
 
     removeImage(data: any) {
-        this.lightboxImages = this.lightboxImages.filter(function (image) {
+        this.lightboxImagesAlt = this.lightboxImagesAlt.filter(function (image: { path: any; }) {
             return image.path !== data.path;
         });
     }
+
 }

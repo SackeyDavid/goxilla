@@ -8,6 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [RequestServiceComponent],
-    imports: [CommonModule, RequestServiceRoutingModule, AppSharedModule, ReactiveFormsModule],
+    imports: [
+        CommonModule,
+        RequestServiceRoutingModule,
+        AppSharedModule,
+        ReactiveFormsModule
+    ]
 })
-export class RequestServiceModule {}
+export class RequestServiceModule { }

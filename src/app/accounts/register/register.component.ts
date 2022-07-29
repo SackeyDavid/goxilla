@@ -19,20 +19,19 @@ export class RegisterComponent extends AppComponentBase implements OnInit {
         super(injector);
     }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void { }
 
     onFormSubmit(): void {
 
         this.saving = true;
         this.model.userName = this.model.emailAddress;
 
-        this._accountService.register(this.model).pipe(
-            catchError((err, caught): any => {
-                this.saving = false;
-                console.log(err);
-            })
-        ).subscribe((result: RegisterOutput) => {
+        this._accountService.register(this.model).pipe(catchError((err, caught): any => {
+
+            this.saving = false;
+            console.log(err);
+
+        })).subscribe((result: RegisterOutput) => {
 
             this.saving = false;
 

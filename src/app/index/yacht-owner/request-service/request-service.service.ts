@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class RequestServiceService {
-    constructor(private baseService: BaseService, private httpClient: HttpClient) {}
+    constructor(private baseService: BaseService, private httpClient: HttpClient) { }
 
     addEditServiceOrders(order: any): Observable<any> {
-        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/CreateOrEdit`, order);
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/ServiceRequest/CreateServiceRequest`, order, { headers: { 'content-type': 'multipart/form-data' } });
     }
 }
