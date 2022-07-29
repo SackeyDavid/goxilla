@@ -48,20 +48,15 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            /* id: [0], */
             YatchId: [null, Validators.required],
             ServiceId: [null, Validators.required],
             VendorId: [null, Validators.required],
             Priority: [null, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
-            Name: [''],
-            /* expectedDeliveryDate: [null], */
+            Name: ['Hermann'],
             Location: [null],
-            /* isActive: true,
-            status: [''], */
             AffectShipShape: true,
-            // TaskList: [null],
             Instructions: [''],
             Instruction: ['', Validators.required],
             bid_requested: false,
