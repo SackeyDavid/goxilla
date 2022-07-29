@@ -8,92 +8,92 @@
     <div class="flex flex-wrap content-center h-full w-full">
       <div class="flex justify-center w-full">
         <div class="w-2/5 bg-white rounded-xl p-5">
-          <label class="block text-2xl uppercase text-black font-bold py-5">{{editState ? 'Edit' : 'Add New'}}
-            Service</label>
+          <label class="block text-2xl uppercase text-black font-bold py-5">
+            {{ editState ? 'Edit' : 'Add New' }} Service
+          </label>
           <!-- Form  -->
           <div class="mx-auto mb-6 bg-white">
             <form [formGroup]="form">
               <div class="w-full mb-6">
                 <div class="mb-6">
                   <label for="service_name" class="
-                                block
-                                uppercase
-                                mb-2
-                                text-lg
-                                font-medium
-                                text-gray-900
-                                dark:text-gray-300
-                            ">
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        ">
                     Service Name
                   </label>
                   <input type="text" id="service_name" class="
-                                bg-gray-50
-                                border border-gray-300
-                                text-black text-lg
-                                rounded-lg
-                                focus:ring-blue-500 focus:border-blue-500
-                                block
-                                w-full
-                                p-3
-                            " formControlName="name" placeholder="Air Condition Fix" required />
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        " formControlName="name" placeholder="Air Condition Fix" required />
                 </div>
                 <div class="mb-6">
                   <label for="service_cost" class="
-                                block
-                                uppercase
-                                mb-2
-                                text-lg
-                                font-medium
-                                text-gray-900
-                                dark:text-gray-300
-                            ">
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        ">
                     Service Cost ($)
                   </label>
-                  <input type="text" id="service_cost" class="
-                                bg-gray-50
-                                border border-gray-300
-                                text-black text-lg
-                                rounded-lg
-                                focus:ring-blue-500 focus:border-blue-500
-                                block
-                                w-full
-                                p-3
-                            " formControlName="cost" placeholder="1200" required />
+                  <input type="number" id="service_cost" class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        " formControlName="cost" placeholder="1200" required />
                 </div>
-
               </div>
 
               <button (click)="reset()" type="button" class="
-                        uppercase
-                        text-blue-400
-                        outline outline-1
-                        hover:bg-blue-400 hover:text-white
-                        focus:ring-4 focus:outline-none focus:ring-blue-300
-                        font-medium
-                        rounded-lg
-                        text-lg
-                        w-auto
-                        px-7
-                        py-2.5
-                        text-center
-                        mr-4
-                    ">
+                                    uppercase
+                                    text-blue-400
+                                    outline outline-1
+                                    hover:bg-blue-400 hover:text-white
+                                    focus:ring-4 focus:outline-none focus:ring-blue-300
+                                    font-medium
+                                    rounded-lg
+                                    text-lg
+                                    w-auto
+                                    px-7
+                                    py-2.5
+                                    text-center
+                                    mr-4
+                                ">
                 Clear
               </button>
               <button [disabled]="form.invalid" (click)="addEditVendor()" label="submit" type="button" class="
-                        uppercase
-                        text-white
-                        bg-blue-400
-                        hover:bg-blue-500
-                        focus:ring-4 focus:outline-none focus:ring-blue-300
-                        font-medium
-                        rounded-lg
-                        text-lg
-                        w-auto
-                        px-7
-                        py-2.5
-                        text-center
-                    ">
+                                    uppercase
+                                    text-white
+                                    bg-blue-400
+                                    hover:bg-blue-500
+                                    focus:ring-4 focus:outline-none focus:ring-blue-300
+                                    font-medium
+                                    rounded-lg
+                                    text-lg
+                                    w-auto
+                                    px-7
+                                    py-2.5
+                                    text-center
+                                ">
                 Submit
               </button>
             </form>
