@@ -172,7 +172,11 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             requestPayload.append(formControlName, this.form.get(formControlName)?.value);
         });
 
-        requestPayload.append('lightBoxImages', this.lightboxImages);
+        this.lightboxImages.forEach((image: any) => {
+            requestPayload.append(image.name, image);
+        });
+
+        /*  requestPayload.append('lightBoxImages', this.lightboxImages); */
 
         this.service.addEditServiceOrders(requestPayload).pipe(finalize(() => console.log('success'))).subscribe((result) => {
 
