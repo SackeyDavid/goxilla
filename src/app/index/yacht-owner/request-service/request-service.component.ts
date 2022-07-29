@@ -11,6 +11,7 @@ import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
 import { AddServiceComponent } from '../add-service/add-service.component';
 import { AddYachtComponent } from '../add-yacht/add-yacht.component';
+import { ServiceOrderService } from '../service-order/service-order.service';
 
 @Component({
     selector: 'app-request-service',
@@ -39,7 +40,8 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         private modalService: ModalService,
         private vendorService: VendorService,
         public selectService: SelectServiceService,
-        public yachtDetailsService: YachtDetailsService
+        public yachtDetailsService: YachtDetailsService,
+        private serviceOrderService: ServiceOrderService
     ) {
         super(injector);
     }
@@ -72,6 +74,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.getAllVendors();
         this.getAllServices();
         this.getAllYachts();
+        this.getAllServiceOrders();
     }
 
     showNext(): void {
@@ -173,6 +176,12 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             this.preYachtList.forEach((yacht: { yatch: { id: string; name: string } }) => {
                 this.yachtList.push({ id: yacht.yatch.id, value: yacht.yatch.name });
             });
+        });
+    }
+
+    getAllServiceOrders() {
+        this.serviceOrderService.getAllServiceOrders().subscribe((value) => {
+            console.log(value.result.items);
         });
     }
 
