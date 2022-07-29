@@ -12,4 +12,8 @@ export class SelectServiceService {
     getServices(): Observable<any> {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Services/GetAll`);
     }
+
+    addEditService(service: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Services/CreateOrEdit`, service);
+    }
 }

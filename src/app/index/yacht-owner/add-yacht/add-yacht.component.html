@@ -1,0 +1,203 @@
+<app-blur-background-modal>
+    <div class="flex flex-col h-full relative">
+        <div class="absolute mr-6 mt-12 right-0 cursor-pointer">
+            <i (click)="close()">
+                <img src="assets/images/close-btn.png" alt="close" />
+            </i>
+        </div>
+        <div class="flex flex-wrap content-center h-full w-full">
+            <div class="flex justify-center w-full">
+                <div class="w-2/5 bg-white rounded-xl p-5">
+                    <label class="block text-2xl uppercase text-black font-bold py-5">{{editState ? 'Edit' : 'Add New'}}
+                        Yacht</label>
+                    <!-- Form  -->
+                    <div class="mx-auto mb-6 bg-white">
+                        <form [formGroup]="form">
+                            <div class="w-full mb-6">
+                                <div class="mb-6">
+                                    <label for="yacht_firstname" class="
+                                block
+                                uppercase
+                                mb-2
+                                text-lg
+                                font-medium
+                                text-gray-900
+                                dark:text-gray-300
+                            ">
+                                        Yacht Name
+                                    </label>
+                                    <input type="text" id="yacht_name" class="
+                                bg-gray-50
+                                border border-gray-300
+                                text-black text-lg
+                                rounded-lg
+                                focus:ring-blue-500 focus:border-blue-500
+                                block
+                                w-full
+                                p-3
+                            " formControlName="name" placeholder="Happy Place" required />
+                                </div>
+                                <div class="mb-6">
+                                    <label for="yacht_port" class="
+                                block
+                                uppercase
+                                mb-2
+                                text-lg
+                                font-medium
+                                text-gray-900
+                                dark:text-gray-300
+                            ">
+                                        Yacht Hailing Port
+                                    </label>
+                                    <input type="text" id="yacht_port" class="
+                                bg-gray-50
+                                border border-gray-300
+                                text-black text-lg
+                                rounded-lg
+                                focus:ring-blue-500 focus:border-blue-500
+                                block
+                                w-full
+                                p-3
+                            " formControlName="hailingPort" placeholder="Bay Port" required />
+                                </div>
+                                <div class="mb-6">
+                                    <label for="yacht_country" class="
+                                block
+                                uppercase
+                                mb-2
+                                text-lg
+                                font-medium
+                                text-gray-900
+                                dark:text-gray-300
+                            ">
+                                        Yacht Country
+                                    </label>
+                                    <input type="text" id="yacht_country" class="
+                                bg-gray-50
+                                border border-gray-300
+                                text-black text-lg
+                                rounded-lg
+                                focus:ring-blue-500 focus:border-blue-500
+                                block
+                                w-full
+                                p-3
+                            " formControlName="country" placeholder="California" maxlength="10" required />
+                                </div>
+
+                            </div>
+
+
+                            <div class="mb-6">
+                                <div class="field w-full">
+                                    <div class="m-0"><label for="yacht_image" class="
+                                        block
+                                        uppercase
+                                        mb-2
+                                        text-lg
+                                        font-medium
+                                        text-gray-900
+                                        dark:text-gray-300
+                                    ">
+                                            Add Yacht Images
+                                        </label>
+                                        <div class="flex items-center justify-center m-0"><label
+                                                class="flex flex-col w-full h-32 border-2 border-blue-200 border-dashed hover:bg-gray-50 hover:border-gray-300 hover:cursor-pointer rounded-lg">
+                                                <div class="flex flex-col items-center justify-center pt-7">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor"
+                                                        class="w-8 h-8 text-gray-400 group-hover:text-gray-600">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                                        </path>
+                                                    </svg>
+                                                    <p
+                                                        class="pt-1 text-lg tracking-wider text-gray-400 group-hover:text-gray-600">
+                                                        Upload a photo
+                                                    </p>
+                                                </div><input type="file" class="opacity-0" id="yatch_image" hidden
+                                                    multiple accept="image/*" (change)="addYachtPhoto($event)">
+                                            </label>
+
+                                        </div>
+                                        <ng-container *ngFor="let image of lightboxImagesAlt">
+                                            <div class="rounded-2xl relative w-[6rem] h-[6rem] mt-3 shadow-md mb-3">
+                                                <label
+                                                    class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                                    <div class="flex flex-wrap content-center h-full w-full">
+                                                        <div class="flex justify-center w-full cursor-pointer"
+                                                            (click)="removeImage(image)">
+                                                            <span class="text-xs">&times;</span>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <div class="flex flex-wrap content-center h-full w-full">
+                                                    <div class="flex justify-center w-full">
+                                                        <div class="w-full text-center space-y-3">
+                                                            <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
+                                                                src="{{ image.path }}" alt="image.name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                                <!-- <label for="yacht_description" class="
+                            block
+                            uppercase
+                            mb-2
+                            text-lg
+                            font-medium
+                            text-gray-900
+                            dark:text-gray-300
+                        ">
+                                    Vendor Description
+                                </label>
+                                <textarea id="yacht_description" rows="4" formControlName="descriptions" required
+                                    class="block p-2.5 mb-5 w-full text-lg bg-gray-50 text-gray-900 rounded-lg border border-gray-300"
+                                    placeholder="...describe yourself"></textarea> -->
+
+                            </div>
+                            <button (click)="reset()" type="button" class="
+                        uppercase
+                        text-blue-400
+                        outline outline-1
+                        hover:bg-blue-400 hover:text-white
+                        focus:ring-4 focus:outline-none focus:ring-blue-300
+                        font-medium
+                        rounded-lg
+                        text-lg
+                        w-auto
+                        px-7
+                        py-2.5
+                        text-center
+                        mr-4
+                    ">
+                                Clear
+                            </button>
+                            <button [disabled]="form.invalid" (click)="addEditVendor()" label="submit" type="button"
+                                class="
+                        uppercase
+                        text-white
+                        bg-blue-400
+                        hover:bg-blue-500
+                        focus:ring-4 focus:outline-none focus:ring-blue-300
+                        font-medium
+                        rounded-lg
+                        text-lg
+                        w-auto
+                        px-7
+                        py-2.5
+                        text-center
+                    ">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                    <!-- End of Form  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</app-blur-background-modal>

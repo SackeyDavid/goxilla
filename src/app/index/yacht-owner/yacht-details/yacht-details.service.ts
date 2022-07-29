@@ -7,10 +7,13 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class YachtDetailsService {
-    constructor(private httpClient: HttpClient, private baseService: BaseService) { }
+    constructor(private httpClient: HttpClient, private baseService: BaseService) {}
 
     getAllYachts(): Observable<any> {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yachts/GetAll?MaxResultCount=30`);
     }
 
+    addEditYacht(yacht: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Yachts/CreateOrEdit`, yacht);
+    }
 }

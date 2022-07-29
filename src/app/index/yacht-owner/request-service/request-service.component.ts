@@ -9,6 +9,8 @@ import { SelectServiceService } from '../select-service/select-service.service';
 import { YachtDetailsService } from '../yacht-details/yacht-details.service';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
+import { AddServiceComponent } from '../add-service/add-service.component';
+import { AddYachtComponent } from '../add-yacht/add-yacht.component';
 
 @Component({
     selector: 'app-request-service',
@@ -16,7 +18,6 @@ import { finalize } from 'rxjs/operators';
     styleUrls: ['./request-service.component.css'],
 })
 export class RequestServiceComponent extends AppComponentBase implements OnInit {
-
     showStepOne: boolean = true;
     showStepTwo: boolean = false;
     lightboxImages: any = [];
@@ -44,7 +45,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     ngOnInit(): void {
-
         this.form = this.fb.group({
             id: [0],
             Yacht: [null, Validators.required],
@@ -69,7 +69,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.getAllVendors();
         this.getAllServices();
         this.getAllYachts();
-
     }
 
     showNext(): void {
@@ -80,7 +79,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     addPhoto(event: any) {
         if (event.target.files && event.target.files[0]) {
             for (const image of event.target.files) {
-
                 this.lightboxImages.push(image);
                 console.log(this.lightboxImages);
 
@@ -92,7 +90,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
                 };
 
                 reader.readAsDataURL(image);
-
             }
         }
     }
@@ -100,6 +97,18 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     openAddVendorModal() {
         this.modalService.createModal<AddVendorComponent>({
             content: AddVendorComponent,
+        });
+    }
+
+    openAddServicesModal() {
+        this.modalService.createModal<AddServiceComponent>({
+            content: AddServiceComponent,
+        });
+    }
+
+    openAddYatchModal() {
+        this.modalService.createModal<AddYachtComponent>({
+            content: AddYachtComponent,
         });
     }
 
@@ -118,6 +127,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     addNewService(item: string) {
         sessionStorage.setItem('service_new_item', item);
+        this.openAddServicesModal();
     }
 
     getSelectedYacht(item: SearchItem) {
@@ -126,6 +136,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     addNewYacht(item: string) {
         sessionStorage.setItem('yacht_new_item', item);
+        this.openAddYatchModal();
     }
 
     setValue(control: string, value: any) {
@@ -163,35 +174,34 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     createServiceOrder() {
-
         this.showMainSpinner();
         let requestPayload = new FormData();
 
-        Object.keys(this.form.controls).forEach(formControlName => {
+        Object.keys(this.form.controls).forEach((formControlName) => {
             console.log('controls', this.form.get(formControlName)?.value);
             requestPayload.append(formControlName, this.form.get(formControlName)?.value);
         });
 
         requestPayload.append('lightBoxImages', this.lightboxImages);
 
-        this.service.addEditServiceOrders(requestPayload).pipe(finalize(() => console.log('success'))).subscribe((result) => {
-
-            if (result.success === true) {
-
-                this.notify.success(this.l('Service Order Created Successfully'));
-                this.reset();
-                this.hideMainSpinner();
-                return;
-
-            }
-
-        }, (e) => {
-
-            this.hideMainSpinner();
-            this.notify.error(this.l(e.error.error.message));
-            return;
-
-        });
+        this.service
+            .addEditServiceOrders(requestPayload)
+            .pipe(finalize(() => console.log('success')))
+            .subscribe(
+                (result) => {
+                    if (result.success === true) {
+                        this.notify.success(this.l('Service Order Created Successfully'));
+                        this.reset();
+                        this.hideMainSpinner();
+                        return;
+                    }
+                },
+                (e) => {
+                    this.hideMainSpinner();
+                    this.notify.error(this.l(e.error.error.message));
+                    return;
+                }
+            );
     }
 
     reset() {
@@ -202,9 +212,8 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     removeImage(data: any) {
-        this.lightboxImagesAlt = this.lightboxImagesAlt.filter(function (image: { path: any; }) {
+        this.lightboxImagesAlt = this.lightboxImagesAlt.filter(function (image: { path: any }) {
             return image.path !== data.path;
         });
     }
-
 }
