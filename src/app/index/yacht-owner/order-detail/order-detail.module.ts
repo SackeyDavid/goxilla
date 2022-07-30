@@ -8,6 +8,12 @@ import { AppSharedModule } from '@app/shared/app-shared.module';
 
 @NgModule({
     declarations: [OrderDetailComponent],
-    imports: [CommonModule, BrowserModule, OrderDetailRoutingModule, AppSharedModule],
+    imports: [
+        CommonModule,
+        OrderDetailRoutingModule,
+        AppSharedModule,
+        BrowserModule
+    ],
+    exports: [OrderDetailComponent]
 })
-export class OrderDetailModule {}
+export class OrderDetailModule { }

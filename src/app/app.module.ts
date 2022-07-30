@@ -23,6 +23,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FileUploadModule as PrimeNgFileUploadModule } from 'primeng/fileupload';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
 import { ImpersonationService } from './admin/users/impersonation.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -74,6 +75,7 @@ import { NotificationsComponent } from './shared/layout/notifications/notificati
 import { TextMaskModule } from 'angular2-text-mask';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ActiveDelegatedUsersComboComponent } from './shared/layout/topbar/active-delegated-users-combo.component';
+import { OrderDetailModule } from './index/yacht-owner/order-detail/order-detail.module';
 
 import { DefaultLogoComponent } from './shared/layout/themes/default/default-logo.component';
 
@@ -180,11 +182,13 @@ import { AppHttpInterceptor } from "./services/http-interceptor";
         ProgressBarModule,
         PerfectScrollbarModule,
         TextMaskModule,
+        BrowserModule,
         ImageCropperModule,
         AutoCompleteModule,
         NgxSpinnerModule,
         AppBsModalModule,
         SubheaderModule,
+        OrderDetailModule
     ],
     providers: [
         ImpersonationService,

@@ -34,7 +34,7 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         this.serviceRequestId = this.url.substring(ind2 + 1);
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
 
     ngAfterContentInit() {
         this.getDetails();
@@ -44,8 +44,9 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         if (this.serviceRequestId.length) {
             this.service.getServiceReqDetails(this.serviceRequestId).subscribe((value) => {
                 this.requestDetails = value.result;
-                console.log(this.requestDetails);
                 this.requestDetailsImages = this.requestDetails.lightboxImages;
+                console.log(this.requestDetails);
+                console.log(this.requestDetailsImages);
                 this.priority = this.requestDetails.serviceOrder.priority == 0 ? 'Low' : 1 ? 'Medium' : 'ASAP';
             });
         }
