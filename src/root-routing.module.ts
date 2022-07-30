@@ -7,7 +7,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('app/app.module').then((m) => m.AppModule), //Lazy load account module
         data: { preload: true },
-    }
+    },
 ];
 
 @NgModule({

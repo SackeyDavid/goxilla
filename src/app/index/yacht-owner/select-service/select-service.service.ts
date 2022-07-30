@@ -13,6 +13,10 @@ export class SelectServiceService {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Services/GetAll`);
     }
 
+    getServiceDetails(id: number): Observable<any> {
+        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Services/GetServiceForEdit?id=` + id);
+    }
+
     addEditService(service: any): Observable<any> {
         return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Services/CreateOrEdit`, service);
     }

@@ -12,4 +12,8 @@ export class VendorService {
     getVendors(): Observable<any> {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Vendors/GetAll?MaxResultCount=30`);
     }
+
+    getVendorDetails(id: number): Observable<any> {
+        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Vendors/GetVendorForView?id=` + id);
+    }
 }

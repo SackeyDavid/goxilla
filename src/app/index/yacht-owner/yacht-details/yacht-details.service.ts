@@ -13,6 +13,10 @@ export class YachtDetailsService {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yachts/GetAll?MaxResultCount=30`);
     }
 
+    getYachtDetails(id: number): Observable<any> {
+        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Yachts/GetYatchForView?id=` + id);
+    }
+
     addEditYacht(yacht: any): Observable<any> {
         return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Yachts/CreateOrEdit`, yacht);
     }

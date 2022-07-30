@@ -20,7 +20,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
                     },
                     {
                         path: 'account',
-                        loadChildren: () => import('./accounts/accounts.module').then(m => m.AccountsModule)
+                        loadChildren: () => import('./accounts/accounts.module').then((m) => m.AccountsModule),
                     },
                     {
                         path: '**',

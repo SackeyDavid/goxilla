@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.333" height="26" viewBox="0 0 31.333 26">
+  <g id="Icon_feather-sliders" data-name="Icon feather-sliders" transform="translate(-2.5 -3.5)">
+    <path id="Path_162" data-name="Path 162" d="M6,31.5V21" transform="translate(2 -3)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_163" data-name="Path 163" d="M6,15V4.5" transform="translate(2)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_164" data-name="Path 164" d="M18,31.5V18" transform="translate(0.167 -3)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_165" data-name="Path 165" d="M18,12V4.5" transform="translate(0.167)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_166" data-name="Path 166" d="M30,31.5V24" transform="translate(-1.667 -3)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_167" data-name="Path 167" d="M30,18V4.5" transform="translate(-1.667)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_168" data-name="Path 168" d="M1.5,21h9" transform="translate(2 -1.833)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_169" data-name="Path 169" d="M13.5,12h9" transform="translate(0.167 -0.833)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_170" data-name="Path 170" d="M25.5,24h9" transform="translate(-1.667 -2.167)" fill="none" stroke="rgba(117,117,117,0.5)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

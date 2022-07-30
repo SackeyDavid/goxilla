@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {YachtOwnerComponent} from "@app/index/yacht-owner/yacht-owner.component";
+import { YachtOwnerComponent } from '@app/index/yacht-owner/yacht-owner.component';
 
 const routes: Routes = [
     {
-        path:'',
+        path: '',
         component: YachtOwnerComponent,
         children: [
             {
@@ -16,12 +16,16 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('./request-service/request-service.module').then((m) => m.RequestServiceModule),
             },
-        ]
-    }
+            {
+                path: 'service-request/:id',
+                loadChildren: () => import('./order-detail/order-detail.module').then((m) => m.OrderDetailModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class YachtOwnerRoutingModule { }
+export class YachtOwnerRoutingModule {}
