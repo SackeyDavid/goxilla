@@ -1,94 +1,132 @@
 <app-container>
-    <div *ngIf="vendorDetails" class="mt-12 bg-white py-6 px-4 w-1/3  text-center inline-block rounded-lg">
-        <h1 class="text-xl text-center font-thin mb-5"> SERVICE ORDER</h1>
+    <div *ngIf="vendorDetails" class="mt-12 bg-white py-6 px-4 w-1/3 text-center inline-block rounded-lg">
+        <h1 class="text-xl text-center font-thin mb-5">SERVICE ORDER</h1>
         <div class="flex justify-between mb-2">
             <div class="flex">
-                <span><img [src]="yatchDetails.imageUrl" class="w-[4rem] h-[3rem] rounded-md" alt="yatch image"></span>
+                <span>
+                    <img [src]="yatchDetails.imageUrl" class="w-[4rem] h-[3rem] rounded-md" alt="yatch image" />
+                </span>
                 <div class="ml-3">
-                    <h2 class="text-sm">{{yatchDetails.name}}</h2>
-                    <p class="text-[10px] text-left text-label-color text-opacity-50">{{yatchDetails.hailingPort}}</p>
+                    <h2 class="text-sm">{{ yatchDetails.name }}</h2>
+                    <p class="text-[10px] text-left text-label-color text-opacity-50">{{ yatchDetails.hailingPort }}</p>
                 </div>
             </div>
-            <div class="flex ">
-                <span class="mr-2"><img class=" p-1 border rounded-full" src="/assets/assets-mobile/Icon metro-bin.svg"
-                        alt=""></span>
-                <span><img class=" p-1 border rounded-full"
-                        src="/assets/assets-mobile/b21743bd27446b402537e815c62aa968.svg" alt=""></span>
+            <div class="flex">
+                <span class="mr-2">
+                    <img class="p-1 border rounded-full" src="/assets/assets-mobile/Icon metro-bin.svg" alt="" />
+                </span>
+                <span>
+                    <img class="p-1 border rounded-full"
+                        src="/assets/assets-mobile/b21743bd27446b402537e815c62aa968.svg" alt="" />
+                </span>
             </div>
         </div>
         <div class="flex justify-between mb-2">
-            <div class="font-thin text-sm ">Created: 4/2/2022 08:15 AM</div>
-            <div class="text-opacity-90">$ {{serviceDetails.cost}}</div>
+            <div class="font-thin text-sm">Created: 4/2/2022 08:15 AM</div>
+            <div class="text-opacity-90">$ {{ serviceDetails.cost }}</div>
         </div>
 
         <div class="flex justify-between mb-4 gap-3">
-            <div class="flex flex-col w-1/3 ">
-                <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50"
-                    for="priority">PRIORITY</label>
-                <select disabled name="priority" id="priority"
-                    class="text-blue-500 p-2 border text-sm rounded disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]">
-                    <option value="{{priority}}">{{priority}}</option>
+            <div class="flex flex-col w-1/3">
+                <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50" for="priority">
+                    PRIORITY
+                </label>
+                <select disabled name="priority" id="priority" class="
+                        text-blue-500
+                        p-2
+                        border
+                        text-sm
+                        rounded
+                        disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
+                    ">
+                    <option value="{{ priority }}">{{ priority }}</option>
                 </select>
             </div>
             <div class="flex flex-col w-2/3">
-                <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50" for="priority">DUE
-                    DATE</label>
-                <button class="flex flex-row p-2 text-sky-600 border-sky-600 border rounded-lg bg-sky-200 text-sm"><span
-                        class="mr-2"><img src="/assets/assets-mobile/Icon metro-alarm.svg" alt=""></span>
-                    {{getDateFormatted(requestDetails.expectedDeliveryDate)}}</button>
+                <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50" for="priority">
+                    DUE DATE
+                </label>
+                <button class="flex flex-row p-2 text-sky-600 border-sky-600 border rounded-lg bg-sky-200 text-sm">
+                    <span class="mr-2"><img src="/assets/assets-mobile/Icon metro-alarm.svg" alt="" /></span>
+                    {{ getDateFormatted(requestDetails.expectedDeliveryDate) }}
+                </button>
             </div>
         </div>
 
-        <div class="w-full flex flex-col mb-3"><label
-                class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50"
-                for="priority">Description</label>
-            <textarea disabled
-                class="border p-3 rounded-lg disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]"
-                name="description" id="description" cols="20" rows="4" [value]="requestDetails.description"></textarea>
+        <div class="w-full flex flex-col mb-3">
+            <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50" for="priority">
+                Description
+            </label>
+            <textarea disabled class="
+                    border
+                    p-3
+                    rounded-lg
+                    disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
+                " name="description" id="description" cols="20" rows="4"
+                [value]="requestDetails.description"></textarea>
         </div>
 
-        <div class="w-full flex flex-col mb-3"><label
-                class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50"
-                for="priority">Instruction</label>
-            <textarea disabled
-                class="border p-3 rounded-lg disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]"
-                name="description" id="description" cols="20" rows="4" [value]="requestDetails.instruction"></textarea>
+        <div class="w-full flex flex-col mb-3">
+            <label class="text-xs font-thin mb-2 text-left text-label-color text-opacity-50" for="priority">
+                Instruction
+            </label>
+            <textarea disabled class="
+                    border
+                    p-3
+                    rounded-lg
+                    disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
+                " name="description" id="description" cols="20" rows="4"
+                [value]="requestDetails.instruction"></textarea>
         </div>
 
         <div class="flex items-center mb-2">
             <input id="bid_requested" type="checkbox" value="" [checked]="requestDetails.affectShipShape"
                 class="w-4 h-4 bg-blue-300 rounded border-blue-300" />
-            <label for="bid_requested" class="ml-2 text-xs font-thin ">AFFECTS SHIP SHAPE</label>
+            <label for="bid_requested" class="ml-2 text-xs font-thin">AFFECTS SHIP SHAPE</label>
         </div>
 
         <div class="flex items-center mb-4">
-            <input id="bid_requested" type="checkbox" value="" class="w-4 h-4  border-blue-500 bg-blue-500 rounded" />
-            <label for="bid_requested" class="ml-2 text-xs font-thin ">MAKE RECURRING</label>
+            <input id="bid_requested" type="checkbox" value="" class="w-4 h-4 border-blue-500 bg-blue-500 rounded" />
+            <label for="bid_requested" class="ml-2 text-xs font-thin">MAKE RECURRING</label>
         </div>
 
         <div class="flex flex-col mb-4">
             <label class="text-xs font-thin mb-1 text-left text-label-color text-opacity-50" for="vendor">VENDOR</label>
             <input disabled type="text" name="vendor" id="vendor"
-                [value]="vendorDetails.firstName + ' ' + vendorDetails.lastName"
-                class="rounded-lg text-gray-500 py-3 px-3 text-sm border-gray-300 border-[0.5px] border-solid flex disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]">
+                [value]="vendorDetails.firstName + ' ' + vendorDetails.lastName" class="
+                    rounded-lg
+                    text-gray-500
+                    py-3
+                    px-3
+                    text-sm
+                    border-gray-300 border-[0.5px] border-solid
+                    flex
+                    disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
+                " />
         </div>
 
         <div class="flex flex-col mb-3" *ngIf="requestDetails.imageUrls">
             <h4 class="text-xs font-thin text-left mb-2 text-label-color text-opacity-50">ADDITIONAL RESOURCES</h4>
-            <div class="rounded ">
-                <img src="/assets/assets-mobile/justin-kauffman-kBO-sBhf_I8-unsplash.png" alt="">
+            <div class="rounded">
+                <img src="/assets/assets-mobile/justin-kauffman-kBO-sBhf_I8-unsplash.png" alt="" />
             </div>
         </div>
 
         <div class="flex mt-3 gap-2">
-            <button
-                class="w-full text-center bg-red-200 rounded-lg text-red-500 py-2 text border-red-500 border-[0.5px] border-solid ">
+            <button class="
+                    w-full
+                    text-center
+                    bg-red-200
+                    rounded-lg
+                    text-red-500
+                    py-2
+                    text
+                    border-red-500 border-[0.5px] border-solid
+                ">
                 CANCEL
             </button>
 
-            <button class="w-full text-center rounded-lg text-white py-2 text  bg-sky-300">
-                UPDATE
-            </button>
+            <button class="w-full text-center rounded-lg text-white py-2 text bg-sky-300">UPDATE</button>
         </div>
     </div>
 </app-container>
