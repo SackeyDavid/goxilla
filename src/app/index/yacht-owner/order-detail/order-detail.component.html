@@ -110,7 +110,7 @@
 
         <div class="flex flex-col mb-3">
             <h4 class="text-lg text-left mb-2 text-opacity-100">ADDITIONAL RESOURCES</h4>
-            <div class="flex flex-wrap">
+            <div class="flex space-x-4 flex-wrap">
                 <div class="rounded" *ngFor="let image of requestDetailsImages">
                     <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
                         [src]="getFormatedImageUrl(image.imageUrl)" alt="lightboxImages" />
