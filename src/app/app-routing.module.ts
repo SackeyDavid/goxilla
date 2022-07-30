@@ -3,6 +3,7 @@ import { NavigationEnd, RouteConfigLoadEnd, RouteConfigLoadStart, Router, Router
 import { AppComponent } from './app.component';
 import { AppRouteGuard } from './shared/common/auth/auth-route-guard';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { OrderDetailComponent } from './index/yacht-owner/order-detail/order-detail.component';
 
 @NgModule({
     imports: [
@@ -21,6 +22,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
                     {
                         path: 'account',
                         loadChildren: () => import('./accounts/accounts.module').then((m) => m.AccountsModule),
+                    },
+                    {
+                        path: 'service-request/:id',
+                        component: OrderDetailComponent,
+                        // loadChildren: () =>
+                        //     import('./index/yacht-owner/order-detail/order-detail.module').then(
+                        //         (m) => m.OrderDetailModule
+                        //     ),
                     },
                     {
                         path: '**',

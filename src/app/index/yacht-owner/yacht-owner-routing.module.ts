@@ -16,10 +16,6 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('./request-service/request-service.module').then((m) => m.RequestServiceModule),
             },
-            {
-                path: 'service-request/:id',
-                loadChildren: () => import('./order-detail/order-detail.module').then((m) => m.OrderDetailModule),
-            },
         ],
     },
 ];

@@ -31,9 +31,9 @@ export class OrderDetailComponent implements OnInit {
         this.url = decodeURI(this.router.url);
         var ind1 = this.url.indexOf('/');
         var ind2 = this.url.indexOf('/', ind1 + 1);
-        var ind3 = this.url.indexOf('/', ind2 + 1);
+        // var ind3 = this.url.indexOf('/', ind2 + 1);
 
-        this.serviceRequestId = this.url.substring(ind3 + 1);
+        this.serviceRequestId = this.url.substring(ind2 + 1);
     }
 
     ngOnInit(): void {
