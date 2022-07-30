@@ -1,18 +1,20 @@
 <div class="h-full">
     <div class="my-0 bg-white py-6 px-4 w-full text-center inline-block rounded-lg">
-        <h1 class="text-xl text-center font-thin mb-5">SERVICE ORDER</h1>
+        <h1 class="text-xl text-center font-thin uppercase mb-5">{{requestDetails?.service?.name}} Order</h1>
         <div class="flex justify-between mb-2">
             <div class="flex">
                 <span>
-                    <img [src]="yatchDetails.imageUrl" class="w-[5rem] h-[4rem] rounded-md" alt="yatch image" />
+                    <img [src]="requestDetails?.yachts?.imageUrl" class="w-[5rem] h-[4rem] rounded-md"
+                        alt="yatch image" />
                 </span>
                 <div class="ml-3">
-                    <h2 class="text-xl text-left mb-1">{{ yatchDetails.name }}</h2>
-                    <p class="text-[12px] text-left text-label-color text-opacity-50">{{ yatchDetails.hailingPort }}</p>
+                    <h2 class="text-xl text-left mb-1">{{ requestDetails?.yachts?.name }}</h2>
+                    <p class="text-[12px] text-left text-label-color text-opacity-50">{{
+                        requestDetails?.yachts?.hailingPort }}</p>
                 </div>
             </div>
             <div class="flex">
-                <span class="mr-2">
+                <span class="mr-4">
                     <img class="p-2 border-2 rounded-full" src="/assets/assets-mobile/Icon metro-bin.svg" alt="" />
                 </span>
                 <span>
@@ -23,7 +25,7 @@
         </div>
         <div class="flex justify-between mb-3">
             <div class="font-thin text-lg">Created: 4/2/2022 08:15 AM</div>
-            <div class="text-opacity-100 font-semibold text-xl">${{ serviceDetails.cost }}</div>
+            <div class="text-opacity-100 font-semibold text-3xl">${{ requestDetails?.service?.cost }}</div>
         </div>
 
         <div class="flex justify-between mb-4 gap-3">
@@ -49,7 +51,7 @@
                 <button
                     class="flex flex-row p-3 text-sky-600 border-sky-600 border-[1px] rounded-lg bg-sky-200 text-lg">
                     <span class="mr-2"><img src="/assets/assets-mobile/Icon metro-alarm.svg" alt="" /></span>
-                    {{ getDateFormatted(requestDetails.expectedDeliveryDate) }}
+                    {{ getDateFormatted(requestDetails?.serviceOrder?.expectedDeliveryDate) }}
                 </button>
             </div>
         </div>
@@ -66,7 +68,7 @@
                     rounded-lg
                     disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
                 " name="description" id="description" cols="20" rows="4"
-                [value]="requestDetails.description"></textarea>
+                [value]="requestDetails?.serviceOrder?.description"></textarea>
         </div>
 
         <div class="w-full flex flex-col mb-3">
@@ -80,11 +82,11 @@
                     rounded-lg
                     disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
                 " name="description" id="description" cols="20" rows="4"
-                [value]="requestDetails.instruction"></textarea>
+                [value]="requestDetails?.serviceOrder?.instruction"></textarea>
         </div>
 
         <div class="flex items-center mt-2 mb-2">
-            <input id="bid_requested" type="checkbox" value="" [checked]="requestDetails.affectShipShape"
+            <input id="bid_requested" type="checkbox" value="" [checked]="requestDetails?.serviceOrder?.affectShipShape"
                 class="w-5 h-5 bg-blue-300 rounded border-blue-300" />
             <label for="bid_requested" class="ml-2 text-lg">AFFECTS SHIP SHAPE</label>
         </div>
@@ -97,7 +99,7 @@
         <div class="flex flex-col mb-4">
             <label class="text-lg mb-2 text-left uppercase text-opacity-100" for="vendor">VENDOR</label>
             <input disabled type="text" name="vendor" id="vendor"
-                [value]="vendorDetails.firstName + ' ' + vendorDetails.lastName" class="
+                [value]="requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName" class="
                     rounded-lg
                     text-gray-900
                     py-3
@@ -109,10 +111,14 @@
                 " />
         </div>
 
-        <div class="flex flex-col mb-3" *ngIf="requestDetails.imageUrls">
-            <h4 class="text-sm font-thin text-left mb-2 text-label-color text-opacity-50">ADDITIONAL RESOURCES</h4>
-            <div class="rounded">
-                <img src="/assets/assets-mobile/justin-kauffman-kBO-sBhf_I8-unsplash.png" alt="" />
+        <div class="flex flex-col mb-3">
+            <h4 class="text-lg text-left mb-2 text-opacity-100">ADDITIONAL RESOURCES</h4>
+            <div *ngFor="let image of requestDetailsImages">
+                {{image.imageUrl}}
+                <div class="rounded">
+                    <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" src="{{image.imageUrl}}"
+                        alt="lightboxImages" />
+                </div>
             </div>
         </div>
 

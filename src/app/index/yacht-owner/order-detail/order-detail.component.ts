@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BaseService } from '@app/shared/base.service';
 import { VendorService } from '../add-vendor/vendor.service';
@@ -12,14 +12,12 @@ import * as moment from 'moment';
     templateUrl: './order-detail.component.html',
     styleUrls: ['./order-detail.component.css'],
 })
-export class OrderDetailComponent implements OnInit {
+export class OrderDetailComponent implements OnInit, AfterContentInit {
     url: string;
     serviceRequestId: any;
     requestDetails: any;
-    serviceDetails: any;
-    yatchDetails: any;
-    priority: string;
-    vendorDetails: any;
+    requestDetailsImages: any;
+    priority: string = 'Medium';
 
     constructor(
         private router: Router,
@@ -36,36 +34,45 @@ export class OrderDetailComponent implements OnInit {
         this.serviceRequestId = this.url.substring(ind2 + 1);
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {}
+
+    ngAfterContentInit() {
         this.getDetails();
     }
 
     getDetails() {
-        this.service.getServiceReqDetails(this.serviceRequestId).subscribe((value) => {
-            this.requestDetails = value.result;
-            this.getYachtDetails();
-            this.getServiceDetails();
-            this.getVendorDetails();
-            this.priority = this.requestDetails.priority == 1 ? 'Low' : 2 ? 'Medium' : 'ASAP';
-        });
+        if (this.serviceRequestId.length) {
+            this.service.getServiceReqDetails(this.serviceRequestId).subscribe((value) => {
+                this.requestDetails = value.result;
+                console.log(this.requestDetails);
+                this.requestDetailsImages = this.requestDetails.lightboxImages;
+                this.priority = this.requestDetails.serviceOrder.priority == 0 ? 'Low' : 1 ? 'Medium' : 'ASAP';
+            });
+        }
     }
 
     getYachtDetails() {
-        this.yachtService.getYachtDetails(this.requestDetails.yatchId).subscribe((value) => {
-            this.yatchDetails = value.result.yatch;
-        });
+        if (this.requestDetails.yatchId.length) {
+            this.yachtService.getYachtDetails(this.requestDetails.yatchId).subscribe((value) => {
+                // this.yatchDetails = value.result.yatch;
+            });
+        }
     }
 
     getServiceDetails() {
-        this.selectService.getServiceDetails(this.requestDetails.serviceId).subscribe((value) => {
-            this.serviceDetails = value.result.service;
-        });
+        if (this.requestDetails.serviceId) {
+            this.selectService.getServiceDetails(this.requestDetails.serviceId).subscribe((value) => {
+                // this.serviceDetails = value.result.service;
+            });
+        }
     }
 
     getVendorDetails() {
-        this.vendorService.getVendorDetails(this.requestDetails.vendorId).subscribe((value) => {
-            this.vendorDetails = value.result.vendor;
-        });
+        if (this.requestDetails.vendorId) {
+            this.vendorService.getVendorDetails(this.requestDetails.vendorId).subscribe((value) => {
+                // this.vendorDetails = value.result.vendor;
+            });
+        }
     }
 
     getDateFormatted(date: any) {

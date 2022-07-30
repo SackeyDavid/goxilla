@@ -37,11 +37,9 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PasswordInputWithShowButtonComponent } from './password-input-with-show-button/password-input-with-show-button.component';
 import { KeyValueListManagerComponent } from './key-value-list-manager/key-value-list-manager.component';
 import { ContainerComponent } from './container/container.component';
-import { FullScreenModalComponent } from "@app/shared/common/modal/full-screen-modal/full-screen-modal.component";
-import {
-    BlurBackgroundModalComponent
-} from "@app/shared/common/modal/blur-background-modal/blur-background-modal.component";
-import { SearchBoxComponent } from "@app/shared/common/search-box/search-box.component";
+import { FullScreenModalComponent } from '@app/shared/common/modal/full-screen-modal/full-screen-modal.component';
+import { BlurBackgroundModalComponent } from '@app/shared/common/modal/blur-background-modal/blur-background-modal.component';
+import { SearchBoxComponent } from '@app/shared/common/search-box/search-box.component';
 import { log } from 'console';
 
 @NgModule({
@@ -78,7 +76,7 @@ import { log } from 'console';
         ContainerComponent,
         FullScreenModalComponent,
         BlurBackgroundModalComponent,
-        SearchBoxComponent
+        SearchBoxComponent,
     ],
     exports: [
         TimeZoneComboComponent,
@@ -92,7 +90,7 @@ import { log } from 'console';
         ContainerComponent,
         FullScreenModalComponent,
         BlurBackgroundModalComponent,
-        SearchBoxComponent
+        SearchBoxComponent,
     ],
     providers: [
         DateTimeService,
@@ -104,7 +102,6 @@ import { log } from 'console';
     ],
 })
 export class AppCommonModule {
-
     static forRoot(): ModuleWithProviders<AppCommonModule> {
         return {
             ngModule: AppCommonModule,
@@ -118,11 +115,10 @@ export class AppCommonModule {
                 const ele = document.getElementsByClassName('search-drop-container');
                 for (let i = 0; i < ele.length; i++) {
                     if (!ele.item(i)?.classList.contains('hidden')) {
-                        ele.item(i)?.classList.add('hidden')
+                        ele.item(i)?.classList.add('hidden');
                     }
                 }
             }
         });
     }
-
 }

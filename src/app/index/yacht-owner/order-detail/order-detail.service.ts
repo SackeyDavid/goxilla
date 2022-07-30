@@ -10,6 +10,8 @@ export class OrderDetailService {
     constructor(private httpClient: HttpClient, private baseService: BaseService) {}
 
     getServiceReqDetails(id: number): Observable<any> {
-        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetById?id=` + id);
+        return this.httpClient.get(
+            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetServiceOrderForView?id=` + id
+        );
     }
 }
