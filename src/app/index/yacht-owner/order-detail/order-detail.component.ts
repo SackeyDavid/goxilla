@@ -17,7 +17,7 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
     serviceRequestId: any;
     requestDetails: any;
     requestDetailsImages: any;
-    priority: string = 'Medium';
+    priority: string;
 
     constructor(
         private router: Router,
@@ -34,7 +34,7 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         this.serviceRequestId = this.url.substring(ind2 + 1);
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {}
 
     ngAfterContentInit() {
         this.getDetails();
@@ -45,11 +45,19 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
             this.service.getServiceReqDetails(this.serviceRequestId).subscribe((value) => {
                 this.requestDetails = value.result;
                 this.requestDetailsImages = this.requestDetails.lightboxImages;
-                console.log(this.requestDetails);
-                console.log(this.requestDetailsImages);
-                this.priority = this.requestDetails.serviceOrder.priority == 0 ? 'Low' : 1 ? 'Medium' : 'ASAP';
+                this.priority = this.requestDetails.serviceOrder.priority == 1 ? 'Low' : 2 ? 'Medium' : 'ASAP';
             });
         }
+    }
+
+    getDateFormatted(date: any) {
+        return moment(date).format('DD/MM/YYYY h:mm A');
+    }
+
+    getFormatedImageUrl(imageUrl: string) {
+        let newImageUrl = imageUrl.slice(0, -4);
+        newImageUrl = newImageUrl + 'raw=1';
+        return newImageUrl;
     }
 
     getYachtDetails() {
@@ -74,9 +82,5 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
                 // this.vendorDetails = value.result.vendor;
             });
         }
-    }
-
-    getDateFormatted(date: any) {
-        return moment(date).format('DD/MM/YYYY h:mm A');
     }
 }
