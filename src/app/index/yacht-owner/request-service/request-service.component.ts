@@ -57,9 +57,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             Name: ['Hermann'],
             Location: [null],
             AffectShipShape: true,
-            Instructions: [''],
+            Title: [''],
             Instruction: ['', Validators.required],
-            bid_requested: false,
+            // bid_requested: false,
         });
 
         this.vendorList = [];
