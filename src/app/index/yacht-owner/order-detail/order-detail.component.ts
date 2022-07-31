@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseService } from '@app/shared/base.service';
 import { VendorService } from '../add-vendor/vendor.service';
 import { SelectServiceService } from '../select-service/select-service.service';
@@ -24,14 +24,23 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         private service: OrderDetailService,
         private yachtService: YachtDetailsService,
         private vendorService: VendorService,
-        private selectService: SelectServiceService
+        private selectService: SelectServiceService,
+        private activatedRoute: ActivatedRoute
     ) {
-        this.url = decodeURI(this.router.url);
-        var ind1 = this.url.indexOf('/');
-        var ind2 = this.url.indexOf('/', ind1 + 1);
-        // var ind3 = this.url.indexOf('/', ind2 + 1);
+        this.activatedRoute.paramMap.subscribe((params) => {
+            let serviceRequestId = params.get('id');
+            this.serviceRequestId = serviceRequestId;
+            // console.log(serviceRequestId);
+        });
 
-        this.serviceRequestId = this.url.substring(ind2 + 1);
+        if (!this.serviceRequestId) {
+            this.url = decodeURI(this.router.url);
+            var ind1 = this.url.indexOf('/');
+            var ind2 = this.url.indexOf('/', ind1 + 1);
+            // var ind3 = this.url.indexOf('/', ind2 + 1);
+
+            this.serviceRequestId = this.url.substring(ind2 + 1);
+        }
     }
 
     ngOnInit(): void {}
@@ -60,6 +69,10 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         return newImageUrl;
     }
 
+    /*
+        Below functions are not being used
+        May be used later to fetch data on authenticated routes or using ids
+    */
     getYachtDetails() {
         if (this.requestDetails.yatchId.length) {
             this.yachtService.getYachtDetails(this.requestDetails.yatchId).subscribe((value) => {
