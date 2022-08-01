@@ -23,11 +23,9 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { TableModule } from 'primeng/table';
 import { AppCommonModule } from './common/app-common.module';
 import { ThemesLayoutBaseComponent } from './layout/themes/themes-layout-base.component';
-import { BrowserModule } from '@angular/platform-browser';
 
 const imports = [
     CommonModule,
-    BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
