@@ -16,6 +16,11 @@ const routes: Routes = [
                 loadChildren: () =>
                     import('./request-service/request-service.module').then((m) => m.RequestServiceModule),
             },
+            {
+                path: 'all-requests',
+                loadChildren: () =>
+                    import('./all-requests/all-requests/all-requests.module').then((m) => m.AllRequestsModule),
+            },
         ],
     },
 ];
