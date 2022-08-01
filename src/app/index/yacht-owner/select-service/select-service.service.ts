@@ -26,4 +26,10 @@ export class SelectServiceService {
     addEditService(service: any): Observable<any> {
         return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Services/CreateOrEdit`, service);
     }
+
+    searchServiceOrders(searchPhrase: any): Observable<any> {
+        return this.httpClient.get(
+            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll?MaxResultCount=30&Filter=` + searchPhrase
+        );
+    }
 }

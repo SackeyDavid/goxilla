@@ -14,11 +14,17 @@
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
                     <div class="relative drop-shadow-lg">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <img src="/src/assets/searchbar-icon.svg" alt="">
+                            <img src="../../../../../assets/assets/searchbar-icon.svg" alt="">
                         </div>
-                        <input type="search" id="default-search"
-                            class="block p-4 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search services" required>
+                        <!-- <app-search-box (getSelectedItem)="getSelectedYacht($event)"
+                                (addNewItem)="addNewYacht($event)" [placeholder]="'Search services'"
+                                [data]="allServiceOrders" [showAddButton]="false">
+                            </app-search-box> -->
+                        <input type="search" id="default-search" (keyup)="searchServiceOrder()"
+                            [(ngModel)]="searchPhrase" [ngModelOptions]="{standalone: true}"
+                            class="block p-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search services" autocomplete="false" style="padding-left: 3rem !important;"
+                            required>
                         <button type="button" class="absolute inset-y-0 right-0 items-center px-3 my-2 text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="1">
@@ -33,11 +39,19 @@
                 <!-- Info Card Stack -->
                 <div class="info-card-stack space-y-4 mt-8 mb-4 overflow-author">
 
+                    <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
+                        <span>No result found</span>
+                    </div>
+                    <div class="align-center block mx-auto" *ngIf="searching == true && !allServiceOrders.length">
+                        <span>searching...</span>
+                    </div>
                     <!-- Info Card Single: Start -->
-                    <div class="info-card border rounded-md px-2 py-3 drop-shadow-md bg-white">
+                    <div *ngFor="let order of allServiceOrders"
+                        class="info-card border rounded-md px-2 py-3 drop-shadow-md bg-white">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-xs uppercase">Fix Crack In Window</span>
-                            <span class="text-xs pr-4 text-yellow-400 flex items-center">
+                            <span class="text-xs uppercase">{{order.service?.name}}</span>
+                            <span class="text-xs pr-4 text-yellow-400 flex items-center"
+                                *ngIf="order.serviceOrder?.priority == 2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -45,12 +59,13 @@
                                 </svg>
                                 <span class="uppercase">Important</span>
                             </span>
-                            <img src="/src/assets/caret-right-icon.svg" class="absolute right-1" alt="">
+                            <img src="../../../../../assets/assets/caret-right-icon.svg" class="absolute right-1"
+                                alt="">
                         </div>
                         <div class="info-card-body flex justify-between items-center pt-1">
                             <div class="flex flex-col text-left w-1/2">
                                 <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-xs">Juan The Boat Guy</span>
+                                <span class="text-xs">{{order.vendor?.firstName}} {{order.vendor?.lastName}}</span>
                             </div>
 
                             <div class="flex flex-col text-left w-1/4">
@@ -59,148 +74,18 @@
                             </div>
 
                             <div class="w-1/4 text-right">
-                                <span
+                                <span *ngIf="order.serviceOrder?.status == 0"
                                     class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
                             </div>
                         </div>
                     </div>
                     <!-- Info Card Single: End -->
 
-                    <!-- Info Card Single: Start -->
-                    <div class="info-card border rounded-md px-2 py-3 bg-white">
-                        <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-xs uppercase">Fix Crack In Window</span>
-                            <span class="text-xs pr-4 text-yellow-400 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
-                                <span class="uppercase">Important</span>
-                            </span>
-                            <img src="/src/assets/caret-right-icon.svg" class="absolute right-1" alt="">
-                        </div>
-                        <div class="info-card-body flex justify-between items-center pt-1">
-                            <div class="flex flex-col text-left w-1/2">
-                                <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-xs">Juan The Boat Guy</span>
-                            </div>
-
-                            <div class="flex flex-col text-left w-1/4">
-                                <span class="text-2xs text-gray-400">Date</span>
-                                <span class="text-xs">06/23/2022</span>
-                            </div>
-
-                            <div class="w-1/4 text-right">
-                                <span
-                                    class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Info Card Single: End -->
-
-                    <!-- Info Card Single: Start -->
-                    <div class="info-card border rounded-md px-2 py-3 bg-white">
-                        <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-xs uppercase">Fix Crack In Window</span>
-                            <span class="text-xs pr-4 text-yellow-400 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
-                                <span class="uppercase">Important</span>
-                            </span>
-                            <img src="/src/assets/caret-right-icon.svg" class="absolute right-1" alt="">
-                        </div>
-                        <div class="info-card-body flex justify-between items-center pt-1">
-                            <div class="flex flex-col text-left w-1/2">
-                                <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-xs">Juan The Boat Guy</span>
-                            </div>
-
-                            <div class="flex flex-col text-left w-1/4">
-                                <span class="text-2xs text-gray-400">Date</span>
-                                <span class="text-xs">06/23/2022</span>
-                            </div>
-
-                            <div class="w-1/4 text-right">
-                                <span
-                                    class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Info Card Single: End -->
-
-                    <!-- Info Card Single: Start -->
-                    <div class="info-card border rounded-md px-2 py-3 bg-white">
-                        <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-xs uppercase">Fix Crack In Window</span>
-                            <span class="text-xs pr-4 text-yellow-400 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
-                                <span class="uppercase">Important</span>
-                            </span>
-                            <img src="/src/assets/caret-right-icon.svg" class="absolute right-1" alt="">
-                        </div>
-                        <div class="info-card-body flex justify-between items-center pt-1">
-                            <div class="flex flex-col text-left w-1/2">
-                                <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-xs">Juan The Boat Guy</span>
-                            </div>
-
-                            <div class="flex flex-col text-left w-1/4">
-                                <span class="text-2xs text-gray-400">Date</span>
-                                <span class="text-xs">06/23/2022</span>
-                            </div>
-
-                            <div class="w-1/4 text-right">
-                                <span
-                                    class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Info Card Single: End -->
-
-                    <!-- Info Card Single: Start -->
-                    <div class="info-card border rounded-md px-2 py-3 bg-white">
-                        <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-xs uppercase">Fix Crack In Window</span>
-                            <span class="text-xs pr-4 text-yellow-400 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
-                                <span class="uppercase">Important</span>
-                            </span>
-                            <img src="/src/assets/caret-right-icon.svg" class="absolute right-1" alt="">
-                        </div>
-                        <div class="info-card-body flex justify-between items-center pt-1">
-                            <div class="flex flex-col text-left w-1/2">
-                                <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-xs">Juan The Boat Guy</span>
-                            </div>
-
-                            <div class="flex flex-col text-left w-1/4">
-                                <span class="text-2xs text-gray-400">Date</span>
-                                <span class="text-xs">06/23/2022</span>
-                            </div>
-
-                            <div class="w-1/4 text-right">
-                                <span
-                                    class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Info Card Single: End -->
                 </div>
 
                 <!-- Info Card Stack Pagination -->
-                <nav class="relative mt-10 z-0 flex flex-row flex-auto rounded-md shadow-sm -space-x-px w-full mx-auto items-stretch justify-between"
+                <nav *ngIf="allServiceOrders.nextPage"
+                    class="relative mt-10 z-0 flex flex-row flex-auto rounded-md shadow-sm -space-x-px w-full mx-auto items-stretch justify-between"
                     aria-label="Pagination">
                     <a href="#"
                         class="relative px-2 py-2 rounded-l-md border border-gray-300 bg-gray-100 text-xs font-medium text-gray-500 hover:bg-gray-50 inline-flex items-center">
@@ -227,7 +112,7 @@
                         <!-- </nav> -->
                     </a>
                 </nav>
-                <div class="text-right mb-5">
+                <div class="text-right mb-5" *ngIf="allServiceOrders.length > 12">
                     <span class="text-xs">Showing 5 of 12</span>
                 </div>
                 <!-- End - Info Card Stack -->
@@ -242,11 +127,11 @@
                     <div class="flex justify-between items-center">
                         <div
                             class="flex flex-row items-center relative cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                            <img src="/src/assets/yacht-profiles/happy-place-rect-profile.png" alt=""
+                            <img [src]="requestDetails?.yachts?.imageUrl" alt=""
                                 class="h-9 rounded-md border border-gray-400 mr-3">
                             <div class="flex flex-col mr-10">
-                                <span class="text-sm">Happy Place</span>
-                                <span class="uppercase text-xs">CF# 128-7148</span>
+                                <span class="text-sm">{{requestDetails?.yachts?.name}}</span>
+                                <span class="uppercase text-xs">{{requestDetails?.yachts?.hailingPort}}</span>
                             </div>
                         </div>
                         <div class="space-x-2 flex">
@@ -285,7 +170,7 @@
                             4/2/2022 08:15 AM
                         </span>
                         <span class="text-xl font-medium">
-                            $1500
+                            ${{requestDetails?.service?.cost}}
                         </span>
                     </div>
 
@@ -295,7 +180,8 @@
                             <button type="button"
                                 class="items-center inline-flex justify-between rounded-md border border-sky-400 shadow-sm px-4 py-2.5 bg-white text-sm font-medium text-sky-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                                 id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <span>ASAP</span>
+                                <span>{{requestDetails?.serviceOrder?.priority == 1 ? 'Low' : 2 ? 'Medium' :
+                                    'ASAP'}}</span>
                                 <!-- Heroicon name: solid/chevron-down -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="-mr-1 ml-5 h-5 w-5" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
@@ -313,7 +199,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>4/14/2022 08:00 PM</span>
+                                <span>{{ getDetailsDateFormatted(requestDetails?.serviceOrder?.expectedDeliveryDate)
+                                    }}</span>
                             </button>
                         </div>
                     </div>
@@ -323,13 +210,22 @@
                         <label for="description" class="font-light text-gray-400 mb-2 block">Description</label>
                         <textarea id="description" rows="4"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            disabled>Fix crack in window</textarea>
+                            disabled [value]="requestDetails?.serviceOrder?.description"></textarea>
+                    </div>
+
+                    <!-- Instruction -->
+                    <div>
+                        <label for="instruction" class="font-light text-gray-400 mb-2 block">Instruction</label>
+                        <textarea id="instruction" rows="4"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            disabled [value]="requestDetails?.serviceOrder?.instruction"></textarea>
                     </div>
 
                     <!-- Checks -->
                     <div class="space-x-4">
                         <div class="inline-flex items-center">
                             <input id="affects-ship-checkbox" type="checkbox" value=""
+                                [checked]="requestDetails?.serviceOrder?.affectShipShape"
                                 class="w-5 h-5 text-blue-600 bg-gray-100 rounded-md border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                 disabled>
                             <label class="font-light text-gray-500 ml-2 block text-sm"
@@ -340,8 +236,8 @@
                             <input id="recurring-checkbox" type="checkbox" value=""
                                 class="w-5 h-5 text-blue-600 bg-gray-100 rounded-md border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                 disabled>
-                            <label class="font-light text-gray-500 ml-2 block text-sm" for="recurring-checkbox">Affects
-                                Ship Shape</label>
+                            <label class="font-light text-gray-500 ml-2 block text-sm capitalize"
+                                for="recurring-checkbox">MAKE RECURRING</label>
                         </div>
                     </div>
 
@@ -350,14 +246,20 @@
                         <button type="button"
                             class="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 bg-gray-100 text-sm font-medium text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="menu-button" aria-expanded="true" aria-haspopup="true" disabled>
-                            <span>OC Marine</span>
+                            <span>{{requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName}}</span>
                         </button>
                     </div>
 
                     <div>
                         <label class="font-light text-gray-400 mb-2 block">Additional Resources</label>
-                        <div class="grid grid-cols-5 gap-2">
-                            <img src="/src/assets/placeholders/request-photo-placeholder.jpg" alt="" class="rounded-lg">
+                        <!-- <div class="grid grid-cols-5 gap-2">
+                            <img src="../../../../../assets/assets/placeholders/request-photo-placeholder.jpg" alt="" class="rounded-lg">
+                        </div> -->
+                        <div class="flex space-x-4 flex-wrap">
+                            <div class="rounded" *ngFor="let image of requestDetails?.lightboxImages">
+                                <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
+                                    [src]="getFormatedImageUrl(image.imageUrl)" alt="lightboxImages" />
+                            </div>
                         </div>
                     </div>
 
