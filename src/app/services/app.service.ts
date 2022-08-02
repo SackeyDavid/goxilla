@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService } from '@app/shared/base.service';
 import { Subject } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
@@ -17,7 +18,7 @@ export class AppService {
     collapseMenuSubject = new Subject<boolean>();
     uploadMediaSubject = new Subject<boolean>();
     /* alertSubject = new Subject<Alert>(); */
-    constructor(private httpClient: HttpClient, private baseService: BaseService) {}
+    constructor(private httpClient: HttpClient, private baseService: BaseService, public router: Router) {}
 
     setStorageItem(key: any, status: any) {
         localStorage.setItem(key, JSON.stringify(status));
@@ -33,5 +34,8 @@ export class AppService {
 
     getCurrentLoginInformation() {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Session/GetCurrentLoginInformations`);
+    }
+    goTo(page) {
+        this.router.navigate([page]);
     }
 }
