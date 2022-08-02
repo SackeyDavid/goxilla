@@ -15,17 +15,6 @@ const helper = new JwtHelperService();
     styleUrls: ['./yacht-owner.component.css'],
 })
 export class YachtOwnerComponent implements OnInit {
-<<<<<<< HEAD
-    constructor(
-        public service: YachtOwnerService,
-        private _authService: AppAuthService,
-        private authService: AuthService
-    ) {}
-
-    ngOnInit(): void {
-        this.authService.getLoginInfo();
-=======
-
     storedToken: any;
     authTokenLocalizationName: string;
     encrptedAuthTokenName: string;
@@ -35,45 +24,42 @@ export class YachtOwnerComponent implements OnInit {
     constructor(
         public service: YachtOwnerService,
         private _authService: AppAuthService,
+        private authService: AuthService,
         public AppService: AppService,
         public router: Router
-    ) { }
+    ) {}
 
     ngOnInit(): void {
+        this.authService.getLoginInfo();
         this.runTokenCheck();
         this.checkTokenExpiration();
     }
 
     runTokenCheck(): void {
-
         this.authTokenLocalizationName = AppConsts.localization.defaultLocalizationSourceName;
         this.encrptedAuthTokenName = AppConsts.authorization.encrptedAuthTokenName;
-        this.appStoreName = "abpzerotemplate_local_storage";
+        this.appStoreName = 'abpzerotemplate_local_storage';
 
-        this.storedTokenName = this.authTokenLocalizationName + "/" + this.appStoreName + "/" + this.encrptedAuthTokenName;
+        this.storedTokenName =
+            this.authTokenLocalizationName + '/' + this.appStoreName + '/' + this.encrptedAuthTokenName;
         this.storedToken = this.AppService.getStorageItem(this.storedTokenName);
 
-        if (!this.storedToken)
-            this.router.navigate(['/account/login']);
-
+        if (!this.storedToken) this.router.navigate(['/account/login']);
     }
 
     checkTokenExpiration() {
-
         const loginTime = this.AppService.getStorageItem('loginTime');
-        const expirationTime = loginTime + (60 * 60 * 1000);
+        const expirationTime = loginTime + 60 * 60 * 1000;
 
-        console.log(loginTime)
-        console.log(expirationTime)
+        console.log(loginTime);
+        console.log(expirationTime);
 
-        console.log(new Date(loginTime))
-        console.log(new Date(expirationTime))
+        console.log(new Date(loginTime));
+        console.log(new Date(expirationTime));
 
         if (new Date().getTime() >= expirationTime) {
             this.logout();
         }
-
->>>>>>> 1afed928d185c37eb8c2ca89cc3347b1d47ae4a9
     }
 
     logout(): void {
