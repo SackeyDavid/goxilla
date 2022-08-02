@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseService } from '@app/shared/base.service';
 import { ModalRef } from '@app/shared/common/modal/modal-ref';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
 import { YachtDetailsService } from '../yacht-details/yacht-details.service';
 
@@ -11,18 +12,20 @@ import { YachtDetailsService } from '../yacht-details/yacht-details.service';
     styleUrls: ['./add-yacht.component.css'],
     providers: [ModalRef],
 })
-export class AddYachtComponent implements OnInit {
+export class AddYachtComponent extends AppComponentBase implements OnInit {
     form!: FormGroup;
     editState: boolean = false;
     lightboxImages: any = [];
     lightboxImagesAlt: any = [];
 
     constructor(
+        injector: Injector,
         public modal: ModalRef,
         private fb: FormBuilder,
         public service: YachtDetailsService,
         public baseService: BaseService
     ) {
+        super(injector);
         modal.component = AddYachtComponent;
     }
 
@@ -32,11 +35,16 @@ export class AddYachtComponent implements OnInit {
             hailingPort: [null, Validators.required],
             isActive: true,
             country: [null, Validators.required],
-            userId: [1, Validators.required],
+            userId: [this.getUID(), Validators.required],
         });
 
-        if (sessionStorage.getItem('yacht_new_item'))
+        if (sessionStorage.getItem('yacht_new_item')) {
             this.form.controls['name'].setValue(sessionStorage.getItem('yacht_new_item'));
+        }
+    }
+
+    getUID() {
+        return JSON.parse(localStorage.getItem('user_info'))?.result?.user?.id;
     }
 
     close() {
@@ -45,21 +53,45 @@ export class AddYachtComponent implements OnInit {
 
     reset() {
         this.form.reset();
+        this.lightboxImages = [];
         this.editState = false;
     }
 
     addEditVendor() {
+        // let requestPayload = new FormData();
+
+        // Object.keys(this.form.controls).forEach((formControlName) => {
+        //     // console.log('controls', this.form.get(formControlName)?.value);
+        //     requestPayload.append(formControlName, this.form.get(formControlName)?.value);
+        // });
+
+        // this.lightboxImages.forEach((image: any) => {
+        //     requestPayload.append(image.name, image);
+        // });
+
+        const model = {
+            ...this.form.value,
+            lightboxImages: this.lightboxImagesAlt.map((image) => {
+                return { name: image.name, image: image.path.split(',')[1] };
+            }),
+        };
+        console.log(model);
         this.service
-            .addEditYacht(this.form.value)
+            .addEditYacht(model)
             .pipe(finalize(() => console.log('yachts add/edit success')))
             .subscribe(
-                (value) => {
-                    this.reset();
-                    console.log(value);
-                    this.close();
+                (result) => {
+                    console.log(result);
+                    if (result.success === true) {
+                        this.notify.success(this.l('Service Order Created Successfully'));
+                        this.reset();
+                        this.close();
+                        return;
+                    }
                 },
-                (error) => {
-                    console.log(error);
+                (e) => {
+                    this.notify.error(this.l(e.error?.error?.message));
+                    return;
                 }
             );
     }

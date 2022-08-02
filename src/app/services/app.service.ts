@@ -1,9 +1,11 @@
 /* import { Alert } from './components/common/alert/alert'; */
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BaseService } from '@app/shared/base.service';
 import { Subject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AppService {
     key = 'sentinel-clock-in-status';
@@ -15,7 +17,7 @@ export class AppService {
     collapseMenuSubject = new Subject<boolean>();
     uploadMediaSubject = new Subject<boolean>();
     /* alertSubject = new Subject<Alert>(); */
-    constructor() { }
+    constructor(private httpClient: HttpClient, private baseService: BaseService) {}
 
     setStorageItem(key: any, status: any) {
         localStorage.setItem(key, JSON.stringify(status));
@@ -27,5 +29,9 @@ export class AppService {
 
     removeStorageItem(key: string) {
         localStorage.removeItem(key);
+    }
+
+    getCurrentLoginInformation() {
+        return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Session/GetCurrentLoginInformations`);
     }
 }

@@ -100,7 +100,7 @@
                                             ">
                                             Add Yacht Images
                                         </label>
-                                        <div class="flex items-center justify-center m-0">
+                                        <div class="flex items-center justify-center m-0 mb-4">
                                             <label class="
                                                     flex flex-col
                                                     w-full
@@ -132,9 +132,11 @@
                                                     accept="image/*" (change)="addYachtPhoto($event)" />
                                             </label>
                                         </div>
-                                        <ng-container *ngFor="let image of lightboxImagesAlt">
-                                            <div class="rounded-2xl relative w-[6rem] h-[6rem] mt-3 shadow-md mb-3">
-                                                <label class="
+                                        <div class="flex space-x-4 flex-wrap">
+                                            <ng-container *ngFor="let image of lightboxImagesAlt">
+
+                                                <div class="rounded-2xl relative w-[6rem] h-[6rem] mt-3 shadow-md mb-3">
+                                                    <label class="
                                                         absolute
                                                         top-2
                                                         right-2
@@ -145,17 +147,17 @@
                                                         p-2
                                                         rounded-full
                                                     ">
-                                                    <div class="flex flex-wrap content-center h-full w-full">
-                                                        <div class="flex justify-center w-full cursor-pointer"
-                                                            (click)="removeImage(image)">
-                                                            <span class="text-xs">&times;</span>
+                                                        <div class="flex flex-wrap content-center h-full w-full">
+                                                            <div class="flex justify-center w-full cursor-pointer"
+                                                                (click)="removeImage(image)">
+                                                                <span class="text-xs">&times;</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </label>
-                                                <div class="flex flex-wrap content-center h-full w-full">
-                                                    <div class="flex justify-center w-full">
-                                                        <div class="w-full text-center space-y-3">
-                                                            <img class="
+                                                    </label>
+                                                    <div class="flex flex-wrap content-center h-full w-full">
+                                                        <div class="flex justify-center w-full">
+                                                            <div class="w-full text-center space-y-3">
+                                                                <img class="
                                                                     mx-auto
                                                                     w-[6rem]
                                                                     h-[6rem]
@@ -163,11 +165,12 @@
                                                                     shadow-md
                                                                     mb-3
                                                                 " src="{{ image.path }}" alt="image.name" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </ng-container>
+                                            </ng-container>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

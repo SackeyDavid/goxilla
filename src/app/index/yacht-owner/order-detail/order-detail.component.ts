@@ -77,6 +77,7 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
         if (this.requestDetails.yatchId.length) {
             this.yachtService.getYachtDetails(this.requestDetails.yatchId).subscribe((value) => {
                 // this.yatchDetails = value.result.yatch;
+                console.log(value.result.yacht);
             });
         }
     }

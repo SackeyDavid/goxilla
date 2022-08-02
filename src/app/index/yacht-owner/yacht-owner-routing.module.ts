@@ -17,7 +17,7 @@ const routes: Routes = [
                     import('./request-service/request-service.module').then((m) => m.RequestServiceModule),
             },
             {
-                path: 'all-requests',
+                path: 'service-orders',
                 loadChildren: () =>
                     import('./all-requests/all-requests/all-requests.module').then((m) => m.AllRequestsModule),
             },

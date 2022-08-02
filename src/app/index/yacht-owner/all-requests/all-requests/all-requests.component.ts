@@ -12,6 +12,7 @@ export class AllRequestsComponent implements OnInit {
     searchPhrase: string;
     requestDetails: any;
     searching: boolean = false;
+    selectedIndex: number = 0;
 
     constructor(private selectService: SelectServiceService) {}
 
@@ -22,18 +23,18 @@ export class AllRequestsComponent implements OnInit {
     getAllServiceOrders() {
         this.selectService.getAllServiceOrders().subscribe((value) => {
             this.allServiceOrders = value.result.items;
-            this.allServiceOrders = this.allServiceOrders.reverse();
-            this.requestDetails = this.allServiceOrders[0];
-            console.log(this.requestDetails);
+            this.requestDetails = this.allServiceOrders[this.selectedIndex];
         });
     }
 
     getDateFormatted(date: any) {
-        return moment(date).format('MM/DD/YYYY');
+        if (date) return moment(date).format('MM/DD/YYYY');
+        return '';
     }
 
     getDetailsDateFormatted(date: any) {
-        return moment(date).format('DD/MM/YYYY h:mm A');
+        if (date) return moment(date).format('DD/MM/YYYY h:mm A');
+        return '';
     }
 
     searchServiceOrder() {
@@ -52,5 +53,15 @@ export class AllRequestsComponent implements OnInit {
         let newImageUrl = imageUrl.slice(0, -4);
         newImageUrl = newImageUrl + 'raw=1';
         return newImageUrl;
+    }
+
+    displayOrderDetails(index: number) {
+        this.selectedIndex = index;
+        this.requestDetails = this.allServiceOrders[index];
+    }
+
+    clearSearch() {
+        this.searchPhrase = '';
+        this.searchServiceOrder();
     }
 }

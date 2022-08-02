@@ -48,9 +48,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            YatchId: [null, Validators.required],
+            YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
-            VendorId: [null, Validators.required],
+            VendorId: [null],
             Priority: [null, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
@@ -81,7 +81,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         if (event.target.files && event.target.files[0]) {
             for (const image of event.target.files) {
                 this.lightboxImages.push(image);
-                console.log(this.lightboxImages);
+                // console.log(this.lightboxImages);
 
                 const reader = new FileReader();
                 reader.onload = (event: any) => {
@@ -132,7 +132,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     getSelectedYacht(item: SearchItem) {
-        this.setValue('YatchId', item.id);
+        this.setValue('YachtId', item.id);
     }
 
     addNewYacht(item: string) {
@@ -168,15 +168,16 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     getAllYachts() {
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
-            this.preYachtList.forEach((yacht: { yatch: { id: string; name: string } }) => {
-                this.yachtList.push({ id: yacht.yatch.id, value: yacht.yatch.name });
+            // console.log(this.preYachtList);
+            this.preYachtList.forEach((yacht: { yacht: { id: number; name: string } }) => {
+                this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name });
             });
         });
     }
 
     getAllServiceOrders() {
         this.serviceOrderService.getAllServiceOrders().subscribe((value) => {
-            console.log(value.result.items);
+            // console.log(value.result.items);
         });
     }
 
@@ -185,7 +186,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         let requestPayload = new FormData();
 
         Object.keys(this.form.controls).forEach((formControlName) => {
-            console.log('controls', this.form.get(formControlName)?.value);
+            // console.log('controls', this.form.get(formControlName)?.value);
             requestPayload.append(formControlName, this.form.get(formControlName)?.value);
         });
 
