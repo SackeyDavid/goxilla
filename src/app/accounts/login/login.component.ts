@@ -50,6 +50,8 @@ export class LoginComponent extends AppComponentBase implements OnInit {
             null
         );
 
+        this.AppService.setStorageItem('loginTime', new Date().getTime());
+
     }
 
     runTokenCheck(): void {

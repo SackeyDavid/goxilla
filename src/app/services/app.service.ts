@@ -1,6 +1,7 @@
 /* import { Alert } from './components/common/alert/alert'; */
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,9 @@ export class AppService {
     collapseMenuSubject = new Subject<boolean>();
     uploadMediaSubject = new Subject<boolean>();
     /* alertSubject = new Subject<Alert>(); */
-    constructor() { }
+    constructor(
+        public router: Router,
+    ) { }
 
     setStorageItem(key: any, status: any) {
         localStorage.setItem(key, JSON.stringify(status));
@@ -28,4 +31,9 @@ export class AppService {
     removeStorageItem(key: string) {
         localStorage.removeItem(key);
     }
+
+    goTo(page) {
+        this.router.navigate([page]);
+    }
+
 }

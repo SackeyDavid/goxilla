@@ -13,4 +13,4 @@ import { AddServiceComponent } from './add-service/add-service.component';
     declarations: [YachtOwnerComponent, AddVendorComponent, AddYachtComponent, AddServiceComponent],
     imports: [CommonModule, YachtOwnerRoutingModule, AppCommonModule, FormsModule, ReactiveFormsModule],
 })
-export class YachtOwnerModule {}
+export class YachtOwnerModule { }

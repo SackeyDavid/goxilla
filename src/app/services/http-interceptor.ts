@@ -17,14 +17,21 @@ export class AppHttpInterceptor implements HttpInterceptor {
     resolutionTime: number = 0;
     token: string;
 
-    constructor(private AppService: AppService, private _token: TokenService) {}
+    constructor(private AppService: AppService, private _token: TokenService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.token = this._token.getToken();
 
         if (this.token) {
             const tokenizedReq = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + this.token) });
-            return next.handle(tokenizedReq);
+            return next.handle(tokenizedReq).pipe(
+                catchError(error => {
+                    if (error && error.status == 401) {
+                        this.interceptFailedAuth()
+                    }
+                    return throwError(error);
+                })
+            );
         }
 
         if (req.headers.get('content-type') === 'multipart/form-data') {
@@ -35,4 +42,10 @@ export class AppHttpInterceptor implements HttpInterceptor {
 
         return next.handle(req);
     }
+
+    interceptFailedAuth() {
+        this.AppService.removeStorageItem('access_token');
+        this.AppService.goTo('/account/login');
+    }
+
 }
