@@ -9,16 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
     providedIn: 'root',
 })
 export class AppService {
-    key = 'sentinel-clock-in-status';
-    tripKey = 'sentinel-startTrip';
-    jobKey = 'sentinel-job-key';
-    tripSubject = new Subject<boolean>();
-    clockSubject = new Subject<boolean>();
-    fuelSubject = new Subject<boolean>();
-    collapseMenuSubject = new Subject<boolean>();
-    uploadMediaSubject = new Subject<boolean>();
-    /* alertSubject = new Subject<Alert>(); */
-    constructor(private httpClient: HttpClient, private baseService: BaseService, public router: Router) {}
+
+    constructor(private httpClient: HttpClient, private baseService: BaseService, public router: Router) { }
 
     setStorageItem(key: any, status: any) {
         localStorage.setItem(key, JSON.stringify(status));
@@ -38,4 +30,5 @@ export class AppService {
     goTo(page) {
         this.router.navigate([page]);
     }
+
 }

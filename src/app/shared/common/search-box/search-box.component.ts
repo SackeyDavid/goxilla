@@ -17,7 +17,7 @@ import { v4 as uuid } from 'uuid';
 })
 export class SearchBoxComponent implements OnInit {
 
-    @Input() id: string = uuid();
+    @Input() id: string = this.generateRandomID(10000, 100000);
     @Input() data: Array<SearchItem> = [];
     @Input() placeholder: string;
     @Input() addLabel: string;
@@ -40,7 +40,6 @@ export class SearchBoxComponent implements OnInit {
 
     constructor() {
         document.addEventListener('click', () => {
-            // console.log(document.activeElement?.attributes.getNamedItem('searchbox')?.value);
             const item = document.activeElement?.attributes.getNamedItem('searchbox');
             this.showDrop = item?.value === 'pi-search-box';
         });
@@ -64,7 +63,7 @@ export class SearchBoxComponent implements OnInit {
     }
 
     addNew() {
-        this.addNewItem.emit(this.displayLabel);
+        this.addNewItem.emit({ id: this.id, value: this.displayLabel });
     }
 
     registerOnChange(fn: (value: SearchItem) => void): void {
@@ -87,6 +86,10 @@ export class SearchBoxComponent implements OnInit {
             }
             document.getElementsByClassName(this.id).item(0)?.classList.remove('hidden');
         })
+    }
+
+    generateRandomID(min: number, max: number) {
+        return (Math.random() * (max - min) + min).toFixed(0);
     }
 
 }
