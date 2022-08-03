@@ -121,6 +121,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     addNewVendor(item: SearchItem) {
         sessionStorage.setItem('vendor_new_item', item.value);
+        this.vendorList.push(item);
         this.openAddVendorModal();
     }
 
@@ -130,6 +131,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     addNewService(item: SearchItem) {
         sessionStorage.setItem('service_new_item', item.value);
+        this.serviceList.push(item);
         this.openAddServicesModal();
     }
 
@@ -139,6 +141,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     addNewYacht(item: SearchItem) {
         sessionStorage.setItem('yacht_new_item', item.value);
+        this.yachtList.push(item);
         this.openAddYatchModal();
     }
 
@@ -170,7 +173,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     getAllYachts() {
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
-            // console.log(this.preYachtList);
             this.preYachtList.forEach((yacht: { yacht: { id: number; name: string } }) => {
                 this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name });
             });
