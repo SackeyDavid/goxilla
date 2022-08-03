@@ -71,7 +71,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.getAllVendors();
         this.getAllServices();
         this.getAllYachts();
-        this.getAllServiceOrders();
+        // this.getAllServiceOrders();
     }
 
     showNext(): void {
