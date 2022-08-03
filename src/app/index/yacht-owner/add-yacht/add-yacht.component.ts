@@ -44,7 +44,7 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
     }
 
     getUID() {
-        return JSON.parse(localStorage.getItem('user_info'))?.result?.user?.id;
+        return JSON.parse(localStorage.getItem('user_info')).result.user.id;
     }
 
     close() {
