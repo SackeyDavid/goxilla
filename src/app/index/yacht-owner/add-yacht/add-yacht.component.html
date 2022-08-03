@@ -84,6 +84,31 @@
                                             p-3
                                         " formControlName="country" placeholder="California" maxlength="10" required />
                                 </div>
+
+                                <div class="mb-6">
+                                    <label for="yacht_image" class="
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        ">
+                                        Yacht Image Url (Optional)
+                                    </label>
+                                    <input type="text" id="yacht_image" class="
+                                            bg-gray-50
+                                            border border-gray-300
+                                            text-black text-lg
+                                            rounded-lg
+                                            focus:ring-blue-500 focus:border-blue-500
+                                            block
+                                            w-full
+                                            p-3
+                                        " formControlName="imageUrl"
+                                        placeholder="https://cdn.boats.com/images/14r435.jpg" />
+                                </div>
                             </div>
 
                             <div class="mb-6">
@@ -98,7 +123,7 @@
                                                 text-gray-900
                                                 dark:text-gray-300
                                             ">
-                                            Add Yacht Images
+                                            Add Yacht Images (Optional)
                                         </label>
                                         <div class="flex items-center justify-center m-0 mb-4">
                                             <label class="
@@ -191,8 +216,7 @@
                                 ">
                                 Clear
                             </button>
-                            <button [disabled]="form.invalid" (click)="addEditVendor()" label="submit" type="button"
-                                class="
+                            <button (click)="addEditVendor()" label="submit" type="button" class="
                                     uppercase
                                     text-white
                                     bg-blue-400

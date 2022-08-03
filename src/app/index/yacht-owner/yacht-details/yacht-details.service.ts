@@ -20,4 +20,8 @@ export class YachtDetailsService {
     addEditYacht(yacht: any): Observable<any> {
         return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Yachts/CreateOrEdit`, yacht);
     }
+
+    removeYacht(id: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Yachts/Delete?Id=`, id);
+    }
 }

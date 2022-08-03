@@ -40,7 +40,7 @@ export class AuthService {
     getLoginInfo() {
         this.appService.getCurrentLoginInformation().subscribe((value) => {
             localStorage.setItem('user_info', JSON.stringify(value));
-            console.log(this.getUID());
+            // console.log(this.getUID());
             if (!this.getUID()) {
                 localStorage.removeItem('Template/abpzerotemplate_local_storage/enc_auth_token');
                 localStorage.removeItem('user_info');

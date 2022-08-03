@@ -96,6 +96,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     openAddVendorModal() {
+        sessionStorage.setItem('userId', JSON.parse(localStorage.getItem('user_info')).result.user.id);
         this.modalService.createModal<AddVendorComponent>({
             content: AddVendorComponent,
         });
@@ -122,6 +123,11 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.openAddVendorModal();
     }
 
+    editNewVendor(item: string) {
+        sessionStorage.setItem('vendor_edit_item', item);
+        this.openAddVendorModal();
+    }
+
     getSelectedService(item: SearchItem) {
         this.setValue('ServiceId', item.id);
     }
@@ -133,6 +139,13 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     getSelectedYacht(item: SearchItem) {
         this.setValue('YachtId', item.id);
+    }
+
+    editSelectedYacht(item: SearchItem) {
+        let editItem = this.preYachtList.find((x) => x.yacht.id === item.id);
+
+        sessionStorage.setItem('yacht_edit_item', JSON.stringify(editItem.yacht));
+        this.openAddYatchModal();
     }
 
     addNewYacht(item: string) {
@@ -226,6 +239,13 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     removeImage(data: any) {
         this.lightboxImagesAlt = this.lightboxImagesAlt.filter(function (image: { path: any }) {
             return image.path !== data.path;
+        });
+    }
+
+    deleteYachtDetails(yachtId: number) {
+        this.yachtDetailsService.removeYacht(yachtId).subscribe((value) => {
+            // this.yatchDetails = value.result.yatch;
+            console.log(value.result);
         });
     }
 }
