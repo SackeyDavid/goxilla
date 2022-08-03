@@ -12,6 +12,7 @@ import { finalize } from 'rxjs/operators';
 import { AddServiceComponent } from '../add-service/add-service.component';
 import { AddYachtComponent } from '../add-yacht/add-yacht.component';
 import { ServiceOrderService } from '../service-order/service-order.service';
+import { AppService } from '../../../services/app.service';
 
 @Component({
     selector: 'app-request-service',
@@ -41,7 +42,8 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         private vendorService: VendorService,
         public selectService: SelectServiceService,
         public yachtDetailsService: YachtDetailsService,
-        private serviceOrderService: ServiceOrderService
+        private serviceOrderService: ServiceOrderService,
+        public AppService: AppService
     ) {
         super(injector);
     }
@@ -118,8 +120,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.setValue('VendorId', item.id);
     }
 
-    addNewVendor(item: string) {
-        sessionStorage.setItem('vendor_new_item', item);
+    addNewVendor(item: SearchItem) {
+        sessionStorage.setItem('vendor_new_item', item.value);
+        this.vendorList.push(item);
         this.openAddVendorModal();
     }
 
@@ -132,8 +135,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.setValue('ServiceId', item.id);
     }
 
-    addNewService(item: string) {
-        sessionStorage.setItem('service_new_item', item);
+    addNewService(item: SearchItem) {
+        sessionStorage.setItem('service_new_item', item.value);
+        this.serviceList.push(item);
         this.openAddServicesModal();
     }
 
@@ -148,8 +152,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.openAddYatchModal();
     }
 
-    addNewYacht(item: string) {
-        sessionStorage.setItem('yacht_new_item', item);
+    addNewYacht(item: SearchItem) {
+        sessionStorage.setItem('yacht_new_item', item.value);
+        this.yachtList.push(item);
         this.openAddYatchModal();
     }
 
@@ -181,7 +186,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     getAllYachts() {
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
-            // console.log(this.preYachtList);
             this.preYachtList.forEach((yacht: { yacht: { id: number; name: string } }) => {
                 this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name });
             });
