@@ -8,9 +8,10 @@ import { AppCommonModule } from '@app/shared/common/app-common.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddYachtComponent } from './add-yacht/add-yacht.component';
 import { AddServiceComponent } from './add-service/add-service.component';
+import { AssignVendorComponent } from './assign-vendor/assign-vendor.component';
 
 @NgModule({
-    declarations: [YachtOwnerComponent, AddVendorComponent, AddYachtComponent, AddServiceComponent],
+    declarations: [YachtOwnerComponent, AddVendorComponent, AddYachtComponent, AddServiceComponent, AssignVendorComponent],
     imports: [CommonModule, YachtOwnerRoutingModule, AppCommonModule, FormsModule, ReactiveFormsModule],
 })
 export class YachtOwnerModule { }
