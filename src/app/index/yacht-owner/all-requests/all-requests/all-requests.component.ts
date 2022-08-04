@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Injector } from '@angular/core';
 import { SelectServiceService } from '../../select-service/select-service.service';
 import { AssignVendorComponent } from '../../assign-vendor/assign-vendor.component';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AppService } from '@app/services/app.service';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import * as moment from 'moment';
 
 @Component({
@@ -10,7 +11,7 @@ import * as moment from 'moment';
     templateUrl: './all-requests.component.html',
     styleUrls: ['./all-requests.component.css'],
 })
-export class AllRequestsComponent implements OnInit {
+export class AllRequestsComponent extends AppComponentBase implements OnInit {
 
     allServiceOrders: any = [];
     searchPhrase: string;
@@ -19,19 +20,26 @@ export class AllRequestsComponent implements OnInit {
     selectedIndex: number = 0;
 
     constructor(
+        injector: Injector,
         private selectService: SelectServiceService,
         private modalService: ModalService,
         public AppService: AppService
-    ) { }
+    ) {
+        super(injector);
+    }
 
     ngOnInit(): void {
         this.getAllServiceOrders();
     }
 
     getAllServiceOrders() {
+
+        this.showMainSpinner();
+
         this.selectService.getAllServiceOrders().subscribe((value) => {
             this.allServiceOrders = value.result.items;
             this.requestDetails = this.allServiceOrders[this.selectedIndex];
+            this.hideMainSpinner();
             /* this.AppService.setStorageItem('requestDetails', this.allServiceOrders[0]); */
         });
     }
