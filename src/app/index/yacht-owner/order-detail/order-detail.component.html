@@ -4,8 +4,7 @@
         <div class="flex justify-between mb-2">
             <div class="flex">
                 <span>
-                    <img [src]="requestDetails?.yachts?.imageUrl" class="w-[5rem] h-[4rem] rounded-md"
-                        alt="yatch image" />
+                    <img [src]="requestDetails?.yachts?.imageUrl" class="w-[5rem] h-[4rem] rounded-md" alt="yatch image" />
                 </span>
                 <div class="ml-3">
                     <h2 class="text-xl text-left mb-1">{{ requestDetails?.yachts?.name }}</h2>
@@ -19,8 +18,7 @@
                     <img class="p-2 border-2 rounded-full" src="/assets/assets-mobile/Icon metro-bin.svg" alt="" />
                 </span>
                 <span>
-                    <img class="p-2 border-2 rounded-full"
-                        src="/assets/assets-mobile/b21743bd27446b402537e815c62aa968.svg" alt="" />
+                    <img class="p-2 border-2 rounded-full" src="/assets/assets-mobile/b21743bd27446b402537e815c62aa968.svg" alt="" />
                 </span>
             </div>
         </div>
@@ -45,8 +43,7 @@
             </div>
             <div class="flex flex-col w-2/3">
                 <label class="text-lg mb-2 text-left text-label-color text-opacity-100" for="priority">DUE DATE</label>
-                <button
-                    class="flex flex-row p-3 text-sky-600 border-sky-600 border-[1px] rounded-lg bg-sky-200 text-lg">
+                <button class="flex flex-row p-3 text-sky-600 border-sky-600 border-[1px] rounded-lg bg-sky-200 text-lg">
                     <span class="mr-2"><img src="/assets/assets-mobile/Icon metro-alarm.svg" alt="" /></span>
                     {{ getDateFormatted(requestDetails?.serviceOrder?.expectedDeliveryDate) }}
                 </button>
@@ -54,8 +51,7 @@
         </div>
 
         <div class="w-full flex flex-col mb-3">
-            <label class="text-lg uppercase font-medium mb-2 text-left text-label-color text-opacity-100"
-                for="priority">
+            <label class="text-lg uppercase font-medium mb-2 text-left text-label-color text-opacity-100" for="priority">
                 Description
             </label>
             <textarea disabled class="
@@ -64,8 +60,7 @@
                     text-lg
                     rounded-lg
                     disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
-                " name="description" id="description" cols="20" rows="4"
-                [value]="requestDetails?.serviceOrder?.description"></textarea>
+                " name="description" id="description" cols="20" rows="4" [value]="requestDetails?.serviceOrder?.description"></textarea>
         </div>
 
         <div class="w-full flex flex-col mb-3">
@@ -78,13 +73,11 @@
                     p-3
                     rounded-lg
                     disabled:bg-[#F1EFEF] disabled:border-[#757575] disabled:border-opacity-[0.23]
-                " name="description" id="description" cols="20" rows="4"
-                [value]="requestDetails?.serviceOrder?.instruction"></textarea>
+                " name="description" id="description" cols="20" rows="4" [value]="requestDetails?.serviceOrder?.instruction"></textarea>
         </div>
 
         <div class="flex items-center mt-2 mb-2">
-            <input id="bid_requested" type="checkbox" value="" [checked]="requestDetails?.serviceOrder?.affectShipShape"
-                class="w-5 h-5 bg-blue-300 rounded border-blue-300" disabled />
+            <input id="bid_requested" type="checkbox" value="" [checked]="requestDetails?.serviceOrder?.affectShipShape" class="w-5 h-5 bg-blue-300 rounded border-blue-300" disabled />
             <label for="bid_requested" class="ml-2 text-lg">AFFECTS SHIP SHAPE</label>
         </div>
 
@@ -95,8 +88,7 @@
 
         <div class="flex flex-col mb-4">
             <label class="text-lg mb-2 text-left uppercase text-opacity-100" for="vendor">VENDOR</label>
-            <input disabled type="text" name="vendor" id="vendor"
-                [value]="requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName" class="
+            <input disabled type="text" name="vendor" id="vendor" [value]="requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName" class="
                     rounded-lg
                     text-gray-900
                     py-3
@@ -112,8 +104,7 @@
             <h4 class="text-lg text-left mb-2 text-opacity-100">ADDITIONAL RESOURCES</h4>
             <div class="flex space-x-4 flex-wrap">
                 <div class="rounded" *ngFor="let image of requestDetailsImages">
-                    <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" [src]="image.imageUrl"
-                        alt="lightboxImages" />
+                    <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" [src]="image.imageUrl" alt="lightboxImages" />
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, OnInit, Injector } from '@angular/core';
 import { SelectServiceService } from '../../select-service/select-service.service';
+import { EditServiceRequestModalComponent } from '../../edit-service-request-modal/edit-service-request-modal.component';
 import { AssignVendorComponent } from '../../assign-vendor/assign-vendor.component';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AppService } from '@app/services/app.service';
@@ -86,6 +87,12 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     openAssignVendorModal() {
         this.modalService.createModal<AssignVendorComponent>({
             content: AssignVendorComponent,
+        });
+    }
+
+    openServiceRequestEditModal() {
+        this.modalService.createModal<EditServiceRequestModalComponent>({
+            content: EditServiceRequestModalComponent,
         });
     }
 
