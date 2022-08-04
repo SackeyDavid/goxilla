@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { SearchItem } from './search-item';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -11,16 +11,18 @@ import { v4 as uuid } from 'uuid';
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
-            useExisting: forwardRef(() => SearchBoxComponent)
-        }
-    ]
+            useExisting: forwardRef(() => SearchBoxComponent),
+        },
+    ],
 })
 export class SearchBoxComponent implements OnInit {
-
     @Input() id: string = this.generateRandomID(10000, 100000);
     @Input() data: Array<SearchItem> = [];
     @Input() placeholder: string;
     @Input() addLabel: string;
+
+    // add a default value for searchbox
+    @Input() defaultItem?: SearchItem;
 
     @Input() showAddButton = true;
     @Input() searchable = true;
@@ -29,7 +31,7 @@ export class SearchBoxComponent implements OnInit {
     @Output() addNewItem = new EventEmitter();
     @Output() getSelectedItem = new EventEmitter<SearchItem>();
 
-    onChange = (value: SearchItem) => { };
+    onChange = (value: SearchItem) => {};
 
     newList: Array<SearchItem> = [];
     selectedItem?: SearchItem;
@@ -47,6 +49,7 @@ export class SearchBoxComponent implements OnInit {
 
     ngOnInit(): void {
         this.newList = this.data;
+        this.selectedItem = this.defaultItem;
     }
 
     selectItem(item: SearchItem) {
@@ -70,26 +73,23 @@ export class SearchBoxComponent implements OnInit {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn: any): void {
-    }
+    registerOnTouched(fn: any): void {}
 
-    writeValue(obj: any): void {
-    }
+    writeValue(obj: any): void {}
 
     ngAfterViewInit(): void {
         document.getElementById(this.id)?.addEventListener('click', () => {
             const ele = document.getElementsByClassName('search-drop-container');
             for (let i = 0; i < ele.length; i++) {
                 if (!ele.item(i)?.classList.contains('hidden')) {
-                    ele.item(i)?.classList.add('hidden')
+                    ele.item(i)?.classList.add('hidden');
                 }
             }
             document.getElementsByClassName(this.id).item(0)?.classList.remove('hidden');
-        })
+        });
     }
 
     generateRandomID(min: number, max: number) {
         return (Math.random() * (max - min) + min).toFixed(0);
     }
-
 }

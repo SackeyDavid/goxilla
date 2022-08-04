@@ -199,7 +199,10 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     createServiceOrder() {
-        this.showMainSpinner();
+        // this.showMainSpinner();
+
+        console.log(this.lightboxImages, 'random text');
+
         let requestPayload = new FormData();
 
         Object.keys(this.form.controls).forEach((formControlName) => {
