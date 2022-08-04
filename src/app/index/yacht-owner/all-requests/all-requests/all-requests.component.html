@@ -33,7 +33,7 @@
 
 
                 <!-- Info Card Stack -->
-                <div class="info-card-stack space-y-4 mt-5 mb-4 max-h-[500px] overflow-y-scroll">
+                <div class="info-card-stack space-y-4 mt-5 mb-4 max-h-[700px] overflow-y-scroll">
 
                     <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
                         <span>No service order found</span>
@@ -106,7 +106,7 @@
                 <!-- Info Card Stack -->
 
                 <!-- Info Card Stack Pagination -->
-                <nav *ngIf="allServiceOrders.nextPage"
+                <nav style="display: none;" *ngIf="allServiceOrders.nextPage"
                     class="relative mt-10 z-0 flex flex-row flex-auto rounded-md shadow-sm -space-x-px w-full mx-auto items-stretch justify-between"
                     aria-label="Pagination">
                     <a href="#"
@@ -134,8 +134,8 @@
                         <!-- </nav> -->
                     </a>
                 </nav>
-                <div class="text-right mb-5" *ngIf="allServiceOrders.length > 12">
-                    <span class="text-lg">Showing 5 of 12</span>
+                <div class="text-right mb-5 " *ngIf="allServiceOrders.length">
+                    <span class="text-lg">Showing {{allServiceOrders.length}}</span>
                 </div>
                 <!-- End - Info Card Stack -->
 
