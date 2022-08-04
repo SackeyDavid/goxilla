@@ -33,7 +33,7 @@
 
 
                 <!-- Info Card Stack -->
-                <div class="info-card-stack space-y-4 mt-6 mb-4 max-h-[500px] overflow-y-scroll">
+                <div class="info-card-stack space-y-4 mt-5 mb-4 max-h-[500px] overflow-y-scroll">
 
                     <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
                         <span>No service order found</span>
@@ -42,8 +42,8 @@
                         <span>searching...</span>
                     </div>
                     <!-- Info Card Single: Start -->
-                    <div *ngFor="let order of allServiceOrders; let i = index" (click)="displayOrderDetails(i)"
-                        class="info-card mx-[5px] border rounded-md px-2 py-3 drop-shadow-md cursor-pointer"
+                    <div *ngFor="let order of allServiceOrders; let i = index"
+                        class="info-card border rounded-md px-2 mx-[5px] py-3 mt-3 drop-shadow-md"
                         [ngClass]="{'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex}">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
                             <span class="text-lg uppercase font-medium">{{order.service?.name}}</span>
@@ -68,7 +68,22 @@
                         </div>
                         <div class="info-card-body flex justify-between items-center pt-1">
                             <div class="flex flex-col text-left w-1/2">
-                                <span class="text-2xs text-gray-400">Assigned to</span>
+                                <div class="text-2xs text-gray-400 grid grid-cols-2 gap-0">
+                                    <div>
+                                        Assigned to
+                                    </div>
+                                    <div class="block pt-1 my-auto">
+                                        <sup>
+                                            <svg (click)="openAssignVendorModal(); emitItem(order)"
+                                                xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 cursor-pointer mt-1"
+                                                aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 16 16">
+                                                <path fill="currentColor"
+                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793L14.793 3.5L12.5 1.207L11.207 2.5zm1.586 3L10.5 3.207L4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106l-1.528 3.821l3.821-1.528l.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                            </svg>
+                                        </sup>
+                                    </div>
+                                </div>
                                 <span class="text-lg font-semibold">{{order?.vendor?.firstName}}
                                     {{order?.vendor?.lastName}}</span>
                             </div>
