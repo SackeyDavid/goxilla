@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { SelectServiceService } from '../../select-service/select-service.service';
+import { AssignVendorComponent } from '../../assign-vendor/assign-vendor.component';
+import { ModalService } from '@app/shared/common/modal/modal.service';
+import { AppService } from '@app/services/app.service';
 import * as moment from 'moment';
 
 @Component({
@@ -8,13 +11,18 @@ import * as moment from 'moment';
     styleUrls: ['./all-requests.component.css'],
 })
 export class AllRequestsComponent implements OnInit {
+
     allServiceOrders: any = [];
     searchPhrase: string;
     requestDetails: any;
     searching: boolean = false;
     selectedIndex: number = 0;
 
-    constructor(private selectService: SelectServiceService) {}
+    constructor(
+        private selectService: SelectServiceService,
+        private modalService: ModalService,
+        public AppService: AppService
+    ) { }
 
     ngOnInit(): void {
         this.getAllServiceOrders();
@@ -24,6 +32,7 @@ export class AllRequestsComponent implements OnInit {
         this.selectService.getAllServiceOrders().subscribe((value) => {
             this.allServiceOrders = value.result.items;
             this.requestDetails = this.allServiceOrders[this.selectedIndex];
+            /* this.AppService.setStorageItem('requestDetails', this.allServiceOrders[0]); */
         });
     }
 
@@ -58,10 +67,22 @@ export class AllRequestsComponent implements OnInit {
     displayOrderDetails(index: number) {
         this.selectedIndex = index;
         this.requestDetails = this.allServiceOrders[index];
+        /* this.AppService.setStorageItem('requestDetails', this.requestDetails); */
     }
 
     clearSearch() {
         this.searchPhrase = '';
         this.searchServiceOrder();
     }
+
+    openAssignVendorModal() {
+        this.modalService.createModal<AssignVendorComponent>({
+            content: AssignVendorComponent,
+        });
+    }
+
+    emitItem(item: any) {
+        this.AppService.setStorageItem('requestDetails', item);
+    }
+
 }

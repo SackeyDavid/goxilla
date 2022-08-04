@@ -224,6 +224,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             .subscribe(
                 (result) => {
                     if (result.success === true) {
+
                         this.notify.success(this.l('Service Order Created Successfully'));
                         this.reset();
                         this.hideMainSpinner();
