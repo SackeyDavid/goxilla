@@ -2,7 +2,7 @@
     <div class="h-auto p-5 w-full">
         <label class="text-xl uppercase">Service Orders</label>
     </div>
-    <div class="grow h-full overflow-auto">
+    <div class="grow h-full overflow-auto" *ngIf="requestDetails">
         <!-- <div class="flex h-full p-4"> -->
         <div class="grid grid-cols-10 h-full p-4 pt-0">
             <div class="col-span-5 flex flex-col pr-6">

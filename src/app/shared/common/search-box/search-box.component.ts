@@ -21,9 +21,6 @@ export class SearchBoxComponent implements OnInit {
     @Input() placeholder: string;
     @Input() addLabel: string;
 
-    // add a default value for searchbox
-    @Input() defaultItem?: SearchItem;
-
     @Input() showAddButton = true;
     @Input() searchable = true;
     @Input() showIcon = false;
@@ -49,7 +46,6 @@ export class SearchBoxComponent implements OnInit {
 
     ngOnInit(): void {
         this.newList = this.data;
-        this.selectedItem = this.defaultItem;
     }
 
     selectItem(item: SearchItem) {

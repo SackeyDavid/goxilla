@@ -53,10 +53,10 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
             VendorId: [null],
-            Priority: [null, Validators.required],
+            Priority: [2, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
-            Name: ['Hermann'],
+            Name: ['David'],
             Location: [null],
             AffectShipShape: true,
             Title: [''],
@@ -225,6 +225,13 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
                         this.notify.success(this.l('Service Order Created Successfully'));
                         this.reset();
                         this.hideMainSpinner();
+
+                        // re-initialize values
+                        this.setValue('Status', 0);
+                        this.setValue('AffectShipShape', true);
+                        this.setValue('Priority', 2);
+                        this.setValue('Name', 'David');
+
                         return;
                     }
                 },
