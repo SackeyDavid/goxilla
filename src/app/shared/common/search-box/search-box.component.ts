@@ -28,7 +28,7 @@ export class SearchBoxComponent implements OnInit {
     @Output() addNewItem = new EventEmitter();
     @Output() getSelectedItem = new EventEmitter<SearchItem>();
 
-    onChange = (value: SearchItem) => {};
+    onChange = (value: SearchItem) => { };
 
     newList: Array<SearchItem> = [];
     selectedItem?: SearchItem;
@@ -69,9 +69,9 @@ export class SearchBoxComponent implements OnInit {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn: any): void {}
+    registerOnTouched(fn: any): void { }
 
-    writeValue(obj: any): void {}
+    writeValue(obj: any): void { }
 
     ngAfterViewInit(): void {
         document.getElementById(this.id)?.addEventListener('click', () => {
@@ -88,4 +88,5 @@ export class SearchBoxComponent implements OnInit {
     generateRandomID(min: number, max: number) {
         return (Math.random() * (max - min) + min).toFixed(0);
     }
+
 }
