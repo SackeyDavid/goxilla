@@ -16,10 +16,9 @@ import { ServiceOrderService } from '../service-order/service-order.service';
     selector: 'app-edit-service-request-modal',
     templateUrl: './edit-service-request-modal.component.html',
     styleUrls: ['./edit-service-request-modal.component.css'],
-    providers: [ModalRef]
+    providers: [ModalRef],
 })
 export class EditServiceRequestModalComponent extends AppComponentBase implements OnInit {
-
     form!: FormGroup;
 
     lightboxImages: any = [];
@@ -52,7 +51,6 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
     }
 
     ngOnInit() {
-
         this.form = this.fb.group({
             YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
@@ -73,6 +71,9 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
         this.getAllServices();
         this.getAllYachts();
 
+        if (sessionStorage.getItem('order_edit_item')) {
+            this.editOrderItem(JSON.parse(sessionStorage.getItem('order_edit_item')));
+        }
     }
 
     close() {
@@ -84,24 +85,27 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
     }
 
     assignEditVendor() {
-
         this.showMainSpinner();
 
-        this.service.editServiceRequest(this.form.value).pipe(finalize(() => {
-            this.hideMainSpinner();
-        })).subscribe((value) => {
-
-            this.notify.success(this.l('Vendor assigned successfully'));
-            this.close();
-            window.location.reload();
-
-        },
-            (e) => {
-                console.log(e);
-                this.hideMainSpinner();
-                this.notify.error(this.l(e.error.error.message));
-            }
-        );
+        this.service
+            .editServiceRequest(this.form.value)
+            .pipe(
+                finalize(() => {
+                    this.hideMainSpinner();
+                })
+            )
+            .subscribe(
+                (value) => {
+                    this.notify.success(this.l('Vendor assigned successfully'));
+                    this.close();
+                    window.location.reload();
+                },
+                (e) => {
+                    console.log(e);
+                    this.hideMainSpinner();
+                    this.notify.error(this.l(e.error.error.message));
+                }
+            );
     }
 
     getSelectedVendorService(item: SearchItem) {
@@ -179,4 +183,21 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
         }
     }
 
+    editOrderItem(order: any) {
+        this.form.patchValue({
+            YachtId: order.YachtId,
+            ServiceId: order.ServiceId,
+            VendorId: order.VendorId,
+            Priority: order.Priority,
+            Description: order.Description,
+            Status: order.Status,
+            Name: order.Name,
+            Location: order.Location,
+            AffectShipShape: order.AffectShipShape,
+            Title: order.Title,
+            Instruction: order.Instruction,
+        });
+
+        sessionStorage.removeItem('order_edit_item');
+    }
 }

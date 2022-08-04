@@ -13,7 +13,6 @@ import * as moment from 'moment';
     styleUrls: ['./all-requests.component.css'],
 })
 export class AllRequestsComponent extends AppComponentBase implements OnInit {
-
     allServiceOrders: any = [];
     searchPhrase: string;
     requestDetails: any;
@@ -34,7 +33,6 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     }
 
     getAllServiceOrders() {
-
         this.showMainSpinner();
 
         this.selectService.getAllServiceOrders().subscribe((value) => {
@@ -91,6 +89,7 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     }
 
     openServiceRequestEditModal() {
+        sessionStorage.setItem('order_edit_item', JSON.stringify(this.requestDetails));
         this.modalService.createModal<EditServiceRequestModalComponent>({
             content: EditServiceRequestModalComponent,
         });
@@ -99,5 +98,4 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     emitItem(item: any) {
         this.AppService.setStorageItem('requestDetails', item);
     }
-
 }
