@@ -9,7 +9,7 @@
                 <!-- <h3 class="uppercase font-light text-gray-400 text-lg">Service Orders</h3> -->
 
                 <!-- Searchbar - Search Only -->
-                <form autocomplete="off">
+                <form autocomplete="off" class="">
                     <label for="default-search"
                         class="mb-2 text-lg font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
                     <div class="relative drop-shadow-lg">
@@ -33,7 +33,7 @@
 
 
                 <!-- Info Card Stack -->
-                <div class="info-card-stack space-y-4 mt-8 mb-4">
+                <div class="info-card-stack space-y-4 mt-8 mb-4 max-h-[500px] overflow-y-scroll">
 
                     <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
                         <span>No service order found</span>
