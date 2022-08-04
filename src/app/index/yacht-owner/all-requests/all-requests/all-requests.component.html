@@ -2,7 +2,7 @@
     <div class="h-auto p-5 w-full">
         <label class="text-xl uppercase">Service Orders</label>
     </div>
-    <div class="grow h-full overflow-auto" *ngIf="requestDetails">
+    <div class="grow h-full overflow-hidden" *ngIf="requestDetails">
         <!-- <div class="flex h-full p-4"> -->
         <div class="grid grid-cols-10 h-full p-4 pt-0">
             <div class="col-span-5 flex flex-col pr-6">
@@ -33,7 +33,7 @@
 
 
                 <!-- Info Card Stack -->
-                <div class="info-card-stack space-y-4 mt-8 mb-4">
+                <div class="info-card-stack space-y-4 mt-6 mb-4 max-h-[500px] overflow-y-scroll">
 
                     <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
                         <span>No service order found</span>
@@ -43,7 +43,7 @@
                     </div>
                     <!-- Info Card Single: Start -->
                     <div *ngFor="let order of allServiceOrders; let i = index" (click)="displayOrderDetails(i)"
-                        class="info-card border rounded-md px-2 py-3 drop-shadow-md cursor-pointer"
+                        class="info-card mx-[5px] border rounded-md px-2 py-3 drop-shadow-md cursor-pointer"
                         [ngClass]="{'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex}">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
                             <span class="text-lg uppercase font-medium">{{order.service?.name}}</span>
@@ -62,8 +62,8 @@
                         <div class="info-card-body flex justify-between items-center pt-1">
                             <div class="flex flex-col text-left w-1/2">
                                 <span class="text-2xs text-gray-400">Assigned to</span>
-                                <span class="text-lg font-semibold">{{order.vendor?.firstName}}
-                                    {{order.vendor?.lastName}}</span>
+                                <span class="text-lg font-semibold">{{order?.vendor?.firstName}}
+                                    {{order?.vendor?.lastName}}</span>
                             </div>
 
                             <div class="flex flex-col text-left w-1/4">
@@ -124,8 +124,8 @@
             <!-- 
                     Column-Right - Edit Mode
                  -->
-            <div class="col-span-5 h-full border-l-4 border-gray-50 pl-6">
-                <div class="space-y-6">
+            <div class="col-span-5 h-full border-l-4 border-gray-50 pl-6 max-h-max overflow-y-scroll">
+                <div class="space-y-6 mx-[5px]">
                     <h3 class="uppercase font-light mb-6">{{requestDetails?.service?.name}}</h3>
                     <div class="flex justify-between items-center">
                         <div
@@ -246,7 +246,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div *ngIf="requestDetails?.vendor">
                         <label class="font-normal mb-2 text-lg uppercase block">Vendor</label>
                         <button type="button"
                             class="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 bg-gray-100 text-lg font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
