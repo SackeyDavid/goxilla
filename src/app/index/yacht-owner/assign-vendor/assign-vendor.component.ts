@@ -64,10 +64,9 @@ export class AssignVendorComponent extends AppComponentBase implements OnInit {
             this.hideMainSpinner();
         })).subscribe((value) => {
 
-            //this.reset();
-            console.log(value);
             this.notify.success(this.l('Vendor assigned successfully'));
             this.close();
+            window.location.reload();
 
         },
             (e) => {
