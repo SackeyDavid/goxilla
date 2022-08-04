@@ -193,7 +193,7 @@
             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Continue
         </button>
-        <button *ngIf="showStepTwo" (click)="createServiceOrder()" type="button"
+        <button *ngIf="showStepTwo" [disabled]="form.invalid" (click)="createServiceOrder()" type="button"
             class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg cursor-pointer">
             Submit
         </button>

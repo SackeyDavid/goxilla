@@ -203,7 +203,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     createServiceOrder() {
         this.showMainSpinner();
 
-        console.log(this.lightboxImages, 'random text');
+        // console.log(this.lightboxImages, 'random text');
 
         let requestPayload = new FormData();
 
@@ -224,7 +224,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             .subscribe(
                 (result) => {
                     if (result.success === true) {
-
                         this.notify.success(this.l('Service Order Created Successfully'));
                         this.reset();
                         this.hideMainSpinner();

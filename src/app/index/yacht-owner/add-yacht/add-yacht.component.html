@@ -13,7 +13,7 @@
                     </label>
                     <!-- Form  -->
                     <div class="mx-auto mb-6 bg-white">
-                        <form [formGroup]="form">
+                        <form [formGroup]="form" enctype="multipart/form-data">
                             <div class="w-full mb-6">
                                 <div class="mb-6">
                                     <label for="yacht_firstname" class="
@@ -22,7 +22,7 @@
                                             mb-2
                                             text-lg
                                             font-medium
-                                            text-gray-900
+                                             text-gray-900
                                             dark:text-gray-300
                                         ">
                                         Yacht Name
@@ -36,7 +36,7 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="name" placeholder="Happy Place" required />
+                                        " formControlName="Name" placeholder="Happy Place" required />
                                 </div>
                                 <div class="mb-6">
                                     <label for="yacht_port" class="
@@ -59,7 +59,7 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="hailingPort" placeholder="Bay Port" required />
+                                        " formControlName="HailingPort" placeholder="Bay Port" required />
                                 </div>
                                 <div class="mb-6">
                                     <label for="yacht_country" class="
@@ -82,7 +82,7 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="country" placeholder="California" maxlength="10" required />
+                                        " formControlName="Country" placeholder="California" maxlength="10" required />
                                 </div>
 
                                 <div class="mb-6">
@@ -106,7 +106,7 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="imageUrl"
+                                        " formControlName="ImageUrl"
                                         placeholder="https://cdn.boats.com/images/14r435.jpg" />
                                 </div>
                             </div>

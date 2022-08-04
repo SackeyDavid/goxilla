@@ -39,17 +39,16 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            id: [null],
-            name: [null, Validators.required],
-            hailingPort: [null, Validators.required],
-            imageUrl: [null],
-            isActive: true,
-            country: [null, Validators.required],
-            userId: [this.getUID(), Validators.required],
+            Id: [null],
+            Name: [null, Validators.required],
+            HailingPort: [null, Validators.required],
+            ImageUrl: [null],
+            Country: [null, Validators.required],
+            UserId: [this.getUID(), Validators.required],
         });
 
         if (sessionStorage.getItem('yacht_new_item')) {
-            this.form.controls['name'].setValue(sessionStorage.getItem('yacht_new_item'));
+            this.form.controls['Name'].setValue(sessionStorage.getItem('yacht_new_item'));
         }
 
         if (sessionStorage.getItem('yacht_edit_item')) {
@@ -72,15 +71,19 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
     }
 
     addEditVendor() {
-        const model = {
-            ...this.form.value,
-            imageUrl: !this.form.controls['imageUrl'].value
-                ? this.images[this.getRandomInt(0, 5)]
-                : this.form.controls['imageUrl'].value,
-        };
-        console.log(model);
+        let requestPayload = new FormData();
+
+        Object.keys(this.form.controls).forEach((formControlName) => {
+            if (formControlName == 'Id' && !this.form.get(formControlName)?.value) return;
+            requestPayload.append(formControlName, this.form.get(formControlName)?.value);
+        });
+
+        this.lightboxImages.forEach((image: any) => {
+            requestPayload.append(image.name, image);
+        });
+
         this.service
-            .addEditYacht(model)
+            .addEditYacht(requestPayload)
             .pipe(finalize(() => console.log('yachts add/edit success')))
             .subscribe(
                 (result) => {
@@ -101,13 +104,12 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
 
     editItem(yacht: any) {
         this.form.patchValue({
-            id: yacht.id,
-            name: yacht.name,
-            hailingPort: yacht.hailingPort,
-            isActive: true,
-            country: yacht.country,
-            userId: yacht.userId,
-            imageUrl: yacht.imageUrl,
+            Id: yacht.id,
+            Name: yacht.name,
+            HailingPort: yacht.hailingPort,
+            Country: yacht.country,
+            UserId: yacht.userId,
+            ImageUrl: yacht.imageUrl,
         });
 
         this.editState = true;
