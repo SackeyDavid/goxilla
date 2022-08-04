@@ -61,9 +61,11 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             AffectShipShape: true,
             Title: [''],
             Instruction: ['', Validators.required],
+            // expectedDeliveryDate: new Date().setHours(new Date().getHours() + 2),
             // bid_requested: false,
         });
 
+        console.log(new Date('yyyy-mm-ddT00:00:00'));
         this.vendorList = [];
         this.yachtList = [];
         this.serviceList = [];
@@ -207,14 +209,14 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
         Object.keys(this.form.controls).forEach((formControlName) => {
             // console.log('controls', this.form.get(formControlName)?.value);
+            if (formControlName == 'VendorId' && !this.form.get(formControlName)?.value) return;
+
             requestPayload.append(formControlName, this.form.get(formControlName)?.value);
         });
 
         this.lightboxImages.forEach((image: any) => {
             requestPayload.append(image.name, image);
         });
-
-        /*  requestPayload.append('lightBoxImages', this.lightboxImages); */
 
         this.service
             .addEditServiceOrders(requestPayload)
