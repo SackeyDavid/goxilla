@@ -24,7 +24,7 @@ import { OrderDetailComponent } from './index/yacht-owner/order-detail/order-det
                         loadChildren: () => import('./accounts/accounts.module').then((m) => m.AccountsModule),
                     },
                     {
-                        path: 'service-request/:id',
+                        path: 'servicerequests/:id',
                         component: OrderDetailComponent,
                         // loadChildren: () =>
                         //     import('./index/yacht-owner/order-detail/order-detail.module').then(
