@@ -31,11 +31,11 @@ export class YachtOwnerService {
             url: '/app/settings',
             title: 'SETTINGS',
         },
-        {
-            img: 'assets/images/menu.png',
-            url: '/app/more',
-            title: 'MORE',
-        },
+        // {
+        //     img: 'assets/images/menu.png',
+        //     url: '/app/more',
+        //     title: 'MORE',
+        // },
     ];
 
     activeMenu: string = '';

@@ -10,9 +10,18 @@ import { AddYachtComponent } from './add-yacht/add-yacht.component';
 import { AddServiceComponent } from './add-service/add-service.component';
 import { AssignVendorComponent } from './assign-vendor/assign-vendor.component';
 import { EditServiceRequestModalComponent } from './edit-service-request-modal/edit-service-request-modal.component';
+import { MoreMenuComponent } from './more-menu/more-menu.component';
 
 @NgModule({
-    declarations: [YachtOwnerComponent, AddVendorComponent, AddYachtComponent, AddServiceComponent, AssignVendorComponent, EditServiceRequestModalComponent],
+    declarations: [
+        YachtOwnerComponent,
+        AddVendorComponent,
+        AddYachtComponent,
+        AddServiceComponent,
+        AssignVendorComponent,
+        EditServiceRequestModalComponent,
+        MoreMenuComponent,
+    ],
     imports: [CommonModule, YachtOwnerRoutingModule, AppCommonModule, FormsModule, ReactiveFormsModule],
 })
-export class YachtOwnerModule { }
+export class YachtOwnerModule {}

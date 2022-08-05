@@ -13,7 +13,6 @@ import { AddServiceComponent } from '../add-service/add-service.component';
 import { AddYachtComponent } from '../add-yacht/add-yacht.component';
 import { ServiceOrderService } from '../service-order/service-order.service';
 import { AppService } from '../../../services/app.service';
-import { isNull } from 'lodash-es';
 
 @Component({
     selector: 'app-request-service',

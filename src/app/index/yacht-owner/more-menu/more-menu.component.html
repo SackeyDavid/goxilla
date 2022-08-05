@@ -1,0 +1,36 @@
+<app-blur-background-modal>
+  <div class="flex flex-col h-full relative">
+    <div class="absolute mr-6 mt-12 right-0 cursor-pointer">
+      <i (click)="close()">
+        <img src="assets/images/close-btn.png" alt="close" />
+      </i>
+    </div>
+    <div class="flex flex-wrap content-center h-full w-full">
+      <div class="flex justify-center w-full">
+        <div class="w-4/5 bg-white rounded-xl p-5">
+          <div class="h-full">
+            <div class="p-5 w-full h-full flex flex-col justify-center items-center">
+              <div class="modal-inner w-[96%] h-full mx-auto relative">
+                <div class="bg-white h-full overflow-y-auto text-left">
+                  <div class="flex flex-wrap gap-5 h-full justify-center">
+                    <div (click)="close()"
+                      class="border cursor-pointer hover:border-transparent hover:bg-blue-600 hover:text-white rounded-md justify-center items-center flex flex-col aspect-square w-[160px] h-[160px] p-3"
+                      *ngFor="let menu of service.more_menu" [routerLink]="menu.url">
+                      <div class="grid grid-rows-3 h-full w-full">
+                        <div class="row-span-2 flex justify-center items-center">
+                          <img [src]="menu.img" class="w-[{{menu.img_size}}] mx-auto" alt="">
+                        </div>
+                        <span
+                          class="w-full text-xs text-inherit font-semibold mt-3 text-center flex justify-center items-start row-span-1 uppercase">{{menu.title}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-blur-background-modal>

@@ -7,6 +7,8 @@ import { AppConsts } from '../../../shared/AppConsts';
 import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
 import { SelectServiceService } from './select-service/select-service.service';
+import { MoreMenuComponent } from './more-menu/more-menu.component';
+import { ModalService } from '@app/shared/common/modal/modal.service';
 
 const helper = new JwtHelperService();
 
@@ -30,7 +32,8 @@ export class YachtOwnerComponent implements OnInit {
         private authService: AuthService,
         public AppService: AppService,
         public router: Router,
-        private selectService: SelectServiceService
+        private selectService: SelectServiceService,
+        private modalService: ModalService
     ) {}
 
     ngOnInit(): void {
@@ -74,6 +77,12 @@ export class YachtOwnerComponent implements OnInit {
     getAllServiceOrders() {
         this.selectService.getAllServiceOrders().subscribe((value) => {
             this.count = value.result.totalCount;
+        });
+    }
+
+    openMoreMenuModal() {
+        this.modalService.createModal<MoreMenuComponent>({
+            content: MoreMenuComponent,
         });
     }
 }
