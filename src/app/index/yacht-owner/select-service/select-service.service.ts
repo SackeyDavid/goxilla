@@ -19,7 +19,7 @@ export class SelectServiceService {
 
     getAllServiceOrders(): Observable<any> {
         return this.httpClient.get(
-            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll?MaxResultCount=30`
+            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll?MaxResultCount=100`
         );
     }
 

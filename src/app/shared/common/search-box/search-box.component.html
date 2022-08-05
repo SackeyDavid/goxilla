@@ -1,7 +1,7 @@
 <div class="relative w-full">
     <div class="flex w-full border py-4 border-gray-300 px-4 rounded-lg justify-between space-x-4 input">
         <input [(ngModel)]="displayLabel" (ngModelChange)="searchList($event)" class="outline-0 border-0 w-full"
-            placeholder="{{placeholder}}" searchbox="pi-search-box" [id]="id">
+            placeholder="{{placeholder}}" [value]="defaultItem?.value" searchbox="pi-search-box" [id]="id">
         <div *ngIf="showIcon">
             <div class="flex flex-wrap content-center h-full">
                 <img src="assets/select-box/search-icon.png" class="w-4" alt="image">

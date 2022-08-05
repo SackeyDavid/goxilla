@@ -32,6 +32,10 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
     serviceList: Array<SearchItem> = [];
     yachtList: Array<SearchItem> = [];
 
+    requestDetail: any;
+    selectedYachtIndex: number = 0;
+    selectedServiceIndex: number = 0;
+    selectedVendorIndex: number = 0;
     serviceOrderId: any;
 
     constructor(
@@ -71,8 +75,17 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
         this.getAllServices();
         this.getAllYachts();
 
-        if (sessionStorage.getItem('order_edit_item')) {
-            this.editOrderItem(JSON.parse(sessionStorage.getItem('order_edit_item')));
+        if (this.AppService.getStorageItem('requestDetails')) {
+            this.requestDetail = this.AppService.getStorageItem('requestDetails');
+
+            this.editOrderItem(this.requestDetail.serviceOrder);
+            this.setValue('VendorId', this.requestDetail.vendor.id);
+            this.setValue('ServiceId', this.requestDetail.service.id);
+            this.setValue('YachtId', this.requestDetail.yachts.id);
+
+            this.requestDetail.lightboxImages.forEach((image) => {
+                this.lightboxImagesAlt.push({ name: 'image' + new Date().getTime(), size: null, path: image.imageUrl });
+            });
         }
     }
 
@@ -82,6 +95,8 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
 
     reset() {
         this.form.reset();
+        this.lightboxImages = [];
+        this.lightboxImagesAlt = [];
     }
 
     assignEditVendor() {
@@ -126,6 +141,9 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
                     value: vendor.vendor.firstName + ' ' + vendor.vendor.lastName,
                 });
             });
+            this.selectedVendorIndex = this.vendorList
+                .map((object) => object.id)
+                .indexOf(this.requestDetail?.vendor.id);
         });
     }
 
@@ -135,6 +153,10 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             this.preServiceList.forEach((service: { service: { id: string; name: string } }) => {
                 this.serviceList.push({ id: service.service.id, value: service.service.name });
             });
+
+            this.selectedServiceIndex = this.serviceList
+                .map((object) => object.id)
+                .indexOf(this.requestDetail?.service.id);
         });
     }
 
@@ -144,6 +166,8 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             this.preYachtList.forEach((yacht: { yacht: { id: number; name: string } }) => {
                 this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name });
             });
+
+            this.selectedYachtIndex = this.yachtList.map((object) => object.id).indexOf(this.requestDetail?.yachts.id);
         });
     }
 
@@ -185,19 +209,72 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
 
     editOrderItem(order: any) {
         this.form.patchValue({
-            YachtId: order.YachtId,
-            ServiceId: order.ServiceId,
-            VendorId: order.VendorId,
-            Priority: order.Priority,
-            Description: order.Description,
-            Status: order.Status,
-            Name: order.Name,
-            Location: order.Location,
-            AffectShipShape: order.AffectShipShape,
-            Title: order.Title,
-            Instruction: order.Instruction,
+            YachtId: order.yachtId,
+            ServiceId: order.serviceId,
+            VendorId: order.vendorId,
+            Priority: order.priority,
+            Description: order.description,
+            Status: order.status,
+            Name: order.name,
+            Location: order.location,
+            AffectShipShape: order.affectShipShape,
+            Title: order.title,
+            Instruction: order.instruction,
         });
 
-        sessionStorage.removeItem('order_edit_item');
+        // console.log(this.form.value);
+    }
+
+    editServiceOrder() {
+        this.showMainSpinner();
+        console.log(this.form.value);
+        console.log(this.findInvalidControls());
+
+        let requestPayload = new FormData();
+
+        Object.keys(this.form.controls).forEach((formControlName) => {
+            // if (formControlName == 'VendorId' && !this.form.get(formControlName)?.value) return;
+
+            requestPayload.append(formControlName, this.form.get(formControlName)?.value);
+        });
+
+        this.lightboxImages.forEach((image: any) => {
+            requestPayload.append(image.name, image);
+        });
+
+        console.log('Payload ', requestPayload);
+
+        this.service
+            .editServiceOrder(requestPayload)
+            .pipe(finalize(() => console.log('success')))
+            .subscribe(
+                (result) => {
+                    if (result.success === true) {
+                        this.notify.success(this.l('Service Order Edited Successfully'));
+                        this.reset();
+                        window.location.reload();
+                        this.hideMainSpinner();
+                        this.close();
+
+                        return;
+                    }
+                },
+                (e) => {
+                    this.hideMainSpinner();
+                    this.notify.error(this.l(e.error.error.message));
+                    return;
+                }
+            );
+    }
+
+    public findInvalidControls() {
+        const invalid = [];
+        const controls = this.form.controls;
+        for (const name in controls) {
+            if (controls[name].invalid) {
+                invalid.push(name);
+            }
+        }
+        return invalid;
     }
 }

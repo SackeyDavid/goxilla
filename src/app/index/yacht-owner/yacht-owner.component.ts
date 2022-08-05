@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AppConsts } from '../../../shared/AppConsts';
 import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
+import { SelectServiceService } from './select-service/select-service.service';
 
 const helper = new JwtHelperService();
 
@@ -21,18 +22,22 @@ export class YachtOwnerComponent implements OnInit {
     appStoreName: string;
     storedTokenName: string;
 
+    count: number = 0;
+
     constructor(
         public service: YachtOwnerService,
         private _authService: AppAuthService,
         private authService: AuthService,
         public AppService: AppService,
-        public router: Router
+        public router: Router,
+        private selectService: SelectServiceService
     ) {}
 
     ngOnInit(): void {
         this.authService.getLoginInfo();
         this.runTokenCheck();
         this.checkTokenExpiration();
+        this.getAllServiceOrders();
     }
 
     runTokenCheck(): void {
@@ -64,5 +69,11 @@ export class YachtOwnerComponent implements OnInit {
 
     logout(): void {
         this._authService.logout();
+    }
+
+    getAllServiceOrders() {
+        this.selectService.getAllServiceOrders().subscribe((value) => {
+            this.count = value.result.totalCount;
+        });
     }
 }

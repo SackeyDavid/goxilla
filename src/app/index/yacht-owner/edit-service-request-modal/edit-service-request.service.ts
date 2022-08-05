@@ -4,14 +4,18 @@ import { BaseService } from '@app/shared/base.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class EditServiceRequestService {
+    constructor(private httpClient: HttpClient, private baseService: BaseService) {}
 
-  constructor(private httpClient: HttpClient, private baseService: BaseService) { }
+    editServiceRequest(request: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/***`, request);
+    }
 
-  editServiceRequest(request: any): Observable<any> {
-    return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/***`, request);
-  }
-
+    editServiceOrder(order: any): Observable<any> {
+        return this.httpClient.post(`${this.baseService.baseUrl}/api/ServiceRequest/CreateServiceRequest`, order, {
+            headers: { 'content-type': 'multipart/form-data' },
+        });
+    }
 }

@@ -13,6 +13,7 @@ import { AddServiceComponent } from '../add-service/add-service.component';
 import { AddYachtComponent } from '../add-yacht/add-yacht.component';
 import { ServiceOrderService } from '../service-order/service-order.service';
 import { AppService } from '../../../services/app.service';
+import { isNull } from 'lodash-es';
 
 @Component({
     selector: 'app-request-service',
@@ -34,6 +35,8 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     serviceList: Array<SearchItem>;
     yachtList: Array<SearchItem>;
 
+    dateTime = new Date().setHours(new Date().getHours() + 2);
+
     constructor(
         injector: Injector,
         public service: RequestServiceService,
@@ -52,20 +55,19 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.form = this.fb.group({
             YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
-            VendorId: [null],
+            VendorId: [0],
             Priority: [2, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
             Name: ['David'],
-            Location: [null],
+            Location: [''],
             AffectShipShape: true,
             Title: [''],
             Instruction: ['', Validators.required],
-            // expectedDeliveryDate: new Date().setHours(new Date().getHours() + 2),
+            // expectedDeliveryDate: this.dateTime.toString(),
             // bid_requested: false,
         });
 
-        console.log(new Date('yyyy-mm-ddT00:00:00'));
         this.vendorList = [];
         this.yachtList = [];
         this.serviceList = [];
@@ -202,9 +204,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
 
     createServiceOrder() {
         this.showMainSpinner();
-
-        // console.log(this.lightboxImages, 'random text');
-
         let requestPayload = new FormData();
 
         Object.keys(this.form.controls).forEach((formControlName) => {

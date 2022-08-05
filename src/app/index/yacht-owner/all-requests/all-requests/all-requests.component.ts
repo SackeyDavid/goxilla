@@ -89,7 +89,8 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     }
 
     openServiceRequestEditModal() {
-        sessionStorage.setItem('order_edit_item', JSON.stringify(this.requestDetails));
+        // sessionStorage.setItem('order_edit_item', this.requestDetails);
+        this.AppService.setStorageItem('requestDetails', this.requestDetails);
         this.modalService.createModal<EditServiceRequestModalComponent>({
             content: EditServiceRequestModalComponent,
         });
