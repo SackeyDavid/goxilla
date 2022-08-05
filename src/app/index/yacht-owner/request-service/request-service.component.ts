@@ -55,7 +55,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.form = this.fb.group({
             YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
-            VendorId: [0],
+            VendorId: [null],
             Priority: [2, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
