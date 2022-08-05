@@ -79,7 +79,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             this.requestDetail = this.AppService.getStorageItem('requestDetails');
 
             this.editOrderItem(this.requestDetail.serviceOrder);
-            this.setValue('VendorId', this.requestDetail.vendor.id);
+            this.setValue('VendorId', this.requestDetail.vendor?.id ? this.requestDetail.vendor.id : null);
             this.setValue('ServiceId', this.requestDetail.service.id);
             this.setValue('YachtId', this.requestDetail.yachts.id);
 
@@ -233,7 +233,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
         let requestPayload = new FormData();
 
         Object.keys(this.form.controls).forEach((formControlName) => {
-            // if (formControlName == 'VendorId' && !this.form.get(formControlName)?.value) return;
+            if (formControlName == 'VendorId' && !this.form.get(formControlName)?.value) return;
 
             requestPayload.append(formControlName, this.form.get(formControlName)?.value);
         });
@@ -252,8 +252,8 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
                     if (result.success === true) {
                         this.notify.success(this.l('Service Order Edited Successfully'));
                         this.reset();
-                        window.location.reload();
                         this.hideMainSpinner();
+                        window.location.reload();
                         this.close();
 
                         return;

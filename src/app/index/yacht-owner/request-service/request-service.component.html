@@ -67,7 +67,7 @@
                             <label for="yatch_type"
                                 class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Choose
                                 Yacht</label>
-                            <app-search-box (getSelectedItem)="editSelectedYacht($event)"
+                            <app-search-box (getSelectedItem)="getSelectedYacht($event)"
                                 (addNewItem)="addNewYacht($event)" [placeholder]="''" [addLabel]="'Add Yacht'"
                                 [data]="yachtList" [showAddButton]="true">
                             </app-search-box>

@@ -73,6 +73,7 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
 
     displayOrderDetails(index: number) {
         this.selectedIndex = index;
+        sessionStorage.setItem('selectedIndex', String(index));
         this.requestDetails = this.allServiceOrders[index];
         /* this.AppService.setStorageItem('requestDetails', this.requestDetails); */
     }
