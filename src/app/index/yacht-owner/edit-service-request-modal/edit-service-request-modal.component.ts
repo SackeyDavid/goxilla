@@ -56,6 +56,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
 
     ngOnInit() {
         this.form = this.fb.group({
+            Id: [null, Validators.required],
             YachtId: [null, Validators.required],
             ServiceId: [null, Validators.required],
             VendorId: [null],
@@ -141,9 +142,11 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
                     value: vendor.vendor.firstName + ' ' + vendor.vendor.lastName,
                 });
             });
+
+            // returns -1 if vendor unassigned
             this.selectedVendorIndex = this.vendorList
                 .map((object) => object.id)
-                .indexOf(this.requestDetail?.vendor.id);
+                .indexOf(this.requestDetail?.vendor?.id);
         });
     }
 
@@ -209,6 +212,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
 
     editOrderItem(order: any) {
         this.form.patchValue({
+            Id: order.id,
             YachtId: order.yachtId,
             ServiceId: order.serviceId,
             VendorId: order.vendorId,
@@ -252,8 +256,8 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
                     if (result.success === true) {
                         this.notify.success(this.l('Service Order Edited Successfully'));
                         this.reset();
+                        // window.location.reload();
                         this.hideMainSpinner();
-                        window.location.reload();
                         this.close();
 
                         return;

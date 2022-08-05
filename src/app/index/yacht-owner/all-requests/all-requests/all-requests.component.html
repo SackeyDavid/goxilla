@@ -280,6 +280,7 @@
                     <div>
                         <label class="font-semibold text-lg uppercase mb-2 block">Additional Resources</label>
                         <div class="flex space-x-4 flex-wrap">
+                            <span class="text-lg" *ngIf="!requestDetails?.lightboxImages.length">No images here</span>
                             <div class="rounded" *ngFor="let image of requestDetails?.lightboxImages">
                                 <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" [src]="image.imageUrl"
                                     alt="lightboxImages" />
