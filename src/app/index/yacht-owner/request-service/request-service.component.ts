@@ -60,7 +60,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             Location: [''],
             AffectShipShape: true,
             Title: [''],
-            Instruction: ['', Validators.required],
+            Instruction: [''],
         });
 
         this.vendorList = [];
@@ -74,8 +74,48 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     }
 
     showNext(): void {
-        this.showStepOne = !this.showStepOne;
-        this.showStepTwo = !this.showStepTwo;
+        if (!this.showStepTwo) {
+            this.showFormErrorMessage();
+        } else {
+            this.showStepOne = !this.showStepOne;
+            this.showStepTwo = !this.showStepTwo;
+        }
+    }
+
+    showFormErrorMessage() {
+        if (this.findInvalidControls().length) {
+            console.log(this.findInvalidControls());
+            switch (this.findInvalidControls()[0]) {
+                case 'YachtId':
+                    this.notify.error(this.l('Please choose a Yacht to continue'));
+                    break;
+
+                case 'ServiceId':
+                    this.notify.error(this.l('Please select a Service to continue'));
+                    break;
+
+                case 'Description':
+                    this.notify.error(this.l('Please enter a Description to continue'));
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            this.showStepOne = !this.showStepOne;
+            this.showStepTwo = !this.showStepTwo;
+        }
+    }
+
+    public findInvalidControls() {
+        const invalid = [];
+        const controls = this.form.controls;
+        for (const name in controls) {
+            if (controls[name].invalid) {
+                invalid.push(name);
+            }
+        }
+        return invalid;
     }
 
     addPhoto(event: any) {

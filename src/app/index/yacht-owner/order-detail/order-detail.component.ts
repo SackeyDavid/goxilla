@@ -54,7 +54,8 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
             this.service.getServiceReqDetails(this.serviceRequestId).subscribe((value) => {
                 this.requestDetails = value.result;
                 this.requestDetailsImages = this.requestDetails.lightboxImages;
-                this.priority = this.requestDetails.serviceOrder.priority == 1 ? 'Low' : 2 ? 'Medium' : 'ASAP';
+                this.priority =
+                    this.requestDetails.serviceOrder.priority == 3 ? 'ASAP' : 2 ? 'Normal' : 1 ? 'Medium' : 'Low';
             });
         }
     }

@@ -256,7 +256,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
                     if (result.success === true) {
                         this.notify.success(this.l('Service Order Edited Successfully'));
                         this.reset();
-                        // window.location.reload();
+                        window.location.reload();
                         this.hideMainSpinner();
                         this.close();
 

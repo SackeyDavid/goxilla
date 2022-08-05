@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseService } from '@app/shared/base.service';
 import { ModalRef } from '@app/shared/common/modal/modal-ref';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
 import { SelectServiceService } from '../select-service/select-service.service';
 
@@ -11,16 +12,18 @@ import { SelectServiceService } from '../select-service/select-service.service';
     styleUrls: ['./add-service.component.css'],
     providers: [ModalRef],
 })
-export class AddServiceComponent implements OnInit {
+export class AddServiceComponent extends AppComponentBase implements OnInit {
     form!: FormGroup;
     editState: boolean = false;
 
     constructor(
+        injector: Injector,
         public modal: ModalRef,
         private fb: FormBuilder,
         public service: SelectServiceService,
         public baseService: BaseService
     ) {
+        super(injector);
         modal.component = AddServiceComponent;
     }
 
@@ -48,12 +51,15 @@ export class AddServiceComponent implements OnInit {
             .addEditService(this.form.value)
             .pipe(finalize(() => console.log('services add/edit success')))
             .subscribe(
-                (value) => {
-                    this.reset();
-                    console.log(value);
-                    this.close();
+                (result) => {
+                    if (result.success === true) {
+                        this.notify.success(this.l('Service Created Successfully'));
+                        this.reset();
+                        this.close();
+                    }
                 },
                 (error) => {
+                    this.notify.error(this.l(error.error.error.message));
                     console.log(error);
                 }
             );
