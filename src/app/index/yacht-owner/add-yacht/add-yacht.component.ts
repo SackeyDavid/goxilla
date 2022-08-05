@@ -91,6 +91,7 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
                     if (result.success === true) {
                         this.notify.success(this.l('Yacht Saved Successfully'));
                         this.reset();
+                        // window.location.reload();
                         this.close();
                         return;
                     }

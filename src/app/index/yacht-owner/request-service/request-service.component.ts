@@ -34,8 +34,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     serviceList: Array<SearchItem>;
     yachtList: Array<SearchItem>;
 
-    dateTime = new Date().setHours(new Date().getHours() + 2);
-
     constructor(
         injector: Injector,
         public service: RequestServiceService,
@@ -63,8 +61,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             AffectShipShape: true,
             Title: [''],
             Instruction: ['', Validators.required],
-            // expectedDeliveryDate: this.dateTime.toString(),
-            // bid_requested: false,
         });
 
         this.vendorList = [];
@@ -86,7 +82,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         if (event.target.files && event.target.files[0]) {
             for (const image of event.target.files) {
                 this.lightboxImages.push(image);
-                // console.log(this.lightboxImages);
 
                 const reader = new FileReader();
                 reader.onload = (event: any) => {
@@ -226,7 +221,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
                         this.reset();
                         this.hideMainSpinner();
 
-                        // re-initialize values
+                        // re-initialize form default values
                         this.setValue('Status', 0);
                         this.setValue('AffectShipShape', true);
                         this.setValue('Priority', 2);

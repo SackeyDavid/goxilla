@@ -150,7 +150,10 @@
                     <div class="flex justify-between items-center">
                         <div
                             class="flex flex-row items-center relative cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                            <img [src]="requestDetails?.yachts?.imageUrl" alt="yacht image"
+                            <img *ngIf="requestDetails?.yachts?.imageUrl" [src]="requestDetails?.yachts?.imageUrl"
+                                alt="yacht image" class="w-[6rem] h-[4rem] rounded-md border border-gray-400 mr-3">
+                            <img *ngIf="!requestDetails?.yachts?.imageUrl && requestDetails?.lightboxImages[0]"
+                                [src]="requestDetails?.lightboxImages[0].imageUrl" alt="yacht image"
                                 class="w-[6rem] h-[4rem] rounded-md border border-gray-400 mr-3">
                             <div class="flex flex-col mr-10">
                                 <span

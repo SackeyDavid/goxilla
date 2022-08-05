@@ -67,7 +67,7 @@
                             <label for="yatch_type"
                                 class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Choose
                                 Yacht</label>
-                            <app-search-box (getSelectedItem)="getSelectedYacht($event)"
+                            <app-search-box (getSelectedItem)="editSelectedYacht($event)"
                                 (addNewItem)="addNewYacht($event)" [placeholder]="''" [addLabel]="'Add Yacht'"
                                 [data]="yachtList" [showAddButton]="true">
                             </app-search-box>
@@ -170,12 +170,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div (click)="removeImage(image)"
-                                        class="w-[6rem] h-[6rem] flex hover:opacity-90 cursor-pointer bg-contain rounded-lg shadow-md mb-3 ">
-                                        <img class="w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" src="{{ image.path }}"
-                                            alt="image.name" />
-                                        <i class="bx bx-trash text-2xl text-white mx-auto my-auto cursor-pointer"></i>
-                                    </div> -->
                                 </ng-container>
                             </div>
                         </div>
