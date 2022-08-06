@@ -25,7 +25,8 @@
             </div>
         </div>
         <div class="flex justify-between mb-3">
-            <div class="font-thin text-lg">Created: {{getDateFormatted(requestDetails?.serviceOrder?.createdAt)}}</div>
+            <div class="font-thin text-lg">Created: {{getDateFormatted(requestDetails?.serviceOrder.createdAt)}}
+            </div>
             <div class="text-opacity-100 font-semibold text-3xl">${{ requestDetails?.service?.cost }}</div>
         </div>
 
@@ -68,7 +69,7 @@
                 [value]="requestDetails?.serviceOrder?.description"></textarea>
         </div>
 
-        <div class="w-full flex flex-col mb-3">
+        <div class="w-full flex flex-col mb-3" *ngIf="requestDetails?.serviceOrder?.instruction">
             <label class="text-lg uppercase mb-2 text-left text-label-color text-opacity-100" for="priority">
                 Instruction
             </label>
@@ -93,7 +94,7 @@
             <label for="bid_requested" class="ml-2 text-lg">MAKE RECURRING</label>
         </div>
 
-        <div class="flex flex-col mb-4">
+        <div class="flex flex-col mb-4" *ngIf="requestDetails?.vendor">
             <label class="text-lg mb-2 text-left uppercase text-opacity-100" for="vendor">VENDOR</label>
             <input disabled type="text" name="vendor" id="vendor"
                 [value]="requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName" class="

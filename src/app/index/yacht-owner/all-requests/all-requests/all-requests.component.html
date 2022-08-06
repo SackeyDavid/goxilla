@@ -46,7 +46,8 @@
                         class="info-card border rounded-md px-2 mx-[5px] py-3 mt-3 drop-shadow-md"
                         [ngClass]="{'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex}">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-lg uppercase font-medium">{{order.service?.name}}</span>
+                            <span class="text-lg uppercase font-medium">{{order.service?.name}}
+                            </span>
                             <span class="text-lg pr-4 text-yellow-400 flex items-center"
                                 *ngIf="order.serviceOrder?.priority == 3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
@@ -206,7 +207,9 @@
                             <button type="button"
                                 class="items-center inline-flex justify-between rounded-lg border-[1px] border-sky-400 shadow-sm px-4 py-2.5 bg-white text-lg font-medium text-sky-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                                 id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <span>{{ requestDetails.serviceOrder.priority == 3 ? 'ASAP' : 2 ? 'Normal' : 1 ?
+                                <span>{{ requestDetails.serviceOrder.priority == 4 ? 'Affect Ship Shape' : 3 ? 'ASAP' :
+                                    2 ? 'Normal' :
+                                    1 ?
                                     'Medium' : 'Low'}} </span>
                                 <!-- Heroicon name: solid/chevron-down -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="-mr-1 ml-5 h-5 w-5" fill="none"
