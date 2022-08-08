@@ -38,6 +38,8 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
     selectedVendorIndex: number = 0;
     serviceOrderId: any;
 
+    submitted: boolean = false;
+
     constructor(
         injector: Injector,
         public modal: ModalRef,
@@ -229,10 +231,18 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
         // console.log(this.form.value);
     }
 
+    get f(): any {
+        return this.form.controls;
+    }
+
     editServiceOrder() {
         this.showMainSpinner();
-        console.log(this.form.value);
-        console.log(this.findInvalidControls());
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            console.log(this.findInvalidControls());
+            return;
+        }
 
         let requestPayload = new FormData();
 
