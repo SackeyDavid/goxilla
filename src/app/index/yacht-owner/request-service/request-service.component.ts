@@ -30,9 +30,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     preServiceList: any = [];
     preVendorsList: any = [];
 
-    vendorList: Array<SearchItem>;
-    serviceList: Array<SearchItem>;
-    yachtList: Array<SearchItem>;
+    vendorList: Array<SearchItem> = [];
+    serviceList: Array<SearchItem> = [];
+    yachtList: Array<SearchItem> = [];
 
     constructor(
         injector: Injector,
@@ -62,10 +62,6 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             Title: [''],
             Instruction: [''],
         });
-
-        this.vendorList = [];
-        this.yachtList = [];
-        this.serviceList = [];
 
         this.getAllVendors();
         this.getAllServices();
@@ -224,8 +220,8 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
     getAllYachts() {
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
-            this.preYachtList.forEach((yacht: { yacht: { id: number; name: string } }) => {
-                this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name });
+            this.preYachtList.forEach((yacht: { [x: string]: any; yacht: { id: number; name: string } }) => {
+                this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name, image: yacht.lightboxImages[0]?.imageUrl ?? 'https://cdn.boatinternational.com/files/2022/08/7d043880-1247-11ed-b0de-c73b18ad144c-VICTORY%20LANE%20on%20the%20water.jpg' });
             });
         });
     }
@@ -251,31 +247,28 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             requestPayload.append(image.name, image);
         });
 
-        this.service
-            .addEditServiceOrders(requestPayload)
-            .pipe(finalize(() => console.log('success')))
-            .subscribe(
-                (result) => {
-                    if (result.success === true) {
-                        this.notify.success(this.l('Service Order Created Successfully'));
-                        this.reset();
-                        this.hideMainSpinner();
+        this.service.addEditServiceOrders(requestPayload).pipe(finalize(() => console.log('success'))).subscribe((result) => {
 
-                        // re-initialize form default values
-                        this.setValue('Status', 0);
-                        this.setValue('AffectShipShape', true);
-                        this.setValue('Priority', 2);
-                        this.setValue('Name', 'David');
+            if (result.success === true) {
+                this.notify.success(this.l('Service Order Created Successfully'));
+                this.reset();
+                this.hideMainSpinner();
 
-                        return;
-                    }
-                },
-                (e) => {
-                    this.hideMainSpinner();
-                    this.notify.error(this.l(e.error.error.message));
-                    return;
-                }
-            );
+                // re-initialize form default values
+                this.setValue('Status', 0);
+                this.setValue('AffectShipShape', true);
+                this.setValue('Priority', 2);
+                this.setValue('Name', 'David');
+
+                return;
+            }
+        },
+            (e) => {
+                this.hideMainSpinner();
+                this.notify.error(this.l(e.error.error.message));
+                return;
+            }
+        );
     }
 
     reset() {

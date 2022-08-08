@@ -9,19 +9,15 @@
                     <div class="flex">
                         <div class="flex flex-col items-center mr-4">
                             <div>
-                                <div
-                                    class="flex items-center justify-center w-6 h-6 mt-11 border-blue-400 border-2 rounded-full">
+                                <div class="flex items-center justify-center w-6 h-6 mt-11 border-blue-400 border-2 rounded-full">
                                     <img class="h-4" src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
                                 </div>
                             </div>
                             <div class="w-px h-full bg-blue-600"></div>
                         </div>
                         <div class="pb-16">
-                            <div [ngClass]="{'border-blue-400': 'step == 1' || 'step == 2', 'text-blue-400': 'step == 1' || 'step == 2'}"
-                                class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto hover:cursor-pointer"
-                                (click)="showNext()">
-                                <img class="w-9 col-span-2 col-start-1 my-auto"
-                                    src="../../../../assets/svgs/invoice-blue.svg" alt="" />
+                            <div [ngClass]="{'border-blue-400': 'step == 1' || 'step == 2', 'text-blue-400': 'step == 1' || 'step == 2'}" class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto hover:cursor-pointer" (click)="showNext()">
+                                <img class="w-9 col-span-2 col-start-1 my-auto" src="../../../../assets/svgs/invoice-blue.svg" alt="" />
                                 <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
                                     <span class="text-lg font-semibold uppercase">Service Details</span>
                                     <small class="text-sm">Provide details about the services needed</small>
@@ -32,26 +28,19 @@
                     <div class="flex">
                         <div class="flex flex-col items-center mr-4">
                             <div>
-                                <div
-                                    class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full">
-                                    <img class="h-4" [class.invisible]="!showStepTwo"
-                                        src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
+                                <div class="flex items-center justify-center w-6 h-6 border-blue-400 border-2 rounded-full">
+                                    <img class="h-4" [class.invisible]="!showStepTwo" src="../../../../assets/svgs/Ellipse%20278.svg" alt="Ellipse" />
                                 </div>
                             </div>
                         </div>
                         <div class="-mt-10 w-full">
-                            <div [ngClass]="{'border-blue-400': showStepTwo, 'text-blue-400': showStepTwo, 'border-gray-400': !showStepTwo, 'text-gray-400': !showStepTwo}"
-                                class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto py-6 hover:cursor-pointer"
-                                (click)="showNext()">
-                                <img class="w-9 col-span-2 col-start-1 my-auto"
-                                    src="../../../assets/svgs/{{ showStepTwo ? 'image-blue' : 'image' }}.svg" alt="" />
+                            <div [ngClass]="{'border-blue-400': showStepTwo, 'text-blue-400': showStepTwo, 'border-gray-400': !showStepTwo, 'text-gray-400': !showStepTwo}" class="grid grid-cols-10 w-full h-30 justify-center p-4 border-solid border-2 rounded-lg my-auto py-6 hover:cursor-pointer" (click)="showNext()">
+                                <img class="w-9 col-span-2 col-start-1 my-auto" src="../../../assets/svgs/{{ showStepTwo ? 'image-blue' : 'image' }}.svg" alt="" />
                                 <div class="col-span-8 col-start-3 flex flex-col space-y-1 my-auto">
-                                    <span [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-700': !showStepTwo}"
-                                        class="text-lg font-semibold uppercase">
+                                    <span [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-700': !showStepTwo}" class="text-lg font-semibold uppercase">
                                         Images/Videos
                                     </span>
-                                    <small [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-500': !showStepTwo}"
-                                        class="text-sm">
+                                    <small [ngClass]="{'text-blue-400': showStepTwo, 'text-gray-500': !showStepTwo}" class="text-sm">
                                         Upload media
                                     </small>
                                 </div>
@@ -64,36 +53,26 @@
                 <form [formGroup]="form" enctype="multipart/form-data">
                     <div class="space-y-4" *ngIf="!showStepTwo">
                         <div class="mb-5">
-                            <label for="yatch_type"
-                                class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Choose
+                            <label for="yatch_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Choose
                                 Yacht</label>
-                            <app-search-box (getSelectedItem)="getSelectedYacht($event)"
-                                (addNewItem)="addNewYacht($event)" [placeholder]="''" [addLabel]="'Add Yacht'"
-                                [data]="yachtList" [showAddButton]="true">
+                            <app-search-box (getSelectedItem)="getSelectedYacht($event)" (addNewItem)="addNewYacht($event)" [placeholder]="''" [addLabel]="'Add Yacht'" [data]="yachtList" [showAddButton]="true" [showImage]="true">
                             </app-search-box>
                         </div>
                         <div class="mb-5">
-                            <label for="service_type"
-                                class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select
+                            <label for="service_type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select
                                 Service</label>
-                            <app-search-box (getSelectedItem)="getSelectedService($event)"
-                                (addNewItem)="addNewService($event)" [placeholder]="''" [addLabel]="'Add Service'"
-                                [data]="serviceList" [showAddButton]="true">
+                            <app-search-box (getSelectedItem)="getSelectedService($event)" (addNewItem)="addNewService($event)" [placeholder]="''" [addLabel]="'Add Service'" [data]="serviceList" [showAddButton]="true">
                             </app-search-box>
                         </div>
                         <div class="mb-5">
                             <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Select
                                 Vendor</label>
-                            <app-search-box (getSelectedItem)="getSelectedVendor($event)"
-                                (addNewItem)="addNewVendor($event)" [placeholder]="'Type to search vendors'"
-                                [addLabel]="'Add Vendor'" [data]="vendorList" [showAddButton]="true">
+                            <app-search-box (getSelectedItem)="getSelectedVendor($event)" (addNewItem)="addNewVendor($event)" [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'" [data]="vendorList" [showAddButton]="true">
                             </app-search-box>
                         </div>
                         <div class="mb-5">
-                            <label for="priority"
-                                class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Priority</label>
-                            <select id="priority" formControlName="Priority"
-                                class="border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4 px-4 text-lg">
+                            <label for="priority" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Priority</label>
+                            <select id="priority" formControlName="Priority" class="border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4 px-4 text-lg">
                                 <option [value]="0">Low</option>
                                 <option [value]="1">Medium</option>
                                 <option selected [value]="2">Normal</option>
@@ -103,35 +82,26 @@
                         </div>
                         <div class="mb-5">
                             <div class="flex mb-4 invisible">
-                                <input id="bid-request" type="checkbox" value=""
-                                    class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300" />
-                                <label for="bid-request"
-                                    class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                                <input id="bid-request" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300" />
+                                <label for="bid-request" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                                     BID REQUESTED
                                 </label>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <label for="description"
-                                class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Description</label>
-                            <textarea id="description" formControlName="Description" rows="4"
-                                class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
-                                placeholder=""></textarea>
+                            <label for="description" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Description</label>
+                            <textarea id="description" formControlName="Description" rows="4" class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300" placeholder=""></textarea>
                         </div>
                         <div class="mb-5">
-                            <label for="instruction"
-                                class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Instruction</label>
-                            <textarea id="instruction" formControlName="Instruction" rows="4"
-                                class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300"
-                                placeholder=""></textarea>
+                            <label for="instruction" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Instruction</label>
+                            <textarea id="instruction" formControlName="Instruction" rows="4" class="block p-2.5 mb-5 w-full text-lg text-gray-900 rounded-lg border border-gray-300" placeholder=""></textarea>
                         </div>
                     </div>
                     <div *ngIf="showStepTwo">
                         <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">Upload
                             Images</label>
                         <div class="max-w-full mt-5">
-                            <label
-                                class="flex flex-col justify-center w-full h-auto py-12 transition bg-blue-100 border-2 border-blue-400 border-solid rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                            <label class="flex flex-col justify-center w-full h-auto py-12 transition bg-blue-100 border-2 border-blue-400 border-solid rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                                 <span class="flex flex-col items-center space-y-6">
                                     <img src="../../../../assets/svgs/image-blue.svg" alt="" />
                                     <span class="font-medium text-blue-400 w-1/2 text-center">
@@ -139,13 +109,11 @@
                                         to select photos and videos or Drag them here
                                     </span>
                                 </span>
-                                <input type="file" class="opacity-0" id="file" hidden multiple accept="image/*"
-                                    (change)="addPhoto($event)" />
+                                <input type="file" class="opacity-0" id="file" hidden multiple accept="image/*" (change)="addPhoto($event)" />
                             </label>
                         </div>
 
-                        <label
-                            class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400 mt-20">Uploads</label>
+                        <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400 mt-20">Uploads</label>
                         <div class="min-h-10 flex flex-col justify-start space-y-1">
                             <label [hidden]="lightboxImagesAlt.length">0 photos uploaded</label>
                             <div class="mt-3 h-auto space-x-4 max-w-full flex flex-wrap overflow-y-auto">
@@ -153,11 +121,9 @@
 
                                 <ng-container *ngFor="let image of lightboxImagesAlt">
                                     <div class="rounded-2xl relative w-[6rem] h-[6rem] ounded-lg shadow-md mb-3">
-                                        <label
-                                            class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
+                                        <label class="absolute top-2 right-2 w-6 h-6 text-white bg-orange-600 p-2 rounded-full">
                                             <div class="flex flex-wrap content-center h-full w-full">
-                                                <div class="flex justify-center w-full cursor-pointer"
-                                                    (click)="removeImage(image)">
+                                                <div class="flex justify-center w-full cursor-pointer" (click)="removeImage(image)">
                                                     <span class="text-xs">&times;</span>
                                                 </div>
                                             </div>
@@ -165,8 +131,7 @@
                                         <div class="flex flex-wrap content-center h-full w-full">
                                             <div class="flex justify-center w-full">
                                                 <div class="w-full text-center space-y-3">
-                                                    <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3"
-                                                        src="{{ image.path }}" alt="image.name" />
+                                                    <img class="mx-auto w-[6rem] h-[6rem] rounded-lg shadow-md mb-3" src="{{ image.path }}" alt="image.name" />
                                                 </div>
                                             </div>
                                         </div>
@@ -180,16 +145,13 @@
         </div>
     </div>
     <div class="h-auto w-full flex justify-end p-5 pt-0 space-x-2">
-        <button (click)="showNext()" *ngIf="showStepTwo" type="button"
-            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
+        <button (click)="showNext()" *ngIf="showStepTwo" type="button" class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Back
         </button>
-        <button (click)="showNext()" *ngIf="!showStepTwo" type="button"
-            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
+        <button (click)="showNext()" *ngIf="!showStepTwo" type="button" class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg">
             Continue
         </button>
-        <button *ngIf="showStepTwo" [disabled]="form.invalid" (click)="createServiceOrder()" type="button"
-            class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg cursor-pointer">
+        <button *ngIf="showStepTwo" [disabled]="form.invalid" (click)="createServiceOrder()" type="button" class="py-[8px] px-10 bg-blue-500 hover:bg-blue-400 text-white text-lg rounded-lg cursor-pointer">
             Submit
         </button>
     </div>
