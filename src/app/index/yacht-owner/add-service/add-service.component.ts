@@ -56,6 +56,8 @@ export class AddServiceComponent extends AppComponentBase implements OnInit {
                         this.notify.success(this.l('Service Created Successfully'));
                         this.reset();
                         this.close();
+                        window.location.reload();
+                        return;
                     }
                 },
                 (error) => {

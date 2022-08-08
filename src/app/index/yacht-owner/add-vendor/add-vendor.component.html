@@ -8,8 +8,9 @@
         <div class="flex flex-wrap content-center h-full w-full">
             <div class="flex justify-center w-full">
                 <div class="w-2/5 bg-white rounded-xl p-5">
-                    <label class="block text-2xl uppercase text-black font-bold py-5">{{editState ? 'Edit' : 'Add New'}}
-                        Vendor</label>
+                    <label class="block text-2xl uppercase text-black font-bold py-5">
+                        {{ editState ? 'Edit' : 'Add New' }} Vendor
+                    </label>
                     <!-- Form  -->
                     <div class="mx-auto mb-6 bg-white">
                         <form [formGroup]="form">
@@ -36,6 +37,9 @@
                                             w-full
                                             p-3
                                         " formControlName="firstName" placeholder="Juan" required />
+                                    <div *ngIf="submitted && f.firstName.errors" class="text-red-600">
+                                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <label for="vendor_lastname" class="
@@ -59,6 +63,9 @@
                                             w-full
                                             p-3
                                         " formControlName="lastName" placeholder="Gonzales" required />
+                                    <div *ngIf="submitted && f.lastName.errors" class="text-red-600">
+                                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <label for="vendor_phone" class="
@@ -81,11 +88,22 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="phone" placeholder="914-111-4444" maxlength="20" required />
+                                        " formControlName="phone" placeholder="9141114444" required />
+                                    <div *ngIf="submitted && f.phone.errors" class="text-red-600">
+                                        <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                        <div *ngIf="f.phone.errors.minlength">Phone must be at least 10 characters</div>
+                                    </div>
                                 </div>
                                 <div class="mb-6">
-                                    <label for="vendor_email"
-                                        class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                                    <label for="vendor_email" class="
+                                            block
+                                            uppercase
+                                            mb-2
+                                            text-lg
+                                            font-medium
+                                            text-gray-900
+                                            dark:text-gray-300
+                                        ">
                                         Email address
                                     </label>
                                     <input type="email" id="vendor_email" class="
@@ -98,19 +116,18 @@
                                             w-full
                                             p-3
                                         " formControlName="emailAddress" placeholder="juan@boats.com" required />
+                                    <div *ngIf="submitted && f.emailAddress.errors" class="text-red-600">
+                                        <div *ngIf="f.emailAddress.errors.required">Email is required</div>
+                                        <div *ngIf="f.emailAddress.errors.email">
+                                            Email must be a valid email address
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="mb-6">
-                                <label for="vendor_address" class="
-                                        block
-                                        uppercase
-                                        mb-2
-                                        text-lg
-                                        font-medium
-                                        text-gray-900
-                                        dark:text-gray-300
-                                    ">
+                                <label for="vendor_address"
+                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                                     Vendor Address
                                 </label>
                                 <input type="text" id="vendor_address" class="
@@ -124,23 +141,30 @@
                                         p-3
                                     " formControlName="address" placeholder="250 Balboa Peninsula, CA 92625"
                                     required />
+                                <div *ngIf="submitted && f.address.errors" class="text-red-600">
+                                    <div *ngIf="f.address.errors.required">Address is required</div>
+                                </div>
                             </div>
                             <div class="mb-6">
-                                <label for="vendor_description" class="
-                                        block
-                                        uppercase
-                                        mb-2
-                                        text-lg
-                                        font-medium
-                                        text-gray-900
-                                        dark:text-gray-300
-                                    ">
+                                <label for="vendor_description"
+                                    class="block uppercase mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                                     Vendor Description
                                 </label>
                                 <textarea id="vendor_description" rows="4" formControlName="descriptions" required
-                                    class="block p-2.5 mb-5 w-full text-lg bg-gray-50 text-gray-900 rounded-lg border border-gray-300"
-                                    placeholder="...describe yourself"></textarea>
-
+                                    class="
+                                        block
+                                        p-2.5
+                                        mb-5
+                                        w-full
+                                        text-lg
+                                        bg-gray-50
+                                        text-gray-900
+                                        rounded-lg
+                                        border border-gray-300
+                                    " placeholder="...describe yourself"></textarea>
+                                <div *ngIf="submitted && f.descriptions.errors" class="text-red-600">
+                                    <div *ngIf="f.descriptions.errors.required">Description is required</div>
+                                </div>
                             </div>
                             <button (click)="reset()" type="button" class="
                                     uppercase
@@ -159,8 +183,7 @@
                                 ">
                                 Clear
                             </button>
-                            <button [disabled]="form.invalid" (click)="addEditVendor()" label="submit" type="button"
-                                class="
+                            <button (click)="addEditVendor()" label="submit" type="button" class="
                                     uppercase
                                     text-white
                                     bg-blue-400

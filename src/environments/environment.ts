@@ -8,4 +8,5 @@ export const environment = {
     hmr: false,
     appConfig: 'appconfig.json',
     baseURL: 'https://staging-api.theyachtwatch.com',
+    // baseURL: 'https://570d-41-218-211-28.eu.ngrok.io',
 };

@@ -67,7 +67,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             Location: [null],
             AffectShipShape: true,
             Title: [''],
-            Instruction: ['', Validators.required],
+            Instruction: [''],
         });
 
         this.serviceOrderId = this.AppService.getStorageItem('requestDetails').serviceOrder.id;

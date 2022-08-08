@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseService } from '@app/shared/base.service';
 import { ModalRef } from '@app/shared/common/modal/modal-ref';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import { finalize } from 'rxjs/operators';
 import { AddVendorService } from './add-vendor.service';
 
@@ -11,16 +12,19 @@ import { AddVendorService } from './add-vendor.service';
     styleUrls: ['./add-vendor.component.css'],
     providers: [ModalRef],
 })
-export class AddVendorComponent implements OnInit {
+export class AddVendorComponent extends AppComponentBase implements OnInit {
     form!: FormGroup;
     editState: boolean = false;
+    submitted: boolean = false;
 
     constructor(
+        injector: Injector,
         public modal: ModalRef,
         private fb: FormBuilder,
         public service: AddVendorService,
         public baseService: BaseService
     ) {
+        super(injector);
         modal.component = AddVendorComponent;
     }
 
@@ -28,8 +32,15 @@ export class AddVendorComponent implements OnInit {
         this.form = this.fb.group({
             firstName: [null, Validators.required],
             lastName: [null, Validators.required],
-            phone: [null, Validators.required],
-            emailAddress: [null, Validators.required],
+            phone: ['', [Validators.required, Validators.minLength(10)]],
+            emailAddress: [
+                '',
+                [
+                    Validators.required,
+                    Validators.email,
+                    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+                ],
+            ],
             address: [null, Validators.required],
             descriptions: [null, Validators.required],
         });
@@ -42,23 +53,39 @@ export class AddVendorComponent implements OnInit {
         this.modal.closeModal();
     }
 
+    get f(): any {
+        return this.form.controls;
+    }
+
     reset() {
         this.form.reset();
         this.editState = false;
     }
 
     addEditVendor() {
+        this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            return;
+        }
+
         this.service
             .addEditVendor(this.form.value)
             .pipe(finalize(() => console.log('vendor add/edit success')))
             .subscribe(
-                (value) => {
-                    this.reset();
-                    console.log(value);
-                    this.close();
+                (result) => {
+                    if (result.success === true) {
+                        this.notify.success(this.l('Vendor Created Successfully'));
+                        this.reset();
+                        window.location.reload();
+                        this.close();
+                        return;
+                    }
                 },
                 (error) => {
-                    console.log(error);
+                    this.notify.error(this.l(error.error.error.message));
+                    // console.log(error);
                 }
             );
     }
