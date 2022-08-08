@@ -221,7 +221,13 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.yachtDetailsService.getAllYachts().subscribe((value) => {
             this.preYachtList = value.result.items;
             this.preYachtList.forEach((yacht: { [x: string]: any; yacht: { id: number; name: string } }) => {
-                this.yachtList.push({ id: yacht.yacht.id, value: yacht.yacht.name, image: yacht.lightboxImages[0]?.imageUrl ?? 'https://cdn.boatinternational.com/files/2022/08/7d043880-1247-11ed-b0de-c73b18ad144c-VICTORY%20LANE%20on%20the%20water.jpg' });
+                this.yachtList.push({
+                    id: yacht.yacht.id,
+                    value: yacht.yacht.name,
+                    image:
+                        yacht.lightboxImages[0]?.imageUrl ??
+                        'https://theadvantaged.com/wp-content/uploads/2018/12/10DSC06533.jpg',
+                });
             });
         });
     }
@@ -247,28 +253,31 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             requestPayload.append(image.name, image);
         });
 
-        this.service.addEditServiceOrders(requestPayload).pipe(finalize(() => console.log('success'))).subscribe((result) => {
+        this.service
+            .addEditServiceOrders(requestPayload)
+            .pipe(finalize(() => console.log('success')))
+            .subscribe(
+                (result) => {
+                    if (result.success === true) {
+                        this.notify.success(this.l('Service Order Created Successfully'));
+                        this.reset();
+                        this.hideMainSpinner();
 
-            if (result.success === true) {
-                this.notify.success(this.l('Service Order Created Successfully'));
-                this.reset();
-                this.hideMainSpinner();
+                        // re-initialize form default values
+                        this.setValue('Status', 0);
+                        this.setValue('AffectShipShape', true);
+                        this.setValue('Priority', 2);
+                        this.setValue('Name', 'David');
 
-                // re-initialize form default values
-                this.setValue('Status', 0);
-                this.setValue('AffectShipShape', true);
-                this.setValue('Priority', 2);
-                this.setValue('Name', 'David');
-
-                return;
-            }
-        },
-            (e) => {
-                this.hideMainSpinner();
-                this.notify.error(this.l(e.error.error.message));
-                return;
-            }
-        );
+                        return;
+                    }
+                },
+                (e) => {
+                    this.hideMainSpinner();
+                    this.notify.error(this.l(e.error.error.message));
+                    return;
+                }
+            );
     }
 
     reset() {
