@@ -15,6 +15,7 @@ import { SelectServiceService } from '../select-service/select-service.service';
 export class AddServiceComponent extends AppComponentBase implements OnInit {
     form!: FormGroup;
     editState: boolean = false;
+    submitted: boolean = false;
 
     constructor(
         injector: Injector,
@@ -41,15 +42,26 @@ export class AddServiceComponent extends AppComponentBase implements OnInit {
         this.modal.closeModal();
     }
 
+    get f(): any {
+        return this.form.controls;
+    }
+
     reset() {
         this.form.reset();
         this.editState = false;
     }
 
     addEditVendor() {
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            console.log(this.findInvalidControls());
+            return;
+        }
+
         this.service
             .addEditService(this.form.value)
-            .pipe(finalize(() => console.log('services add/edit success')))
+            .pipe(finalize(() => console.log('service add/edit success')))
             .subscribe(
                 (result) => {
                     if (result.success === true) {
@@ -76,5 +88,16 @@ export class AddServiceComponent extends AppComponentBase implements OnInit {
         });
 
         this.editState = true;
+    }
+
+    public findInvalidControls() {
+        const invalid = [];
+        const controls = this.form.controls;
+        for (const name in controls) {
+            if (controls[name].invalid) {
+                invalid.push(name);
+            }
+        }
+        return invalid;
     }
 }
