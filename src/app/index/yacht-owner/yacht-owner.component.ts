@@ -85,4 +85,9 @@ export class YachtOwnerComponent implements OnInit {
             content: MoreMenuComponent,
         });
     }
+
+    get getUser(): any {
+        // return sessionStorage.getItem('userId');
+        return this.AppService.getStorageItem('user_info').result.user;
+    }
 }
