@@ -16,27 +16,27 @@ import { v4 as uuid } from 'uuid';
     ],
 })
 export class SearchBoxComponent implements OnInit {
+
     @Input() id: string = this.generateRandomID(10000, 100000);
     @Input() data: Array<SearchItem> = [];
     @Input() placeholder: string;
     @Input() addLabel: string;
-
     @Input() showAddButton = true;
     @Input() searchable = true;
     @Input() showIcon = false;
-
-    // add a default value for searchbox
     @Input() defaultItem?: SearchItem;
+    @Input() showImage: boolean | undefined = true;
 
     @Output() addNewItem = new EventEmitter();
     @Output() getSelectedItem = new EventEmitter<SearchItem>();
 
-    onChange = (value: SearchItem) => {};
+    onChange = (value: SearchItem) => { };
 
     newList: Array<SearchItem> = [];
     selectedItem?: SearchItem;
     displayLabel = '';
     displayValue: any;
+    displayImage: any;
 
     showDrop: boolean = false;
 
@@ -56,8 +56,8 @@ export class SearchBoxComponent implements OnInit {
         this.selectedItem = item;
         this.displayLabel = this.selectedItem.value;
         this.displayValue = this.selectedItem.id;
+        this.displayImage = this.selectedItem.image;
         this.getSelectedItem.emit(item);
-        // console.log(this.selectedItem);
     }
 
     searchList(value: string) {
@@ -73,9 +73,9 @@ export class SearchBoxComponent implements OnInit {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn: any): void {}
+    registerOnTouched(fn: any): void { }
 
-    writeValue(obj: any): void {}
+    writeValue(obj: any): void { }
 
     ngAfterViewInit(): void {
         document.getElementById(this.id)?.addEventListener('click', () => {
