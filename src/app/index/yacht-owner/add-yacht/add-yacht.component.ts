@@ -18,6 +18,8 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
     editState: boolean = false;
     lightboxImages: any = [];
     lightboxImagesAlt: any = [];
+    submitted: boolean = false;
+
     images = [
         'https://cdn.boatinternational.com/files/2022/08/7d043880-1247-11ed-b0de-c73b18ad144c-VICTORY%20LANE%20on%20the%20water.jpg',
         'https://cdn.boatinternational.com/files/2022/08/d2b5e0b0-11ae-11ed-ab11-af854a188e91-azimut%20KW%20for%20sale%20.jpg',
@@ -44,7 +46,10 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
             Id: [null],
             Name: [null, Validators.required],
             HailingPort: [null, Validators.required],
-            ImageUrl: [null],
+            ImageUrl: [
+                null,
+                Validators.pattern(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/),
+            ],
             Country: [null, Validators.required],
             UserId: [this.getUID(), Validators.required],
         });
@@ -63,6 +68,10 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
         return this.AppService.getStorageItem('user_info').result.user.id;
     }
 
+    get f(): any {
+        return this.form.controls;
+    }
+
     close() {
         this.modal.closeModal();
     }
@@ -74,6 +83,13 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
     }
 
     addEditVendor() {
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            console.log(this.findInvalidControls());
+            return;
+        }
+
         let requestPayload = new FormData();
 
         Object.keys(this.form.controls).forEach((formControlName) => {

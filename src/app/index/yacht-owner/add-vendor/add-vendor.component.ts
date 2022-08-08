@@ -65,7 +65,6 @@ export class AddVendorComponent extends AppComponentBase implements OnInit {
     addEditVendor() {
         this.submitted = true;
 
-        // stop here if form is invalid
         if (this.form.invalid) {
             return;
         }

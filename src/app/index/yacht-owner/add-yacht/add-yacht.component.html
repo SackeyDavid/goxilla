@@ -37,6 +37,9 @@
                                             w-full
                                             p-3
                                         " formControlName="Name" placeholder="Happy Place" required />
+                                    <div *ngIf="submitted && f.Name.errors" class="text-red-600">
+                                        <div *ngIf="f.Name.errors.required">Yacht Name is required</div>
+                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <label for="yacht_port" class="
@@ -57,9 +60,12 @@
                                             rounded-lg
                                             focus:ring-blue-500 focus:border-blue-500
                                             block
-                                            w-full
+                                            w-full 
                                             p-3
                                         " formControlName="HailingPort" placeholder="Bay Port" required />
+                                    <div *ngIf="submitted && f.HailingPort.errors" class="text-red-600">
+                                        <div *ngIf="f.HailingPort.errors.required">Hailing Port is required</div>
+                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <label for="yacht_country" class="
@@ -82,7 +88,10 @@
                                             block
                                             w-full
                                             p-3
-                                        " formControlName="Country" placeholder="California" maxlength="10" required />
+                                        " formControlName="Country" placeholder="USA" required />
+                                    <div *ngIf="submitted && f.Country.errors" class="text-red-600">
+                                        <div *ngIf="f.Country.errors.required">Country is required</div>
+                                    </div>
                                 </div>
 
                                 <div class="mb-6">
@@ -95,7 +104,7 @@
                                             text-gray-900
                                             dark:text-gray-300
                                         ">
-                                        Yacht Image Url (Optional)
+                                        Yacht Image Url
                                     </label>
                                     <input type="text" id="yacht_image" class="
                                             bg-gray-50
@@ -108,6 +117,9 @@
                                             p-3
                                         " formControlName="ImageUrl"
                                         placeholder="https://cdn.boats.com/images/14r435.jpg" />
+                                    <div *ngIf="submitted && f.ImageUrl.errors" class="text-red-600">
+                                        <div *ngIf="f.ImageUrl.errors">Image Url must be a valid web address</div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -123,7 +135,7 @@
                                                 text-gray-900
                                                 dark:text-gray-300
                                             ">
-                                            Add Yacht Images (Optional)
+                                            Add Yacht Images
                                         </label>
                                         <div class="flex items-center justify-center m-0 mb-4">
                                             <label class="
