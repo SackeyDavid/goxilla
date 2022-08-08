@@ -8,15 +8,16 @@ import { SearchItem } from '@app/shared/common/search-box/search-item';
 import { VendorService } from '../add-vendor/vendor.service';
 import { AppService } from '@app/services/app.service';
 import { AppComponentBase } from '@shared/common/app-component-base';
+import { ModalService } from '@app/shared/common/modal/modal.service';
+import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 
 @Component({
     selector: 'app-assign-vendor',
     templateUrl: './assign-vendor.component.html',
     styleUrls: ['./assign-vendor.component.css'],
-    providers: [ModalRef]
+    providers: [ModalRef],
 })
 export class AssignVendorComponent extends AppComponentBase implements OnInit {
-
     form!: FormGroup;
 
     preVendorsList: any = [];
@@ -26,6 +27,7 @@ export class AssignVendorComponent extends AppComponentBase implements OnInit {
     constructor(
         injector: Injector,
         public modal: ModalRef,
+        private modalService: ModalService,
         private fb: FormBuilder,
         public service: AssignVendorService,
         public baseService: BaseService,
@@ -37,15 +39,13 @@ export class AssignVendorComponent extends AppComponentBase implements OnInit {
     }
 
     ngOnInit() {
-
         this.form = this.fb.group({
             vendorId: [null, Validators.required],
-            id: [null, Validators.required]
+            id: [null, Validators.required],
         });
 
         this.serviceOrderId = this.AppService.getStorageItem('requestDetails').serviceOrder.id;
         this.getAllVendors();
-
     }
 
     close() {
@@ -57,24 +57,27 @@ export class AssignVendorComponent extends AppComponentBase implements OnInit {
     }
 
     assignEditVendor() {
-
         this.showMainSpinner();
 
-        this.service.assignVendor(this.form.value).pipe(finalize(() => {
-            this.hideMainSpinner();
-        })).subscribe((value) => {
-
-            this.notify.success(this.l('Vendor assigned successfully'));
-            this.close();
-            window.location.reload();
-
-        },
-            (e) => {
-                console.log(e);
-                this.hideMainSpinner();
-                this.notify.error(this.l(e.error.error.message));
-            }
-        );
+        this.service
+            .assignVendor(this.form.value)
+            .pipe(
+                finalize(() => {
+                    this.hideMainSpinner();
+                })
+            )
+            .subscribe(
+                (value) => {
+                    this.notify.success(this.l('Vendor assigned successfully'));
+                    this.close();
+                    window.location.reload();
+                },
+                (e) => {
+                    console.log(e);
+                    this.hideMainSpinner();
+                    this.notify.error(this.l(e.error.error.message));
+                }
+            );
     }
 
     getSelectedVendorService(item: SearchItem) {
@@ -98,4 +101,12 @@ export class AssignVendorComponent extends AppComponentBase implements OnInit {
         });
     }
 
+    openAddVendorModal(vendor: SearchItem) {
+        this.close();
+        sessionStorage.setItem('vendor_new_item', vendor.value);
+
+        this.modalService.createModal<AddVendorComponent>({
+            content: AddVendorComponent,
+        });
+    }
 }

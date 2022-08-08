@@ -19,8 +19,9 @@
                                         Vendor
                                     </label>
                                     <app-search-box (getSelectedItem)="getSelectedVendorService($event)"
+                                        (addNewItem)="openAddVendorModal($event)"
                                         [placeholder]="'Type to filter vendors'" [addLabel]="'Add Vendor'"
-                                        [data]="vendorList" [showAddButton]="false"></app-search-box>
+                                        [data]="vendorList" [showAddButton]="true"></app-search-box>
                                 </div>
                             </div>
 
