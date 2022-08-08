@@ -56,7 +56,7 @@
                     </div>
                     <!-- Info Card Single: Start -->
                     <div *ngFor="let order of allServiceOrders; let i = index"
-                        class="info-card border rounded-md px-2 mx-[5px] py-3 mt-3 drop-shadow-md"
+                        class="info-card border rounded-md px-2 mx-[5px] py-3 mt-1 mb-3 drop-shadow-md"
                         [ngClass]="{ 'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex }">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
                             <span class="text-lg uppercase font-medium">{{ order.service?.name }}</span>
