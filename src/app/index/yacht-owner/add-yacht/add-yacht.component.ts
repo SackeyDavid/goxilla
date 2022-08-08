@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '@app/services/app.service';
 import { BaseService } from '@app/shared/base.service';
 import { ModalRef } from '@app/shared/common/modal/modal-ref';
 import { AppComponentBase } from '@shared/common/app-component-base';
@@ -31,7 +32,8 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
         public modal: ModalRef,
         private fb: FormBuilder,
         public service: YachtDetailsService,
-        public baseService: BaseService
+        public baseService: BaseService,
+        private AppService: AppService
     ) {
         super(injector);
         modal.component = AddYachtComponent;
@@ -57,7 +59,8 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
     }
 
     getUID() {
-        return sessionStorage.getItem('userId');
+        // return sessionStorage.getItem('userId');
+        return this.AppService.getStorageItem('user_info').result.user.id;
     }
 
     close() {
@@ -91,8 +94,8 @@ export class AddYachtComponent extends AppComponentBase implements OnInit {
                     if (result.success === true) {
                         this.notify.success(this.l('Yacht Saved Successfully'));
                         this.reset();
-                        // window.location.reload();
                         this.close();
+                        window.location.reload();
                         return;
                     }
                 },

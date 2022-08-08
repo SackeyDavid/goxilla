@@ -11,15 +11,30 @@
                 <!-- Searchbar - Search Only -->
                 <form autocomplete="off">
                     <label for="default-search"
-                        class="mb-2 text-lg font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+                        class="mb-2 text-lg font-medium text-gray-900 sr-only dark:text-gray-300">
+                        Search
+                    </label>
                     <div class="relative drop-shadow-lg">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <img src="../../../../../assets/assets/searchbar-icon.svg" alt="">
+                            <img src="../../../../../assets/assets/searchbar-icon.svg" alt="" />
                         </div>
                         <input type="search" id="default-search" (keyup)="searchServiceOrder()"
-                            [(ngModel)]="searchPhrase" [ngModelOptions]="{standalone: true}"
-                            class="block p-4 w-full text-lg text-gray-900 bg-white rounded-lg border border-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search service order" style="padding-left: 3rem !important;" required>
+                            [(ngModel)]="searchPhrase" [ngModelOptions]="{ standalone: true }" class="
+                                block
+                                p-4
+                                w-full
+                                text-lg text-gray-900
+                                bg-white
+                                rounded-lg
+                                border border-gray-100
+                                focus:ring-blue-500 focus:border-blue-500
+                                dark:bg-gray-700
+                                dark:border-gray-600
+                                dark:placeholder-gray-400
+                                dark:text-white
+                                dark:focus:ring-blue-500
+                                dark:focus:border-blue-500
+                            " placeholder="Search service order" style="padding-left: 3rem !important" required />
                         <button type="button" (click)="clearSearch()"
                             class="absolute inset-y-0 right-0 items-center px-3 my-2 text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -31,10 +46,8 @@
                 </form>
                 <!-- End: Searchbar - Search Only -->
 
-
                 <!-- Info Card Stack -->
                 <div class="info-card-stack space-y-4 mt-5 mb-4 max-h-[700px] overflow-y-scroll">
-
                     <div class="align-center block mx-auto" *ngIf="searching == false && !allServiceOrders.length">
                         <span>No service order found</span>
                     </div>
@@ -44,10 +57,9 @@
                     <!-- Info Card Single: Start -->
                     <div *ngFor="let order of allServiceOrders; let i = index"
                         class="info-card border rounded-md px-2 mx-[5px] py-3 mt-3 drop-shadow-md"
-                        [ngClass]="{'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex}">
+                        [ngClass]="{ 'bg-gray-100': i == selectedIndex, 'bg-white': i !== selectedIndex }">
                         <div class="info-card-head flex border-b pb-1 justify-between relative items-center">
-                            <span class="text-lg uppercase font-medium">{{order.service?.name}}
-                            </span>
+                            <span class="text-lg uppercase font-medium">{{ order.service?.name }}</span>
                             <span class="text-lg pr-4 text-yellow-400 flex items-center"
                                 *ngIf="order.serviceOrder?.priority == 3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
@@ -70,9 +82,7 @@
                         <div class="info-card-body flex justify-between items-center pt-1">
                             <div class="flex flex-col text-left w-1/2">
                                 <div class="text-2xs text-gray-400 grid grid-cols-2 gap-0">
-                                    <div>
-                                        Assigned to
-                                    </div>
+                                    <div>Assigned to</div>
                                     <div class="block pt-1 my-auto">
                                         <sup>
                                             <svg (click)="openAssignVendorModal(); emitItem(order)"
@@ -85,85 +95,211 @@
                                         </sup>
                                     </div>
                                 </div>
-                                <span class="text-lg font-semibold">{{order?.vendor?.firstName}}
-                                    {{order?.vendor?.lastName}}</span>
+                                <span class="text-lg font-semibold">
+                                    {{ order?.vendor?.firstName }} {{ order?.vendor?.lastName }}
+                                </span>
                             </div>
 
                             <div class="flex flex-col text-left w-1/4">
                                 <span class="text-2xs text-gray-400">Date</span>
-                                <span
-                                    class="text-lg font-semibold">{{getDateFormatted(order?.serviceOrder.createdAt)}}</span>
+                                <span class="text-lg font-semibold">
+                                    {{ getDateFormatted(order?.serviceOrder.creationTime) }}
+                                </span>
                             </div>
 
                             <div class="w-1/4 text-right">
-                                <span *ngIf="order.serviceOrder?.status == 0"
-                                    class="rounded-2xl bg-yellow-100 border border-yellow-600 text-3xs text-yellow-600 px-3 py-1">PENDING</span>
+                                <span *ngIf="order.serviceOrder?.status == 0" class="
+                                        rounded-2xl
+                                        bg-yellow-100
+                                        border border-yellow-600
+                                        text-3xs text-yellow-600
+                                        px-3
+                                        py-1
+                                    ">
+                                    PENDING
+                                </span>
                             </div>
                         </div>
                     </div>
                     <!-- Info Card Single: End -->
-
                 </div>
                 <!-- Info Card Stack -->
 
                 <!-- Info Card Stack Pagination -->
-                <nav style="display: none;" *ngIf="allServiceOrders.nextPage"
-                    class="relative mt-10 z-0 flex flex-row flex-auto rounded-md shadow-sm -space-x-px w-full mx-auto items-stretch justify-between"
-                    aria-label="Pagination">
-                    <a href="#"
-                        class="relative px-2 py-2 rounded-l-md border border-gray-300 bg-gray-100 text-lg font-medium text-gray-500 hover:bg-gray-50 inline-flex items-center">
+                <nav style="display: none" *ngIf="allServiceOrders.nextPage" class="
+                        relative
+                        mt-10
+                        z-0
+                        flex flex-row flex-auto
+                        rounded-md
+                        shadow-sm
+                        -space-x-px
+                        w-full
+                        mx-auto
+                        items-stretch
+                        justify-between
+                    " aria-label="Pagination">
+                    <a href="#" class="
+                            relative
+                            px-2
+                            py-2
+                            rounded-l-md
+                            border border-gray-300
+                            bg-gray-100
+                            text-lg
+                            font-medium
+                            text-gray-500
+                            hover:bg-gray-50
+                            inline-flex
+                            items-center
+                        ">
                         <span>Prev</span>
-                        <a href="#" aria-current="page"
-                            class="z-10 bg-blue-600  text-white relative px-4 py-2 border text-lg font-medium inline-flex items-center">
-                            1 </a>
-                        <a href="#"
-                            class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative px-4 py-2 border text-lg font-medium inline-flex items-center">
-                            2 </a>
-                        <span
-                            class="relative px-4 py-2 border border-gray-300 bg-white text-lg font-medium text-gray-700 inline-flex items-center">
-                            ... </span>
-                        <a href="#"
-                            class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative px-4 py-2 border text-lg font-medium inline-flex items-center">
-                            9 </a>
-                        <a href="#"
-                            class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative px-4 py-2 border text-lg font-medium inline-flex items-center">
-                            10 </a>
-                        <a href="#"
-                            class="relative px-2 py-2 rounded-r-md border border-gray-300 bg-gray-100 text-lg font-medium text-gray-500 hover:bg-gray-50 inline-flex items-center">
+                        <a href="#" aria-current="page" class="
+                                z-10
+                                bg-blue-600
+                                text-white
+                                relative
+                                px-4
+                                py-2
+                                border
+                                text-lg
+                                font-medium
+                                inline-flex
+                                items-center
+                            ">
+                            1
+                        </a>
+                        <a href="#" class="
+                                bg-white
+                                border-gray-300
+                                text-gray-500
+                                hover:bg-gray-50
+                                relative
+                                px-4
+                                py-2
+                                border
+                                text-lg
+                                font-medium
+                                inline-flex
+                                items-center
+                            ">
+                            2
+                        </a>
+                        <span class="
+                                relative
+                                px-4
+                                py-2
+                                border border-gray-300
+                                bg-white
+                                text-lg
+                                font-medium
+                                text-gray-700
+                                inline-flex
+                                items-center
+                            ">
+                            ...
+                        </span>
+                        <a href="#" class="
+                                bg-white
+                                border-gray-300
+                                text-gray-500
+                                hover:bg-gray-50
+                                relative
+                                px-4
+                                py-2
+                                border
+                                text-lg
+                                font-medium
+                                inline-flex
+                                items-center
+                            ">
+                            9
+                        </a>
+                        <a href="#" class="
+                                bg-white
+                                border-gray-300
+                                text-gray-500
+                                hover:bg-gray-50
+                                relative
+                                px-4
+                                py-2
+                                border
+                                text-lg
+                                font-medium
+                                inline-flex
+                                items-center
+                            ">
+                            10
+                        </a>
+                        <a href="#" class="
+                                relative
+                                px-2
+                                py-2
+                                rounded-r-md
+                                border border-gray-300
+                                bg-gray-100
+                                text-lg
+                                font-medium
+                                text-gray-500
+                                hover:bg-gray-50
+                                inline-flex
+                                items-center
+                            ">
                             <span>Next</span>
                         </a>
                         <!-- </nav> -->
                     </a>
                 </nav>
-                <div class="text-right mb-5 " *ngIf="allServiceOrders.length">
-                    <span class="text-lg">Showing {{allServiceOrders.length}}</span>
+                <div class="text-right mb-5" *ngIf="allServiceOrders.length">
+                    <span class="text-lg">Showing {{ allServiceOrders.length }}</span>
                 </div>
                 <!-- End - Info Card Stack -->
-
             </div>
 
             <!-- 
                     Column-Right - Edit Mode
                  -->
-            <div class="col-span-5 h-full border-l-4 border-gray-50 pl-6 overflow-y-scroll" style="max-height: 600px;">
+            <div class="col-span-5 h-full border-l-4 border-gray-50 pl-6 overflow-y-scroll" style="max-height: 600px">
                 <div class="space-y-6 mx-[5px]">
-                    <h3 class="uppercase font-light mb-6">{{requestDetails?.service?.name}}</h3>
+                    <h3 class="uppercase font-light mb-6">{{ requestDetails?.service?.name }}</h3>
                     <div class="flex justify-between items-center">
-                        <div
-                            class="flex flex-row items-center relative cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                        <div class="
+                                flex flex-row
+                                items-center
+                                relative
+                                cursor-pointer
+                                hover:bg-gray-50
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-offset-2
+                                focus:ring-offset-gray-100
+                                focus:ring-indigo-500
+                            ">
                             <img *ngIf="requestDetails?.yachts?.imageUrl" [src]="requestDetails?.yachts?.imageUrl"
-                                alt="yacht image" class="w-[6rem] h-[4rem] rounded-md border border-gray-400 mr-3">
+                                alt="yacht image" class="w-[6rem] h-[4rem] rounded-md border border-gray-400 mr-3" />
 
                             <div class="flex flex-col mr-10">
-                                <span
-                                    class="text-xl text-left font-semibold mb-1">{{requestDetails?.yachts?.name}}</span>
-                                <span
-                                    class="uppercase text-[12px] text-left text-label-color text-opacity-100">{{requestDetails?.yachts?.hailingPort}}</span>
+                                <span class="text-xl text-left font-semibold mb-1">
+                                    {{ requestDetails?.yachts?.name }}
+                                </span>
+                                <span class="uppercase text-[12px] text-left text-label-color text-opacity-100">
+                                    {{ requestDetails?.yachts?.hailingPort }}
+                                </span>
                             </div>
                         </div>
                         <div class="space-x-3 flex">
-                            <a
-                                class="border rounded-full w-10 h-10 border-gray-500 flex p-2 justify-center items-center text-gray-600">
+                            <a class="
+                                    border
+                                    rounded-full
+                                    w-10
+                                    h-10
+                                    border-gray-500
+                                    flex
+                                    p-2
+                                    justify-center
+                                    items-center
+                                    text-gray-600
+                                ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                     fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -171,16 +307,37 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <a (click)="openServiceRequestEditModal();"
-                                class="border rounded-full w-10 h-10 border-gray-500 flex p-2 justify-center items-center text-gray-600 cursor-pointer">
+                            <a (click)="openServiceRequestEditModal()" class="
+                                    border
+                                    rounded-full
+                                    w-10
+                                    h-10
+                                    border-gray-500
+                                    flex
+                                    p-2
+                                    justify-center
+                                    items-center
+                                    text-gray-600
+                                    cursor-pointer
+                                ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                             </a>
-                            <a
-                                class="border rounded-full w-10 h-10 border-gray-500 flex p-2 justify-center items-center text-gray-600">
+                            <a class="
+                                    border
+                                    rounded-full
+                                    w-10
+                                    h-10
+                                    border-gray-500
+                                    flex
+                                    p-2
+                                    justify-center
+                                    items-center
+                                    text-gray-600
+                                ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                     fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -194,23 +351,48 @@
                     <div class="flex justify-between text-gray-500">
                         <span class="text-lg">
                             <strong class="font-medium text-lg">Created:</strong>
-                            {{getDetailsDateFormatted(requestDetails?.serviceOrder.createdAt)}}
+                            {{ getDetailsDateFormatted(requestDetails?.serviceOrder.creationTime) }}
                         </span>
-                        <span class="font-semibold text-3xl text-black">
-                            ${{requestDetails?.service?.cost}}
-                        </span>
+                        <span class="font-semibold text-3xl text-black">${{ requestDetails?.service?.cost }}</span>
                     </div>
 
                     <div class="flex space-x-4">
                         <div>
                             <label class="font-normal mb-2 text-lg uppercase block">Priority</label>
-                            <button type="button"
-                                class="items-center inline-flex justify-between rounded-lg border-[1px] border-sky-400 shadow-sm px-4 py-2.5 bg-white text-lg font-medium text-sky-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                                id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <span>{{ requestDetails.serviceOrder.priority == 4 ? 'Affect Ship Shape' : 3 ? 'ASAP' :
-                                    2 ? 'Normal' :
-                                    1 ?
-                                    'Medium' : 'Low'}} </span>
+                            <button type="button" class="
+                                    items-center
+                                    inline-flex
+                                    justify-between
+                                    rounded-lg
+                                    border-[1px] border-sky-400
+                                    shadow-sm
+                                    px-4
+                                    py-2.5
+                                    bg-white
+                                    text-lg
+                                    font-medium
+                                    text-sky-500
+                                    hover:bg-gray-50
+                                    focus:outline-none
+                                    focus:ring-2
+                                    focus:ring-offset-2
+                                    focus:ring-offset-gray-100
+                                    focus:ring-indigo-500
+                                " id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <span>
+                                    {{
+                                    requestDetails.serviceOrder.priority == 0
+                                    ? 'Low'
+                                    : 1
+                                    ? 'Medium'
+                                    : 2
+                                    ? '
+                                    Normal'
+                                    : 3
+                                    ? 'High'
+                                    : 'Affect Ship Shape'
+                                    }}
+                                </span>
                                 <!-- Heroicon name: solid/chevron-down -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="-mr-1 ml-5 h-5 w-5" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
@@ -220,16 +402,34 @@
                         </div>
                         <div>
                             <label class="font-normal mb-2 text-lg uppercase block">Due Date</label>
-                            <button type="button"
-                                class="inline-flex items-center justify-between rounded-lg border-sky-400 border-[1px] shadow-sm px-4 py-2.5 bg-sky-200 text-lg font-medium text-sky-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                                id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <button type="button" class="
+                                    inline-flex
+                                    items-center
+                                    justify-between
+                                    rounded-lg
+                                    border-sky-400 border-[1px]
+                                    shadow-sm
+                                    px-4
+                                    py-2.5
+                                    bg-sky-200
+                                    text-lg
+                                    font-medium
+                                    text-sky-600
+                                    hover:bg-gray-50
+                                    focus:outline-none
+                                    focus:ring-2
+                                    focus:ring-offset-2
+                                    focus:ring-offset-gray-100
+                                    focus:ring-indigo-500
+                                " id="menu-button" aria-expanded="true" aria-haspopup="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>{{ getDetailsDateFormatted(requestDetails?.serviceOrder?.expectedDeliveryDate)
-                                    }}</span>
+                                <span>
+                                    {{ getDetailsDateFormatted(requestDetails?.serviceOrder?.expectedDeliveryDate) }}
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -237,44 +437,107 @@
                     <!-- Description -->
                     <div>
                         <label for="description" class="font-normal mb-2 text-lg uppercase block">Description</label>
-                        <textarea id="description" rows="4"
-                            class="block p-2.5 w-full text-lg text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            disabled [value]="requestDetails?.serviceOrder?.description"></textarea>
+                        <textarea id="description" rows="4" class="
+                                block
+                                p-2.5
+                                w-full
+                                text-lg text-gray-900
+                                bg-gray-100
+                                rounded-lg
+                                border border-gray-300
+                                focus:ring-blue-500 focus:border-blue-500
+                                dark:bg-gray-700
+                                dark:border-gray-600
+                                dark:placeholder-gray-400
+                                dark:text-white
+                                dark:focus:ring-blue-500
+                                dark:focus:border-blue-500
+                            " disabled [value]="requestDetails?.serviceOrder?.description"></textarea>
                     </div>
 
                     <!-- Instruction -->
                     <div *ngIf="requestDetails?.serviceOrder?.instruction">
                         <label for="instruction" class="font-normal mb-2 text-lg uppercase block">Instruction</label>
-                        <textarea id="instruction" rows="4"
-                            class="block p-2.5 w-full text-lg text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            disabled [value]="requestDetails?.serviceOrder?.instruction"></textarea>
+                        <textarea id="instruction" rows="4" class="
+                                block
+                                p-2.5
+                                w-full
+                                text-lg text-gray-900
+                                bg-gray-100
+                                rounded-lg
+                                border border-gray-300
+                                focus:ring-blue-500 focus:border-blue-500
+                                dark:bg-gray-700
+                                dark:border-gray-600
+                                dark:placeholder-gray-400
+                                dark:text-white
+                                dark:focus:ring-blue-500
+                                dark:focus:border-blue-500
+                            " disabled [value]="requestDetails?.serviceOrder?.instruction"></textarea>
                     </div>
 
                     <!-- Checks -->
                     <div class="space-x-4">
                         <div class="inline-flex items-center">
                             <input id="affects-ship-checkbox" type="checkbox" value=""
-                                [checked]="requestDetails?.serviceOrder?.affectShipShape"
-                                class="w-5 h-5 text-blue-600 bg-gray-100 rounded-md border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                disabled>
-                            <label class="uppercase ml-2 block text-lg" for="affects-ship-checkbox">Affects Ship
-                                Shape</label>
+                                [checked]="requestDetails?.serviceOrder?.affectShipShape" class="
+                                    w-5
+                                    h-5
+                                    text-blue-600
+                                    bg-gray-100
+                                    rounded-md
+                                    border-gray-300
+                                    focus:ring-blue-500
+                                    dark:focus:ring-blue-600 dark:ring-offset-gray-800
+                                    focus:ring-2
+                                    dark:bg-gray-700 dark:border-gray-600
+                                " disabled />
+                            <label class="uppercase ml-2 block text-lg" for="affects-ship-checkbox">
+                                Affects Ship Shape
+                            </label>
                         </div>
 
                         <div class="inline-flex items-center">
-                            <input id="recurring-checkbox" type="checkbox" value=""
-                                class="w-5 h-5 text-blue-600 bg-gray-100 rounded-md border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                disabled>
+                            <input id="recurring-checkbox" type="checkbox" value="" class="
+                                    w-5
+                                    h-5
+                                    text-blue-600
+                                    bg-gray-100
+                                    rounded-md
+                                    border-gray-300
+                                    focus:ring-blue-500
+                                    dark:focus:ring-blue-600 dark:ring-offset-gray-800
+                                    focus:ring-2
+                                    dark:bg-gray-700 dark:border-gray-600
+                                " disabled />
                             <label class="uppercase ml-2 block text-lg" for="recurring-checkbox">MAKE RECURRING</label>
                         </div>
                     </div>
 
                     <div *ngIf="requestDetails?.vendor">
                         <label class="font-normal mb-2 text-lg uppercase block">Vendor</label>
-                        <button type="button"
-                            class="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 bg-gray-100 text-lg font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                            id="menu-button" aria-expanded="true" aria-haspopup="true" disabled>
-                            <span>{{requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName}}</span>
+                        <button type="button" class="
+                                inline-flex
+                                justify-between
+                                w-full
+                                rounded-md
+                                border border-gray-300
+                                shadow-sm
+                                px-4
+                                py-3
+                                bg-gray-100
+                                text-lg
+                                font-medium
+                                hover:bg-gray-50
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-offset-2
+                                focus:ring-offset-gray-100
+                                focus:ring-indigo-500
+                            " id="menu-button" aria-expanded="true" aria-haspopup="true" disabled>
+                            <span>
+                                {{ requestDetails?.vendor?.firstName + ' ' + requestDetails?.vendor?.lastName }}
+                            </span>
                         </button>
                     </div>
 
