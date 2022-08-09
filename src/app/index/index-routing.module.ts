@@ -10,7 +10,8 @@ const routes: Routes = [
             {
                 path: '',
                 loadChildren: () => import('./yacht-owner/yacht-owner.module').then((m) => m.YachtOwnerModule),
-            }
+            },
+            { path: 'vendor', loadChildren: () => import('./vendor/vendor.module').then((m) => m.VendorModule) },
         ],
     },
 ];
