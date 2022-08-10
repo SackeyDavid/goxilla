@@ -30,7 +30,8 @@
                                     </label>
                                     <app-search-box (getSelectedItem)="getSelectedYacht($event)" [placeholder]="''"
                                         [addLabel]="'Add Yacht'" [data]="yachtList" [showAddButton]="true"
-                                        [defaultItem]="yachtList[selectedYachtIndex]"></app-search-box>
+                                        [defaultItem]="yachtList[selectedYachtIndex]" [showIcon]="true">
+                                    </app-search-box>
                                 </div>
                                 <div class="mb-4">
                                     <label for="service_type" class="
@@ -46,7 +47,8 @@
                                     </label>
                                     <app-search-box (getSelectedItem)="getSelectedService($event)" [placeholder]="''"
                                         [addLabel]="'Add Service'" [data]="serviceList" [showAddButton]="true"
-                                        [defaultItem]="serviceList[selectedServiceIndex]"></app-search-box>
+                                        [defaultItem]="serviceList[selectedServiceIndex]" [showIcon]="true">
+                                    </app-search-box>
                                 </div>
                                 <div class="mb-4">
                                     <label class="
@@ -63,7 +65,8 @@
                                     <app-search-box (getSelectedItem)="getSelectedVendor($event)"
                                         [placeholder]="'Type to search vendors'" [addLabel]="'Add Vendor'"
                                         [data]="vendorList" [showAddButton]="true"
-                                        [defaultItem]="vendorList[selectedVendorIndex]"></app-search-box>
+                                        [defaultItem]="vendorList[selectedVendorIndex]" [showIcon]="true">
+                                    </app-search-box>
                                 </div>
                                 <div class="mb-4">
                                     <label for="priority" class="
