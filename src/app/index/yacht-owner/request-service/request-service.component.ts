@@ -56,7 +56,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             Priority: [2, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
-            Name: ['David'],
+            Name: [this.getUser.name],
             Location: [''],
             AffectShipShape: true,
             Title: [''],
@@ -298,5 +298,9 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             // this.yatchDetails = value.result.yatch;
             console.log(value.result);
         });
+    }
+
+    get getUser() {
+        return this.AppService.getStorageItem('user_info').result.user;
     }
 }

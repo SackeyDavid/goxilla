@@ -65,7 +65,7 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             Priority: [2, Validators.required],
             Description: ['', Validators.required],
             Status: [0],
-            Name: ['David'],
+            Name: [this.getUser.name],
             Location: [null],
             AffectShipShape: true,
             Title: [''],
@@ -290,5 +290,9 @@ export class EditServiceRequestModalComponent extends AppComponentBase implement
             }
         }
         return invalid;
+    }
+
+    get getUser() {
+        return this.AppService.getStorageItem('user_info').result.user;
     }
 }
