@@ -69,7 +69,7 @@ export class OrderDetailComponent implements OnInit, AfterContentInit {
     }
 
     getDateFormatted(date: any) {
-        return moment(date).format('DD/MM/YYYY h:mm A');
+        return moment(date).format('MM/DD/YYYY h:mm A');
     }
 
     getFormatedImageUrl(imageUrl: string) {

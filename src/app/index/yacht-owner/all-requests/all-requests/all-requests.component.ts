@@ -6,6 +6,8 @@ import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AppService } from '@app/services/app.service';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import * as moment from 'moment';
+import { DeleteServiceRequestComponent } from '../../modals/delete-service-request/delete-service-request.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-all-requests',
@@ -23,7 +25,8 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
         injector: Injector,
         private selectService: SelectServiceService,
         private modalService: ModalService,
-        public AppService: AppService
+        public AppService: AppService,
+        private router: Router
     ) {
         super(injector);
     }
@@ -49,7 +52,7 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
     }
 
     getDetailsDateFormatted(date: any) {
-        if (date) return moment(date).format('DD/MM/YYYY h:mm A');
+        if (date) return moment(date).format('MM/DD/YYYY h:mm A');
         return '';
     }
 
@@ -87,6 +90,17 @@ export class AllRequestsComponent extends AppComponentBase implements OnInit {
         this.modalService.createModal<AssignVendorComponent>({
             content: AssignVendorComponent,
         });
+    }
+
+    openDeleteServiceRequestModal() {
+        this.AppService.setStorageItem('requestDetails', this.requestDetails);
+        this.modalService.createModal<DeleteServiceRequestComponent>({
+            content: DeleteServiceRequestComponent,
+        });
+    }
+
+    goToRequestService() {
+        this.router.navigateByUrl('/app/request-service');
     }
 
     openServiceRequestEditModal() {

@@ -24,6 +24,6 @@ export class YachtDetailsService {
     }
 
     removeYacht(id: any): Observable<any> {
-        return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/Yachts/Delete?Id=`, id);
+        return this.httpClient.delete(`${this.baseService.baseUrl}/api/services/app/Yachts/Delete?Id=` + id);
     }
 }

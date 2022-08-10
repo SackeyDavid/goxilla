@@ -11,6 +11,7 @@ import { AddServiceComponent } from './add-service/add-service.component';
 import { AssignVendorComponent } from './assign-vendor/assign-vendor.component';
 import { EditServiceRequestModalComponent } from './edit-service-request-modal/edit-service-request-modal.component';
 import { MoreMenuComponent } from './more-menu/more-menu.component';
+import { DeleteServiceRequestComponent } from './modals/delete-service-request/delete-service-request.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { MoreMenuComponent } from './more-menu/more-menu.component';
         AssignVendorComponent,
         EditServiceRequestModalComponent,
         MoreMenuComponent,
+        DeleteServiceRequestComponent,
     ],
     imports: [CommonModule, YachtOwnerRoutingModule, AppCommonModule, FormsModule, ReactiveFormsModule],
 })
