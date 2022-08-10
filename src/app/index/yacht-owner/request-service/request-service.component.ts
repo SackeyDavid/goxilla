@@ -175,6 +175,13 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
         this.openAddServicesModal();
     }
 
+    editSelectedService(item: SearchItem) {
+        let editItem = this.preServiceList.find((x) => x.service.id === item.id);
+
+        sessionStorage.setItem('service_edit_item', JSON.stringify(editItem.service));
+        this.openAddServicesModal();
+    }
+
     getSelectedYacht(item: SearchItem) {
         this.setValue('YachtId', item.id);
     }
