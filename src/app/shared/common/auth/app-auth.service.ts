@@ -5,6 +5,7 @@ import { LocalStorageService } from '@shared/utils/local-storage.service';
 
 @Injectable()
 export class AppAuthService {
+
     logout(reload?: boolean, returnUrl?: string): void {
         let customHeaders = {
             [abp.multiTenancy.tenantIdCookieName]: abp.multiTenancy.getTenantIdCookie(),
@@ -30,5 +31,8 @@ export class AppAuthService {
                 });
             }
         );
+
+        localStorage.clear();
+
     }
 }

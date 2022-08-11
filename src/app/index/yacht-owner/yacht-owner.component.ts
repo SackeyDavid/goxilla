@@ -34,7 +34,7 @@ export class YachtOwnerComponent implements OnInit {
         public router: Router,
         private selectService: SelectServiceService,
         private modalService: ModalService
-    ) {}
+    ) { }
 
     ngOnInit(): void {
         this.authService.getLoginInfo();
@@ -58,12 +58,6 @@ export class YachtOwnerComponent implements OnInit {
     checkTokenExpiration() {
         const loginTime = this.AppService.getStorageItem('loginTime');
         const expirationTime = loginTime + 60 * 60 * 1000;
-
-        console.log(loginTime);
-        console.log(expirationTime);
-
-        console.log(new Date(loginTime));
-        console.log(new Date(expirationTime));
 
         if (new Date().getTime() >= expirationTime) {
             this.logout();

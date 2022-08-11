@@ -2,7 +2,6 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { environment } from 'environments/environment';
 import { LoginService } from '@account/login/login.service';
 import { AppComponentBase } from '@shared/common/app-component-base';
-import { SearchItem } from '@app/shared/common/search-box/search-item';
 import { AppConsts } from '../../../shared/AppConsts';
 import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
@@ -16,7 +15,6 @@ import { AuthService } from '@app/services/auth.service';
 })
 export class LoginComponent extends AppComponentBase implements OnInit {
     env: any = environment;
-    submitting: boolean = true;
 
     storedToken: any;
     authTokenLocalizationName: string;
@@ -25,7 +23,6 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     storedTokenName: string;
 
     constructor(
-        public auth: LoginService,
         injector: Injector,
         public loginService: LoginService,
         public AppService: AppService,
@@ -40,18 +37,20 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     }
 
     login(): void {
+
         this.showMainSpinner();
 
-        this.loginService.authenticate(
-            () => {
-                this.submitting = true;
-                this.hideMainSpinner();
-            },
+        this.loginService.authenticate(() => {
+            this.AppService.getCurrentLoginInformation().subscribe((result) => {
+                sessionStorage.setItem('currentUser', JSON.stringify(result));
+            });
+        },
             '/app/dashboard',
             null
         );
 
         this.AppService.setStorageItem('loginTime', new Date().getTime());
+
     }
 
     runTokenCheck(): void {
@@ -66,31 +65,4 @@ export class LoginComponent extends AppComponentBase implements OnInit {
         if (this.storedToken !== null) this.router.navigate(['/app/dashboard']);
     }
 
-    list: Array<SearchItem> = [
-        {
-            id: 1,
-            value: 'Sam',
-        },
-        {
-            id: 2,
-            value: 'John',
-        },
-        {
-            id: 3,
-            value: 'Ray',
-        },
-    ];
-
-    getSelectedItem(item: SearchItem) {
-        console.log('selected', item);
-    }
-
-    addNew(item: string) {
-        console.log('new item', item);
-    }
-
-    // getRedirectUrl() {
-    //     if(this.userName == 'david@gmail.com' )
-
-    // }
 }
