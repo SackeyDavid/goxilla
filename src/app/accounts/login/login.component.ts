@@ -41,9 +41,7 @@ export class LoginComponent extends AppComponentBase implements OnInit {
         this.showMainSpinner();
 
         this.loginService.authenticate(() => {
-            this.AppService.getCurrentLoginInformation().subscribe((result) => {
-                sessionStorage.setItem('currentUser', JSON.stringify(result));
-            });
+            this.hideMainSpinner();
         },
             '/app/dashboard',
             null
