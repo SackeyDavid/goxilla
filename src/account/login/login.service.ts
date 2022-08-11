@@ -20,6 +20,8 @@ import * as AuthenticationContext from 'adal-angular/lib/adal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserAgentApplication, AuthResponse } from 'msal';
 import { LocalStorageService } from '@shared/utils/local-storage.service';
+import { AppService } from '../../app/services/app.service';
+import { AuthService } from '@app/services/auth.service';
 
 declare const FB: any; // Facebook API
 declare const gapi: any; // Facebook API
@@ -69,7 +71,9 @@ export class LoginService {
         private oauthService: OAuthService,
         private spinnerService: NgxSpinnerService,
         private _localStorageService: LocalStorageService,
-        private _twitterService: TwitterServiceProxy
+        private _twitterService: TwitterServiceProxy,
+        public AppService: AppService,
+        private authService: AuthService
     ) {
         this.clear();
     }
@@ -229,7 +233,19 @@ export class LoginService {
                         }
                     );
                 } else {
-                    self.redirectToLoginResult(redirectUrl);
+                    // self.redirectToLoginResult(redirectUrl);
+
+                    let userDataObject: any;
+                    this.AppService.getCurrentLoginInformation().subscribe((value) => {
+                        this.AppService.setStorageItem('user_info', value);
+                        userDataObject = value;
+
+                        if (userDataObject.result.user.emailAddress === 'kofiahendev@gmail.com') {
+                            self.redirectToLoginResult('/app/vendor/dashboard');
+                        } else {
+                            self.redirectToLoginResult(redirectUrl);
+                        }
+                    });
                 }
             }
         );

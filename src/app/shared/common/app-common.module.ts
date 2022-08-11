@@ -41,6 +41,9 @@ import { FullScreenModalComponent } from '@app/shared/common/modal/full-screen-m
 import { BlurBackgroundModalComponent } from '@app/shared/common/modal/blur-background-modal/blur-background-modal.component';
 import { SearchBoxComponent } from '@app/shared/common/search-box/search-box.component';
 import { log } from 'console';
+import { NgChartsModule } from 'ng2-charts';
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 @NgModule({
     imports: [
@@ -59,6 +62,7 @@ import { log } from 'console';
         CountoModule,
         AppBsModalModule,
         AutoCompleteModule,
+        NgChartsModule,
     ],
     declarations: [
         TimeZoneComboComponent,
@@ -77,6 +81,8 @@ import { log } from 'console';
         FullScreenModalComponent,
         BlurBackgroundModalComponent,
         SearchBoxComponent,
+        DoughnutChartComponent,
+        LineChartComponent,
     ],
     exports: [
         TimeZoneComboComponent,
@@ -91,6 +97,8 @@ import { log } from 'console';
         FullScreenModalComponent,
         BlurBackgroundModalComponent,
         SearchBoxComponent,
+        DoughnutChartComponent,
+        LineChartComponent,
     ],
     providers: [
         DateTimeService,
