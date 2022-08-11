@@ -15,7 +15,6 @@ import { AuthService } from '@app/services/auth.service';
 })
 export class LoginComponent extends AppComponentBase implements OnInit {
     env: any = environment;
-    submitting: boolean = true;
 
     storedToken: any;
     authTokenLocalizationName: string;
@@ -24,7 +23,6 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     storedTokenName: string;
 
     constructor(
-        public auth: LoginService,
         injector: Injector,
         public loginService: LoginService,
         public AppService: AppService,
@@ -43,7 +41,6 @@ export class LoginComponent extends AppComponentBase implements OnInit {
 
         this.loginService.authenticate(
             () => {
-                this.submitting = true;
                 this.hideMainSpinner();
             },
             '/app/dashboard',
@@ -64,10 +61,4 @@ export class LoginComponent extends AppComponentBase implements OnInit {
 
         if (this.storedToken !== null) this.router.navigate(['/app/dashboard']);
     }
-
-    
-    // getRedirectUrl() {
-    //     if(this.userName == 'david@gmail.com' )
-
-    // }
 }

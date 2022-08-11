@@ -27,6 +27,11 @@ export class AppService {
     getCurrentLoginInformation() {
         return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Session/GetCurrentLoginInformations`);
     }
+
+    clearStorage() {
+        localStorage.clear();
+    }
+
     goTo(page) {
         this.router.navigate([page]);
     }
