@@ -1,0 +1,116 @@
+<app-blur-background-modal>
+    <div class="flex flex-col h-full relative">
+        <div class="absolute mr-6 mt-12 right-0 cursor-pointer">
+            <i (click)="close()">
+                <img src="assets/images/close-btn.png" alt="close" />
+            </i>
+        </div>
+        <div class="flex flex-wrap content-center h-full w-full">
+            <div class="flex justify-center w-full">
+                <div class="w-2/5 bg-white rounded-lg p-0">
+                    <div class="inline-block w-full">
+                        <div class="shadow-lg px-5 py-3">
+                            <h1 class="font-medium text-base text-[#707070] uppercase">bid job</h1>
+                        </div>
+                        <div class="px-5 py-5">
+                            <div class="flex flex-row gap-2 pr-2 mt-5">
+                                <div class="flex-1">
+                                    <p class="text-[11px] text-gray-600 text-opacity-[35%] uppercase">order title</p>
+                                    <h4 class="text-lg font-semibold text-[#333333] uppercase">broken bulbs</h4>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] text-gray-600 text-opacity-[35%] uppercase">due date</p>
+                                    <h4 class="text-lg font-semibold text-[#333333] uppercase">July 30th 2022</h4>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] text-gray-600 text-opacity-[35%] uppercase">payment plan</p>
+                                    <h4 class="text-lg font-semibold text-[#333333] uppercase">per project</h4>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-row gap-2 pr-2 mt-5">
+                                <div class="flex flex-col w-2/4">
+                                    <label
+                                        class="text-[11px] text-gray-600 text-opacity-[35%] uppercase"
+                                        for="bid_title"
+                                    >
+                                        bid title
+                                    </label>
+                                    <input
+                                        id="bid_title"
+                                        name="bid_title"
+                                        type="text"
+                                        value=""
+                                        placeholder=""
+                                        class="text-base py-2 px-3 bg-white border rounded"
+                                    />
+                                </div>
+                                <div class="flex flex-col w-1/4">
+                                    <label
+                                        class="text-[11px] text-gray-600 text-opacity-[35%] uppercase"
+                                        for="finish_date"
+                                    >
+                                        finish date
+                                    </label>
+                                    <input
+                                        id="finish_date"
+                                        name="finish_date"
+                                        type="text"
+                                        value=""
+                                        placeholder=""
+                                        class="text-base py-2 px-3 bg-white border rounded"
+                                    />
+                                </div>
+                                <div class="flex flex-col w-1/4">
+                                    <label
+                                        class="text-[11px] text-gray-600 text-opacity-[35%] uppercase"
+                                        for="bid_price"
+                                    >
+                                        bid price
+                                    </label>
+                                    <input
+                                        id="bid_price"
+                                        name="bid_price"
+                                        type="text"
+                                        value=""
+                                        placeholder=""
+                                        class="text-base py-2 px-3 bg-white border rounded"
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex flex-col mt-2">
+                                <label class="text-[11px] text-gray-600 text-opacity-[35%] uppercase" for="bid_message">
+                                    bid message
+                                </label>
+                                <textarea
+                                    class="text-base py-2 px-3 bg-white border rounded"
+                                    name=""
+                                    id=""
+                                    cols="30"
+                                    rows="10"
+                                ></textarea>
+                            </div>
+
+                            <div class="mt-5 w-full text-right">
+                                <button
+                                    class="
+                                        bg-[#0089D0]
+                                        text-white
+                                        border-2 border-[#00A8FF]
+                                        rounded-lg
+                                        py-1
+                                        px-3
+                                        uppercase
+                                        text-[12px]
+                                    "
+                                >
+                                    make a bid
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-blur-background-modal>

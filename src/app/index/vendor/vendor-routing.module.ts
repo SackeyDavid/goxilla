@@ -11,6 +11,15 @@ const routes: Routes = [
                 path: 'dashboard',
                 loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
             },
+            {
+                path: 'schedule',
+                loadChildren: () => import('./schedule/schedule.module').then((m) => m.ScheduleModule),
+            },
+            {
+                path: 'open-orders',
+                loadChildren: () => import('./open-orders/open-orders.module').then((m) => m.OpenOrdersModule),
+            },
+            { path: 'bids', loadChildren: () => import('./bids/bids.module').then((m) => m.BidsModule) },
         ],
     },
 ];

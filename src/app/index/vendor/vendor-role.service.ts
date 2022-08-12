@@ -17,24 +17,34 @@ export class VendorService {
             title: 'SCHEDULE',
         },
         {
-            img: 'assets/images/menu-icons/finance-icon.svg',
-            url: '/app/vendor/finance',
-            title: 'FINANCES',
+            img: 'assets/images/menu-icons/open-orders-icon.svg',
+            url: '/app/vendor/open-orders',
+            title: 'OPEN ORDERS',
         },
         {
-            img: 'assets/images/menu-icons/weather-icon.svg',
-            url: '/app/vendor/weather',
-            title: 'WEATHER',
+            img: 'assets/images/menu-icons/bid-icon.svg',
+            url: '/app/vendor/bids',
+            title: 'BIDS',
         },
         {
-            img: 'assets/images/menu-icons/invoices-icon.svg',
+            img: 'assets/images/menu-icons/customer-icon.svg',
             url: '/app/vendor/invoices',
-            title: 'INVOICES',
+            title: 'CUSTOMERS',
+        },
+        {
+            img: 'assets/images/menu-icons/team-icon.svg',
+            url: '/app/vendor/invoices',
+            title: 'MY TEAM',
         },
         {
             img: 'assets/images/menu-icons/settings-icon.svg',
             url: '/app/vendor/settings',
             title: 'SETTINGS',
+        },
+        {
+            img: 'assets/images/menu-icons/finance-icon.svg',
+            url: '/app/vendor/settings',
+            title: 'FINANCES',
         },
     ];
 

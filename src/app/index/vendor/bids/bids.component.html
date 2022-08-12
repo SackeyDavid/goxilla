@@ -1,0 +1,557 @@
+<!-- Start: Bid Content  -->
+<div class="bg-white rounded-lg flex flex-row h-full">
+    <div class="w-[60%] p-5">
+        <h3 class="text-lg font-normal mb-5 uppercase">Bids</h3>
+        <!-- Start: search  -->
+        <div class="flex flex-row gap-6">
+            <!-- Searchbar - Search Only -->
+            <form class="flex-1">
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">
+                    Search
+                </label>
+                <div class="relative drop-shadow-lg">
+                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <img src="assets/assets/searchbar-icon.svg" alt="" />
+                    </div>
+                    <input
+                        type="search"
+                        id="default-search"
+                        class="
+                            block
+                            p-4
+                            pl-10
+                            w-full
+                            text-sm text-gray-900
+                            bg-white
+                            rounded-lg
+                            border border-gray-100
+                            focus:ring-blue-500 focus:border-blue-500
+                        "
+                        placeholder="Search For Bid"
+                        required
+                        style="padding-left: 3rem !important"
+                    />
+                    <button type="button" class="absolute inset-y-0 right-0 items-center px-3 my-2 text-gray-400">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            <!-- End: Searchbar - Search Only -->
+            <!-- Start: Searchbar - sort -->
+            <div class="relative">
+                <label for="" class="mb-2 text-sm font-light uppercase">Sort</label>
+                <div class="flex flex-row gap-4">
+                    <div class="relative">
+                        <div class="flex flex-row uppercase gap-2 text-sm font-semibold">
+                            Location
+                            <img src="assets/assets/Icon awesome-sort.svg" alt="" />
+                        </div>
+                        <!-- Start: Searchbar - sort location filter  -->
+                        <div class="hidden absolute left-0 top-[100%] p-4 bg-white rounded-lg shadow-lg min-w-[250px]">
+                            <div class="flex flex-row justify-between">
+                                <h2 class="text-lg font-semibold">Filter location</h2>
+                                <img src="assets/assets//close.svg" alt="" />
+                            </div>
+                            <div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="miles"
+                                        name="miles"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  miles">
+                                        0.5 MILES TO 5.0 MILES
+                                    </label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="miles"
+                                        name="miles"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  miles">
+                                        5 MILES TO 5.5 MILES
+                                    </label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="miles"
+                                        name="miles"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  miles">
+                                        5.5 MILES TO 10 MILES
+                                    </label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="miles"
+                                        name="miles"
+                                        checked
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  miles">
+                                        ANY
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End: Searchbar - sort location filter  -->
+                    </div>
+                    <div class="relative">
+                        <div class="flex flex-row uppercase gap-2 text-sm font-semibold">
+                            due date
+                            <img src="assets/assets/Icon awesome-sort.svg" alt="" />
+                        </div>
+                        <!-- Start: Searchbar - sort date filter  -->
+                        <div class="hidden absolute left-0 top-[100%] p-4 bg-white rounded-lg shadow-lg min-w-[250px]">
+                            <div class="flex flex-row justify-between">
+                                <h2 class="text-lg font-semibold">Filter date</h2>
+                                <img src="assets/assets/close.svg" alt="" />
+                            </div>
+                            <div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="date"
+                                        name="date"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  date">
+                                        yesterday
+                                    </label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="date"
+                                        checked
+                                        name="date"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  date">
+                                        today
+                                    </label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input
+                                        id="date"
+                                        name="date"
+                                        type="radio"
+                                        value=""
+                                        class="
+                                            my-auto
+                                            text-blue-600
+                                            bg-white
+                                            rounded-md
+                                            border border-sky-500
+                                            focus:ring-blue-500
+                                            dark:focus:ring-blue-600
+                                        "
+                                    />
+                                    <label class="font-semibold text-gray-500 ml-2 block uppercase" for="  date">
+                                        tomorrow
+                                    </label>
+                                </div>
+                                <div class="">
+                                    <label class="font-light text-gray-500 block uppercase" for="  date">Date</label>
+                                    <input
+                                        id="date"
+                                        name="date"
+                                        type="text"
+                                        value=""
+                                        placeholder="Date"
+                                        class="text-base py-2 px-3 bg-white border rounded"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End: Searchbar - sort date filter  -->
+                    </div>
+                </div>
+            </div>
+            <!-- End: Searchbar - sort -->
+            <!-- End: Searchbar - Filter -->
+            <div>
+                <label for="" class="mb-2 text-sm font-light uppercase">Sort</label>
+                <div class="flex flex-row">
+                    <button
+                        class="
+                            bg-[#0089D0]
+                            text-white
+                            border border-[#0089D0]
+                            rounded-l-lg
+                            py-1
+                            px-3
+                            uppercase
+                            text-[10px]
+                        "
+                    >
+                        All
+                    </button>
+                    <button
+                        class="
+                            hover:bg-[#0089D0] hover:text-white
+                            text-[#383838] text-opacity-50
+                            border
+                            hover:border-[#0089D0]
+                            border-[#383838] border-opacity-50
+                            py-1
+                            px-3
+                            uppercase
+                            text-[10px]
+                        "
+                    >
+                        install
+                    </button>
+                    <button
+                        class="
+                            hover:bg-[#0089D0] hover:text-white
+                            text-[#383838] text-opacity-50
+                            border
+                            hover:border-[#0089D0]
+                            border-[#383838] border-opacity-50
+                            rounded-r-lg
+                            py-1
+                            px-3
+                            uppercase
+                            text-[10px]
+                        "
+                    >
+                        maintenance
+                    </button>
+                </div>
+            </div>
+            <!-- End: Searchbar - Filter -->
+        </div>
+        <!-- end: search  -->
+        <!-- Start: cards  -->
+        <div class="grid grid-cols-5 gap-4 py-6">
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+            <div class="rounded-t-lg relative text-white">
+                <img class="absolute top-3 right-3" src="assets/assets/Icon awesome-check-circle.svg" alt="" />
+                <img
+                    class="rounded-t-lg h-28 object-cover"
+                    src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png"
+                    alt=""
+                />
+                <div class="absolute bottom-3 left-3 z-20">
+                    <h2 class="text-[12px] font-medium">broken bulbs</h2>
+                    <p class="flex flex-row flex-nowrap justify-between text-[8px] font-light">
+                        Newport Beach, CA
+                        <span><img class="rounded-sm ml-1" src="assets//assets/country/us.png" alt="" /></span>
+                    </p>
+                </div>
+                <div class="absolute card_overlay bottom-0 left-0 w-full h-full"></div>
+            </div>
+        </div>
+        <!-- End: cards  -->
+        <!-- Start: pagination  -->
+        <div class="flex flex-row justify-between">
+            <div class="flex flex-row border font-light rounded-lg">
+                <div class="w-full text-center flex-1 text-sm font-light py-2 px-3 border bg-neutral-200 rounded-l-lg">
+                    Prev
+                </div>
+                <div class="text-sm font-light py-2 px-3 border bg-blue-600 text-white">1</div>
+                <div class="text-sm font-light py-2 px-3 border">2</div>
+                <div class="text-sm font-light py-2 px-3 border">3</div>
+                <div class="text-sm font-light py-2 px-3 border">...</div>
+                <div class="text-sm font-light py-2 px-3 border">10</div>
+                <div class="text-sm font-light py-2 px-3 border">11</div>
+                <div class="text-sm font-light py-2 px-3 border">12</div>
+                <div class="w-full text-center flex-1 text-sm font-light py-2 px-3 border bg-neutral-200 rounded-r-lg">
+                    Next
+                </div>
+            </div>
+            <p class="m-1 font-light text-right text-[#202020]">Showing 4 of 12</p>
+        </div>
+        <!-- End: pagination  -->
+    </div>
+    <!-- Start: Bid details  -->
+    <div class="w-[40%]">
+        <!-- Start: Bid images  -->
+        <div class="h-min relative">
+            <img src="assets/assets/placeholders/anil-xavier-TI45iWO9x-g-unsplash.png" alt="" />
+            <button
+                class="
+                    border-none
+                    bg-white bg-opacity-[16%]
+                    text-xs
+                    font-medium
+                    uppercase
+                    rounded-full
+                    py-2
+                    px-4
+                    absolute
+                    bottom-4
+                    left-2
+                    text-white
+                "
+            >
+                Install
+            </button>
+            <div class="flex flex-row w-fit gap-2 absolute bottom-2 right-0 left-0 mx-auto">
+                <div class="h-[15px] w-[15px] bg-white rounded-full"></div>
+                <div class="h-[12px] w-[12px] bg-white bg-opacity-50 rounded-full my-auto"></div>
+                <div class="h-[12px] w-[12px] bg-white bg-opacity-50 rounded-full my-auto"></div>
+                <div class="h-[12px] w-[12px] bg-white bg-opacity-50 rounded-full my-auto"></div>
+            </div>
+            <img class="absolute right-6 top-0 bottom-0 my-auto" src="assets/assets/caret-right-icon.svg" alt="" />
+        </div>
+        <!-- End: Bid images  -->
+        <div class="pr-2 pt-4">
+            <div class="flex flex-row gap-2">
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">name of vessel</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">happy place</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">documentation</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">CF# 1287148</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">hailing port</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">Newport Beach, CA, usa</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">client name</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">David j.</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-row gap-2 pr-2 mt-5">
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">order title</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">broken bulbs</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">due date</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">July 30th 2022</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">payment plan</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">per project</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">client name</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">card</h4>
+                </div>
+                <div>
+                    <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">client rating</p>
+                    <h4 class="text-sm font-semibold text-[#333333] uppercase">David j.</h4>
+                </div>
+            </div>
+            <div class="mt-5 w-full">
+                <p class="text-[11px] text-[#383838] text-opacity-[35%] uppercase">order description</p>
+                <h4 class="text-sm font-normal text-[#333333] uppercase">
+                    There are broken bulbs in the yacht. I think it happened due to high power voltage. These
+                    Mercury-Containing Bulbs. about 8 of them are destroyed.
+                </h4>
+            </div>
+            <div class="mt-5 w-full text-right">
+                <button
+                    (click)="openMakeABidModal()"
+                    class="bg-[#0089D0] text-white border-2 border-[#00A8FF] rounded-lg py-1 px-3 uppercase text-[22px]"
+                >
+                    make a bid
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End: Bid details  -->
+</div>
+<!-- End: Bid Content  -->

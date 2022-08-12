@@ -1,0 +1,255 @@
+<app-blur-background-modal>
+    <div class="flex flex-col h-full relative">
+        <div class="absolute mr-6 mt-12 right-0 cursor-pointer">
+            <i (click)="close()">
+                <img src="assets/images/close-btn.png" alt="close" />
+            </i>
+        </div>
+        <div class="flex flex-wrap content-center h-full w-full">
+            <div class="flex justify-center w-full">
+                <div class="w-3/5 bg-white rounded-xl p-5">
+                    <div class="flex flex-row">
+                        <div class="w-[50%] border-r p-4">
+                            <div class="flex flex-row justify-between">
+                                <h2 class="text-xl">CLOCK IN</h2>
+                                <span class="p-1 rounded-full border"><img src="assets/assets/add.svg" alt="" /></span>
+                            </div>
+                            <!-- search -->
+                            <div class="flex py-2 px-3 mt-4 shadow-lg min-h-[50px] w-full bg-white rounded relative">
+                                <div class="my-auto">
+                                    <img src="assets/assets/search-icon.svg" alt="" />
+                                </div>
+                                <input
+                                    class="border-r border-[#757575] border-opacity-50 flex-3 w-full mr-2 ml-4"
+                                    type="text"
+                                    name="search"
+                                    placeholder="search open orders"
+                                />
+                                <div class="my-auto">
+                                    <img src="assets/assets/search-filter-icon.svg" alt="" />
+                                </div>
+                                <!-- start: search filter -->
+                                <div class="absolute hidden top-full right-0 mt-2">
+                                    <div class="h-fit w-fit bg-white shadow-xl rounded-lg py-6 px-5">
+                                        <div class="flex items-center mb-4">
+                                            <input
+                                                id="any_type"
+                                                type="radio"
+                                                value=""
+                                                checked
+                                                name="note_fliter"
+                                                class="text-xl"
+                                            />
+                                            <label
+                                                for="any_type"
+                                                class="ml-2 text-sm font-medium text-[#666666] uppercase"
+                                            >
+                                                All
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center mb-4">
+                                            <input
+                                                id="by_me"
+                                                type="radio"
+                                                value=""
+                                                name="note_fliter"
+                                                class="text-xl"
+                                            />
+                                            <label
+                                                for="by_me"
+                                                class="ml-2 text-sm font-medium text-[#666666] uppercase"
+                                            >
+                                                BY ME
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center mb-4">
+                                            <input
+                                                id="by_others"
+                                                type="radio"
+                                                value=""
+                                                name="note_fliter"
+                                                class="text-xl"
+                                            />
+                                            <label
+                                                for="by_others"
+                                                class="ml-2 text-sm font-medium text-[#666666] uppercase"
+                                            >
+                                                BY Vendor
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="by_others"
+                                                type="radio"
+                                                value=""
+                                                name="note_fliter"
+                                                class="text-xl"
+                                            />
+                                            <label
+                                                for="by_others"
+                                                class="ml-2 text-sm font-medium text-[#666666] uppercase"
+                                            >
+                                                by yacht owner
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: search filter -->
+                            </div>
+                            <!-- end search -->
+                            <!-- table  -->
+                            <div class="mt-4">
+                                <table class="w-full">
+                                    <!-- heading  -->
+                                    <tr
+                                        class="
+                                            uppercase
+                                            border-[#E9E9E9]
+                                            bg-[#E9E9E9]
+                                            text-left text-xs
+                                            font-semibold
+                                            text-[#333333]
+                                        "
+                                    >
+                                        <th class="w-3/5 rounded-tl-xl py-3 pl-5">title</th>
+                                        <th class="w-1/4 py-3">date</th>
+                                        <th class="w-1/5 rounded-tr-xl py-3"></th>
+                                    </tr>
+                                    <!-- end heading  -->
+                                    <!-- rows  -->
+                                    <tr
+                                        class="
+                                            uppercase
+                                            border-2 border-[#E9E9E9]
+                                            text-xs
+                                            font-medium
+                                            text-[#333333]
+                                            py-[10px]
+                                        "
+                                    >
+                                        <td class="w-3/5 py-3 pl-5">
+                                            bilge repair
+                                            <br />
+                                            <span class="text-[10px] font-thin">felix smith (technician)</span>
+                                        </td>
+                                        <td class="w-1/4 py-3">07/20/2022</td>
+                                        <td class="w-1/5 py-3 text-right">
+                                            <img class="mx-auto" src="assets/assets/capture.svg" alt="" />
+                                        </td>
+                                    </tr>
+                                    <tr
+                                        class="
+                                            uppercase
+                                            border-2 border-[#E9E9E9]
+                                            text-xs
+                                            font-medium
+                                            text-[#333333]
+                                            py-[10px]
+                                        "
+                                    >
+                                        <td class="w-3/5 py-3 pl-5">
+                                            bilge repair
+                                            <br />
+                                            <span class="text-[10px] font-thin">felix smith (technician)</span>
+                                        </td>
+                                        <td class="w-1/4 py-3">07/20/2022</td>
+                                        <td class="w-1/5 py-3 text-right">
+                                            <img class="mx-auto" src="assets/assets/capture.svg" alt="" />
+                                        </td>
+                                    </tr>
+                                    <tr
+                                        class="
+                                            uppercase
+                                            border-2 border-[#E9E9E9]
+                                            text-xs
+                                            font-medium
+                                            text-[#333333]
+                                            py-[10px]
+                                        "
+                                    >
+                                        <td class="w-3/5 py-3 pl-5">
+                                            bilge repair
+                                            <br />
+                                            <span class="text-[10px] font-thin">felix smith (technician)</span>
+                                        </td>
+                                        <td class="w-1/4 py-3">07/20/2022</td>
+                                        <td class="w-1/5 py-3 text-right">
+                                            <img class="mx-auto" src="/assets/capture.svg" alt="" />
+                                        </td>
+                                    </tr>
+                                    <tr
+                                        class="
+                                            uppercase
+                                            border-2 border-[#E9E9E9]
+                                            text-xs
+                                            font-medium
+                                            text-[#333333]
+                                            py-[10px]
+                                        "
+                                    >
+                                        <td class="w-3/5 py-3 pl-5">
+                                            bilge repair
+                                            <br />
+                                            <span class="text-[10px] font-thin">felix smith (technician)</span>
+                                        </td>
+                                        <td class="w-1/4 py-3">07/20/2022</td>
+                                        <td class="w-1/5 py-3 text-right">
+                                            <img class="mx-auto" src="/assets/capture.svg" alt="" />
+                                        </td>
+                                    </tr>
+                                    <!-- end rows  -->
+                                </table>
+                            </div>
+                            <!-- end table  -->
+                        </div>
+
+                        <div class="w-[50%] p-4">
+                            <div class="mb-4 flex flex-row justify-between">
+                                <h4 class="text font-semibold text-[#333333] uppercase">Flybridge Roof Repair Bilge</h4>
+                                <div class="flex flex-row gap-2">
+                                    <span class="p-2 rounded-full border">
+                                        <img src="assets/assets/Icon ionic-md-archive.svg" alt="" />
+                                    </span>
+                                    <span class="p-2 rounded-full border">
+                                        <img src="assets/assets/edit.svg" alt="" />
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between mb-4">
+                                <div>
+                                    <p class="text-[13px] text-[#383838] text-opacity-[35%] uppercase">author</p>
+                                    <h4 class="text font-semibold text-[#333333] uppercase">
+                                        felix smith (technician)
+                                    </h4>
+                                </div>
+                                <div>
+                                    <p class="text-[13px] text-[#383838] text-opacity-[35%] uppercase">date & time</p>
+                                    <h4 class="text font-semibold text-[#333333] uppercase">06/25/2022 0940</h4>
+                                </div>
+                            </div>
+                            <div class="mt-5 w-full">
+                                <p class="text-[13px] text-[#383838] text-opacity-[35%] uppercase">last edited</p>
+                                <h4 class="text-sm font-normal text-[#333333] uppercase">06/25/2022 0940</h4>
+                            </div>
+                            <div class="mt-5 w-full">
+                                <p class="text-[13px] text-[#383838] text-opacity-[35%] uppercase">note</p>
+                                <p class="text-sm font-normal mb-4 text-[#333333] uppercase">
+                                    Bilge alarm continues to go off when underway on two different trips.
+                                </p>
+                                <p class="text-sm font-normal mb-4 text-[#333333] uppercase">
+                                    On the alarm it says Aft Cabin Bilge 2.
+                                </p>
+                                <p class="text-sm font-normal mb-4 text-[#333333] uppercase">
+                                    I have isolated some water in the bilge in the master bathroom bilge hole, but do
+                                    not know where it is originating? Can you please investigate and repair if
+                                    necessary?
+                                </p>
+                                <p class="text-sm font-normal mb-4 text-[#333333] uppercase">Thanks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-blur-background-modal>
