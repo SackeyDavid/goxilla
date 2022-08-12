@@ -54,6 +54,14 @@
             <option value="vendor">Vendor</option>
         </select>
     </div>
+    <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
+        <img src="assets/images/security.svg">
+        <input [(ngModel)]="model.role" name="role" class="outline-none text-lg border-0 w-full" required>
+        <select [(ngModel)]="model.role" name="role" required>
+            <option value="user">Yacht Owner</option>
+            <option value="vendor">Vendor</option>
+        </select>
+    </div>
     <div class="pt-10 px-8">
         <div class="space-y-6">
             <button
