@@ -44,6 +44,7 @@ import { log } from 'console';
 import { NgChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
     imports: [
@@ -63,6 +64,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
         AppBsModalModule,
         AutoCompleteModule,
         NgChartsModule,
+        FullCalendarModule,
     ],
     declarations: [
         TimeZoneComboComponent,
