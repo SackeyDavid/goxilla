@@ -20,6 +20,7 @@ const routes: Routes = [
                 loadChildren: () => import('./open-orders/open-orders.module').then((m) => m.OpenOrdersModule),
             },
             { path: 'bids', loadChildren: () => import('./bids/bids.module').then((m) => m.BidsModule) },
+            { path: 'account', loadChildren: () => import('./account/account.module').then((m) => m.AccountModule) },
         ],
     },
 ];

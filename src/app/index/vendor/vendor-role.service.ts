@@ -38,7 +38,7 @@ export class VendorService {
         },
         {
             img: 'assets/images/menu-icons/settings-icon.svg',
-            url: '/app/vendor/settings',
+            url: '/app/vendor/account',
             title: 'SETTINGS',
         },
         {
