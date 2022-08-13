@@ -17,6 +17,11 @@
   },
   "private": false,
   "dependencies": {
+    "@fullcalendar/angular": "^5.11.2",
+    "@fullcalendar/daygrid": "^5.11.2",
+    "@fullcalendar/interaction": "^5.11.2",
+    "@fullcalendar/resource-timeline": "^5.11.2",
+    "@fullcalendar/timegrid": "^5.11.2",
     "@angular/animations": "^13.1.0",
     "@angular/cdk": "^12.2.7",
     "@angular/common": "^13.1.0",
@@ -71,7 +76,8 @@
     "text-mask-addons": "^3.8.0",
     "tslib": "^2.3.1",
     "webdriver-manager": "^12.1.8",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "loadash": "^1.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.1",

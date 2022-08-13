@@ -229,18 +229,26 @@ export class LoginService {
                             expireDate: new Date(new Date().getTime() + 365 * 86400000), // 1 year
                         },
                         () => {
-                            self.redirectToLoginResult(redirectUrl);
+                            let userDataObject: any;
+                            this.AppService.getCurrentLoginInformation().subscribe((value) => {
+                                this.AppService.setStorageItem('user_info', value);
+                                userDataObject = value;
+
+                                if (userDataObject.result.user.role === 'vendor' || userDataObject.result.user.role === 'Vendor') {
+                                    self.redirectToLoginResult('/app/vendor/dashboard');
+                                } else {
+                                    self.redirectToLoginResult(redirectUrl);
+                                }
+                            });
                         }
                     );
                 } else {
-                    // self.redirectToLoginResult(redirectUrl);
-
                     let userDataObject: any;
                     this.AppService.getCurrentLoginInformation().subscribe((value) => {
                         this.AppService.setStorageItem('user_info', value);
                         userDataObject = value;
 
-                        if (userDataObject.result.user.emailAddress === 'kofiahendev@gmail.com') {
+                        if (userDataObject.result.user.role === 'vendor' || userDataObject.result.user.role === 'Vendor') {
                             self.redirectToLoginResult('/app/vendor/dashboard');
                         } else {
                             self.redirectToLoginResult(redirectUrl);
