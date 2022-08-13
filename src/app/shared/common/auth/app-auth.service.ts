@@ -24,15 +24,15 @@ export class AppAuthService {
                     if (reload !== false) {
                         if (returnUrl) {
                             location.href = returnUrl;
+                            window.localStorage.clear();
                         } else {
                             location.href = '';
+                            window.localStorage.clear();
                         }
                     }
                 });
             }
         );
-
-        localStorage.clear();
 
     }
 }
