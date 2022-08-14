@@ -3,19 +3,23 @@
         <div class="bg-white rounded-lg py-5 px-5 lg:px-10">
             <h2 class="text-xl uppercase mb-3">Incoming Orders</h2>
             <div class="flex flex-wrap order-grid gap-3">
-                <div *ngFor="let order of vendorOrders" (click)="openAcceptIncomingOrderModal()" class="order-tile rounded-lg relative overflow-hidden aspect-square w-[160px] cursor-pointer">
+                <div
+                    *ngFor="let order of vendorOrders; let i = index"
+                    (click)="openAcceptIncomingOrderModal(i)"
+                    class="order-tile rounded-lg relative overflow-hidden aspect-square w-[160px] cursor-pointer"
+                >
                     <img
-                        src="{{order.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'}}"
+                        src="{{
+                            order.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'
+                        }}"
                         class="rounded-lg object-cover h-full"
-                        alt=""
-                        class=""
+                        alt="bg image"
                     />
                     <div
                         class="
                             absolute
                             top-0
                             h-full
-                            bg-black
                             w-full
                             text-white
                             bg-opacity-40
@@ -28,7 +32,7 @@
                         "
                     >
                         <div class="font-normal uppercase text-sm">
-                            <span>{{order.serviceOrder.title ?? "Null title"}}</span>
+                            <span>{{ order.serviceOrder.title ?? 'Null title' }}</span>
                         </div>
                         <div class="flex items-end justify-between">
                             <div
@@ -43,12 +47,12 @@
                                     uppercase
                                 "
                             >
-                                <span>{{order.serviceOrder.location ?? 'Newport Beach, CA'}}</span>
+                                <span>{{ order.yachts.hailingPort ?? 'Newport Beach, CA' }}</span>
                             </div>
                             <img src="assets/assets/images/icons/icon-map-fade.svg" alt="" class="w-5" />
                         </div>
                     </div>
-                    <div class="absolute top-2 right-2 text-white">
+                    <div class="absolute top-2 right-2 text-white" [hidden]="selectedIndex !== i">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path
                                 fill-rule="evenodd"
@@ -78,12 +82,17 @@
         <div class="bg-white rounded-lg py-5 px-5 lg:px-10">
             <h2 class="text-xl uppercase mb-3">Open Orders</h2>
             <div class="flex flex-wrap order-grid2 gap-3">
-                <div class="order-tile2 rounded-lg relative overflow-hidden aspect-square w-[160px]">
+                <div
+                    class="order-tile2 rounded-lg relative overflow-hidden aspect-square w-[160px]"
+                    *ngFor="let order of acceptedOrders; let i = index"
+                    (click)="openAssignTechnicianModal()"
+                >
                     <img
-                        src="assets/assets/placeholders/issue-placeholder.jpg"
+                        src="{{
+                            order.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'
+                        }}"
                         class="rounded-lg object-cover h-full"
-                        alt=""
-                        class=""
+                        alt="image backgroung"
                     />
                     <div
                         class="
@@ -103,7 +112,7 @@
                         "
                     >
                         <div class="font-normal uppercase text-sm">
-                            <span>BILGE REPAIR</span>
+                            <span>{{ order.service.name }}</span>
                         </div>
                         <div class="flex items-end justify-between">
                             <div
@@ -118,12 +127,12 @@
                                     uppercase
                                 "
                             >
-                                <span>Newport Beach, CA</span>
+                                <span>{{ order.yachts.hailingPort }}</span>
                             </div>
                             <img src="assets/assets/images/icons/icon-map-fade.svg" alt="" class="w-5" />
                         </div>
                     </div>
-                    <div class="absolute top-2 right-2 text-white">
+                    <div class="absolute top-2 right-2 text-white" [hidden]="selectedIndex !== i">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path
                                 fill-rule="evenodd"
@@ -133,10 +142,8 @@
                         </svg>
                     </div>
                 </div>
-                <script>
-                    cloneElement('.order-tile2', 10, '.order-grid2');
-                </script>
-                <div class="flex justify-between mt-6 items-center w-full">
+
+                <!-- <div class="flex justify-between mt-6 items-center w-full">
                     <nav class="inline-flex rounded-xl overflow-hidden">
                         <a class="bg-gray-200 text-gray-700 py-1 px-4 text-sm">Prev</a>
                         <a class="bg-sky-600 py-1 px-3 text-sm text-white">1</a>
@@ -149,14 +156,16 @@
                         <a class="bg-gray-200 text-gray-700 py-1 px-4 text-sm">Next</a>
                     </nav>
                     <span class="text-xs uppercase text-gray-500">Showing 4 of 12</span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
-    <div class="w-1/2 lg:w-1/3 grow h-auto mb-4">
+    <div class="w-1/2 lg:w-1/3 grow h-auto mb-4" *ngIf="orderDetail">
         <div class="bg-white rounded-lg py-5 overflow-y-scroll px-5">
             <img
-                src="assets/assets/placeholders/issue-placeholder.jpg"
+                src="{{
+                    orderDetail.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'
+                }}"
                 class="rounded-lg object-cover h-[360px]"
                 alt=""
             />
@@ -166,16 +175,13 @@
                     alt=""
                     class="w-20 aspect-square rounded-lg image-thumb"
                 />
-                <script>
-                    cloneElement('.image-thumb', 4, '.image-thumb-grid');
-                </script>
             </div>
             <div class="flex flex-row items-start justify-between mt-4 w-full">
                 <div>
-                    <h4 class="text-xl uppercase mb-2 font-semibold">Broken Glass</h4>
+                    <h4 class="text-xl uppercase mb-2 font-semibold">{{ orderDetail.service.name }}</h4>
                     <div class="flex gap-3">
                         <img src="assets/assets/icons/icon-calendar.svg" alt="" />
-                        <span class="text-gray-400">06/19/2022</span>
+                        <span class="text-gray-400">{{ getDateFormatted(orderDetail.serviceOrder.creationTime) }}</span>
                     </div>
                 </div>
                 <div class="flex flex-row gap-3">
@@ -205,16 +211,15 @@
             </div>
             <div class="mt-2 py-3 font-light">
                 <p>
-                    I have a broken glass at the lower deck which makes it difficult for me to use my yacht. I think it
-                    is fiber type of glass. Please fix this issue for me as soon as you can.
+                    {{ orderDetail.serviceOrder.description }}
                 </p>
             </div>
 
             <div class="flex gap-4">
                 <!-- View: Buttons Accept/Decline -->
                 <button
+                    [hidden]="!thisOrderAccepted(orderDetail.serviceOrder.id)"
                     class="
-                        hidden
                         mt-5
                         rounded-lg
                         bg-white
@@ -228,16 +233,18 @@
                     Decline
                 </button>
                 <button
+                    [hidden]="!thisOrderAccepted(orderDetail.serviceOrder.id)"
                     (click)="openAssignTechnicianModal()"
                     class="mt-5 rounded-lg bg-brandPrimaryBlue text-white font-light py-3 px-8"
                 >
-                    Assign Task
+                    Accept
                 </button>
 
                 <!-- View: Button Assign Task -->
                 <button
+                    *ngIf="thisOrderAccepted(orderDetail.serviceOrder.id)"
                     id="assignTaskModal"
-                    class="mt-5 hidden rounded-lg bg-brandPrimaryBlue text-white font-light py-3 px-5 modal-trigger"
+                    class="mt-5 rounded-lg bg-brandPrimaryBlue text-white font-light py-3 px-5 modal-trigger"
                 >
                     Assign Task
                 </button>
