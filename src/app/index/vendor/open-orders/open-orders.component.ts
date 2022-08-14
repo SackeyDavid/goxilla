@@ -26,7 +26,8 @@ export class OpenOrdersComponent implements OnInit {
 
     ngOnInit(): void {
         this.getVendorOrders();
-        this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
+        if (this.appService.getStorageItem('acceptedOrders'))
+            this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
         console.log(this.acceptedOrders);
     }
 
@@ -42,14 +43,17 @@ export class OpenOrdersComponent implements OnInit {
         });
     }
 
-    openAcceptIncomingOrderModal(index: number) {
-        // if (!this.thisOrderAccepted(index)) {
-        // this.acceptedOrders.push(this.vendorOrders[index]);
-        // this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
+    acceptOrder(id: number) {
+        let index = this.vendorOrders.map((object) => object.serviceOrder.id).indexOf(id);
+        this.acceptedOrders.push(this.vendorOrders[index]);
+        this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
         // this.modalService.createModal<IncomingOrderComponent>({
         //     content: IncomingOrderComponent,
         // });
-        // }
+        this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
+    }
+
+    openAcceptIncomingOrderModal(index: number) {
         this.selectedIndex = index;
         this.orderDetail = this.vendorOrders[index];
     }
@@ -69,7 +73,8 @@ export class OpenOrdersComponent implements OnInit {
 
     thisOrderAccepted(id: number) {
         if (this.acceptedOrders?.length) {
-            let index_of_orderItem = this.acceptedOrders.map((object) => object.serviceOrder.id).indexOf(id);
+            let index_of_orderItem = this.vendorOrders.map((object) => object.serviceOrder.id).indexOf(id);
+
             if (index_of_orderItem !== -1) return true;
             return false;
         }
