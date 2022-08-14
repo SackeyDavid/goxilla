@@ -83,6 +83,7 @@
               "node_modules/quill/dist/quill.js",
               "node_modules/sweetalert2/dist/sweetalert2.js",
               "node_modules/cookieconsent/build/cookieconsent.min.js",
+              "node_modules/flowbite/dist/flowbite.js",
 
               "src/assets/abp-web-resources/abp.js",
               "src/assets/abp-web-resources/abp.sweet-alert.js",

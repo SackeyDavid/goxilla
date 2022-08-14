@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AssignTaskComponent } from '../modals/assign-task/assign-task.component';
+import { AssignTechnicianComponent } from '../modals/assign-technician/assign-technician.component';
+import { IncomingOrderComponent } from '../modals/incoming-order/incoming-order.component';
 
 @Component({
     selector: 'app-open-orders',
@@ -15,6 +17,18 @@ export class OpenOrdersComponent implements OnInit {
     openAssignTaskModal() {
         this.modalService.createModal<AssignTaskComponent>({
             content: AssignTaskComponent,
+        });
+    }
+
+    openAssignTechnicianModal() {
+        this.modalService.createModal<AssignTechnicianComponent>({
+            content: AssignTechnicianComponent,
+        });
+    }
+
+    openAcceptIncomingOrderModal() {
+        this.modalService.createModal<IncomingOrderComponent>({
+            content: IncomingOrderComponent,
         });
     }
 }

@@ -9,6 +9,7 @@ import { SelectServiceService } from '../yacht-owner/select-service/select-servi
 import { MoreMenuComponent } from '../yacht-owner/more-menu/more-menu.component';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { VendorService } from './vendor-role.service';
+import { IncomingOrderComponent } from './modals/incoming-order/incoming-order.component';
 
 @Component({
     selector: 'app-vendor',
@@ -87,5 +88,11 @@ export class VendorComponent implements OnInit {
     get getUser(): any {
         // return sessionStorage.getItem('userId');
         return this.AppService.getStorageItem('user_info').result.user;
+    }
+
+    openIncomingOrderModal() {
+        this.modalService.createModal<IncomingOrderComponent>({
+            content: IncomingOrderComponent,
+        });
     }
 }
