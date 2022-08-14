@@ -73,8 +73,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -147,8 +147,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -221,8 +221,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -294,8 +294,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -365,8 +365,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -438,8 +438,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -508,8 +508,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -579,8 +579,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -653,8 +653,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -727,8 +727,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -796,8 +796,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -870,8 +870,8 @@ export class AccountServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1005,8 +1005,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1128,8 +1128,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1197,8 +1197,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1304,8 +1304,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1396,8 +1396,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1498,8 +1498,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1571,8 +1571,8 @@ export class AuditLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1657,8 +1657,8 @@ export class CachingServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1730,8 +1730,8 @@ export class CachingServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1794,8 +1794,8 @@ export class CachingServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1874,8 +1874,8 @@ export class ChatServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -1956,8 +1956,8 @@ export class ChatServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2029,8 +2029,8 @@ export class ChatServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2119,8 +2119,8 @@ export class CommonLookupServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2193,8 +2193,8 @@ export class CommonLookupServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2262,8 +2262,8 @@ export class CommonLookupServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2349,8 +2349,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2422,8 +2422,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2492,8 +2492,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2563,8 +2563,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2643,8 +2643,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2714,8 +2714,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2792,8 +2792,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2870,8 +2870,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -2957,8 +2957,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3034,8 +3034,8 @@ export class DashboardCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3118,8 +3118,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3190,8 +3190,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3270,8 +3270,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3342,8 +3342,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3421,8 +3421,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3498,8 +3498,8 @@ export class DemoUiComponentsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3582,8 +3582,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3660,8 +3660,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3730,8 +3730,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3803,8 +3803,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3873,8 +3873,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -3940,8 +3940,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4013,8 +4013,8 @@ export class DynamicEntityPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4094,8 +4094,8 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4168,8 +4168,8 @@ export class DynamicEntityPropertyDefinitionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4257,8 +4257,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4338,8 +4338,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4411,8 +4411,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4481,8 +4481,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4548,8 +4548,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4626,8 +4626,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4699,8 +4699,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4769,8 +4769,8 @@ export class DynamicEntityPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4850,8 +4850,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4919,8 +4919,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -4992,8 +4992,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5062,8 +5062,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5129,8 +5129,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5198,8 +5198,8 @@ export class DynamicPropertyServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5282,8 +5282,8 @@ export class DynamicPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5357,8 +5357,8 @@ export class DynamicPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5430,8 +5430,8 @@ export class DynamicPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5500,8 +5500,8 @@ export class DynamicPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5567,8 +5567,8 @@ export class DynamicPropertyValueServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5645,8 +5645,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5717,8 +5717,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5790,8 +5790,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5860,8 +5860,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5927,8 +5927,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -5997,8 +5997,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6079,8 +6079,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6157,8 +6157,8 @@ export class EditionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6243,8 +6243,8 @@ export class FriendshipServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6317,8 +6317,8 @@ export class FriendshipServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6390,8 +6390,8 @@ export class FriendshipServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6460,8 +6460,8 @@ export class FriendshipServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6530,8 +6530,8 @@ export class FriendshipServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6616,8 +6616,8 @@ export class HostDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6685,8 +6685,8 @@ export class HostDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6756,8 +6756,8 @@ export class HostDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6840,8 +6840,8 @@ export class HostDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -6922,8 +6922,8 @@ export class HostDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7003,8 +7003,8 @@ export class HostSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7076,8 +7076,8 @@ export class HostSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7146,8 +7146,8 @@ export class HostSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7212,8 +7212,8 @@ export class HostSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7297,8 +7297,8 @@ export class InstallServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7363,8 +7363,8 @@ export class InstallServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7432,8 +7432,8 @@ export class InstallServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7516,8 +7516,8 @@ export class InvoiceServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7589,8 +7589,8 @@ export class InvoiceServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7667,8 +7667,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7739,8 +7739,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7812,8 +7812,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7879,8 +7879,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -7949,8 +7949,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8051,8 +8051,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8124,8 +8124,8 @@ export class LanguageServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8226,8 +8226,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8293,8 +8293,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8364,8 +8364,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8433,8 +8433,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8506,8 +8506,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8573,8 +8573,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8652,8 +8652,8 @@ export class NotificationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8730,8 +8730,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8822,8 +8822,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8914,8 +8914,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -8988,8 +8988,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9062,8 +9062,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9136,8 +9136,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9206,8 +9206,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9280,8 +9280,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9354,8 +9354,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9424,8 +9424,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9494,8 +9494,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9565,8 +9565,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9639,8 +9639,8 @@ export class OrganizationUnitServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9724,8 +9724,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9798,8 +9798,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9871,8 +9871,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -9956,8 +9956,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10030,8 +10030,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10107,8 +10107,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10176,8 +10176,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10246,8 +10246,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10313,8 +10313,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10380,8 +10380,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10447,8 +10447,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10514,8 +10514,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10582,8 +10582,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10649,8 +10649,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10715,8 +10715,8 @@ export class PaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10800,8 +10800,8 @@ export class PayPalPaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10866,8 +10866,8 @@ export class PayPalPaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -10952,8 +10952,8 @@ export class PermissionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11033,8 +11033,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11100,8 +11100,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11168,8 +11168,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11241,8 +11241,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11311,8 +11311,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11375,8 +11375,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11445,8 +11445,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11515,8 +11515,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11585,8 +11585,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11653,8 +11653,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11722,8 +11722,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11794,8 +11794,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11872,8 +11872,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -11944,8 +11944,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12017,8 +12017,8 @@ export class ProfileServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12100,8 +12100,8 @@ export class RoleServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12172,8 +12172,8 @@ export class RoleServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12245,8 +12245,8 @@ export class RoleServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12312,8 +12312,8 @@ export class RoleServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12392,8 +12392,8 @@ export class SessionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12461,8 +12461,8 @@ export class SessionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12542,8 +12542,8 @@ export class StripePaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12615,8 +12615,8 @@ export class StripePaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12689,8 +12689,8 @@ export class StripePaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12761,8 +12761,8 @@ export class StripePaymentServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12840,8 +12840,8 @@ export class SubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -12904,8 +12904,8 @@ export class SubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13039,8 +13039,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13112,8 +13112,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13181,8 +13181,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13254,8 +13254,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13321,8 +13321,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13390,8 +13390,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13463,8 +13463,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13533,8 +13533,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13603,8 +13603,8 @@ export class TenantServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13687,8 +13687,8 @@ export class TenantCustomizationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13765,8 +13765,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13837,8 +13837,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13906,8 +13906,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -13975,8 +13975,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14044,8 +14044,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14116,8 +14116,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14185,8 +14185,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14254,8 +14254,8 @@ export class TenantDashboardServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14340,8 +14340,8 @@ export class TenantRegistrationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14409,8 +14409,8 @@ export class TenantRegistrationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14481,8 +14481,8 @@ export class TenantRegistrationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14562,8 +14562,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14635,8 +14635,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14699,8 +14699,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14763,8 +14763,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14833,8 +14833,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14899,8 +14899,8 @@ export class TenantSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -14983,8 +14983,8 @@ export class TimingServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15056,8 +15056,8 @@ export class TimingServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15147,8 +15147,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15168,7 +15168,8 @@ export class TokenAuthServiceProxy {
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(
                 _observableMergeMap((_responseText) => {
-                    return throwException('An unexpected server error occurred.', status, _responseText, _headers);
+                    let resultError = _responseText === '' ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                    return throwException('An unexpected server error occurred.', status, resultError.error.message, _headers);
                 })
             );
         }
@@ -15219,8 +15220,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15286,8 +15287,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15356,8 +15357,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15428,8 +15429,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15510,8 +15511,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15588,8 +15589,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15659,8 +15660,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15738,8 +15739,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15811,8 +15812,8 @@ export class TokenAuthServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15889,8 +15890,8 @@ export class TwitterServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -15964,8 +15965,8 @@ export class TwitterServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16045,8 +16046,8 @@ export class UiCustomizationSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16120,8 +16121,8 @@ export class UiCustomizationSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16190,8 +16191,8 @@ export class UiCustomizationSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16260,8 +16261,8 @@ export class UiCustomizationSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16324,8 +16325,8 @@ export class UiCustomizationSettingsServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16407,8 +16408,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16502,8 +16503,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16574,8 +16575,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16648,8 +16649,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16721,8 +16722,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16791,8 +16792,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16861,8 +16862,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16928,8 +16929,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -16998,8 +16999,8 @@ export class UserServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17090,8 +17091,8 @@ export class UserDelegationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17163,8 +17164,8 @@ export class UserDelegationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17230,8 +17231,8 @@ export class UserDelegationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17296,8 +17297,8 @@ export class UserDelegationServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17386,8 +17387,8 @@ export class UserLinkServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17466,8 +17467,8 @@ export class UserLinkServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17535,8 +17536,8 @@ export class UserLinkServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17608,8 +17609,8 @@ export class UserLinkServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17718,8 +17719,8 @@ export class UserLoginServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17802,8 +17803,8 @@ export class WebhookEventServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17901,8 +17902,8 @@ export class WebhookSendAttemptServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -17982,8 +17983,8 @@ export class WebhookSendAttemptServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18052,8 +18053,8 @@ export class WebhookSendAttemptServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18130,8 +18131,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18202,8 +18203,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18275,8 +18276,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18348,8 +18349,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18418,8 +18419,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18488,8 +18489,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18557,8 +18558,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18634,8 +18635,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18708,8 +18709,8 @@ export class WebhookSubscriptionServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18789,8 +18790,8 @@ export class WebLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -18858,8 +18859,8 @@ export class WebLogServiceProxy {
             response instanceof HttpResponse
                 ? response.body
                 : (<any>response).error instanceof Blob
-                ? (<any>response).error
-                : undefined;
+                    ? (<any>response).error
+                    : undefined;
 
         let _headers: any = {};
         if (response.headers) {
@@ -26075,8 +26076,7 @@ export interface IListResultDtoOfGetAllAvailableWebhooksOutput {
 }
 
 export class ListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput
-    implements IListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput
-{
+    implements IListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput {
     items!: GetAllEntitiesHasDynamicPropertyOutput[] | undefined;
 
     constructor(data?: IListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput) {
@@ -26118,8 +26118,7 @@ export interface IListResultDtoOfGetAllEntitiesHasDynamicPropertyOutput {
 }
 
 export class ListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput
-    implements IListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput
-{
+    implements IListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput {
     items!: GetAllSendAttemptsOfWebhookEventOutput[] | undefined;
 
     constructor(data?: IListResultDtoOfGetAllSendAttemptsOfWebhookEventOutput) {
@@ -26366,8 +26365,7 @@ export interface IListResultDtoOfRoleListDto {
 }
 
 export class ListResultDtoOfSubscribableEditionComboboxItemDto
-    implements IListResultDtoOfSubscribableEditionComboboxItemDto
-{
+    implements IListResultDtoOfSubscribableEditionComboboxItemDto {
     items!: SubscribableEditionComboboxItemDto[] | undefined;
 
     constructor(data?: IListResultDtoOfSubscribableEditionComboboxItemDto) {
