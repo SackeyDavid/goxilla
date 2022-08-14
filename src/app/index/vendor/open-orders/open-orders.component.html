@@ -3,12 +3,9 @@
         <div class="bg-white rounded-lg py-5 px-5 lg:px-10">
             <h2 class="text-xl uppercase mb-3">Incoming Orders</h2>
             <div class="flex flex-wrap order-grid gap-3">
-                <div
-                    (click)="openAcceptIncomingOrderModal()"
-                    class="order-tile rounded-lg relative overflow-hidden aspect-square w-[160px]"
-                >
+                <div *ngFor="let order of vendorOrders" (click)="openAcceptIncomingOrderModal()" class="order-tile rounded-lg relative overflow-hidden aspect-square w-[160px] cursor-pointer">
                     <img
-                        src="assets/assets/placeholders/issue-placeholder.jpg"
+                        src="{{order.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'}}"
                         class="rounded-lg object-cover h-full"
                         alt=""
                         class=""
@@ -31,7 +28,7 @@
                         "
                     >
                         <div class="font-normal uppercase text-sm">
-                            <span>BILGE REPAIR</span>
+                            <span>{{order.serviceOrder.title}}</span>
                         </div>
                         <div class="flex items-end justify-between">
                             <div
@@ -46,7 +43,7 @@
                                     uppercase
                                 "
                             >
-                                <span>Newport Beach, CA</span>
+                                <span>{{order.serviceOrder.location ?? 'Newport Beach, CA'}}</span>
                             </div>
                             <img src="assets/assets/images/icons/icon-map-fade.svg" alt="" class="w-5" />
                         </div>
@@ -62,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between mt-6 items-center w-full">
+                <!-- <div class="flex justify-between mt-6 items-center w-full">
                     <nav class="inline-flex rounded-xl overflow-hidden">
                         <a class="bg-gray-200 text-gray-700 py-1 px-4 text-sm">Prev</a>
                         <a class="bg-sky-600 py-1 px-3 text-sm text-white">1</a>
@@ -75,7 +72,7 @@
                         <a class="bg-gray-200 text-gray-700 py-1 px-4 text-sm">Next</a>
                     </nav>
                     <span class="text-xs uppercase text-gray-500">Showing 4 of 12</span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="bg-white rounded-lg py-5 px-5 lg:px-10">

@@ -3,6 +3,7 @@ import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AssignTaskComponent } from '../modals/assign-task/assign-task.component';
 import { AssignTechnicianComponent } from '../modals/assign-technician/assign-technician.component';
 import { IncomingOrderComponent } from '../modals/incoming-order/incoming-order.component';
+import { OpenOrdersService } from './open-orders.service';
 
 @Component({
     selector: 'app-open-orders',
@@ -10,9 +11,17 @@ import { IncomingOrderComponent } from '../modals/incoming-order/incoming-order.
     styleUrls: ['./open-orders.component.css'],
 })
 export class OpenOrdersComponent implements OnInit {
-    constructor(private modalService: ModalService) {}
 
-    ngOnInit(): void {}
+    vendorOrders: any;
+
+    constructor(
+        private modalService: ModalService,
+        private vendorOrdersService: OpenOrdersService,
+    ) { }
+
+    ngOnInit(): void {
+        this.getVendorOrders();
+    }
 
     openAssignTaskModal() {
         this.modalService.createModal<AssignTaskComponent>({
@@ -31,4 +40,12 @@ export class OpenOrdersComponent implements OnInit {
             content: IncomingOrderComponent,
         });
     }
+
+    getVendorOrders() {
+        this.vendorOrdersService.getVendorOrders().subscribe((value) => {
+            this.vendorOrders = value.result.items;
+            console.log(this.vendorOrders);
+        });
+    }
+
 }
