@@ -47,15 +47,16 @@ export class OpenOrdersComponent implements OnInit {
         let index = this.vendorOrders.map((object) => object.serviceOrder.id).indexOf(id);
         this.acceptedOrders.push(this.vendorOrders[index]);
         this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
-        // this.modalService.createModal<IncomingOrderComponent>({
-        //     content: IncomingOrderComponent,
-        // });
+
         this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
     }
 
     openAcceptIncomingOrderModal(index: number) {
         this.selectedIndex = index;
         this.orderDetail = this.vendorOrders[index];
+        // this.modalService.createModal<IncomingOrderComponent>({
+        //     content: IncomingOrderComponent,
+        // });
     }
 
     getVendorOrders() {
@@ -73,7 +74,7 @@ export class OpenOrdersComponent implements OnInit {
 
     thisOrderAccepted(id: number) {
         if (this.acceptedOrders?.length) {
-            let index_of_orderItem = this.vendorOrders.map((object) => object.serviceOrder.id).indexOf(id);
+            let index_of_orderItem = this.acceptedOrders.map((object) => object.serviceOrder.id).indexOf(id);
 
             if (index_of_orderItem !== -1) return true;
             return false;
