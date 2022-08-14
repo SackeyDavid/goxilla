@@ -9,12 +9,13 @@ import { AppComponentBase } from '@shared/common/app-component-base';
     providers: [ModalRef],
 })
 export class IncomingOrderComponent extends AppComponentBase implements OnInit {
+
     constructor(injector: Injector, public modal: ModalRef) {
         super(injector);
         modal.component = IncomingOrderComponent;
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     close() {
         this.modal.closeModal();
