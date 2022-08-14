@@ -37,7 +37,7 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     }
 
     ngOnInit(): void {
-        this.runTokenCheck();
+        //this.runTokenCheck();
     }
 
     login(): void {
@@ -63,11 +63,15 @@ export class LoginComponent extends AppComponentBase implements OnInit {
         this.storedToken = this.AppService.getStorageItem(this.storedTokenName);
 
         this.userDataObject = this.AppService.getStorageItem('user_info');
-        this.userRole = this.userDataObject.result.user.role.toLowerCase();
+        if (this.userDataObject !== null) {
 
-        if (this.storedToken !== null && this.userRole !== 'vendor')
-            this.router.navigate(['/app/dashboard']);
-        else
-            this.router.navigate(['/app/vendor/dashboard']);
+            this.userRole = this.userDataObject.result.user.role.toLowerCase();
+
+            if (this.storedToken !== null && this.userRole !== 'vendor')
+                this.router.navigate(['/app/dashboard']);
+            else
+                this.router.navigate(['/app/vendor/dashboard']);
+        }
+
     }
 }
