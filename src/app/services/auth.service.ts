@@ -9,7 +9,6 @@ import { TokenService } from './token.service';
     providedIn: 'root',
 })
 export class AuthService {
-
     userDataObject: any;
 
     constructor(
@@ -17,7 +16,7 @@ export class AuthService {
         public router: Router,
         private _token: TokenService,
         private appService: AppService
-    ) { }
+    ) {}
 
     login(user: { password: any; userNameOrEmailAddress: any }) {
         let LoginRequestPayload = {
@@ -41,22 +40,18 @@ export class AuthService {
     }
 
     getLoginInfo() {
-
         this.appService.getCurrentLoginInformation().subscribe((value) => {
-
             this.appService.setStorageItem('user_info', value);
 
             if (!this.getUID()) {
                 this.appService.clearStorage();
                 this.router.navigate(['/account/login']);
             }
-
         });
 
         this.userDataObject = this.appService.getStorageItem('user_info');
 
         return this.userDataObject;
-
     }
 
     getUID() {
