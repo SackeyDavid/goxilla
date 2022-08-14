@@ -14,6 +14,7 @@ import { AuthService } from '@app/services/auth.service';
     providers: [LoginService],
 })
 export class LoginComponent extends AppComponentBase implements OnInit {
+
     env: any = environment;
 
     storedToken: any;
@@ -21,6 +22,9 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     encrptedAuthTokenName: string;
     appStoreName: string;
     storedTokenName: string;
+
+    userDataObject: any;
+    userRole: string;
 
     constructor(
         injector: Injector,
@@ -55,10 +59,15 @@ export class LoginComponent extends AppComponentBase implements OnInit {
         this.encrptedAuthTokenName = AppConsts.authorization.encrptedAuthTokenName;
         this.appStoreName = 'abpzerotemplate_local_storage';
 
-        this.storedTokenName =
-            this.authTokenLocalizationName + '/' + this.appStoreName + '/' + this.encrptedAuthTokenName;
+        this.storedTokenName = this.authTokenLocalizationName + '/' + this.appStoreName + '/' + this.encrptedAuthTokenName;
         this.storedToken = this.AppService.getStorageItem(this.storedTokenName);
 
-        if (this.storedToken !== null) this.router.navigate(['/app/dashboard']);
+        this.userDataObject = this.AppService.getStorageItem('user_info');
+        this.userRole = this.userDataObject.result.user.role.toLowerCase();
+
+        if (this.storedToken !== null && this.userRole !== 'vendor')
+            this.router.navigate(['/app/dashboard']);
+        else
+            this.router.navigate(['/app/vendor/dashboard']);
     }
 }
