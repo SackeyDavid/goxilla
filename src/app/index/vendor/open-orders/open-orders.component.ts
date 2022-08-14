@@ -43,13 +43,13 @@ export class OpenOrdersComponent implements OnInit {
     }
 
     openAcceptIncomingOrderModal(index: number) {
-        if (!this.thisOrderAccepted(index)) {
-            this.acceptedOrders.push(this.vendorOrders[index]);
-            // this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
-            this.modalService.createModal<IncomingOrderComponent>({
-                content: IncomingOrderComponent,
-            });
-        }
+        // if (!this.thisOrderAccepted(index)) {
+        // this.acceptedOrders.push(this.vendorOrders[index]);
+        // this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
+        // this.modalService.createModal<IncomingOrderComponent>({
+        //     content: IncomingOrderComponent,
+        // });
+        // }
         this.selectedIndex = index;
         this.orderDetail = this.vendorOrders[index];
     }
