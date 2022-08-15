@@ -39,8 +39,8 @@ export class ScheduleService {
             .get(`${this.baseService.baseUrl}/api/services/app/ServiceOrderSchedules/GetServiceOrderForEdit?id=` + id)
             .pipe(
                 map((data: any) => {
-                    console.log('all service order ');
-                    console.log(data.result);
+                    // console.log('all service order ');
+                    // console.log(data.result);
                     return data.result;
                 })
             );

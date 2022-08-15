@@ -120,7 +120,7 @@ export class ScheduleComponent implements OnInit {
     ngOnInit(): void {
         this.getAllTechnicians();
         this.getAllServiceOrderSchedules();
-        this.getServiceOrderForEdit(515);
+        // this.getServiceOrderForEdit(515);
         //this.getServiceOrderForView()
     }
 
