@@ -11,10 +11,11 @@
                     <div>
                         <div class="p-5 shadow-md">
                             <h3 class="text-xl uppercase font-semibold text-gray-900">
-                                {{(serviceDataObject?.serviceOrderSchedule?.statusName ? 'Re-assign': 'Assign')}} a
-                                Technician for {{
-                                serviceDataObject ? (serviceDataObject?.service.name + ' order #' +
-                                serviceDataObject?.serviceOrder.id) : ''}}</h3>
+                                {{(serviceDataObject?.serviceOrderSchedule?.statusName ? 'Re-assign '+
+                                serviceDataObject?.service.name + ' order #' +
+                                serviceDataObject?.serviceOrder.id
+                                : 'Assign a Technician for '+ serviceDataObject?.service.name + ' order #' +
+                                serviceDataObject?.serviceOrder.id)}} </h3>
                         </div>
                         <form [formGroup]="form" onsubmit="return false">
                             <div class="p-5 space-y-8">

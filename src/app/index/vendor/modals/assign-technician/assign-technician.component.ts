@@ -103,5 +103,6 @@ export class AssignTechnicianComponent extends AppComponentBase implements OnIni
 
     close() {
         this.modal.closeModal();
+        this.AppService.removeStorageItem('selectedOrder');
     }
 }

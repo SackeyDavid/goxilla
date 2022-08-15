@@ -14,7 +14,6 @@ import * as moment from 'moment';
     styleUrls: ['./open-orders.component.css'],
 })
 export class OpenOrdersComponent extends AppComponentBase implements OnInit {
-
     selectedIndex: number = 0;
     orderDetail: any;
     vendorOrders: any;
@@ -42,6 +41,7 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
     }
 
     openAssignTechnicianModal() {
+        this.AppService.setStorageItem('selectedOrder', this.orderDetail);
         this.modalService.createModal<AssignTechnicianComponent>({
             content: AssignTechnicianComponent,
         });
@@ -64,7 +64,6 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
     }
 
     getVendorOrders() {
-
         this.showMainSpinner();
 
         this.vendorOrdersService.getVendorOrders().subscribe((value) => {
@@ -72,7 +71,6 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
             this.orderDetail = this.vendorOrders[this.selectedIndex];
             this.hideMainSpinner();
         });
-
     }
 
     getDateFormatted(date: any) {
@@ -93,5 +91,4 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
     getSelectedOrder(order: any) {
         this.AppService.setStorageItem('selectedOrder', order);
     }
-
 }
