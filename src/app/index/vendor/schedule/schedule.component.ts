@@ -102,7 +102,7 @@ export class ScheduleComponent implements OnInit {
             console.log('added event');
         },
         resourceLaneContent: (e) => {
-            console.log('resource group event', e);
+            // console.log('resource group event', e);
         },
         select: (e) => {
             console.log('selected resource', e);
@@ -146,8 +146,8 @@ export class ScheduleComponent implements OnInit {
     getAllTechnicians() {
         this.serviceOrderScheduleService.getAllTechnicians().subscribe(
             (response: any) => {
-                console.log('get technicians response');
-                console.log(response);
+                // console.log('get technicians response');
+                // console.log(response);
                 if (response.items.length > 0) {
                     this.techJson = response.items;
                     this.techJson.forEach((tech: any) => {
@@ -156,7 +156,7 @@ export class ScheduleComponent implements OnInit {
                         this.calendarResources.push(obj);
                     });
 
-                    console.log('technician list for calendar => ', this.calendarResources);
+                    // console.log('technician list for calendar => ', this.calendarResources);
 
                     return this.calendarResources;
                 } else {
@@ -206,8 +206,8 @@ export class ScheduleComponent implements OnInit {
     getServiceOrderForEdit(id: any) {
         this.serviceOrderService.getServiceOrderForEdit(id).subscribe(
             (response) => {
-                console.log('service order response');
-                console.log(response);
+                // console.log('service order response');
+                // console.log(response);
             },
             (err) => {
                 console.log(err);

@@ -52,7 +52,7 @@ export class ScheduleOrdersComponent implements OnInit {
             //color: '#7FFF00'
         };
 
-        console.log(event);
+        // console.log(event);
 
         return event;
     }
@@ -88,9 +88,9 @@ export class ScheduleOrdersComponent implements OnInit {
     getServiceOrdersCount(): any {
         this.serviceOrderService.getAllServiceOrders().subscribe(
             (response: any) => {
-                console.log('service order count response');
+                // console.log('service order count response');
                 this.serviceOrdersCount = response.totalCount;
-                console.log(this.serviceOrdersCount);
+                // console.log(this.serviceOrdersCount);
                 let pages = this.serviceOrdersCount / 5;
                 let modulus = this.serviceOrdersCount % 5;
 
@@ -102,7 +102,7 @@ export class ScheduleOrdersComponent implements OnInit {
                     this.serviceOrderPagesArray.push(i + 1);
                 }
 
-                console.log('countResponse', pages);
+                // console.log('countResponse', pages);
                 return pages;
             },
             (err) => {
