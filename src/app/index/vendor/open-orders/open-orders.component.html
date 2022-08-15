@@ -142,8 +142,9 @@
             <img src="{{
                     orderDetail.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'
                 }}" class="rounded-lg object-cover h-[360px]" alt="" />
-            <div class="flex flex-wrap gap-3 mt-4 image-thumb-grid" *ngFor="let image of orderDetail.lightboxImages">
-                <img [src]="image.imageUrl" alt="" class="w-20 aspect-square rounded-lg image-thumb" />
+            <div class="flex flex-wrap gap-3 mt-4 image-thumb-grid">
+                <img [src]="image.imageUrl" alt="" *ngFor="let image of orderDetail.lightboxImages"
+                    class="w-20 aspect-square rounded-lg image-thumb" />
             </div>
             <div class="flex flex-row items-start justify-between mt-4 w-full">
                 <div>
