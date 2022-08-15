@@ -4,87 +4,42 @@
 <form #registerForm (ngSubmit)="onFormSubmit()" class="pt-8 px-8 space-y-4" method="post" novalidate>
     <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/user.svg" />
-        <input
-            [(ngModel)]="model.name"
-            name="name"
-            class="outline-none border-0 text-lg w-full"
-            placeholder="FIRST NAME"
-            required
-        />
+        <input [(ngModel)]="model.name" name="name" class="outline-none border-0 text-lg w-full" placeholder="FIRST NAME" required />
     </div>
     <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/user.svg" />
-        <input
-            [(ngModel)]="model.surname"
-            type="text"
-            name="surname"
-            class="outline-none text-lg border-0 w-full"
-            placeholder="LAST NAME"
-        />
+        <input [(ngModel)]="model.surname" type="text" name="surname" class="outline-none text-lg border-0 w-full" placeholder="LAST NAME" />
     </div>
     <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/email.svg" />
-        <input
-            [(ngModel)]="model.emailAddress"
-            type="email"
-            name="emailAddress"
-            class="outline-none text-lg border-0 w-full"
-            placeholder="EMAIL"
-            required
-            pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
-        />
+        <input [(ngModel)]="model.emailAddress" type="email" name="emailAddress" class="outline-none text-lg border-0 w-full" placeholder="EMAIL" required pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" />
     </div>
     <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
         <img src="assets/images/security.svg" />
-        <input
-            [(ngModel)]="model.password"
-            name="password"
-            class="outline-none text-lg border-0 w-full"
-            type="password"
-            placeholder="PASSWORD"
-            required
-            maxlength="32"
-        />
+        <input [(ngModel)]="model.password" name="password" class="outline-none text-lg border-0 w-full" type="password" placeholder="PASSWORD" required maxlength="32" />
     </div>
     <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
-        <img src="assets/images/security.svg" />
-        <input [(ngModel)]="model.role" name="role" class="outline-none text-lg border-0 w-full" required />
-        <select [(ngModel)]="model.role" name="role" required>
-            <option value="user">Yacht Owner</option>
-            <option value="vendor">Vendor</option>
-        </select>
-    </div>
-    <div class="flex w-full border-2 py-2 px-4 rounded-lg justify-between space-x-4">
-        <img src="assets/images/security.svg">
-        <input [(ngModel)]="model.role" name="role" class="outline-none text-lg border-0 w-full" required>
-        <select [(ngModel)]="model.role" name="role" required>
+        <!-- <img src="assets/images/security.svg"> -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+            <path fill="rgba(117,117,117,0.5)" d="M28.07 21L22 15l6.07-6l1.43 1.41L24.86 15l4.64 4.59L28.07 21zM22 30h-2v-5a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v5H2v-5a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7zM12 4a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7a7 7 0 0 0-7-7z" />
+        </svg>
+        <select [(ngModel)]="model.role" name="role" class="outline-none text-lg border-0 w-full" required>
             <option value="yachtowner">Yacht Owner</option>
             <option value="vendor">Vendor</option>
         </select>
     </div>
     <div class="pt-10 px-8">
         <div class="space-y-6">
-            <button
-                [buttonBusy]="saving"
-                [busyText]="l('SavingWithThreeDot')"
-                type="submit"
-                class="button-color w-full rounded-lg text-white py-4 text-xl"
-            >
+            <button [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')" type="submit" class="button-color w-full rounded-lg text-white py-4 text-xl">
                 SIGN UP
             </button>
-            <button
-                type="button"
-                class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex"
-            >
+            <button type="button" class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex">
                 <div class="flex justify-center w-full space-x-5">
                     <img src="assets/images/g-logo.svg" />
                     <span>SIGN UP WITH GOOGLE</span>
                 </div>
             </button>
-            <button
-                type="button"
-                class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex"
-            >
+            <button type="button" class="w-full rounded-lg text-gray-500 py-3 text-lg border-gray-300 border-[0.5px] border-solid flex">
                 <div class="flex justify-center w-full space-x-5">
                     <img src="assets/images/apple-logo.svg" />
                     <span>SIGN IN WITH APPLE</span>
