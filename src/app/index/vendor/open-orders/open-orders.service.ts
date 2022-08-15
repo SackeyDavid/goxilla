@@ -14,4 +14,12 @@ export class OpenOrdersService {
     return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll`);
   }
 
+  getAllTechnicians(): Observable<any> {
+    return this.httpClient.get(`${this.baseService.baseUrl}/api/services/app/Technicians/GetAll`);
+  }
+
+  assignTechnician(payload: any): Observable<any> {
+    return this.httpClient.post(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/AssignTechnicianToServiceOrder`, payload);
+  }
+
 }

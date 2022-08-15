@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { AppService } from '@app/services/app.service';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { AssignTaskComponent } from '../modals/assign-task/assign-task.component';
 import { AssignTechnicianComponent } from '../modals/assign-technician/assign-technician.component';
 import { IncomingOrderComponent } from '../modals/incoming-order/incoming-order.component';
 import { OpenOrdersService } from './open-orders.service';
+import { AppComponentBase } from '@shared/common/app-component-base';
 import * as moment from 'moment';
 
 @Component({
@@ -12,23 +13,26 @@ import * as moment from 'moment';
     templateUrl: './open-orders.component.html',
     styleUrls: ['./open-orders.component.css'],
 })
-export class OpenOrdersComponent implements OnInit {
+export class OpenOrdersComponent extends AppComponentBase implements OnInit {
+
     selectedIndex: number = 0;
     orderDetail: any;
     vendorOrders: any;
-    acceptedOrders: any = [];
+    acceptedOrders: any[] = [];
 
     constructor(
+        injector: Injector,
         private modalService: ModalService,
         private vendorOrdersService: OpenOrdersService,
-        private appService: AppService
-    ) {}
+        private AppService: AppService
+    ) {
+        super(injector);
+    }
 
     ngOnInit(): void {
         this.getVendorOrders();
-        if (this.appService.getStorageItem('acceptedOrders'))
-            this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
-        console.log(this.acceptedOrders);
+        if (this.AppService.getStorageItem('acceptedOrders'))
+            this.acceptedOrders = this.AppService.getStorageItem('acceptedOrders');
     }
 
     openAssignTaskModal() {
@@ -46,25 +50,29 @@ export class OpenOrdersComponent implements OnInit {
     acceptOrder(id: number) {
         let index = this.vendorOrders.map((object) => object.serviceOrder.id).indexOf(id);
         this.acceptedOrders.push(this.vendorOrders[index]);
-        this.appService.setStorageItem('acceptedOrders', this.acceptedOrders);
+        this.AppService.setStorageItem('acceptedOrders', this.acceptedOrders);
 
-        this.acceptedOrders = this.appService.getStorageItem('acceptedOrders');
+        this.acceptedOrders = this.AppService.getStorageItem('acceptedOrders');
     }
 
     openAcceptIncomingOrderModal(index: number) {
         this.selectedIndex = index;
         this.orderDetail = this.vendorOrders[index];
-        // this.modalService.createModal<IncomingOrderComponent>({
-        //     content: IncomingOrderComponent,
-        // });
+        /* this.modalService.createModal<IncomingOrderComponent>({
+            content: IncomingOrderComponent,
+        }); */
     }
 
     getVendorOrders() {
+
+        this.showMainSpinner();
+
         this.vendorOrdersService.getVendorOrders().subscribe((value) => {
             this.vendorOrders = value.result.items;
             this.orderDetail = this.vendorOrders[this.selectedIndex];
-            // console.log(this.vendorOrders);
+            this.hideMainSpinner();
         });
+
     }
 
     getDateFormatted(date: any) {
@@ -81,4 +89,9 @@ export class OpenOrdersComponent implements OnInit {
         }
         return false;
     }
+
+    getSelectedOrder(order: any) {
+        this.AppService.setStorageItem('selectedOrder', order);
+    }
+
 }

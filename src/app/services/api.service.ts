@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class ApiService {
 
     constructor(
-        private http: HttpClient, @Inject(BASE_URL) private baseUrl: string, public router: Router,
+        private http: HttpClient,
+        @Inject(BASE_URL) private baseUrl: string,
+        public router: Router,
     ) { }
 
 
