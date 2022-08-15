@@ -1,7 +1,7 @@
 <div class="w-full mb-10">
   <table id="techTable" class="table-auto w-full">
     <thead>
-      <tr class="uppercase text-xs [&>*]:font-light [&>*]:text-left [&>*]:p-2">
+      <tr class="uppercase text-lg [&>*]:font-light [&>*]:text-left [&>*]:p-2">
         <th>Tags</th>
         <th>Received</th>
         <th>Start</th>
@@ -19,7 +19,7 @@
         pDraggable="orders" (onDragStart)="dragServiceOrder($event,serviceOrder)"
         (onDragEnd)="dragEnd($event, serviceOrder)" (click)="assignTechnicianModal(serviceOrder)"
         [header]="serviceOrder.service.name + serviceOrder.serviceOrder.name"
-        class="clickable uppercase text-xs [&>*]:font-semibold [&>*]:text-left [&>*]:py-2  [&>*]:px-2 border-b border-b-gray-200">
+        class="clickable uppercase text-lg [&>*]:font-semibold [&>*]:text-left [&>*]:py-2  [&>*]:px-2 border-b border-b-gray-200">
         <!-- <p-panel  > -->
         <td>Dispatched</td>
         <td>{{formatDate(serviceOrder.serviceOrder.creationTime)}}</td>

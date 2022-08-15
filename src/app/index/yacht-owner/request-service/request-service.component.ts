@@ -57,7 +57,7 @@ export class RequestServiceComponent extends AppComponentBase implements OnInit 
             Description: ['', Validators.required],
             Status: [0],
             Name: [this.getUser.name],
-            Location: [''],
+            Location: ['250 Balboa Peninsula, Newport Beach, CA 92625'],
             AffectShipShape: true,
             Title: [''],
             Instruction: [''],

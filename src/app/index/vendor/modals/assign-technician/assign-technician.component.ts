@@ -14,7 +14,6 @@ import { ApiService } from '@app/services/api.service';
     providers: [ModalRef],
 })
 export class AssignTechnicianComponent extends AppComponentBase implements OnInit {
-
     form!: FormGroup;
     preTechniciansList: any[] = [];
     technicians: any[] = [];
@@ -33,17 +32,18 @@ export class AssignTechnicianComponent extends AppComponentBase implements OnIni
     }
 
     ngOnInit() {
-
         this.form = this.fb.group({
             technicianId: [null, Validators.required],
             serviceOrderId: [null, Validators.required],
             scheduledDate: [null, Validators.required],
             scheduledTime: [null, Validators.required],
-            specialInstructions: [null, Validators.required]
+            specialInstructions: [null, Validators.required],
         });
 
         this.getTechnicians();
-
+        if (this.AppService.getStorageItem('selectedOrder')) {
+            this.serviceDataObject = this.AppService.getStorageItem('selectedOrder');
+        }
     }
 
     getSelectedYacht(item: SearchItem) {
@@ -51,7 +51,6 @@ export class AssignTechnicianComponent extends AppComponentBase implements OnIni
     }
 
     getTechnicians() {
-
         this.showMainSpinner();
 
         this.vendorOrdersService.getAllTechnicians().subscribe((value) => {
@@ -59,23 +58,23 @@ export class AssignTechnicianComponent extends AppComponentBase implements OnIni
             this.preTechniciansList.forEach((technicianObj) => {
                 this.technicians.push({
                     id: technicianObj.technician.id,
-                    value: technicianObj.technician.name
+                    value: technicianObj.technician.name,
                 });
             });
 
             this.hideMainSpinner();
         });
-
     }
 
     setAssignPayload() {
-
         this.serviceDataObject = this.AppService.getStorageItem('selectedOrder');
 
         this.setValue('serviceOrderId', this.serviceDataObject.serviceOrder.id);
-        this.setValue('scheduledDate', new Date().toISOString());
-        this.setValue('scheduledTime', new Date().toISOString());
-
+        this.setValue('scheduledDate', new Date(this.serviceDataObject.serviceOrder.creationTime).toISOString());
+        this.setValue(
+            'scheduledTime',
+            new Date(this.serviceDataObject.serviceOrder.expectedDeliveryDate).toISOString()
+        );
     }
 
     setValue(control: string, value: any) {
@@ -83,37 +82,26 @@ export class AssignTechnicianComponent extends AppComponentBase implements OnIni
     }
 
     assignTechnician() {
-
         this.showMainSpinner();
         this.setAssignPayload();
-        /* this.ApiService.runPost('https://staging-api.theyachtwatch.com/api/services/app/ServiceOrders/AssignTechnicianToServiceOrder', this.form.value).subscribe((value) => {
 
-            
-
-        }, (error) => {
-
-            console.log(error);
-            this.hideMainSpinner();
-            this.notify.error(error);
-
-        }); */
-        this.vendorOrdersService.assignTechnician(this.form.value).subscribe((value) => {
-
-            this.notify.success('Technician assigned successfully');
-            this.hideMainSpinner();
-
-        }, (error) => {
-
-            console.log(error);
-            this.hideMainSpinner();
-            this.notify.error(error);
-
-        });
-
+        this.vendorOrdersService.assignTechnician(this.form.value).subscribe(
+            (response) => {
+                if (response.success === true) {
+                    this.notify.success('Technician assigned successfully');
+                    this.close();
+                    this.hideMainSpinner();
+                }
+            },
+            (error) => {
+                console.log(error);
+                this.hideMainSpinner();
+                this.notify.error(error);
+            }
+        );
     }
 
     close() {
         this.modal.closeModal();
     }
-
 }

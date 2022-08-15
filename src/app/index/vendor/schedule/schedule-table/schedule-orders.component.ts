@@ -5,6 +5,7 @@ import { Event } from '@angular/router';
 import { ModalService } from '@app/shared/common/modal/modal.service';
 import { filter } from 'lodash-es';
 import { AssignTechnicianComponent } from '../../modals/assign-technician/assign-technician.component';
+import { AppService } from '@app/services/app.service';
 
 @Component({
     selector: 'app-schedule-orders',
@@ -23,7 +24,11 @@ export class ScheduleOrdersComponent implements OnInit {
 
     @Output() newCalendarEvent = new EventEmitter<any>();
 
-    constructor(private serviceOrderService: ScheduleService, private modalService: ModalService) {}
+    constructor(
+        private serviceOrderService: ScheduleService,
+        private modalService: ModalService,
+        private appService: AppService
+    ) {}
 
     ngOnInit(): void {
         this.getServiceOrdersByPage(1);
@@ -122,7 +127,7 @@ export class ScheduleOrdersComponent implements OnInit {
     }
 
     assignTechnicianModal(order: any) {
-        sessionStorage.setItem('serviceOrderNoTechnicianDetails', JSON.stringify(order));
+        this.appService.setStorageItem('selectedOrder', order);
         this.modalService.createModal<any>({
             content: AssignTechnicianComponent,
         });

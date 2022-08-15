@@ -127,7 +127,7 @@ export class ScheduleComponent implements OnInit {
     ngAfterViewInit() {}
 
     eventReceive(newItem: any) {
-        console.log('calender items received', newItem);
+        // console.log('calender items received', newItem);
         this.createCalanderEvents(newItem);
     }
 
@@ -172,8 +172,8 @@ export class ScheduleComponent implements OnInit {
     getAllServiceOrderSchedules() {
         this.serviceOrderScheduleService.getAllServiceSchedules().subscribe(
             (response) => {
-                console.log('service schesules response');
-                console.log(response);
+                // console.log('service schesules response');
+                // console.log(response);
             },
             (err) => {
                 console.log(err);
