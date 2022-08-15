@@ -95,6 +95,6 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
     openOrdersAssignTechnician(order: any) {
         this.orderDetail = order;
 
-        // this.openAssignTechnicianModal();
+        this.openAssignTechnicianModal();
     }
 }
