@@ -36,7 +36,7 @@ export class LoginComponent extends AppComponentBase implements OnInit {
     }
 
     ngOnInit(): void {
-        //this.runTokenCheck();
+        this.runTokenCheck();
     }
 
     login(): void {
