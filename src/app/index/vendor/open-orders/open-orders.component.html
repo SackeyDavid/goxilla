@@ -43,7 +43,8 @@
                                 <img src="assets/assets/images/icons/icon-map-fade.svg" alt="" class="w-5" />
                             </div>
                         </div>
-                        <div class="absolute top-2 right-2 text-white" [hidden]="selectedIndex !== i">
+                        <div class="absolute top-2 right-2 text-white"
+                            [hidden]="order.serviceOrder.id !== orderDetail.serviceOrder.id">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path fill-rule="evenodd"
@@ -74,7 +75,7 @@
             <h2 class="text-xl uppercase mb-3">Open Orders</h2>
             <div class="flex flex-wrap order-grid2 gap-3">
                 <div class="order-tile2 rounded-lg relative overflow-hidden aspect-square w-[160px]"
-                    *ngFor="let order of acceptedOrders; let i = index" (click)="openAssignTechnicianModal()">
+                    *ngFor="let order of acceptedOrders; let i = index" (click)="openOrdersAssignTechnician(order)">
                     <img src="{{
                             order.lightboxImages[0]?.imageUrl ?? 'assets/assets/placeholders/issue-placeholder.jpg'
                         }}" class="rounded-lg object-cover h-full" alt="image backgroung" />
@@ -111,7 +112,8 @@
                             <img src="assets/assets/images/icons/icon-map-fade.svg" alt="" class="w-5" />
                         </div>
                     </div>
-                    <div class="absolute top-2 right-2 text-white" [hidden]="selectedIndex !== i">
+                    <div class="absolute top-2 right-2 text-white"
+                        [hidden]="order.serviceOrder.id !== orderDetail.serviceOrder.id">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"

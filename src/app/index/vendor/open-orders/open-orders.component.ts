@@ -91,4 +91,10 @@ export class OpenOrdersComponent extends AppComponentBase implements OnInit {
     getSelectedOrder(order: any) {
         this.AppService.setStorageItem('selectedOrder', order);
     }
+
+    openOrdersAssignTechnician(order: any) {
+        this.orderDetail = order;
+
+        // this.openAssignTechnicianModal();
+    }
 }
