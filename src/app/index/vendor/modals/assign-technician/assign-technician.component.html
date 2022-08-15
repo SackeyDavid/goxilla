@@ -10,7 +10,9 @@
                 <div class="w-2/5 bg-white rounded-xl">
                     <div>
                         <div class="p-5 shadow-md">
-                            <h3 class="text-xl uppercase font-semibold text-gray-900">Assign a Technician for {{
+                            <h3 class="text-xl uppercase font-semibold text-gray-900">
+                                {{(serviceDataObject?.serviceOrderSchedule?.statusName ? 'Re-assign': 'Assign')}} a
+                                Technician for {{
                                 serviceDataObject ? (serviceDataObject?.service.name + ' order #' +
                                 serviceDataObject?.serviceOrder.id) : ''}}</h3>
                         </div>

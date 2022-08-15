@@ -14,8 +14,8 @@ export class ScheduleServiceOrderService {
     getAllServiceSchedules(): Observable<any[]> {
         return this.http.get<any>(`${this.baseService.baseUrl}/api/services/app/ServiceOrderSchedules/GetAll`).pipe(
             map((data) => {
-                console.log('all service schedules');
-                console.log(data.result);
+                // console.log('all service schedules');
+                // console.log(data.result);
                 return data.result;
             })
         );
@@ -26,8 +26,8 @@ export class ScheduleServiceOrderService {
             .get(`${this.baseService.baseUrl}/api/services/app/ServiceOrderSchedules/GetServiceOrderScheduleForView`)
             .pipe(
                 map((data: any) => {
-                    console.log('all service order schedules for view');
-                    console.log(data.result);
+                    // console.log('all service order schedules for view');
+                    // console.log(data.result);
                     return data.result;
                 })
             );
@@ -38,8 +38,8 @@ export class ScheduleServiceOrderService {
             .get(`${this.baseService.baseUrl}/api/services/app/ServiceOrderSchedules/GetServiceOrderScheduleForEdit`)
             .pipe(
                 map((data: any) => {
-                    console.log('get service order schedules for edit');
-                    console.log(data.result);
+                    // console.log('get service order schedules for edit');
+                    // console.log(data.result);
                     return data.result;
                 })
             );
@@ -89,8 +89,8 @@ export class ScheduleServiceOrderService {
             )
             .pipe(
                 map((data) => {
-                    console.log('all service order schedules for ');
-                    console.log(data.result);
+                    // console.log('all service order schedules for ');
+                    // console.log(data.result);
                     return data.result;
                 })
             );
@@ -99,8 +99,8 @@ export class ScheduleServiceOrderService {
     getAllTechnicians(): Observable<any[]> {
         return this.http.get(`${this.baseService.baseUrl}/api/services/app/Technicians/GetAll`).pipe(
             map((data: any) => {
-                console.log('all technicians');
-                console.log(data.result);
+                // console.log('all technicians');
+                // console.log(data.result);
                 return data.result;
             })
         );
