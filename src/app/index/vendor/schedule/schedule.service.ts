@@ -92,4 +92,21 @@ export class ScheduleService {
                 return data;
             });
     }
+
+    getServiceOrdersByPage(page): Observable<any> {
+        return this.http.get(
+            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll?MaxResultCount=5&skipCount=` + page
+        );
+    }
+
+    getAllServiceOrders(): Observable<any[]> {
+        return this.http.get(`${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll`).pipe(
+            map((data: any) => {
+                // console.log('all service order ');
+                // console.log(data);
+                // console.log(data.result);
+                return data.result;
+            })
+        );
+    }
 }

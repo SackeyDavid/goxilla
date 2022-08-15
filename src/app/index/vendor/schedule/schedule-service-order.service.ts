@@ -95,4 +95,14 @@ export class ScheduleServiceOrderService {
                 })
             );
     }
+
+    getAllTechnicians(): Observable<any[]> {
+        return this.http.get(`${this.baseService.baseUrl}/api/services/app/Technicians/GetAll`).pipe(
+            map((data: any) => {
+                console.log('all technicians');
+                console.log(data.result);
+                return data.result;
+            })
+        );
+    }
 }

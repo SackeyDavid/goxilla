@@ -11,13 +11,16 @@ import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { ScheduleServiceOrderService } from './schedule-service-order.service';
 import { ScheduleService } from './schedule.service';
 
+import { ScheduleOrdersModule } from './schedule-table/schedule-orders.module';
+import { ScheduleOrdersComponent } from './schedule-table/schedule-orders.component';
+
 FullCalendarModule.registerPlugins([dayGridPlugin, resourceTimelinePlugin, interactionPlugin]);
 
 @NgModule({
     declarations: [ScheduleComponent],
-    imports: [CommonModule, ScheduleRoutingModule, FullCalendarModule],
+    imports: [CommonModule, ScheduleRoutingModule, FullCalendarModule, ScheduleOrdersModule],
     providers: [ScheduleServiceOrderService, ScheduleService],
-    exports: [ScheduleComponent],
+    exports: [ScheduleComponent, ScheduleOrdersComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class ScheduleModule {}

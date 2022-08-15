@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { AppSharedModule } from '@app/shared/app-shared.module';
-import { ScheduleModule } from '../schedule/schedule.module';
 import { ScheduleServiceOrderService } from '../schedule/schedule-service-order.service';
 import { ScheduleService } from '../schedule/schedule.service';
+import { ScheduleModule } from '../schedule/schedule.module';
 
 @NgModule({
     declarations: [DashboardComponent],
