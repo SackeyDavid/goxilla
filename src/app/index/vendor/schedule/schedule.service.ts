@@ -4,6 +4,7 @@ import { BaseService } from '@app/shared/base.service';
 import { Observable, throwError, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ServiceOrder } from './schedule';
+import * as moment from 'moment';
 
 @Injectable({
     providedIn: 'root',
@@ -95,7 +96,10 @@ export class ScheduleService {
 
     getServiceOrdersByPage(page): Observable<any> {
         return this.http.get(
-            `${this.baseService.baseUrl}/api/services/app/ServiceOrders/GetAll?MaxResultCount=5&skipCount=` + page
+            `${this.baseService.baseUrl}/api/services/app/ServiceOrderSchedules/GetAll?MaxResultCount=5&skipCount=` +
+                page +
+                `&MinScheduledDateFilter=` +
+                moment(new Date()).format('YYYY-MM-DD')
         );
     }
 

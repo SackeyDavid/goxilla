@@ -11,25 +11,25 @@
         <th>Address</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="serviceOrders?.length">
       <!-- <a href="javascript:void(0)"  > -->
       <!-- (click)="onClickServiceOrder($event, serviceOrder)" -->
       <tr class="tableData" *ngFor="let serviceOrder of serviceOrders"
-        [header]="serviceOrder.service.name + serviceOrder.serviceOrder.name" href="javascript:void(0)"
+        [header]="serviceOrder?.service?.name + serviceOrder?.serviceOrder?.name" href="javascript:void(0)"
         pDraggable="orders" (onDragStart)="dragServiceOrder($event,serviceOrder)"
         (onDragEnd)="dragEnd($event, serviceOrder)" (click)="assignTechnicianModal(serviceOrder)"
-        [header]="serviceOrder.service.name + serviceOrder.serviceOrder.name"
+        [header]="serviceOrder?.service?.name + serviceOrder?.serviceOrder?.name"
         class="clickable uppercase text-lg [&>*]:font-semibold [&>*]:text-left [&>*]:py-2  [&>*]:px-2 border-b border-b-gray-200">
         <!-- <p-panel  > -->
-        <td>Dispatched</td>
-        <td>{{formatDate(serviceOrder.serviceOrder.creationTime)}}</td>
-        <td>{{formatDate(serviceOrder.serviceOrder.expectedDeliveryDate)}}</td>
-        <td>{{serviceOrder.service.name}}</td>
+        <td>{{serviceOrder?.serviceOrderSchedule?.statusName}}</td>
+        <td>{{formatDate(serviceOrder?.serviceOrder?.creationTime)}}</td>
+        <td>{{formatDate(serviceOrder?.serviceOrder?.expectedDeliveryDate)}}</td>
+        <td>{{serviceOrder?.service?.name}}</td>
         <td>
-          <p>Unassigned</p>
+          {{serviceOrder?.technician?.name}}
         </td>
-        <td>{{serviceOrder.serviceOrder.name}}</td>
-        <td>{{serviceOrder.serviceOrder.location}} </td>
+        <td>{{serviceOrder?.serviceOrder?.name}}</td>
+        <td>{{serviceOrder?.serviceOrder?.location}} </td>
 
         <!-- </p-panel> -->
       </tr>
