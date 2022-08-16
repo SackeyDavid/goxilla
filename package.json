@@ -38,7 +38,7 @@
     "@microsoft/signalr": "^6.0.1",
     "@popperjs/core": "^2.10.2",
     "@swimlane/ngx-charts": "^19.0.1",
-    "abp-ng2-module": "^7.0.0",
+    "abp-ng2-module": "^7.1.0",
     "abp-web-resources": "^5.4.0",
     "adal-angular": "^1.0.17",
     "angular-gridster2": "^12.1.0",
